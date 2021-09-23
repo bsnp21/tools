@@ -38,6 +38,8 @@
             encrypt.setPublicKey(keypub);
             var out = encrypt.encrypt(inp);
             $("#out").val(out)
+            $("#txa").val("")
+            $("#inp").text(inp)
         })
         $("#decrypter").on("click", function () {
             var inp = $("#out").val()
@@ -51,10 +53,11 @@
 
 <body>
 
-    <textarea id="txa">text</textarea>
+    <textarea id="txa" placeholder="original string">text</textarea>
     <br>
     <button id="encrypter">encrypt</button><button id="decrypter">decrypt</button>
     <br>
+    <div id="inp"></div>
     <textarea id="out"></textarea>
 </body>
 
