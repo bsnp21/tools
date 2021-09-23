@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<title>.</title>
+	<base target="_blank" />
+	<META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+	<META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+	<script src="https://wdingbox.github.io/ham12/utility/htmf/bsnp/BibleStudyNotePad.js?v2021-01">
+	</script>
+
+
+</head>
+<script>
+	$(function () {
+	})
+</script>
+<style>
+	body {
+		background-color: lightblue;
+	}
+
+	.xsmallnote {
+		font-size: x-small;
+	}
+
+	.footnoteshow {
+		display: none;
+	}
+
+	.footoe {
+		text-decoration: underline;
+	}
+
+	.footoeHili {
+		background-color: lightgray;
+	}
+
+	img {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	</style>
+<body>
+<a href="./kits/"></a>
+<a href="./kits/lstab/"></a>
+		
+</body>
+
+</html>
+
+
+<script>
+	$(function () {
+		$("a").each(function () {
+			var tx = $(this).text()
+			if (tx.length === 0) {
+				$(this).text($(this).attr("href"))
+			}
+		})
+	})
+</script>

@@ -1,0 +1,58 @@
+<html>
+
+<head>
+	<title>.</title>
+	<base target="_blank" />
+	<META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+	<META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+	<script src="https://wdingbox.github.io/ham12/utility/htmf/bsnp/BibleStudyNotePad.js?v2021-01">
+	</script>
+	<script language="javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"></script>
+
+
+
+	<script src="./mydat.js"></script>
+	<script src="../encrypt/keyprv.js"></script>
+</head>
+<script>
+	$(function () {
+		show() 
+	})
+	function show() {
+		var inp = $("#out").val()
+		var encrypt = new JSEncrypt();
+		encrypt.setPrivateKey(keyprv);
+		var trs = ""
+		for (let key in mydat) {
+			var out = encrypt.decrypt(mydat[key]);
+			trs += `<tr><td>${key}</td><td val='${out}'>${mydat[key]}</td></tr>`
+		}
+		$("#tbd").html(trs).find("td[val]").on("click",function(){
+			$(this).text($(this).attr("val"))
+			$(this).removeAttr("val")
+		})
+	}
+</script>
+<style>
+	body {
+		background-color: lightblue;
+	}
+</style>
+
+<body>
+	<a id="show">show</a>
+	<table border="1">
+		<tbody id="tbd">
+
+		</tbody>
+	</table>
+
+
+</body>
+
+</html>
