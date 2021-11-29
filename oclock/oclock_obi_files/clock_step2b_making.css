@@ -1,0 +1,20 @@
+.outer-clock-face .marking {
+    background: #bdbdcb;
+    width: 3px;
+  }
+  
+  .outer-clock-face .marking.marking-one {
+    transform: rotate(30deg)
+  }
+  
+  .outer-clock-face .marking.marking-two {
+    transform: rotate(60deg)
+  }
+  
+  .outer-clock-face .marking.marking-three {
+    transform: rotate(120deg)
+  }
+  
+  .outer-clock-face .marking.marking-four {
+    transform: rotate(150deg)
+  }

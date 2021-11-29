@@ -1,0 +1,26 @@
+.inner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #282828;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  
+  .inner-clock-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -6px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #4d4b63;
+    z-index: 11;
+  }

@@ -1,0 +1,29 @@
+.outer-clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: #282828;
+    
+   
+    overflow: hidden;
+  }
+  
+  .outer-clock-face::after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg)
+  }
+  
+  .outer-clock-face::before,
+  .outer-clock-face::after,
+  .outer-clock-face .marking{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: #1df52f;
+    z-index: 0;
+    left: 49%;
+  }
+   
