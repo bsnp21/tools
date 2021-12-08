@@ -113,52 +113,58 @@
             display: block;
         }
 
-        td[month='1'] {
+        .month1 {
             background-color: rgb(250, 250, 250);
         }
 
-        td[month='2'] {
+        .month2 {
             background-color: rgb(196, 155, 155);
         }
 
-        td[month='3'] {
+        .month3 {
             background-color: lightcoral;
         }
 
-        td[month='4'] {
+        .month4 {
             background-color: rgb(223, 240, 128);
         }
 
-        td[month='5'] {
+        .month5 {
             background-color: rgb(218, 129, 210);
         }
 
-        td[month='6'] {
+        .month6 {
             background-color: rgb(132, 240, 128);
         }
 
-        td[month='7'] {
+        .month7 {
             background-color: lightcoral;
         }
 
-        td[month='8'] {
+        .month8 {
             background-color: rgb(187, 174, 176);
         }
 
-        td[month='9'] {
+        .month9 {
             background-color: rgb(188, 240, 128);
         }
 
-        td[month='10'] {
+        .month10 {
             background-color: rgb(167, 179, 99);
         }
 
-        td[month='11'] {
+        .month11 {
             background-color: rgb(233, 220, 47);
         }
 
-        td[month='12'] {
+        .month12 {
             background-color: rgb(230, 208, 208);
+        }
+
+        .month_mark {
+            padding-left: 2px;
+            padding-right: 1px;
+            font-weight: lighter;
         }
 
 
@@ -216,6 +222,12 @@
             date.setDate(date.getDate() + days);
             return date;
         }
+        Date.prototype.toLocalY4MMDD = function () {
+            var syear = this.getUTCFullYear().toString()
+            var smonth = (1 + this.getMonth()).toString().padStart(2, "0")
+            var sdate = this.getDate().toString().padStart(2, "0")
+            return syear + smonth + sdate;
+        }
 
 
 
@@ -233,15 +245,15 @@
                 var iyear = sdat.getUTCFullYear()
                 var imont = 1 + sdat.getMonth()
                 var idate = sdat.getDate()
-                var sdate = iyear.toString() + ("" + imont).padStart(2, "0") + ("" + idate).padStart(2, "0")
+                var sdateID = sdat.toLocalY4MMDD()
 
 
                 if (0 === iweek) {
-                    trs += `<tr><th>${++weekidx}<br>${imont}</th>`;
+                    trs += `<tr><th>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
                 }
                 if (weekidx === 0) continue;
 
-                trs += `<td month='${imont}'><a class='sday' iweek='${iweek}'>${idate}</a><div sdate=${sdate} class='notes' contenteditable>-</div></td>`;
+                trs += `<td class='month${imont}'><a class='sday' iweek='${iweek}'>${idate}</a><div id=${sdateID} title=${sdateID} class='notes' contenteditable>-</div></td>`;
 
                 if (6 === iweek) {
                     trs += "</tr>";
@@ -256,22 +268,18 @@
 
             storage_load2ui()
             if (inext != 0) return
+
             var today = new Date()
-            var imon = 1 + today.getMonth()
-            var idat = today.getDate()
-            $(`td[month='${imon}']`).each(function () {
-                if ($(this).find(".sday").text() == idat) {
-                    $(this).find(".sday").addClass("today");
+            var sid = today.toLocalY4MMDD()
+            $(`#${sid}`).each(function () {
+                    $(this).parent().find(".sday").addClass("today");
                     $(this)[0].scrollIntoView()
-                }
             })
-
-
         }
 
         function storage_save_ui() {
             var obj = export_notes_fr_ui()
-            for(let [syr, data] of Object.entries(obj)){
+            for (let [syr, data] of Object.entries(obj)) {
                 var str = JSON.stringify(data)
                 localStorage.setItem(syr, str)
             }
@@ -307,13 +315,13 @@
                 $(`.notes[sdate='${sdate}']`).html(txt)
             }
         }
-        function Txa2Storage(){
-            var str  = $("#utx").val()
+        function Txa2Storage() {
+            var str = $("#utx").val()
             var obj = JSON.parse(str)
-            for(let [syr, data] of Object.entries(obj)){
-                if(syr.length!==4){
+            for (let [syr, data] of Object.entries(obj)) {
+                if (syr.length !== 4) {
                     return alert("cannot be saved into storage.")
-                }else{
+                } else {
                     var str = JSON.stringify(data)
                     localStorage.setItem(syr, str)
                 }
