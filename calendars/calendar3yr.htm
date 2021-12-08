@@ -202,7 +202,9 @@
     <script>
         $(function () {
 
-            next_year(0)
+            setTimeout(function(){
+                next_year(0)
+            },1000)
 
         });//
 
@@ -259,6 +261,8 @@
                     $(this)[0].scrollIntoView()
                 }
             })
+
+            storage_load2ui()
         }
 
         function storage_save() {
@@ -274,20 +278,11 @@
             })
             var str = JSON.stringify(data, null, 4)
             $("#outx").val(str)
-            localStorage.setItem("notes",str)
+            localStorage.setItem(syr,str)
         }
         function storage_load2ui() {
             var syr = $("#year").text()
-            var data = {}
-            $(".notes").each(function () {
-                var txt = $(this).html()
-                var sdate = $(this).attr("sdate")
-                var dat = $(this).prev().text()
-                if (txt.length > 1) {
-                    data[sdate]=txt
-                }
-            })
-            var str = localStorage.getItem("notes")
+            var str = localStorage.getItem(syr)
             $("#outx").val(str)
             var obj = JSON.parse(str)
             for(let [sdate, txt] of Object.entries(obj)){
@@ -305,7 +300,7 @@
 
 
         <textarea id="outx" value='1'></textarea><br>
-        <a onclick="next_year(-1)">-</a><a id='year'></a><a onclick="next_year(1)">+</a>
+        <button onclick="next_year(-1)">-</button><a id='year'></a><button onclick="next_year(1)">+</button>
         <button onclick="storage_save()">Save</button>
         <button onclick="storage_load2ui();">Load</button>
     </p>
