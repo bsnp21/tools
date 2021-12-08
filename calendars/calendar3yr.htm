@@ -1,0 +1,334 @@
+<html>
+
+<head>
+    <title onclick="alert();">aoa</title>
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!------->
+    <base target="_blank" />
+
+
+
+
+    <style type="text/css">
+        body {
+            font-family: 'Times New Roman';
+            height: 100%;
+            width: 595px;
+            background-color: #ffffff;
+            /* to centre page on screen*/
+            margin-left: auto;
+            margin-right: auto;
+
+            font-size: 100%;
+
+            border: 1px solid #eeeeff;
+        }
+
+        #_MenuPanel {
+            position: fixed;
+            left: 10px;
+            top: 0px;
+        }
+
+        .fixedcol {
+            position: absolute;
+            background-color: #999999;
+        }
+
+        .fixedcol2,
+        thead,
+        th {
+            background-color: #999999;
+        }
+
+        .fixedcol2 {
+            background-color: #eeeeee;
+        }
+
+        .catlog {
+            background-color: #cccccc;
+        }
+
+        .strongs {
+            background-color: #ffffff;
+        }
+
+        .today {
+            background-color: aqua;
+        }
+
+        .Saturday {
+            color: rgb(0, 0, 255);
+        }
+
+        .Sunday {
+            color: rgb(255, 94, 0);
+
+        }
+
+        .hili {
+            background-color: red;
+            border: 2px solid yellow;
+        }
+
+        .leftbox {
+            background-color: #ff0000;
+        }
+
+        .tablefloatheb {
+            float: right;
+            margin: 2px;
+            border-collapse: false;
+            background-color: #eeeeee
+        }
+
+        .hebrew {
+            FONT-SIZE: 23px;
+            COLOR: #001320;
+            LINE-HEIGHT: 33px;
+            font-family: Ezra SIL, SBL Hebrew, Palatino Linotype, Palatino, Century Schoolbook L, Times New Roman, Cardo, Arial, Helvetica, Sans-serif;
+            TEXT-DECORATION: none;
+        }
+
+
+
+        td {
+            width: 200px;
+            vertical-align: top
+        }
+
+        thead {}
+
+
+
+        tx {
+            overflow-y: scroll;
+            display: block;
+        }
+
+        td[month='1'] {
+            background-color: rgb(250, 250, 250);
+        }
+
+        td[month='2'] {
+            background-color: rgb(196, 155, 155);
+        }
+
+        td[month='3'] {
+            background-color: lightcoral;
+        }
+
+        td[month='4'] {
+            background-color: rgb(223, 240, 128);
+        }
+
+        td[month='5'] {
+            background-color: rgb(218, 129, 210);
+        }
+
+        td[month='6'] {
+            background-color: rgb(132, 240, 128);
+        }
+
+        td[month='7'] {
+            background-color: lightcoral;
+        }
+
+        td[month='8'] {
+            background-color: rgb(187, 174, 176);
+        }
+
+        td[month='9'] {
+            background-color: rgb(188, 240, 128);
+        }
+
+        td[month='10'] {
+            background-color: rgb(167, 179, 99);
+        }
+
+        td[month='11'] {
+            background-color: rgb(233, 220, 47);
+        }
+
+        td[month='12'] {
+            background-color: rgb(230, 208, 208);
+        }
+
+        td:nth-child(1) {
+            font: red;
+        }
+
+        div.notes {
+            margin-left: 1px;
+            display: block;
+            color: blue;
+
+
+        }
+
+        a.sday {
+            font-size: xx-large;
+        }
+
+        a[iweek='0'],
+        a[iweek='6'] {
+            color: red;
+        }
+
+        .today {
+            border: 5px solid red;
+            animation: blinkingBackground 3s infinite;
+        }
+
+
+        @keyframes blinkingBackground {
+            20% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: .5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        $(function () {
+
+            next_year(0)
+
+        });//
+
+
+        Date.prototype.addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
+
+
+        function next_year(inext) {
+            //var yr = prompt("enter year xxxx", );
+            var yr = (new Date()).getUTCFullYear()
+            yr += inext
+
+            var date = new Date(yr, 0, 1);
+            //var yearEnd = new Date(2019, 11, 1);
+            var trs = "", weekidx = 0, bstart = false
+            for (var i = 0; i <= 365; i++) {
+                var sdat = date.addDays(i);
+                var iweek = sdat.getDay()
+                var iyear = sdat.getUTCFullYear()
+                var imont = 1 + sdat.getMonth()
+                var idate = sdat.getDate()
+                var sdate = iyear.toString()+ (""+imont).padStart(2,"0")+(""+idate).padStart(2,"0")
+
+
+                if (0 === iweek) {
+                    trs += `<tr><th>${++weekidx}<br>${imont}</th>`;
+                }
+                if (weekidx === 0) continue;
+
+                trs += `<td month='${imont}'><a class='sday' iweek='${iweek}'>${idate}</a><div sdate=${sdate} class='notes' contenteditable>-</div></td>`;
+
+                if (6 === iweek) {
+                    trs += "</tr>";
+                }
+            }
+            $("#year").html(yr)
+            $("#tab1 tbody").html(trs)
+                .find("td").on("click", function () {
+
+                    $(this).toggleClass("hili")
+                })
+
+            var today = new Date()
+            var imon = 1 + today.getMonth()
+            var idat = today.getDate()
+            $(`td[month='${imon}']`).each(function () {
+                if ($(this).find(".sday").text() == idat) {
+                    $(this).find(".sday").addClass("today");
+                    $(this)[0].scrollIntoView()
+                }
+            })
+        }
+
+        function storage_save() {
+            var syr = $("#year").text()
+            var data = {}
+            $(".notes").each(function () {
+                var txt = $(this).html()
+                var sdate = $(this).attr("sdate")
+                var dat = $(this).prev().text()
+                if (txt.length > 1) {
+                    data[sdate]=txt
+                }
+            })
+            var str = JSON.stringify(data, null, 4)
+            $("#outx").val(str)
+            localStorage.setItem("notes",str)
+        }
+        function storage_load2ui() {
+            var syr = $("#year").text()
+            var data = {}
+            $(".notes").each(function () {
+                var txt = $(this).html()
+                var sdate = $(this).attr("sdate")
+                var dat = $(this).prev().text()
+                if (txt.length > 1) {
+                    data[sdate]=txt
+                }
+            })
+            var str = localStorage.getItem("notes")
+            $("#outx").val(str)
+            var obj = JSON.parse(str)
+            for(let [sdate, txt] of Object.entries(obj)){
+                $(`.notes[sdate='${sdate}']`).html(txt)
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <p id="_MenuPanel">
+        <br />
+
+
+        <textarea id="outx" value='1'></textarea><br>
+        <a onclick="next_year(-1)">-</a><a id='year'></a><a onclick="next_year(1)">+</a>
+        <button onclick="storage_save()">Save</button>
+        <button onclick="storage_load2ui();">Load</button>
+    </p>
+    <!-------------------------->
+    <!-------------------------->
+    <table border="1" id="tab1">
+        <caption><a onclick="next_year(-1)">-</a><a id='year'></a><a onclick="next_year(1)">+</a></caption>
+        <thead>
+            <tr>
+                <th idx>#</th>
+                <th title="year">Sun</th>
+                <th title="month">Mon</th>
+                <th title="date">Tus</th>
+                <th title="week">Wed</th>
+                <th title="ometer">Thu</th>
+                <th title="vh">Fri</th>
+                <th title="miliage">Sat</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!-------------------------->
+
+    <p>
+        &nbsp;</p>
+</body>
+
+</html>

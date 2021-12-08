@@ -48,6 +48,7 @@
 <body>
 <a href="./kits/"></a>
 <a href="./kits/lstab/"></a>
+<a href="./calendars/calendar3yr.htm"></a>
 		
 </body>
 
@@ -59,7 +60,7 @@
 		$("a").each(function () {
 			var tx = $(this).text()
 			if (tx.length === 0) {
-				$(this).text($(this).attr("href"))
+				$(this).text($(this).attr("href")).append("<br/>")
 			}
 		})
 	})
