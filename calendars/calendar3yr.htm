@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title onclick="alert();">aoa</title>
+    <title onclick="alert();">Calendar</title>
     <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
     <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -97,6 +97,7 @@
         table {
             margin-top: 200px;
             margin-bottom: 200px;
+            table-layout: fixed;
         }
 
         td {
@@ -174,7 +175,9 @@
             display: block;
             color: blue;
 
-            font-size: xx-small;
+            font-size: small;
+
+            overflow-x: scroll;
 
         }
 
@@ -211,8 +214,16 @@
         $(function () {
 
             setTimeout(function () {
-                next_year(0)
+                next_year("#tab0", -1)
+                next_year("#tab1", 0)
+                next_year("#tab2", 1)
+
+                $("#tab0 tbody").slideUp()
+                $("#tab2 tbody").slideUp()
             }, 100)
+
+
+
 
         });//
 
@@ -231,75 +242,81 @@
 
 
 
-        function next_year(inext) {
+        function next_year(eid, inext) {
+            var today = new Date()
+            var todayID = today.toLocalY4MMDD()
+
             //var yr = prompt("enter year xxxx", );
-            var yr = (new Date()).getUTCFullYear()
+            var yr = today.getUTCFullYear()
             yr += inext
 
             var date = new Date(yr, 0, 1);
             //var yearEnd = new Date(2019, 11, 1);
-            var trs = "", weekidx = 0, bstart = false
-            for (var i = 0; i <= 365; i++) {
+            var trs = "", weekidx = 0, idaycounter = 0
+            for (var i = 0; i <= 3650; i++) {
                 var sdat = date.addDays(i);
                 var iweek = sdat.getDay()
                 var iyear = sdat.getUTCFullYear()
                 var imont = 1 + sdat.getMonth()
                 var idate = sdat.getDate()
                 var sdateID = sdat.toLocalY4MMDD()
+                var contenteditable = "contenteditable"
+                if (sdateID < todayID) contenteditable = ""
+
+                if (idaycounter >= 364) break
 
 
                 if (0 === iweek) {
                     trs += `<tr><th>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
                 }
                 if (weekidx === 0) continue;
+                idaycounter++
 
-                trs += `<td class='month${imont}'><a class='sday' iweek='${iweek}'>${idate}</a><div id=${sdateID} title=${sdateID} class='notes' contenteditable>-</div></td>`;
+                trs += `<td class='month${imont}'><a class='sday' title=${sdateID}  iweek='${iweek}'>${idate}</a><div id=${sdateID} title=${sdateID} class='notes' ${contenteditable}>-</div></td>`;
 
                 if (6 === iweek) {
                     trs += "</tr>";
                 }
             }
-            $("#year").html(yr)
-            $("#tab1 tbody").html(trs)
+            //$("#year").html(yr)
+            $(`${eid} caption`).text(yr);
+            $(`${eid} caption`).on("click", function () {
+                $(this).parent().find("tbody").slideToggle()
+            })
+            $(`${eid} tbody`).html(trs)
                 .find("td").on("click", function () {
 
                     $(this).toggleClass("hili")
                 })
 
+
             storage_load2ui()
             if (inext != 0) return
 
-            var today = new Date()
-            var sid = today.toLocalY4MMDD()
-            $(`#${sid}`).each(function () {
-                    $(this).parent().find(".sday").addClass("today");
-                    $(this)[0].scrollIntoView()
+
+            $(`#${todayID}`).each(function () {
+                $(this).parent().find(".sday").addClass("today");
+                $(this)[0].scrollIntoView()
             })
         }
 
         function storage_save_ui() {
             var obj = export_notes_fr_ui()
-            for (let [syr, data] of Object.entries(obj)) {
-                var str = JSON.stringify(data)
-                localStorage.setItem(syr, str)
-            }
+            var str = JSON.stringify(obj)
+            localStorage.setItem("notes", str)
             $("#outx").val(str)
         }
         function export_notes_fr_ui() {
-            var syr = $("#year").text()
             var data = {}
             $(".notes").each(function () {
                 var txt = $(this).html()
-                var sdate = $(this).attr("sdate")
-                var dat = $(this).prev().text()
+                var sdate = $(this).attr("id")
                 if (txt.length > 1) {
                     data[sdate] = txt
                 }
             })
-            var obj = {}
-            obj[syr] = data
-            var str = JSON.stringify(obj, null, 4)
-            return obj
+            //var str = JSON.stringify(data, null, 4)
+            return data
         }
         function export_notes() {
             var obj = export_notes_fr_ui()
@@ -307,25 +324,16 @@
             $("#outx").val(str)
         }
         function storage_load2ui() {
-            var syr = $("#year").text()
-            var str = localStorage.getItem(syr)
+            var str = localStorage.getItem("notes")
             $("#outx").val(str)
             var obj = JSON.parse(str)
             for (let [sdate, txt] of Object.entries(obj)) {
-                $(`.notes[sdate='${sdate}']`).html(txt)
+                $(`#${sdate}`).html(txt)
             }
         }
         function Txa2Storage() {
-            var str = $("#utx").val()
-            var obj = JSON.parse(str)
-            for (let [syr, data] of Object.entries(obj)) {
-                if (syr.length !== 4) {
-                    return alert("cannot be saved into storage.")
-                } else {
-                    var str = JSON.stringify(data)
-                    localStorage.setItem(syr, str)
-                }
-            }
+            var str = $("#outx").val()
+            localStorage.setItem(syr, str)
         }
 
 
@@ -346,7 +354,39 @@
     </p>
     <!-------------------------->
     <!-------------------------->
+    <table border="1" id="tab0">
+        <caption>Calendar</caption>
+        <thead>
+            <tr>
+                <th idx>#</th>
+                <th title="year">Sun</th>
+                <th title="month">Mon</th>
+                <th title="date">Tus</th>
+                <th title="week">Wed</th>
+                <th title="ometer">Thu</th>
+                <th title="vh">Fri</th>
+                <th title="miliage">Sat</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
     <table border="1" id="tab1">
+        <caption>Calendar</caption>
+        <thead>
+            <tr>
+                <th idx>#</th>
+                <th title="year">Sun</th>
+                <th title="month">Mon</th>
+                <th title="date">Tus</th>
+                <th title="week">Wed</th>
+                <th title="ometer">Thu</th>
+                <th title="vh">Fri</th>
+                <th title="miliage">Sat</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <table border="0" id="tab2">
         <caption>Calendar</caption>
         <thead>
             <tr>
