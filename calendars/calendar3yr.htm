@@ -94,10 +94,11 @@
 
 
 
-        table{
+        table {
             margin-top: 200px;
             margin-bottom: 200px;
         }
+
         td {
             width: 14%;
             vertical-align: top
@@ -160,13 +161,14 @@
             background-color: rgb(230, 208, 208);
         }
 
-     
+
 
         div.notes {
             margin-left: 1px;
             display: block;
             color: blue;
 
+            font-size: xx-small;
 
         }
 
@@ -202,9 +204,9 @@
     <script>
         $(function () {
 
-            setTimeout(function(){
+            setTimeout(function () {
                 next_year(0)
-            },1000)
+            }, 100)
 
         });//
 
@@ -231,7 +233,7 @@
                 var iyear = sdat.getUTCFullYear()
                 var imont = 1 + sdat.getMonth()
                 var idate = sdat.getDate()
-                var sdate = iyear.toString()+ (""+imont).padStart(2,"0")+(""+idate).padStart(2,"0")
+                var sdate = iyear.toString() + ("" + imont).padStart(2, "0") + ("" + idate).padStart(2, "0")
 
 
                 if (0 === iweek) {
@@ -252,6 +254,8 @@
                     $(this).toggleClass("hili")
                 })
 
+            storage_load2ui()
+            if (inext != 0) return
             var today = new Date()
             var imon = 1 + today.getMonth()
             var idat = today.getDate()
@@ -262,10 +266,18 @@
                 }
             })
 
-            storage_load2ui()
+
         }
 
-        function storage_save() {
+        function storage_save_ui() {
+            var obj = export_notes_fr_ui()
+            for(let [syr, data] of Object.entries(obj)){
+                var str = JSON.stringify(data)
+                localStorage.setItem(syr, str)
+            }
+            $("#outx").val(str)
+        }
+        function export_notes_fr_ui() {
             var syr = $("#year").text()
             var data = {}
             $(".notes").each(function () {
@@ -273,20 +285,38 @@
                 var sdate = $(this).attr("sdate")
                 var dat = $(this).prev().text()
                 if (txt.length > 1) {
-                    data[sdate]=txt
+                    data[sdate] = txt
                 }
             })
-            var str = JSON.stringify(data, null, 4)
+            var obj = {}
+            obj[syr] = data
+            var str = JSON.stringify(obj, null, 4)
+            return obj
+        }
+        function export_notes() {
+            var obj = export_notes_fr_ui()
+            var str = JSON.stringify(obj, null, 4)
             $("#outx").val(str)
-            localStorage.setItem(syr,str)
         }
         function storage_load2ui() {
             var syr = $("#year").text()
             var str = localStorage.getItem(syr)
             $("#outx").val(str)
             var obj = JSON.parse(str)
-            for(let [sdate, txt] of Object.entries(obj)){
+            for (let [sdate, txt] of Object.entries(obj)) {
                 $(`.notes[sdate='${sdate}']`).html(txt)
+            }
+        }
+        function Txa2Storage(){
+            var str  = $("#utx").val()
+            var obj = JSON.parse(str)
+            for(let [syr, data] of Object.entries(obj)){
+                if(syr.length!==4){
+                    return alert("cannot be saved into storage.")
+                }else{
+                    var str = JSON.stringify(data)
+                    localStorage.setItem(syr, str)
+                }
             }
         }
 
@@ -301,13 +331,15 @@
 
         <textarea id="outx" value='1'></textarea><br>
         <button onclick="next_year(-1)">-</button><a id='year'></a><button onclick="next_year(1)">+</button>
-        <button onclick="storage_save()">Save</button>
-        <button onclick="storage_load2ui();">Load</button>
+        <button onclick="storage_save_ui()">SaveUI</button>
+        <button onclick="storage_load2ui();">Load</button><br>
+        <button onclick="export_notes()">Export2Txa</button>
+        <button onclick="Txa2Storage()">Txa2Storage</button>
     </p>
     <!-------------------------->
     <!-------------------------->
     <table border="1" id="tab1">
-        <caption><a onclick="next_year(-1)">-</a><a id='year'></a><a onclick="next_year(1)">+</a></caption>
+        <caption>Calendar</caption>
         <thead>
             <tr>
                 <th idx>#</th>
