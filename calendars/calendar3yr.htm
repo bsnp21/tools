@@ -29,7 +29,12 @@
         #_MenuPanel {
             position: fixed;
             left: 10px;
-            top: 0px;
+            top: 30px;
+        }
+        #menuPanelToggler{
+            position: fixed;
+            top:10px;
+            left:10px;
         }
 
         .fixedcol {
@@ -214,15 +219,18 @@
         $(function () {
 
             setTimeout(function () {
-                next_year("#tab0", -1)
-                next_year("#tab1", 0)
-                next_year("#tab2", 1)
+                gen_calendar("#tab0", -1)
+                gen_calendar("#tab1", 0)
+                gen_calendar("#tab2", 1)
 
                 $("#tab0 tbody").slideUp()
                 $("#tab2 tbody").slideUp()
             }, 100)
 
 
+            $("#menuPanelToggler").on("click",function(){
+                $("#_MenuPanel").slideToggle()
+            })
 
 
         });//
@@ -242,7 +250,7 @@
 
 
 
-        function next_year(eid, inext) {
+        function gen_calendar(eid, inext) {
             var today = new Date()
             var todayID = today.toLocalY4MMDD()
 
@@ -318,39 +326,39 @@
             //var str = JSON.stringify(data, null, 4)
             return data
         }
-        function export_notes() {
-            var obj = export_notes_fr_ui()
-            var str = JSON.stringify(obj, null, 4)
-            $("#outx").val(str)
+        function load2ui_fr_txa() {
+            var str = $("#outx").val()
+            if (str.trim().length === 0) return alert("no data to table")
+            render2ui(str)
         }
         function storage_load2ui() {
             var str = localStorage.getItem("notes")
             $("#outx").val(str)
+            render2ui(str)
+        }
+        function render2ui(str) {
             var obj = JSON.parse(str)
             for (let [sdate, txt] of Object.entries(obj)) {
                 $(`#${sdate}`).html(txt)
             }
         }
-        function Txa2Storage() {
-            var str = $("#outx").val()
-            localStorage.setItem(syr, str)
-        }
+
 
 
     </script>
 </head>
 
 <body>
+    <button id="menuPanelToggler">=</button><br />
     <p id="_MenuPanel">
-        <br />
 
-
+        <button onclick="storage_save_ui()">Save</button>
+        <button onclick="load2ui_fr_txa();">Load</button><br>
         <textarea id="outx" value='1'></textarea><br>
-        <button onclick="next_year(-1)">-</button><a id='year'></a><button onclick="next_year(1)">+</button>
-        <button onclick="storage_save_ui()">SaveUI</button>
-        <button onclick="storage_load2ui();">Load</button><br>
-        <button onclick="export_notes()">Export2Txa</button>
-        <button onclick="Txa2Storage()">Txa2Storage</button>
+
+
+
+
     </p>
     <!-------------------------->
     <!-------------------------->
