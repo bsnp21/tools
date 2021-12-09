@@ -497,9 +497,10 @@
                 uuti.render2ui(str)
             },
             increase_width:function(idlta){
-                var width = $("#tab1").width();
+                var width = $("#tab1 td").width();
                 width+=idlta
-                $("table").width(width)
+                $("td").width(width)
+                $(".notes").css({ "width": width })
             }
         }
 
