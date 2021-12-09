@@ -242,7 +242,7 @@
         #editor {
             position: absolute;
             background-color: yellow;
-            width: 500px;
+           
             height: 200px;
             padding: 3px;
 
@@ -385,7 +385,11 @@
             var eid = "#tab1"
             var rect = $(eid)[0].getBoundingClientRect();
             var width = $(eid).width()
-            $("#editor").css("left", (30 + rect.left) + "px").css("top", "1000px").css("width", width + "px")
+            $("#editor").css({
+                "left":30 + rect.left,
+                "top": 1000,
+                "width": width-35
+            })
 
             $(".sday").on("click", function () {
                 $(this).toggleClass("hili_day")
