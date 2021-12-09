@@ -241,17 +241,30 @@
         }
 
 
-        #editor {
+        #editorboard {
 
             background-color: yellow;
             display: none;
             white-space: nowrap;
 
             height: 200px;
-            padding: 3px;
+            padding: 10px 10px;
 
             margin-left: auto;
             margin-right: auto;
+
+            overflow: scroll;
+            font-size: large;
+        }
+        #editxt{
+            background-color: lightyellow;
+       
+            white-space: nowrap;
+
+          
+            padding: 3px;
+
+            width:100%;
 
             overflow: scroll;
             font-size: large;
@@ -378,7 +391,7 @@
             //
             $(".notes").on("click", function (e) {
                 var _This = this
-                var display = $("#editor").css("display")
+                var display = $("#editorboard").css("display")
 
                 var bhasHili = $(this).hasClass("hili_notes")
                 $(".hili_notes").removeClass("hili_notes")
@@ -387,28 +400,29 @@
                 }
                 bhasHili = $(this).hasClass("hili_notes")
                 if (!bhasHili) {
-                    $("#editor").hide()
+                    $("#editorboard").hide()
                     return false
                 }
 
                 if ('none' == display && bhasHili) {
-                    $("#editor").show()
+                    $("#editorboard").show()
                 } else {
-                    //$("#editor").hide()
+                    //$("#editxt").hide()
                 }
 
 
                 var htm = $(this).html()
-                $("#editor").html(htm)
+                $("#editxt").html(htm)
+                $("#edishowdate").text($(this).attr("id"))
 
-                $("#editor")
+                $("#editorboard")
                     .css({
                         position: 'absolute',
                         xxleft: e.pageX,
                         top: 20 + e.pageY,
                         display: 'block'
                     })
-                $("#editor").off("keyup").on("keyup", function (e) {
+                $("#editxt").off("keyup").on("keyup", function (e) {
                     if (e.keyCode === 13) {
                         // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
                         //document.execCommand('insertLineBreak', true, '<br/>');
@@ -422,14 +436,14 @@
                     .focus()
             })
 
-            $("#editor").on("blur", function () {
-                $(this).hide()
+            $("#editxt").on("blur", function () {
+                $("#editorboard").hide()
             })
 
             var eid = "#tab1"
             var rect = $(eid)[0].getBoundingClientRect();
             var width = $(eid).width()
-            $("#editor").css({
+            $("#editorboard").css({
                 "left": 30 + rect.left,
                 "top": 1000,
                 "width": width - 35
@@ -557,8 +571,9 @@
     </table>
     <!-------------------------->
 
-    <div id="editor">
-        <div id="editext" contenteditable>
+    <div id="editorboard">
+        <div>Date: 20<a id="edishowdate"></a></div>
+        <div id="editxt" contenteditable>
        
         </div>
     </div>
