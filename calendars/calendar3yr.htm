@@ -112,7 +112,7 @@
         }
 
         td {
-            width: 13.5%;
+            width: 14%;
             vertical-align: top
         }
 
@@ -240,11 +240,14 @@
 
 
         #editor {
-            position: absolute;
+
             background-color: yellow;
-           
+
             height: 200px;
             padding: 3px;
+
+            margin-left: auto;
+            margin-right: auto;
 
             overflow: scroll;
             font-size: large;
@@ -334,7 +337,7 @@
                     $(this).toggleClass("hili_td")
                 })
 
-            
+
 
             if (inext != 0) return
 
@@ -387,9 +390,9 @@
             var rect = $(eid)[0].getBoundingClientRect();
             var width = $(eid).width()
             $("#editor").css({
-                "left":30 + rect.left,
+                "left": 30 + rect.left,
                 "top": 1000,
-                "width": width-35
+                "width": width - 35
             })
 
             $(".sday").on("click", function () {
