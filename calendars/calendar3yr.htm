@@ -256,15 +256,16 @@
             overflow: scroll;
             font-size: large;
         }
-        #editxt{
+
+        #editxt {
             background-color: lightyellow;
-       
+
             white-space: nowrap;
 
-          
+
             padding: 3px;
 
-            width:100%;
+            width: 100%;
 
             overflow: scroll;
             font-size: large;
@@ -466,7 +467,7 @@
             load2ui: function () {
                 var str = localStorage.getItem("notes")
                 $("#outx").val(str)
-                if(!str) return
+                if (!str) return
                 uuti.render2ui(str)
             }
         }
@@ -489,13 +490,17 @@
                 for (let [sdate, txt] of Object.entries(obj)) {
                     $(`#${sdate}`).html(txt)
                 }
+            },
+            txa2ui: function () {
+                var str = $("#outx").val()
+                if (str.trim().length === 0) return alert("no data to table")
+                uuti.render2ui(str)
+            },
+            increase_width:function(idlta){
+                var width = $("#tab1").width();
+                width+=idlta
+                $("table").width(width)
             }
-        }
-
-        function load2ui_fr_txa() {
-            var str = $("#outx").val()
-            if (str.trim().length === 0) return alert("no data to table")
-            uuti.render2ui(str)
         }
 
 
@@ -510,7 +515,9 @@
     <p id="_MenuPanel">
 
         <button onclick="storage.save_ui()">Save</button>
-        <button onclick="load2ui_fr_txa();">Load</button>
+        <button onclick="uuti.txa2ui();">Load</button>
+        <button onclick="uuti.increase_width(10);">+</button>
+        <button onclick="uuti.increase_width(-10);">-</button>
         <a id="info">...</a>
         <br>
         <textarea id="outx" value='1'></textarea><br>
@@ -574,10 +581,10 @@
     <div id="editorboard">
         <div>Date: 20<a id="edishowdate"></a></div>
         <div id="editxt" contenteditable>
-       
+
         </div>
     </div>
-    
+
 
     <p>
         &nbsp;</p>
