@@ -31,10 +31,11 @@
             left: 10px;
             top: 30px;
         }
-        #menuPanelToggler{
+
+        #menuPanelToggler {
             position: fixed;
-            top:10px;
-            left:10px;
+            top: 10px;
+            left: 10px;
         }
 
         .fixedcol {
@@ -103,8 +104,8 @@
             margin-top: 50px;
             margin-bottom: 50px;
             table-layout: fixed;
-            margin-left:auto;
-            margin-right:auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         td {
@@ -184,8 +185,18 @@
 
             font-size: small;
 
-            overflow-x: scroll;
+            overflow: scroll;
 
+            white-space: nowrap;
+            
+            height: 50px;
+        }
+
+        .notes:focus {
+            position:absolute;
+            background-color: yellow;
+            xwidth: 500px;
+            xheight: 500px;
         }
 
         a.sday {
@@ -196,13 +207,14 @@
         a[iweek='6'] {
             color: red;
         }
+        a[iweek='3'] {
+            color: rgb(89, 89, 247);
+        }
 
         .today {
             border: 5px solid red;
             animation: blinkingBackground 3s infinite;
         }
-
-
         @keyframes blinkingBackground {
             20% {
                 opacity: 0;
@@ -230,7 +242,7 @@
             }, 100)
 
 
-            $("#menuPanelToggler").on("click",function(){
+            $("#menuPanelToggler").on("click", function () {
                 $("#_MenuPanel").slideToggle()
             })
 
@@ -298,6 +310,11 @@
 
                     $(this).toggleClass("hili")
                 })
+            $(".notes").on("keyup", function () {
+                storage_save_ui()
+            })
+            var width = $("td").width()
+            $(".notes").css("width", width+"px")
 
 
             storage_load2ui()
@@ -313,7 +330,9 @@
         function storage_save_ui() {
             var obj = export_notes_fr_ui()
             var str = JSON.stringify(obj)
+            $("#info").text("size:" + str.length)
             localStorage.setItem("notes", str)
+            var str = JSON.stringify(obj, null, 4)
             $("#outx").val(str)
         }
         function export_notes_fr_ui() {
@@ -355,7 +374,9 @@
     <p id="_MenuPanel">
 
         <button onclick="storage_save_ui()">Save</button>
-        <button onclick="load2ui_fr_txa();">Load</button><br>
+        <button onclick="load2ui_fr_txa();">Load</button>
+        <a id="info">...</a>
+        <br>
         <textarea id="outx" value='1'></textarea><br>
 
 
