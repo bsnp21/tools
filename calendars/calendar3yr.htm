@@ -334,7 +334,7 @@
                     $(this).toggleClass("hili_td")
                 })
 
-            storage_load2ui()
+            
 
             if (inext != 0) return
 
@@ -345,6 +345,7 @@
             })
         }
         function post_gen() {
+            storage_load2ui()
             $(".notes").on("keyup", function () {
                 storage_save_ui()
             })
