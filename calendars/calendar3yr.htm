@@ -196,7 +196,7 @@
         }
 
         .notes:focus {
-            
+
             background-color: yellow;
         }
 
@@ -356,7 +356,8 @@
                 var bHasHiliday = $(this).hasClass("hiliday")
                 $(".hiliday").removeClass("hiliday")
                 if (bHasHiliday) {
-                    //return
+                    $("#editor").hide()
+                    return
                 }
                 //$("#editor").show()
                 $(this).addClass("hiliday")
@@ -375,7 +376,7 @@
                     $(_This).html(htms)
                     storage_save_ui()
                 })
-                .focus()
+                    .focus()
             })
 
             $("#editor").on("blur", function () {
@@ -387,7 +388,7 @@
             var width = $(eid).width()
             $("#editor").css("left", (30 + rect.left) + "px").css("top", "1000px").css("width", width + "px")
 
-            $(".sday").on("click",function(){
+            $(".sday").on("click", function () {
                 $(this).toggleClass("hili_day")
             })
         }
