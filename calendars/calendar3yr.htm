@@ -112,11 +112,13 @@
         }
 
         td {
-            width: 14%;
+            width: 13.5%;
             vertical-align: top
         }
 
-        thead {}
+        .thidx {
+            font-size: small;
+        }
 
 
 
@@ -241,11 +243,11 @@
             position: absolute;
             background-color: yellow;
             width: 500px;
-            height: 300px;
+            height: 200px;
             padding: 3px;
 
             overflow: scroll;
-            font-size: normal;
+            font-size: large;
         }
     </style>
     <script>
@@ -266,10 +268,7 @@
             $("#menuPanelToggler").on("click", function () {
                 $("#_MenuPanel").slideToggle()
             })
-
-
-
-
+            $("#_MenuPanel").slideToggle()
 
         });//
 
@@ -313,7 +312,7 @@
 
 
                 if (0 === iweek) {
-                    trs += `<tr><th>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
+                    trs += `<tr><th class='thidx'>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
                 }
                 if (weekidx === 0) continue;
                 idaycounter++
