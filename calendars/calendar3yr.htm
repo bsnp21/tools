@@ -74,9 +74,12 @@
 
         }
 
-        .hili {
-            background-color: red;
+        .hili_td {
             border: 2px solid yellow;
+        }
+
+        .hili_day {
+            border: 2px solid green;
         }
 
         .leftbox {
@@ -188,12 +191,12 @@
             overflow: scroll;
 
             white-space: nowrap;
-            
+
             height: 50px;
         }
 
         .notes:focus {
-            position:absolute;
+            position: absolute;
             background-color: yellow;
             xwidth: 500px;
             xheight: 500px;
@@ -207,6 +210,7 @@
         a[iweek='6'] {
             color: red;
         }
+
         a[iweek='3'] {
             color: rgb(89, 89, 247);
         }
@@ -215,6 +219,7 @@
             border: 5px solid red;
             animation: blinkingBackground 3s infinite;
         }
+
         @keyframes blinkingBackground {
             20% {
                 opacity: 0;
@@ -228,10 +233,24 @@
                 opacity: 1;
             }
         }
+
+        .hiliday {
+            background-color: yellow;
+        }
+
+
+        #editor {
+            position: absolute;
+            background-color: yellow;
+            width: 500px;
+            height: 300px;
+            padding: 3px;
+
+            overflow: scroll;
+        }
     </style>
     <script>
         $(function () {
-
             setTimeout(function () {
                 gen_calendar("#tab0", -1)
                 gen_calendar("#tab1", 0)
@@ -239,12 +258,18 @@
 
                 $("#tab0 tbody").slideUp()
                 $("#tab2 tbody").slideUp()
+
+                post_gen()
+
             }, 100)
 
 
             $("#menuPanelToggler").on("click", function () {
                 $("#_MenuPanel").slideToggle()
             })
+
+
+
 
 
         });//
@@ -282,7 +307,7 @@
                 var imont = 1 + sdat.getMonth()
                 var idate = sdat.getDate()
                 var sdateID = sdat.toLocalY4MMDD()
-                var contenteditable = "contenteditable"
+                var contenteditable = ""
                 if (sdateID < todayID) contenteditable = ""
 
                 if (idaycounter >= 364) break
@@ -307,23 +332,64 @@
             })
             $(`${eid} tbody`).html(trs)
                 .find("td").on("click", function () {
-
-                    $(this).toggleClass("hili")
+                    $(".hili_td").removeClass("hili_td")
+                    $(this).toggleClass("hili_td")
                 })
-            $(".notes").on("keyup", function () {
-                storage_save_ui()
-            })
-            var width = $("td").width()
-            $(".notes").css("width", width+"px")
-
 
             storage_load2ui()
+
             if (inext != 0) return
 
 
             $(`#${todayID}`).each(function () {
                 $(this).parent().find(".sday").addClass("today");
                 $(this)[0].scrollIntoView()
+            })
+        }
+        function post_gen() {
+            $(".notes").on("keyup", function () {
+                storage_save_ui()
+            })
+            var width = $("td").width()
+            $(".notes").css("width", width + "px")
+            $(".notes").on("click", function (e) {
+                var _This = this
+                var bHasHiliday = $(this).hasClass("hiliday")
+                $(".hiliday").removeClass("hiliday")
+                if (bHasHiliday) {
+                    //return
+                }
+                //$("#editor").show()
+                $(this).addClass("hiliday")
+                var htm = $(this).html()
+
+                $("#editor")
+                    .css({
+                        position: 'absolute',
+                        xxleft: e.pageX,
+                        top: 20 + e.pageY,
+                        display: 'block'
+                    })
+                    .html(htm)
+                $("#editor").off("keyup").on("keyup", function () {
+                    var htms = $(this).html()
+                    $(_This).html(htms)
+                    storage_save_ui()
+                })
+                .focus()
+            })
+
+            $("#editor").on("blur", function () {
+                $(this).hide()
+            })
+
+            var eid = "#tab1"
+            var rect = $(eid)[0].getBoundingClientRect();
+            var width = $(eid).width()
+            $("#editor").css("left", (30 + rect.left) + "px").css("top", "1000px").css("width", width + "px")
+
+            $(".sday").on("click",function(){
+                $(this).toggleClass("hili_day")
             })
         }
 
@@ -434,6 +500,12 @@
         <tbody></tbody>
     </table>
     <!-------------------------->
+
+    <div id="editor" contenteditable>
+        <table border="1">
+
+        </table>
+    </div>
 
     <p>
         &nbsp;</p>
