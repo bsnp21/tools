@@ -4,7 +4,7 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 
 var phrases = [
   'I love to sing because it\'s fun',
-  'where are you going',
+  'My name is William',
   'can I call you tomorrow',
   'why did you talk while I was talking',
   'she enjoys reading books and playing games',

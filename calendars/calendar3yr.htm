@@ -203,6 +203,11 @@
             padding-top: 0px;
         }
 
+        li {
+            margin-left: -9px;
+            padding-left: -2px;
+        }
+
 
         a.sday {
             font-size: xx-large;
@@ -496,9 +501,9 @@
                 if (str.trim().length === 0) return alert("no data to table")
                 uuti.render2ui(str)
             },
-            increase_width:function(idlta){
+            increase_width: function (idlta) {
                 var width = $("#tab1 td").width();
-                width+=idlta
+                width += idlta
                 $("td").width(width)
                 $(".notes").css({ "width": width })
             }
@@ -506,7 +511,12 @@
 
 
 
-
+        //https://shapeshed.com/html5-speech-recognition-api/
+        var recognition = new webkitSpeechRecognition();
+        recognition.onresult = function (event) {
+            console.log(event)
+        }
+        //recognition.start();
 
     </script>
 </head>
@@ -519,7 +529,7 @@
         <button onclick="uuti.txa2ui();">Load</button>
         <button onclick="uuti.increase_width(10);">+</button>
         <button onclick="uuti.increase_width(-10);">-</button>
-        <a id="info">...</a>
+        <a id="info">...</a><input type="text" x-webkit-speech="true"></input>
         <br>
         <textarea id="outx" value='1'></textarea><br>
 
@@ -580,7 +590,8 @@
     <!-------------------------->
 
     <div id="editorboard">
-        <div>Date: 20<a id="edishowdate"></a></div>
+        <lable>Date: 20</lable><a id="edishowdate"></a>
+        <input></input>
         <div id="editxt" contenteditable>
 
         </div>
