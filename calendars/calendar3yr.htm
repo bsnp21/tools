@@ -294,6 +294,14 @@
                 uuti.format_obj_txa()
             })
 
+            $("#emailto").on("click",function(){
+                var smail=$("#email_addr").val()
+                var sbody=$("#outx").val() 
+                var str = `mailto:${smail}?subject=Calendar%20Data&body=${encodeURIComponent(sbody)}`
+                $(this).attr("href", str)
+
+            })
+
         });//
 
 
@@ -599,13 +607,13 @@
     <!--------------MENU------------>
     <button id="menuPanelToggler">=</button><br />
     <div id="_MenuPanel">
-        <a href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email</a>
+        <a id="emailto" href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email</a>
+        <input id="email_addr" type="text" x-webkit-speech="true" value="wdinge@gmail.com"></input><br>
         <button onclick="storage.save_ui()">Save</button>
         <button onclick="uuti.txa2ui();">Load</button>
         <button onclick="storage.Clear();">Clear</button><br>
         <button onclick="uuti.increase_width(10);">+</button>
         <button onclick="uuti.increase_width(-10);">-</button><br>
-        <input type="text" x-webkit-speech="true"></input><br>
         <a id="info">...</a><br>
         <textarea id="outx" value='1'></textarea><br>
     </div>
