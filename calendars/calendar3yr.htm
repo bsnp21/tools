@@ -405,21 +405,27 @@
                         "margin-right": "auto",
                         display: 'block'
                     })
-                $("#editxt").off("keyup").on("keyup", function (evt) {
-                    if (evt.keyCode === 13) {
-                        // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-                        //document.execCommand('insertLineBreak', true, '<br/>');
-                        // prevent the default behaviour of return key pressed
-                        //return true;
-                    }
-                    var htms = $(this).html()
-                    $(_This).html(htms)
-                    storage.save_ui()
-                })
-                    .focus()
+
             })
 
+            $("#editxt").off("keyup").on("keyup", function (evt) {
+                if (evt.keyCode === 13) {
+                    // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
+                    //document.execCommand('insertLineBreak', true, '<br/>');
+                    // prevent the default behaviour of return key pressed
+                    //return true;
+                }
+                var htms = $(this).html()
+                var id = $("#edishowdate").text()
+                $(`#${id}`).html(htms)
+                storage.save_ui()
+            })
             $("#editxt").on("blur", function () {
+                var htms = $(this).html()
+                var id = $("#edishowdate").text()
+                $(`#${id}`).html(htms)
+                storage.save_ui()
+
                 $("#editorboard").hide()
             })
 
