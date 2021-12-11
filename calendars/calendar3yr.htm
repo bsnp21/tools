@@ -437,6 +437,14 @@
                     })
 
             })
+            $(".sday").on("click", function () {
+                $(this).toggleClass("hili_day")
+            })
+
+
+
+
+
 
             $("#editxt").off("keyup").on("keyup", function (evt) {
                 if (evt.keyCode === 13) {
@@ -466,10 +474,6 @@
                 "left": 30 + rect.left,
                 "top": 1000,
                 "width": width - 100
-            })
-
-            $(".sday").on("click", function () {
-                $(this).toggleClass("hili_day")
             })
         }
 
