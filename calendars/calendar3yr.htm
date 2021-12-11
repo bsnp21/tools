@@ -541,9 +541,12 @@
                 return data
             },
             Clear: function () {
-                if (confirm("Clear all notes in Calendar?") == false) return
+                if (confirm("Empty notes of Calendar?") == false) return
                 $(".notes").html("")
-                //localStorage.setItem("notes", "")
+                setTimeout(() => {
+                    if (confirm("Clear all notes data in local storage? (unrecoverable)") == false) return
+                    localStorage.setItem("notes", "")
+                }, 1)
             },
             render2ui: function (str) {
                 var obj = JSON.parse(str)
