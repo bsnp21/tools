@@ -7,7 +7,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!------->
-    <base target="_blank" />
+    <base xtarget="_blank" />
 
 
 
@@ -21,7 +21,7 @@
 
         #_MenuPanel {
             position: fixed;
-            background-color: yellowgreen;
+            background-color: lightgray;
             left: 10px;
             top: 55px;
         }
@@ -482,10 +482,10 @@
                 "top": 1000,
                 "width": width - 100
             })
-            $("#editorboard").on("click",function(){
+            $("#editorboard").on("click", function () {
                 $(this).hide()
             })
-            $("body").on("click",function(){
+            $("body").on("click", function () {
                 $("#editorboard").hide()
             })
         }
@@ -505,10 +505,7 @@
                 if (!str) return
                 uuti.render2ui(str)
             },
-            Clear: function () {
-                if (confirm("Clear all notes in Calendar?") == false) return
-                localStorage.setItem("notes", "")
-            },
+            
             input_save: function () {
                 var val = $("input").each(function () {
                     var val = $(this).val()
@@ -543,15 +540,21 @@
                 //var str = JSON.stringify(data, null, 4)
                 return data
             },
+            Clear: function () {
+                if (confirm("Clear all notes in Calendar?") == false) return
+                $(".notes").html("")
+                //localStorage.setItem("notes", "")
+            },
             render2ui: function (str) {
                 var obj = JSON.parse(str)
+                if(!obj) return alert("not obj:" + str)
                 for (let [sdate, txt] of Object.entries(obj)) {
                     $(`#${sdate}`).html(txt)
                 }
             },
             txa2ui: function () {
-                var str = $("#outx").val()
-                if (str.trim().length === 0) return alert("no data to table")
+                var str = $("#outx").val().trim()
+                if (str.length === 0 || str[0] !=="{") return alert("no data to table")
                 uuti.render2ui(str)
             },
             increase_width: function (idlta) {
@@ -567,7 +570,10 @@
                 var obj = JSON.parse(val)
                 var str = JSON.stringify(obj, null, 4)
                 $("#outx").val(str)
-                $("#outx").css({ width: 500, height: 500 })
+
+                var w = $("#outx").width(), h = $("#outx").height()
+                w = (w >= 500) ? 300 : 510, h = (h >= 500) ? 50 : 510
+                $("#outx").css({ width: w, height: h })
             },
 
 
@@ -653,12 +659,13 @@
             <a id="emailto"
                 href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Emailto:</a>
             <input id="email_addr" type="text" x-webkit-speech="true"></input </form><br>
-            <button onclick="storage.save_ui()">Save</button>
-            <button onclick="uuti.txa2ui();">Load</button>
-            <button onclick="storage.Clear();">Clear</button><br>
+            <button onclick="uuti.Clear();">Clear</button>
+            <button onclick="storage.save_ui()">Save</button><br>
+            <button onclick="uuti.txa2ui();">Txa2uiLoad</button>
+            <button onclick="uuti.txa2ui();">Txa2uiCompare</button>
             <button onclick="uuti.increase_width(10);">+</button>
             <button onclick="uuti.increase_width(-10);">-</button><br>
-            <a id="info">...</a><br>
+            <div id="info">...</div><br>
             <textarea id="outx" value='1'></textarea><br>
     </div>
     <!-------------------------->
