@@ -275,6 +275,10 @@
             overflow: scroll;
             font-size: large;
         }
+        #editxt div{
+            border: 1px dotted gray;
+            padding: 10px 0px 10px 0px;
+        }
 
         #outx {
             overflow: scroll;
@@ -302,6 +306,10 @@
                 $("#_MenuPanel").slideToggle()
             })
             $("#_MenuPanel").slideToggle()
+
+            $("#info").on("click",function(){
+                uuti.format_obj_txa()
+            })
 
         });//
 
@@ -508,7 +516,16 @@
                 width += idlta
                 $("td").width(width)
                 $(".notes").css({ "width": width })
+            },
+
+            format_obj_txa: function () {
+                var val = $("#outx").val()
+                if (!val) return
+                var obj = JSON.parse(val)
+                var str = JSON.stringify(obj, null, 4)
+                $("#outx").val(str)
             }
+
         }
 
 
@@ -524,23 +541,7 @@
 </head>
 
 <body>
-    <button id="menuPanelToggler">=</button><br />
-    <p id="_MenuPanel">
 
-        <button onclick="storage.save_ui()">Save</button>
-        <button onclick="uuti.txa2ui();">Load</button>
-        <button onclick="uuti.increase_width(10);">+</button>
-        <button onclick="uuti.increase_width(-10);">-</button>
-        <a id="info">...</a><input type="text" x-webkit-speech="true"></input>
-        <br>
-        <textarea id="outx" value='1'></textarea><br>
-
-
-
-
-    </p>
-    <!-------------------------->
-    <!-------------------------->
     <table border="0" id="tab0">
         <caption>Calendar</caption>
         <thead>
@@ -593,12 +594,27 @@
 
     <div id="editorboard">
         <lable>Date: 20</lable><a id="edishowdate"></a>
-        <input></input>
         <div id="editxt" contenteditable>
 
         </div>
     </div>
 
+    <!-------------------------->
+    <!-------------------------->
+
+    <button id="menuPanelToggler">=</button><br />
+    <div id="_MenuPanel">
+
+        <button onclick="storage.save_ui()">Save</button>
+        <button onclick="uuti.txa2ui();">Load</button>
+        <button onclick="uuti.increase_width(10);">+</button>
+        <button onclick="uuti.increase_width(-10);">-</button>
+        <a id="info">...</a><input type="text" x-webkit-speech="true"></input>
+        <br>
+        <textarea id="outx" value='1'></textarea><br>
+    </div>
+    <!-------------------------->
+    <!-------------------------->
 
     <p>
         &nbsp;</p>
