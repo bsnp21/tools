@@ -22,13 +22,15 @@
         #_MenuPanel {
             position: fixed;
             left: 10px;
-            top: 30px;
+            top: 55px;
         }
 
         #menuPanelToggler {
             position: fixed;
-            top: 10px;
-            left: 10px;
+            top: 1px;
+            left: 1px;
+            padding: 10px;
+            margin: 10px;
         }
 
 
@@ -585,12 +587,11 @@
 
         <button onclick="storage.save_ui()">Save</button>
         <button onclick="uuti.txa2ui();">Load</button>
+        <button onclick="storage.Clear();">Clear</button><br>
         <button onclick="uuti.increase_width(10);">+</button>
-        <button onclick="uuti.increase_width(-10);">-</button>
-        <a id="info">...</a>
-        <button onclick="storage.Clear();">Clear</button>
-        <input type="text" x-webkit-speech="true"></input>
-        <br>
+        <button onclick="uuti.increase_width(-10);">-</button><br>
+        <input type="text" x-webkit-speech="true"></input><br>
+        <a id="info">...</a><br>
         <textarea id="outx" value='1'></textarea><br>
     </div>
     <!-------------------------->
