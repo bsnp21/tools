@@ -76,14 +76,17 @@
             margin-left: auto;
             margin-right: auto;
         }
-        table caption{
+
+        table caption {
             margin-top: 20px;
         }
-        #tab0{
+
+        #tab0 {
             margin-top: 150px;
             border-collapse: collapse;
         }
-        #tab2{
+
+        #tab2 {
             margin-bottom: 500px;
             border: 1px solid grey;
         }
@@ -131,7 +134,7 @@
 
         .month7 {
             background-color: rgb(188, 240, 128);
-            
+
         }
 
         .month8 {
@@ -141,11 +144,11 @@
         .month9 {
             background-color: #FFAEC0;
         }
-        
+
         .month10 {
             background-color: rgb(233, 220, 47);
         }
-        
+
         .month11 {
             background-color: #BECA5C;
         }
@@ -294,14 +297,17 @@
                 uuti.format_obj_txa()
             })
 
-            $("#emailto").on("click",function(){
-                var smail=$("#email_addr").val()
-                var sbody=$("#outx").val() 
+            $("#emailto").on("click", function () {
+                var smail = $("#email_addr").val()
+                var sbody = $("#outx").val()
                 var str = `mailto:${smail}?subject=Calendar%20Data&body=${encodeURIComponent(sbody)}`
                 $(this).attr("href", str)
 
+                storage.input_save()
+
             })
 
+            storage.input_load()
         });//
 
 
@@ -485,7 +491,26 @@
             Clear: function () {
                 if (confirm("Clear all notes in Calendar?") == false) return
                 localStorage.setItem("notes", "")
-            }
+            },
+            input_save: function () {
+                var val = $("input").each(function () {
+                    var val = $(this).val()
+                    var id = $(this).attr("id")
+                    if (id) {
+                        localStorage.setItem(id, val)
+                    }
+                })
+            },
+            input_load: function () {
+                var val = $("input").each(function () {
+                    var id = $(this).attr("id")
+                    if (id) {
+                        var val = localStorage.getItem(id)
+                        $(this).val(val)
+                    }
+                })
+            },
+
         }
 
         var uuti = {
@@ -525,7 +550,7 @@
                 var obj = JSON.parse(val)
                 var str = JSON.stringify(obj, null, 4)
                 $("#outx").val(str)
-                $("#outx").css({width:500, height:500})
+                $("#outx").css({ width: 500, height: 500 })
             },
 
 
@@ -607,15 +632,17 @@
     <!--------------MENU------------>
     <button id="menuPanelToggler">=</button><br />
     <div id="_MenuPanel">
-        <a id="emailto" href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Email</a>
-        <input id="email_addr" type="text" x-webkit-speech="true" value="wdinge@gmail.com"></input><br>
-        <button onclick="storage.save_ui()">Save</button>
-        <button onclick="uuti.txa2ui();">Load</button>
-        <button onclick="storage.Clear();">Clear</button><br>
-        <button onclick="uuti.increase_width(10);">+</button>
-        <button onclick="uuti.increase_width(-10);">-</button><br>
-        <a id="info">...</a><br>
-        <textarea id="outx" value='1'></textarea><br>
+        <form>
+            <a id="emailto"
+                href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Emailto:</a>
+            <input id="email_addr" type="text" x-webkit-speech="true"></input </form><br>
+            <button onclick="storage.save_ui()">Save</button>
+            <button onclick="uuti.txa2ui();">Load</button>
+            <button onclick="storage.Clear();">Clear</button><br>
+            <button onclick="uuti.increase_width(10);">+</button>
+            <button onclick="uuti.increase_width(-10);">-</button><br>
+            <a id="info">...</a><br>
+            <textarea id="outx" value='1'></textarea><br>
     </div>
     <!-------------------------->
     <!-------------------------->
