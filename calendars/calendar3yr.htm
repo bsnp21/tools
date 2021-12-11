@@ -252,8 +252,7 @@
         #outx {
             overflow: scroll;
             white-space: nowrap;
-            width: 500px;
-            height: 500px;
+    
         }
     </style>
     <script>
@@ -503,6 +502,7 @@
                 var obj = JSON.parse(val)
                 var str = JSON.stringify(obj, null, 4)
                 $("#outx").val(str)
+                $("#outx").css({width:500, height:500})
             },
 
 
