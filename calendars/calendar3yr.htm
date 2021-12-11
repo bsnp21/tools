@@ -203,9 +203,9 @@
             padding-top: 0px;
         }
 
-        li {
-            margin-left: -9px;
-            padding-left: -2px;
+        .notes ul li {
+            margin-left: -2px;
+            padding-left: -200px;
         }
 
 
@@ -253,7 +253,7 @@
             white-space: nowrap;
 
             height: 200px;
-            padding: 10px 10px;
+            padding: 20px 20px;
 
             margin-left: auto;
             margin-right: auto;
@@ -356,7 +356,7 @@
                 if (weekidx === 0) continue;
                 idaycounter++
 
-                trs += `<td class='month${imont}'><a class='sday' title=${sdateID}  iweek='${iweek}'>${idate}</a><div id=${sdateID} title=${sdateID} class='notes' ${contenteditable}><ul type='a'><li></li></ul></div></td>`;
+                trs += `<td class='month${imont}'><a class='sday' title=${sdateID}  iweek='${iweek}'>${idate}</a><div id=${sdateID} title=${sdateID} class='notes' ${contenteditable}></div></td>`;
 
                 if (6 === iweek) {
                     trs += "</tr>";
@@ -395,7 +395,7 @@
             $(".notes").css({ "width": width })
 
             //
-            $(".notes").on("click", function (e) {
+            $(".notes").on("click", function (evt) {
                 var _This = this
                 var display = $("#editorboard").css("display")
 
@@ -424,12 +424,14 @@
                 $("#editorboard")
                     .css({
                         position: 'absolute',
-                        xxleft: e.pageX,
-                        top: 20 + e.pageY,
+                        xxleft: evt.pageX,
+                        top: 20 + evt.pageY,
+                        "margin-left": "auto",
+                        "margin-right": "auto",
                         display: 'block'
                     })
-                $("#editxt").off("keyup").on("keyup", function (e) {
-                    if (e.keyCode === 13) {
+                $("#editxt").off("keyup").on("keyup", function (evt) {
+                    if (evt.keyCode === 13) {
                         // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
                         //document.execCommand('insertLineBreak', true, '<br/>');
                         // prevent the default behaviour of return key pressed
@@ -452,7 +454,7 @@
             $("#editorboard").css({
                 "left": 30 + rect.left,
                 "top": 1000,
-                "width": width - 35
+                "width": width - 100
             })
 
             $(".sday").on("click", function () {
