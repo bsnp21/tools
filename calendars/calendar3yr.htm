@@ -272,6 +272,18 @@
             overflow: scroll;
             white-space: pre;
         }
+
+
+        /**********/
+
+        .cmp div {
+            overflow: scroll;
+            white-space: nowrap;
+        }
+
+        .Hili_cmp {
+            background-color: lightgreen;
+        }
     </style>
     <script>
         $(function () {
@@ -392,7 +404,7 @@
             storage.load2ui()
 
             $(".notes").on("keyup", function () {
-                storage.save_ui()
+                storage.save_notes()
             })
 
             //set notes width
@@ -459,13 +471,13 @@
                 var htms = $(this).html()
                 var id = $("#edishowdate").text()
                 $(`#${id}`).html(htms)
-                storage.save_ui()
+                storage.save_notes()
             })
             $("#editxt").on("blur", function () {
                 var htms = $(this).html()
                 var id = $("#edishowdate").text()
                 $(`#${id}`).html(htms)
-                storage.save_ui()
+                storage.save_notes()
 
                 $("#editorboard").hide()
             })
@@ -491,8 +503,8 @@
         }
 
         var storage = {
-            save_ui: function () {
-                var obj = uuti.get_notes_obj()
+            save_notes: function () {
+                var obj = uuti.get_notes_obj_fr_ui()
                 var str = JSON.stringify(obj)
                 $("#info").text("size:" + str.length)
                 localStorage.setItem("notes", str)
@@ -528,7 +540,7 @@
         }
 
         var uuti = {
-            get_notes_obj: function () {
+            get_notes_obj_fr_ui: function () {
                 var data = {}
                 $(".notes").each(function () {
                     var txt = $(this).html().trim()
@@ -554,6 +566,35 @@
                 for (let [sdate, txt] of Object.entries(obj)) {
                     $(`#${sdate}`).html(txt)
                 }
+            },
+            Txa2uiCompare: function (str) {
+                var uiObj = uuti.get_notes_obj_fr_ui()
+                var str = $("#outx").val().trim()
+                var txObj = JSON.parse(str)
+                if (!txObj) return alert("not obj:" + str)
+
+                var allNotes = {}
+                Object.keys(uiObj).forEach(key => allNotes[key] = 0)
+                Object.keys(txObj).forEach(key => allNotes[key] = 0)
+
+                var trs = ""
+                Object.keys(allNotes).forEach(key => {
+                    var txt1 = uiObj[key], txt2 = txObj[key]
+                    if (!txt1) txt1 = ""
+                    if (!txt2) txt2 = ""
+                    if (txt1 !== txt2) {
+                        trs += `<tr><td>${key}</td><td><div class='cmpitm itm1'>${txt2}</div></td><td><div class='cmpitm itm2'>${txt1}</div></td></tr>`
+                    }
+                })
+                if (trs.length === 0) return alert("identical")
+                $("#cmp").html(`<table border='1' class='cmp'><thead><tr><th>date</th><th>tx</th><th>ca</th></tr></thead><tbody>${trs}</tbody></table>`)
+                $(".cmpitm").on("click", function () {
+                    $(this).toggleClass("Hili_cmp")
+                    var id = $(this).parentsUntil("tbody").find("td:eq(0)").text()
+                    var txt = $(this).html()
+                    $(`#${id}`).html(txt)
+                    storage.save_notes()
+                })
             },
             txa2ui: function () {
                 var str = $("#outx").val().trim()
@@ -664,12 +705,13 @@
             <input id="email_addr" type="text" x-webkit-speech="true"></input>
         </form>
         <button onclick="uuti.Clear();">Clear</button>
-        <button onclick="storage.save_ui()">Save</button><br>
+        <button onclick="storage.save_notes()">Save</button><br>
         <button onclick="uuti.txa2ui();">Txa2uiLoad</button>
-        <button onclick="uuti.txa2ui();">Txa2uiCompare</button>
+        <button onclick="uuti.Txa2uiCompare();">Txa2uiCompare</button>
         <button onclick="uuti.increase_width(10);">+</button>
         <button onclick="uuti.increase_width(-10);">-</button><br>
-        <div id="info">...</div><br>
+        <div id="cmp"></div>
+        <div id="info" class="row">...</div><br>
         <textarea id="outx" value='1'></textarea><br>
     </div>
     <!-------------------------->
