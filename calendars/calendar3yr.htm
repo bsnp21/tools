@@ -401,6 +401,7 @@
 
             //
             $(".notes").on("click", function (evt) {
+                evt.stopImmediatePropagation()
                 var _This = this
                 var display = $("#editorboard").css("display")
 
@@ -435,6 +436,7 @@
                         "margin-right": "auto",
                         display: 'block'
                     })
+                    .focus()
 
             })
             $(".sday").on("click", function () {
@@ -444,6 +446,7 @@
 
 
 
+            ///////////////////////////////
 
 
             $("#editxt").off("keyup").on("keyup", function (evt) {
@@ -466,6 +469,10 @@
 
                 $("#editorboard").hide()
             })
+            $("#editxt").on("click", function (evt) {
+                evt.stopImmediatePropagation()
+                return false
+            })
 
             var eid = "#tab1"
             var rect = $(eid)[0].getBoundingClientRect();
@@ -474,6 +481,12 @@
                 "left": 30 + rect.left,
                 "top": 1000,
                 "width": width - 100
+            })
+            $("#editorboard").on("click",function(){
+                $(this).hide()
+            })
+            $("body").on("click",function(){
+                $("#editorboard").hide()
             })
         }
 
