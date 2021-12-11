@@ -15,20 +15,6 @@
     <style type="text/css">
         body {
             font-family: 'Times New Roman';
-            height: 100%;
-            width: 590px;
-            background-color: #ffffff;
-            /* to centre page on screen*/
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 100px;
-            margin-bottom: 100px;
-            padding-top: 100px;
-            padding-bottom: 500px;
-
-            font-size: 100%;
-
-            border: 1px solid #eeeeff;
 
 
         }
@@ -45,41 +31,13 @@
             left: 10px;
         }
 
-        .fixedcol {
-            position: absolute;
-            background-color: #999999;
-        }
 
-        .fixedcol2,
-        thead,
-        th {
-            background-color: #999999;
-        }
 
-        .fixedcol2 {
-            background-color: #eeeeee;
-        }
 
-        .catlog {
-            background-color: #cccccc;
-        }
 
-        .strongs {
-            background-color: #ffffff;
-        }
 
-        .today {
-            background-color: aqua;
-        }
 
-        .Saturday {
-            color: rgb(0, 0, 255);
-        }
 
-        .Sunday {
-            color: rgb(255, 94, 0);
-
-        }
 
         .hili_td {
             border: 2px solid yellow;
@@ -106,12 +64,19 @@
 
 
         table {
-            margin-top: 50px;
-            margin-bottom: 50px;
+            margin-top: 150px;
+            margin-bottom: 5px;
             table-layout: fixed;
             margin-left: auto;
             margin-right: auto;
         }
+
+        thead,
+        th {
+            background-color: #999999;
+        }
+
+
 
         td {
             width: 70px;
@@ -224,7 +189,7 @@
         }
 
         .today {
-            border: 5px solid red;
+            border: 5px solid cyan;
             animation: blinkingBackground 3s infinite;
         }
 
@@ -488,7 +453,7 @@
                 uuti.render2ui(str)
             },
             Clear: function () {
-                if(confirm("Clear all notes in Calendar?")==false) return
+                if (confirm("Clear all notes in Calendar?") == false) return
                 localStorage.setItem("notes", "")
             }
         }
