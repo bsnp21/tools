@@ -281,7 +281,10 @@
             white-space: nowrap;
         }
 
-        .Hili_cmp {
+        div.cmpitm{
+            width: 100%;
+        }
+        div.Hili_cmp {
             background-color: lightgreen;
         }
     </style>
@@ -580,8 +583,8 @@
                 var trs = ""
                 Object.keys(allNotes).forEach(key => {
                     var txt1 = uiObj[key], txt2 = txObj[key]
-                    if (!txt1) txt1 = ""
-                    if (!txt2) txt2 = ""
+                    if (!txt1) txt1 = " "
+                    if (!txt2) txt2 = " "
                     if (txt1 !== txt2) {
                         trs += `<tr><td>${key}</td><td><div class='cmpitm itm1'>${txt2}</div></td><td><div class='cmpitm itm2'>${txt1}</div></td></tr>`
                     }
