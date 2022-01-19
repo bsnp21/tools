@@ -671,7 +671,7 @@
 
 
             $("#ScrollToToday").on("click",function(){
-                $(".today")[0].scrollIntoView()
+                $(".today")[0].scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
             })
             $(".today")[0].scrollIntoView()
 
