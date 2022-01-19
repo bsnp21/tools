@@ -26,13 +26,14 @@
             top: 55px;
         }
 
-        #ScrollToToday{
+        #ScrollToToday {
             position: fixed;
             top: 1px;
             left: 1px;
             padding: 10px;
             margin: 10px;
         }
+
         #menuPanelToggler {
             position: fixed;
             top: 50px;
@@ -478,7 +479,7 @@
 
                 post_gen()
 
-            }, 500)
+            }, 0)
 
 
             $("#menuPanelToggler").on("click", function () {
@@ -670,10 +671,12 @@
             })
 
 
-            $("#ScrollToToday").on("click",function(){
-                $(".today")[0].scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+            $("#ScrollToToday").on("click", function () {
+                $(".today")[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
             })
-            $(".today")[0].scrollIntoView()
+            setTimeout(function () {
+                $(".today")[0].scrollIntoView()
+            }, 500)
 
         }
 
