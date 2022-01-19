@@ -469,7 +469,7 @@
     </script>
     <script>
         $(function () {
-            setTimeout(function () {
+            {
                 gen_calendar("#tab0", -1)
                 gen_calendar("#tab1", 0)
                 gen_calendar("#tab2", 1)
@@ -477,9 +477,10 @@
                 $("#tab0 tbody").slideUp()
                 $("#tab2 tbody").slideUp()
 
-                post_gen()
-
-            }, 0)
+                setTimeout(function () {
+                    post_gen()
+                }, 500)
+            }
 
 
             $("#menuPanelToggler").on("click", function () {
