@@ -339,7 +339,7 @@
 
         var storage = {
             save_notes: function () {
-                var obj = uuti.get_notes_obj_fr_ui()
+                var obj = uuti.export_notes()
                 var str = JSON.stringify(obj)
                 $("#info").text("size:" + str.length)
                 localStorage.setItem("notes", str)
@@ -375,7 +375,7 @@
         }
 
         var uuti = {
-            get_notes_obj_fr_ui: function () {
+            export_notes: function () {
                 var data = {}
                 $(".notes").each(function () {
                     var txt = $(this).html().trim()
@@ -395,6 +395,11 @@
                     localStorage.setItem("notes", "")
                 }, 1)
             },
+            import_Notes: function () {
+                var str = $("#outx").val().trim()
+                if (str.length === 0 || str[0] !== "{") return alert("no data to table")
+                uuti.render2ui(str)
+            },
             render2ui: function (str) {
                 var obj = JSON.parse(str)
                 if (!obj) return alert("not obj:" + str)
@@ -403,7 +408,7 @@
                 }
             },
             Txa2uiCompare: function (str) {
-                var uiObj = uuti.get_notes_obj_fr_ui()
+                var uiObj = uuti.export_notes()
                 var str = $("#outx").val().trim()
                 var txObj = JSON.parse(str)
                 if (!txObj) return alert("not obj:" + str)
@@ -431,11 +436,7 @@
                     storage.save_notes()
                 })
             },
-            txa2ui: function () {
-                var str = $("#outx").val().trim()
-                if (str.length === 0 || str[0] !== "{") return alert("no data to table")
-                uuti.render2ui(str)
-            },
+           
             increase_width: function (idlta) {
                 var width = $("#tab1 td").width();
                 width += idlta
@@ -494,7 +495,7 @@
 
             $("#emailto").on("click", function () {
                 var smail = $("#email_addr").val()
-                var sbody = $("#outx").val()
+                var sbody = JSON.stringify(uuti.export_notes())
                 var str = `mailto:${smail}?subject=https://bsnp21.github.io/tools/calendars/calendar3yr.htm&body=${encodeURIComponent(sbody)}`
                 $(this).attr("href", str)
 
@@ -754,15 +755,17 @@
                 href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">Emailto:</a>
             <input id="email_addr" type="text" x-webkit-speech="true"></input>
         </form>
+     
+        <button onclick="uuti.import_Notes();">import</button>
+        <button onclick="uuti.Txa2uiCompare();">Txa2uiCompare</button> <a id="info" class="row">...</a><br>
+        <div id="cmp"></div>
+       
+        <textarea id="outx" value='1'></textarea><br>
         <button onclick="uuti.Clear();">Clear</button>
         <button onclick="storage.save_notes()">Save</button><br>
-        <button onclick="uuti.txa2ui();">Txa2uiLoad</button>
-        <button onclick="uuti.Txa2uiCompare();">Txa2uiCompare</button>
+
         <button onclick="uuti.increase_width(10);">+</button>
         <button onclick="uuti.increase_width(-10);">-</button><br>
-        <div id="cmp"></div>
-        <div id="info" class="row">...</div><br>
-        <textarea id="outx" value='1'></textarea><br>
     </div>
     <!-------------------------->
     <!-------------------------->
