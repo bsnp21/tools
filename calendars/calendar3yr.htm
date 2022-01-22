@@ -495,7 +495,7 @@
             $("#emailto").on("click", function () {
                 var smail = $("#email_addr").val()
                 var sbody = $("#outx").val()
-                var str = `mailto:${smail}?subject=Calendar%20Data&body=${encodeURIComponent(sbody)}`
+                var str = `mailto:${smail}?subject=https://bsnp21.github.io/tools/calendars/calendar3yr.htm&body=${encodeURIComponent(sbody)}`
                 $(this).attr("href", str)
 
                 storage.input_save()
