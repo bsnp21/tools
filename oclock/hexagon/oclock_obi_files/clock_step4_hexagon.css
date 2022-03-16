@@ -1,0 +1,16 @@
+.HexgonLine {
+  width: 50%;
+  height: 50%;
+
+  left: 0%;
+  top: 50%;
+
+  position: absolute;
+  
+  transform-origin: 0, 0;
+  transform: rotate(0deg);
+
+  background: #f1ee22;
+  border-radius: 50% 0 0 0;
+ 
+}
