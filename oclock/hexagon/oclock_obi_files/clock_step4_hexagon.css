@@ -15,9 +15,9 @@
 
  
   border-width: 11px;
-  border-color: #f1ee22;
+  border: 2px solid #f1ee22;
 
-  opacity: 0.1;
+  opacity: 0.2;
  
 }
 
@@ -25,5 +25,5 @@
   background: #f1ee22;
 }
 .arcolr2{
-  background: #f35bcd;
+  background: #a19630;
 }

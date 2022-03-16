@@ -22,16 +22,6 @@ function setDate() {
     const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
-function getHexagon() {
-    const HexgonLine = document.querySelector('.HexgonLine');
-    //HexgonLine.style.transform = `rotate(${-105}deg)`;
-
-    //HexgonLine.style.top = `25px`;
-    //HexgonLine.style.right = `25px`;
-
-   
-}
-getHexagon()
 
 setInterval(setDate, 1000);
 
