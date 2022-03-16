@@ -6,33 +6,66 @@
         #div1 {
             position: relative;
             height: 200px;
-            width: 200px;
+            width: 300px;
             margin: 50px;
             padding: 10px;
-            border: 1px solid black;
+            border: 1px solid blue;
         }
 
-        #div2 {
+        .test0 {
             padding: 50px;
             position: absolute;
+
+            left: 200px;
             border: 1px solid black;
-            background-color: red;
-            transform: rotate(45deg);
-            transform-origin: 20% 40%;
+            
+            
+            transform-origin: 20% 80%;
             -ms-transform: rotate(45deg);
             /* IE 9 */
-            -ms-transform-origin: 20% 40%;
+            -ms-transform-origin: 20% 80%;
             /* IE 9 */
+
+            transform: rotate(45deg);
+            width:100px;
+        }
+        .test {
+            padding: 50px;
+            position: absolute;
+
+            left: 200px;
+            border: 1px solid black;
+            
+            transform: rotate(45deg);
+            
+            transform-origin: 20% 80%;
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -ms-transform-origin: 20% 80%;
+            /* IE 9 */
+
+            
+            width:100px;
+        }
+        .tc1{
+            background-color: red;
+        }
+   
+
+        input {
+            width: 100%;
         }
     </style>
     <script>
-        function changeRot(value) {
+        function changeRot() {
+            var value = document.getElementById('roter').value
             document.getElementById('div2').style.transform = "rotate(" + value + "deg)";
             document.getElementById('div2').style.msTransform = "rotate(" + value + "deg)";
             document.getElementById('div2').style.webkitTransform = "rotate(" + value + "deg)";
             document.getElementById('div2').style.MozTransform = "rotate(" + value + "deg)";
             document.getElementById('div2').style.OTransform = "rotate(" + value + "deg)";
             document.getElementById('persp').innerHTML = value + "deg";
+
         }
 
         function changeOrg() {
@@ -49,20 +82,53 @@
 </head>
 
 <body>
+    <pre>
+        #div2,
+        #div3xxx {
+            padding: 50px;
+            position: absolute;
+
+            left: 200px;
+            border: 1px solid black;
+            background-color: red;
+            transform: rotate(45deg);
+            transform-origin: 20% 40%;
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -ms-transform-origin: 20% 40%;
+            /* IE 9 */
+        }
+    </pre>
 
     <p>Rotate the red div element, try changing its X-axis and Y-axis:</p>
 
-    <div id="div1">
-        <div id="div2">HELLO</div>
-    </div>
 
     Rotate:
-    <input type="range" min="-360" max="360" value="45" onchange="changeRot(this.value)" />
+    <input id="roter" type="range" min="-360" max="360" value="45" onchange="changeRot(this.value)"
+        onmousemove="changeRot()" / />
     transform: rotateY:(<span id="persp">45deg</span>);
     <br><br>
-    X-axis:<input type="range" min="-100" max="200" value="20" onchange="changeOrg()" id="ox" /><br>
-    Y-axis:<input type="range" min="-100" max="200" value="40" onchange="changeOrg()" id="oy" />
+    X-axis:<input type="range" min="-100" max="200" value="20" onchange="changeOrg()" id="ox"
+        onmousemove="changeOrg()" /><br>
+    Y-axis:<input type="range" min="-100" max="200" value="40" onchange="changeOrg()" id="oy"
+        onmousemove="changeOrg()" />
     transform-origin: <span id="origin">20% 40%</span>;
+
+
+
+    <div id="div1">
+        <a>container</a>
+        <div class="test tc1" id="div2">-------------
+            <div id="div3xx">div3</div>
+        </div>
+
+        <div class="test0"  id="div3">---------------
+            <div id="div3xx">div3</div>
+        </div>
+
+    </div>
+    <div id="div3xx">div3oo</div>
+
 
 </body>
 
