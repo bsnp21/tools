@@ -9,6 +9,8 @@
     -moz-border-radius: 100%;
     border-radius: 100%;
     z-index: 1;
+
+    overflow: hidden; /*** for arc **/
   }
   
   .inner-clock-face::before {

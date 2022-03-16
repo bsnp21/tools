@@ -2,15 +2,20 @@
   width: 50%;
   height: 50%;
 
-  left: 0%;
+  left: 50%;
   top: 50%;
 
   position: absolute;
+
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
   
-  transform-origin: 0, 0;
+  transform-origin: 0 0;
   transform: rotate(0deg);
 
   background: #f1ee22;
-  border-radius: 50% 0 0 0;
+  border-radiusxxx: 50% 0 0 0;
+
+  opacity: 0.1;
  
 }
