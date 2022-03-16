@@ -10,7 +10,8 @@ function init_obimg() {
         var y = offy + iR * Math.sin(i * Math.PI / 3 - Math.PI / 2)
         console.log(x, y)
         clk.style.transform = `translate(${x}rem,${y}rem)`
-        clk.style.opacity = 0.5 + 0.2 * (Math.sin(i * Math.PI / 6 - Math.PI / 2));//(i+1)/15/2
+        //clk.style.opacity = 0.5 + 0.2 * (Math.sin(i * Math.PI / 6 - Math.PI / 2));//(i+1)/15/2
+        clk.style.opacity = 0.5
         clk.style.border = "2px solid #000000"
 
 
@@ -30,6 +31,9 @@ function isNowObi(idx1) {
     return true
 }
 
+
+
 init_obimg()
 setInterval(init_obimg, 10000);
+
 

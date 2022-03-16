@@ -21,7 +21,7 @@
 
     <link href="./oclock_obi_files/clock_step3_hands.css" rel="stylesheet">
 
-    <link href="./oclock_obi_files/clock_step4_hexagon.css" rel="stylesheet">
+    <link href="./oclock_obi_files/clock_step4_arc_sector.css" rel="stylesheet">
 
 
     <link href="./oclock_obi_files/obi.css" rel="stylesheet">
@@ -49,47 +49,61 @@
             <div class="marking marking-four"></div>
         </div>
 
-        <div class="inner-clock-face">
+        <div class="inner-clock-face" id="inner_clock_face">
 
               <!------------sector Hexagon------------>
-              <div class="HexgonLine arcolr1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
-              <div class="HexgonLine arcolr1" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
-              <div class="HexgonLine arcolr1" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
-  
-              <div class="HexgonLine arcolr2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
-              <div class="HexgonLine arcolr2" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
-              <div class="HexgonLine arcolr2" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
+        
+            
               <!------------sector Hexagon------------>
 
 
-            <div class="innerCircleObilarge"></div>
-            <div class="innerCircleObimiddl"></div>
-            <div class="innerCircleObiSmall"></div>
+            <div class="innerCircleObilarge">
 
-            <img class="obimg g01 p1" src="./oclock_obi_files/62607.gif"
-                style="transform: translate(12.5rem, 1rem); opacity: 0.9;">
-            <img class="obimg g02 p1" src="./oclock_obi_files/62613.gif"
-                style="transform: translate(22.4593rem, 6.75rem); opacity: 0.126795;">
-            <img class="obimg g03 p1" src="./oclock_obi_files/62619.gif"
-                style="transform: translate(22.4593rem, 18.25rem); opacity: 0.2;">
-            <img class="obimg g04 p1" src="./oclock_obi_files/62620.gif"
-                style="transform: translate(12.5rem, 24rem); opacity: 0.3;">
-            <img class="obimg g05 p1" src="./oclock_obi_files/62624.gif"
-                style="transform: translate(2.54071rem, 18.25rem); opacity: 0.4;">
-            <img class="obimg g06 p1" src="./oclock_obi_files/62629.gif"
-                style="transform: translate(2.54071rem, 6.75rem); opacity: 0.473205;">
-            <img class="obimg g07 p2" src="./oclock_obi_files/62633.gif"
-                style="transform: translate(12.5rem, 3.5rem); opacity: 0.5;">
-            <img class="obimg g08 p2" src="./oclock_obi_files/62636.gif"
-                style="transform: translate(20.2942rem, 8rem); opacity: 0.473205;">
-            <img class="obimg g09 p2" src="./oclock_obi_files/62643.gif"
-                style="transform: translate(20.2942rem, 17rem); opacity: 0.4;">
-            <img class="obimg g10 p2" src="./oclock_obi_files/62652.gif"
-                style="transform: translate(12.5rem, 21.5rem); opacity: 0.3;">
-            <img class="obimg g11 p2" src="./oclock_obi_files/62656.gif"
-                style="transform: translate(4.70577rem, 17rem); opacity: 0.2;">
-            <img class="obimg g12 p2" src="./oclock_obi_files/62662.gif"
-                style="transform: translate(4.70577rem, 8rem); opacity: 0.126795;">
+              <div class="Sector-Outer day1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
+              <div class="Sector-Outer day2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
+              <div class="Sector-Outer day1" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
+              <div class="Sector-Outer day6" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
+              <div class="Sector-Outer day5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
+              <div class="Sector-Outer day6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
+
+            </div>
+            <div class="innerCircleObimiddl">
+                <div class="Sector-Outer night1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
+                <div class="Sector-Outer night2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
+                <div class="Sector-Outer night3" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
+                <div class="Sector-Outer night4" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
+                <div class="Sector-Outer night5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
+                <div class="Sector-Outer night6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
+                
+            </div>
+            <div class="innerCircleObiSmall">
+
+            </div>
+
+            <img class="obimg g01 p1" src="./oclock_obi_files/62633.gif" name="zi=62607"
+                style="transform: translate(12.5rem, 1rem);">
+            <img class="obimg g02 p1" src="./oclock_obi_files/62636.gif" name="chou=62613"
+                style="transform: translate(22.4593rem, 6.75rem); ">
+            <img class="obimg g03 p1" src="./oclock_obi_files/62643.gif" name="yin=62619"
+                style="transform: translate(22.4593rem, 18.25rem); ">
+            <img class="obimg g04 p1" src="./oclock_obi_files/62620.gif" name="mou=62620"
+                style="transform: translate(12.5rem, 24rem); ">
+            <img class="obimg g05 p1" src="./oclock_obi_files/62624.gif" name="chen=62624"
+                style="transform: translate(2.54071rem, 18.25rem); ">
+            <img class="obimg g06 p1" src="./oclock_obi_files/62629.gif" name="si=62629"
+                style="transform: translate(2.54071rem, 6.75rem); ">
+            <img class="obimg g07 p2" src="./oclock_obi_files/62607.gif" name="wu=62633"
+                style="transform: translate(12.5rem, 3.5rem); ">
+            <img class="obimg g08 p2" src="./oclock_obi_files/62613.gif" name="wei=62636"
+                style="transform: translate(20.2942rem, 8rem); ">
+            <img class="obimg g09 p2" src="./oclock_obi_files/62619.gif" name="shen=62643"
+                style="transform: translate(20.2942rem, 17rem); ">
+            <img class="obimg g10 p2" src="./oclock_obi_files/62652.gif" name="you=62652"
+                style="transform: translate(12.5rem, 21.5rem); ">
+            <img class="obimg g11 p2" src="./oclock_obi_files/62656.gif" name="shu=62656"
+                style="transform: translate(4.70577rem, 17rem); ">
+            <img class="obimg g12 p2" src="./oclock_obi_files/62662.gif" name="hai-62662"
+                style="transform: translate(4.70577rem, 8rem); ">
 
             <div class="obimgRing" style="transform: translate(12.5rem, 1rem);"></div>
 

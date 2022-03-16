@@ -58,8 +58,8 @@
 
   .innerCircleObilarge{
     position: absolute;
-    top: 4.0%;
-    left: 4.0%;
+    top: 50%;
+    left: 50%;
     width: 92.2%;
     height: 92.2%;
     background: #282828;
@@ -70,14 +70,19 @@
     border: 2px solid gray;
     xbackground-color: white;
 
-    opacity: 0.4;
+    transform: translateX(-50%) translateY(-50%);
+
+    opacity: 1;
+    overflow: hidden;
    
   }
 
   .innerCircleObimiddl {
     position: absolute;
-    top: 12.0%;
-    left: 12.0%;
+    top: 50.0%;
+    left: 50.0%;
+    transform: translateX(-50%) translateY(-50%);
+
     width: 74.0%;
     height: 74.0%;
     background: #282828;
@@ -85,17 +90,20 @@
     -moz-border-radius: 100%;
     border-radius: 100%;
     
-    border: 2px solid white;
+    border: 0.1px solid white;
     xbackground-color: white;
 
 
-    opacity: 0.2;
+    opacity: 1;
+    overflow: hidden;
   }
 
   .innerCircleObiSmall {
     position: absolute;
-    top: 20.0%;
-    left: 20.0%;
+    top: 50.0%;
+    left: 50.0%;
+    transform: translateX(-50%) translateY(-50%);
+
     width: 58.0%;
     height: 58.0%;
     background: #282828;
@@ -103,11 +111,12 @@
     -moz-border-radius: 100%;
     border-radius: 100%;
     
-    border: 2px solid white;
+    border: 0.2px solid white;
     xbackground-color: white;
 
 
-    opacity: 0.05;
+    opacity: 1;
+    overflow: hidden;
   }
 
   .obimgRing{
