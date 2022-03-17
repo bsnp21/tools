@@ -13,7 +13,7 @@
     overflow: hidden; /*** for arc **/
   }
   
-  .inner-clock-facexxxxxxxxxxxxx::before {
+  .inner-clock-facexxxxxxxxxxx::before {
     content: '';
     position: absolute;
     top: 50%;

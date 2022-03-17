@@ -3,8 +3,8 @@ function init_obimg() {
     var clar = document.getElementsByClassName("obimg")
     var offx = 12.5, offy = 12.5
     for (var i = 0; i < clar.length; i++) {
-        var iR = 9
-        if (i < 6) iR = 11.5
+        var iR = 8.5  //for inner circle img position
+        if (i < 6) iR = 11.3 //for outer circle img position
         var clk = clar[i]
         var x = offx + iR * Math.cos(i * Math.PI / 3 - Math.PI / 2)
         var y = offy + iR * Math.sin(i * Math.PI / 3 - Math.PI / 2)

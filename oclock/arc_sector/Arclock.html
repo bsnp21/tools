@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Hclock</title>
+    <title>Arclock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="./oclock_obi_files/clock_step0_background.css" rel="stylesheet">
@@ -49,37 +49,39 @@
             <div class="marking marking-four"></div>
         </div>
 
-        <div class="inner-clock-face" id="inner_clock_face">
-
-              <!------------sector Hexagon------------>
-        
-            
-              <!------------sector Hexagon------------>
+        <div class="inner-clock-face" >
 
 
+
+              <!------------arc  sector start------------>
             <div class="innerCircleObilarge">
 
-              <div class="Sector-Outer day1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
-              <div class="Sector-Outer day2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
-              <div class="Sector-Outer day1" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
-              <div class="Sector-Outer day6" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
-              <div class="Sector-Outer day5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
-              <div class="Sector-Outer day6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
+              <div class="Arc_Sector day1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
+              <div class="Arc_Sector day2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
+              <div class="Arc_Sector day1" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
+              <div class="Arc_Sector day6" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
+              <div class="Arc_Sector day5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
+              <div class="Arc_Sector day6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
 
             </div>
             <div class="innerCircleObimiddl">
-                <div class="Sector-Outer night1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
-                <div class="Sector-Outer night2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
-                <div class="Sector-Outer night3" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
-                <div class="Sector-Outer night4" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
-                <div class="Sector-Outer night5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
-                <div class="Sector-Outer night6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
+                <div class="Arc_Sector night1" style="transform: translate(0rem, 0rem) rotate(0deg) skew(30deg);"></div>
+                <div class="Arc_Sector night2" style="transform: translate(0rem, 0rem) rotate(60deg) skew(30deg);"></div>
+                <div class="Arc_Sector night3" style="transform: translate(0rem, 0rem) rotate(120deg) skew(30deg);"></div>
+                <div class="Arc_Sector night4" style="transform: translate(0rem, 0rem) rotate(180deg) skew(30deg);"></div>
+                <div class="Arc_Sector night5" style="transform: translate(0rem, 0rem) rotate(240deg) skew(30deg);"></div>
+                <div class="Arc_Sector night6" style="transform: translate(0rem, 0rem) rotate(300deg) skew(30deg);"></div>
                 
             </div>
+
             <div class="innerCircleObiSmall">
-
             </div>
+            <!------------arc sector end------------>
 
+
+
+
+            <!----------img------------->
             <img class="obimg g01 p1" src="./oclock_obi_files/62633.gif" name="zi=62607"
                 style="transform: translate(12.5rem, 1rem);">
             <img class="obimg g02 p1" src="./oclock_obi_files/62636.gif" name="chou=62613"
@@ -105,11 +107,14 @@
             <img class="obimg g12 p2" src="./oclock_obi_files/62662.gif" name="hai-62662"
                 style="transform: translate(4.70577rem, 8rem); ">
 
+            <!---------img flasher-->
             <div class="obimgRing" style="transform: translate(12.5rem, 1rem);"></div>
 
 
+            <div class="Switch_Marker">+</div>
 
 
+            <!------------runtime hands-------->
             <div class="hand hour-hand" style="transform: rotate(99.5deg);"></div>
             <div class="hand min-hand" style="transform: rotate(204.4deg);"></div>
             <div class="hand second-hand" style="transform: rotate(114deg);"></div>

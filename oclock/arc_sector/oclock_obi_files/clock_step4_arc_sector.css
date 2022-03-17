@@ -1,0 +1,76 @@
+.Arc_Sector {
+  width: 50%;
+  height: 50%;
+
+  left: 50%;
+  top: 50%;
+
+  position: absolute;
+
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  
+  transform-origin: 0 0;
+  transform: rotate(0deg);
+
+ 
+  border-width: 11px;
+  border: 2px solid #f1ee22;
+
+  opacity: 0.2;
+ 
+}
+
+/** 3:00-5:00 **/
+.day1, .day3{
+  background: rgb(148, 67, 67)
+}
+.day2, .night2{
+  background: white;
+}
+
+.day4, .day6{
+  background: rgb(199, 50, 50)
+}
+.day5{
+  background: red
+}
+
+
+.night1, .night3 {
+  background: rgb(138, 124, 124);
+}
+
+
+.night4, .night6{
+  background: rgb(39, 36, 36);
+}
+.night5{
+  background: black
+}
+
+
+.Switch_Marker{
+
+
+  left: 64.4%;
+  top: 72.3%;
+
+  position: absolute;
+
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  
+  transform-origin: 0 0;
+  transform: rotate(0deg);
+
+
+ 
+  font-size: 200%;
+  color: yellow;
+
+  background-color: transparent;
+
+  opacity: .71;
+}
+
