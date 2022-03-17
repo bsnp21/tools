@@ -17,8 +17,7 @@ function init_obimg() {
 
         ////determin img in the hour to flash.
         var ihour = oimg.getAttribute("ihour");
-        const now = new Date();
-        var chour = now.getHours();
+        var chour = (new Date()).getHours();
         if (chour === 0) chour = 24
         var dlt = chour - ihour
         if (dlt >= 0 && dlt < 2) {//found the current img and mov flash on it.
