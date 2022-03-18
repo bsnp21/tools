@@ -1,0 +1,155 @@
+<!Doctype Html>
+<Html>
+
+<Head>
+    <Title>
+        Add the Line using Html tags
+    </Title>
+    <style>
+        .ele {
+            position: absolute;
+
+            border: 1px solid black;
+            width: 200px;
+        }
+
+        #p2 {
+            right: 150px;
+            top: 120px;
+        }
+
+        hr {
+
+            position: absolute;
+
+            left: 400px;
+            top: 200px;
+            xxxtransform-origin: 0px 0px;
+        }
+
+        .red1 {
+
+            xxxtransform: translateX(10px) translateY(20px) rotate(-40deg);
+        }
+
+        .grn1 {
+            transform-origin: 10px 10px;
+            transform: translateX(10px) translateY(20px) rotate(90deg);
+        }
+    </style>
+
+</Head>
+
+<Body>
+    <div class="ele" id="p1">
+
+        This page helps you to understand how to add the line in Html document.
+    </div>
+    <hr id="hr0" class="red1" size="2" width="20000px" color="red">
+    <hr class="grn1" size="2" width="50px" color="green">
+    <hr id="hr1" size="2" width="100px" color="blue">
+
+    <div id="ele">
+
+        And, this section helps you to understand how to add the line using the Html tag.
+    </div>
+    <div class="ele">
+
+        And, tx
+    </div>
+    <div class="ele" id="p2">
+
+        And, this
+    </div>
+</Body>
+
+</Html>
+<script>
+    function test() {
+
+
+        var edv = document.getElementById("p1")
+        var p1rec = edv.getBoundingClientRect();
+        console.log("p1rec", p1rec)
+
+        var ep2 = document.getElementById("p2")
+        var p2rec = ep2.getBoundingClientRect();
+        console.log("p2rec", p2rec)
+
+        var hr = document.getElementsByClassName("red1")[0]
+        var hrec = hr.getBoundingClientRect();
+        var x = -hrec.x + p1rec.x;
+        var y = -hrec.y + p1rec.y;
+
+        var dtx = p2rec.x - p1rec.x
+        var dty = p2rec.y - p1rec.y
+        var deg = Math.atan(dty / dtx) * 180 / Math.PI
+        console.log("deg", deg)
+
+        var dist = Math.sqrt(dtx * dtx + dty * dty)
+        console.log("dist", dist)
+
+        hr.style.width = `${dist}px`
+
+        var str = ` translate(${x}px,${y}px) rotate(${deg}deg)`
+        hr.style.transform = str
+        //hr.style.transform =` translate(-10px,0px) rotate(30deg)`
+
+        console.log("hrec", hrec)
+        console.log(str)
+        //hr.style.transform =` translate(${erec.left/2}rem,${erec.top}rem) rotate(30deg)`
+
+    }
+
+
+    var docDraw = {
+        e2eLine: function (id1, id2, idraw) {
+            var ep1 = document.getElementById(id1)
+            var rec1 = ep1.getBoundingClientRect();
+            var ep2 = document.getElementById(id2)
+            var rec2 = ep2.getBoundingClientRect();
+            console.log("rec1", rec1)
+            console.log("rec2", rec2)
+
+
+            var ehr = null
+            if (!idraw) {
+                //created one not working
+                ehr = document.createElement("hr")
+                ehr.style.backgroundColor = "red"
+                ehr.style.size = 2;
+            } else {
+                ehr = document.getElementById(idraw)
+            }
+            var hrec = ehr.getBoundingClientRect();
+            var x = -hrec.x + rec1.x;
+            var y = -hrec.y + rec1.y;
+
+            var dtx = rec2.x - rec1.x
+            var dty = rec2.y - rec1.y
+            var deg = Math.atan(dty / dtx) * 180 / Math.PI
+            console.log("deg", deg)
+
+            var dist = Math.sqrt(dtx * dtx + dty * dty)
+            console.log("dist", dist)
+
+            ehr.style.width = `${dist}px`
+            ehr.style.transformOrigin = "0 0"
+
+            var str = ` translate(${x}px,${y}px) rotate(${deg}deg)`
+            ehr.style.transform = str
+
+            console.log("hrec", hrec)
+            console.log(str)
+
+        }
+    }
+
+    //test()
+    docDraw.e2eLine("p1", "p2", "hr0")
+    //line2("p1", "p2", "hr1")
+
+
+
+
+</script>
