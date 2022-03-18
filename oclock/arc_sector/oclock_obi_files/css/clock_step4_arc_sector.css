@@ -24,27 +24,27 @@
 /** sector colors **/
 /** 3:00-5:00 **/
 .day1, .day3{
-  background: rgb(148, 67, 67)
+  background: rgb(185, 129, 129)
 }
 .day2, .night2{
   background: white;
 }
 
 .day4, .day6{
-  background: rgb(199, 50, 50)
+  background: rgb(177, 46, 46)
 }
 .day5{
-  background: red
+  background: rgb( 255,0,0)
 }
 
 
 .night1, .night3 {
-  background: rgb(138, 124, 124);
+  background: rgb(189, 187, 187);
 }
 
 
 .night4, .night6{
-  background: rgb(39, 36, 36);
+  background: rgb(94, 92, 92);
 }
 .night5{
   background: black
@@ -54,8 +54,8 @@
 .Track_Switch_Marker{
 
 
-  left: 64.4%;
-  top: 72.3%;
+  left: 60.1%;
+  top: 75.5%;
 
   position: absolute;
 
@@ -63,7 +63,7 @@
   margin: 0 0 0 0;
   
   transform-origin: 0 0;
-  transform: rotate(0deg);
+  transform: rotate(-30deg);
 
 
  

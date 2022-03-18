@@ -4,8 +4,8 @@ function init_obimg() {
     const offx = 12.5, offy = 12.5 //as decorating .clock padding: 2rem;
     var imary = document.getElementsByClassName("obimg")
     for (var i = 0; i < imary.length; i++) {
-        var iR = 8.5  //for inner circle img position
-        if (i < 6) iR = 11.3 //for outer circle img position
+        var iR = 8.1  //for inner circle img position
+        if (i < 6) iR = 11.1 //for outer circle img position
         var oimg = imary[i]
         var x = offx + iR * Math.cos(i * Math.PI / 3 - Math.PI / 2)
         var y = offy + iR * Math.sin(i * Math.PI / 3 - Math.PI / 2)
