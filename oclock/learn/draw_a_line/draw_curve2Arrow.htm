@@ -14,8 +14,8 @@
             border-color: red;
             border-style: solid;
 
-            border-radius: 40% 40% 0% 0%;
-            border-width: 2px 2px 0px 2px;
+            border-radius: 0% 0% 0% 0%;
+            border-width: 2px 0px 0px 0px;
 
             border-bottom-style: hidden;
 
@@ -45,7 +45,7 @@
         }
         table{
             position: relative;
-            top:100px;
+            top:200px;
             left:200px;
         }
     </style>
@@ -88,7 +88,14 @@
 
        var lin = new e2eLine("curvedline", 0.5)
 
-       lin.coverup("p22","p23", 2)
+       lin.coverdn("p22","p33", 2)
+       lin.coverdn("p22","p23", 2)
+       lin.coverdn("p22","p13", 2)
+       lin.coverdn("p22","p12", 2)
+       lin.coverdn("p22","p11", 2)
+       lin.coverdn("p22","p21", 2)
+       lin.coverdn("p22","p31", 2)
+       lin.coverdn("p22","p32", 2)
     }
 
 
