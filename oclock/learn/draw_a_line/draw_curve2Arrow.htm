@@ -62,18 +62,51 @@
 
     <table border="1" onclick="test()">
         <tr>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+        </tr>
+        <tr>
             <td id="p11">11 <br>nnnnnnnnnnnnn<br>9090909</td>
-            <td id="p12">12</td>
+            <td id="p12">12<br>nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br></td>
             <td id="p13">13 nnnnnnnnnnnnn</td>
         </tr>
         <tr>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+        </tr>
+        <tr>
             <td id="p21">21 9090909</td>
-            <td id="p22">22 <br>nnnnnnnnnnnnn<br</td>
+            <td id="p22">22 <br>nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br></td>
             <td id="p23">23 <br>nnnnnnnnnnnnn<br></td>
         </tr>
         <tr>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+            <td>
+                nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br>
+            </td>
+        </tr>
+        <tr>
             <td id="p31">31 9090909</td>
-            <td id="p32">32</td>
+            <td id="p32">32<br>nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br><br>nnnnnnnnnnnnn<br></td>
             <td id="p33">33 nnnnnnnnnnnnn</td>
         </tr>
     </table>
@@ -87,15 +120,16 @@
     function test() {
 
        var lin = new e2eLine("curvedline", 0.5)
+       lin.direct2("p22","p12", 2)
+       lin.direct2("p22","p32", 2)
+       //return
+       lin.direct2("p22","p11", 2)
 
-       lin.coverdn("p22","p33", 2)
-       lin.coverdn("p22","p23", 2)
-       lin.coverdn("p22","p13", 2)
-       lin.coverdn("p22","p12", 2)
-       lin.coverdn("p22","p11", 2)
-       lin.coverdn("p22","p21", 2)
-       lin.coverdn("p22","p31", 2)
-       lin.coverdn("p22","p32", 2)
+       lin.direct2("p22","p33", 2)
+       lin.direct2("p22","p23", 2)
+       lin.direct2("p22","p13", 2)
+       lin.direct2("p22","p21", 2)
+       lin.direct2("p22","p31", 2)
     }
 
 
