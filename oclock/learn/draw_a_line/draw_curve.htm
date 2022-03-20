@@ -1,0 +1,138 @@
+<!Doctype Html>
+<Html>
+
+<Head>
+    <Title>
+        Add the Line using Html tags
+    </Title>
+    <script src="./draw_line.js"></script>
+    <style>
+        .ele {
+            position: absolute;
+
+            xborder: solid red;
+            border-color: red;
+            border-style: solid;
+
+
+            border-radius: 50% 50% 50% 50%;
+            border-width: 2px 0px 0px 0px;
+            border-bottom: 0;
+
+            xborder-bottom-style: hidden;
+
+            top: 100px;
+            left: 200px;
+
+            width: 200px;
+            height: 100px;
+            transform-origin: 0 0;
+            transform: rotate("90deg");
+
+            xbackground-color: rgb(2, 2, 2);
+        }
+
+        .curvedline {
+            position: absolute;
+
+            border-color: red;
+            border-style: solid;
+
+            border-radius: 50% 50% 0% 0%;
+            border-width: 2px 0px 0px 0px;
+
+            border-bottom-style: hidden;
+
+            
+            width: 200px;
+            height: 200px;
+            xpadding: 10px 10px 10px 10px;
+            xmargin: 10px 10px 10px 10px;
+
+            opacity: 1;
+
+
+            /*****/
+            top: 0px;
+            left: 0px;
+
+            transform-origin: 0 0;
+            xtransform: translate(50%, 50%) rotate("90deg");
+
+            xbackground-color: rgb(2, 2, 2);
+        }
+
+
+        .specialSymbol {
+            font-size: 100px;
+            color: aqua;
+        }
+    </style>
+
+</Head>
+
+<Body>
+    <a href="https://www.madeintext.com/text-symbols/#line">symbols</a>
+
+    <div class="specialSymbol">
+
+        ︵ ◠ ⌢
+    </div>
+
+    <div class="ele">
+
+        ddd
+    </div>
+
+    <div class="curvedline"> </div>
+
+    <table border="1">
+        <tr>
+            <td id="p11">11 9090909</td>
+            <td id="p12">12</td>
+            <td id="p13">13 nnnnnnnnnnnnn</td>
+        </tr>
+    </table>
+
+</Body>
+
+</Html>
+
+<script>
+
+    function test() {
+
+        var hr = document.getElementsByClassName("ele")[0]
+        var hrec = hr.getBoundingClientRect();
+        var x = -hrec.x + p1rec.x;
+        var y = -hrec.y + p1rec.y;
+
+        var dtx = p2rec.x - p1rec.x
+        var dty = p2rec.y - p1rec.y
+        var deg = Math.atan(dty / dtx) * 180 / Math.PI
+        console.log("deg", deg)
+
+        var dist = Math.sqrt(dtx * dtx + dty * dty)
+        console.log("dist", dist)
+
+        hr.style.width = `${dist}px`
+
+
+        var str = ` translate(${x}px,${y}px) rotate(${deg}deg)`
+        hr.style.transform = str
+        //hr.style.transform =` translate(-10px,0px) rotate(30deg)`
+
+        console.log("hrec", hrec)
+        console.log(str)
+        //hr.style.transform =` translate(${erec.left/2}rem,${erec.top}rem) rotate(30deg)`
+
+    }
+
+    var a = docDraw.createPens("curvedline", 100)
+    docDraw.curveup("p11", "p13", function () {
+        return a[0]
+    })
+    //test()
+
+
+</script>

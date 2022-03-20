@@ -1,0 +1,100 @@
+<!Doctype Html>
+<Html>
+
+<Head>
+    <Title>
+        Add the Line using Html tags
+    </Title>
+    <script src="/Users/weiding/Sites/weidroot/weidroot_2017-01-06/app/github/wdingbox/obilab/test1/oohtm/js/e2eLine.js"></script>
+    <style>
+    
+        .curvedline {
+            position: absolute;
+
+            border-color: red;
+            border-style: solid;
+
+            border-radius: 40% 40% 0% 0%;
+            border-width: 2px 2px 0px 2px;
+
+            border-bottom-style: hidden;
+
+            
+            width: 200px;
+            height: 200px;
+            xpadding: 10px 10px 10px 10px;
+            xmargin: 10px 10px 10px 10px;
+
+            opacity: 1;
+
+
+            /*****/
+            top: 0px;
+            left: 0px;
+
+            transform-origin: 0 0;
+            xtransform: translate(50%, 50%) rotate("90deg");
+
+            xbackground-color: rgb(2, 2, 2);
+        }
+
+
+        .specialSymbol {
+            font-size: 100px;
+            color: aqua;
+        }
+        table{
+            position: relative;
+            top:100px;
+            left:200px;
+        }
+    </style>
+
+</Head>
+
+<Body>
+    <a href="https://www.madeintext.com/text-symbols/#line">symbols</a>
+
+
+
+
+    <div class="curvedline"> </div>
+
+    <table border="1" onclick="test()">
+        <tr>
+            <td id="p11">11 <br>nnnnnnnnnnnnn<br>9090909</td>
+            <td id="p12">12</td>
+            <td id="p13">13 nnnnnnnnnnnnn</td>
+        </tr>
+        <tr>
+            <td id="p21">21 9090909</td>
+            <td id="p22">22 <br>nnnnnnnnnnnnn<br</td>
+            <td id="p23">23 <br>nnnnnnnnnnnnn<br></td>
+        </tr>
+        <tr>
+            <td id="p31">31 9090909</td>
+            <td id="p32">32</td>
+            <td id="p33">33 nnnnnnnnnnnnn</td>
+        </tr>
+    </table>
+
+</Body>
+
+</Html>
+
+<script>
+
+    function test() {
+
+       var lin = new e2eLine("curvedline", 0.5)
+
+       lin.coverup("p22","p23", 2)
+    }
+
+
+    test()
+
+    
+
+
+</script>
