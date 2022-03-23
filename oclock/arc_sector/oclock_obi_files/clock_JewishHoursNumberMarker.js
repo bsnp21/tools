@@ -2,7 +2,7 @@
 
 
 
-function init_hour_number() {
+function init_Jewish_Hour_number() {
     var imary = document.getElementsByClassName("Hour_Number_Marker")
     for (var i = 0; i < 12; i++) {
         var offx = -0.4, offy = -0.8 //offset font size;
@@ -19,4 +19,4 @@ function init_hour_number() {
 
     }
 }
-init_hour_number();
+init_Jewish_Hour_number();
