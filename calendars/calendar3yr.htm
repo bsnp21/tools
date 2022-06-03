@@ -436,7 +436,7 @@
                     storage.save_notes()
                 })
             },
-           
+
             increase_width: function (idlta) {
                 var width = $("#tab1 td").width();
                 width += idlta
@@ -605,10 +605,13 @@
                     //$("#editxt").hide()
                 }
 
+                var sWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                var iweek = $(this).parent().index() - 1;
+
 
                 var htm = $(this).html()
                 $("#editxt").html(htm)
-                $("#edishowdate").text($(this).attr("id"))
+                $("#edishowdate").text($(this).attr("id") + ", " + sWeek[iweek])
 
                 $("#editorboard")
                     .css({
@@ -755,11 +758,11 @@
                 href="mailto:wdingsoft@gmail.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here">EmailTo:</a>
             <input id="email_addr" type="text" x-webkit-speech="true"></input>
         </form>
-     
+
         <button onclick="uuti.import_Notes();">import</button>
         <button onclick="uuti.Txa2uiCompare();">Txa2uiCompare</button> <a id="info" class="row">...</a><br>
         <div id="cmp"></div>
-       
+
         <textarea id="outx" value='1'></textarea><br>
         <button onclick="uuti.Clear();">Clear</button>
         <button onclick="storage.save_notes()">Save</button><br>
