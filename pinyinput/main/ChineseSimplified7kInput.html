@@ -52,7 +52,8 @@
         .hilite {
             background-color: #ff0000;
         }
-        .hilite_row{
+
+        .hilite_row {
             background-color: #eeee00;
         }
     </style>
@@ -153,7 +154,7 @@
                                 var hi = $(".hilite");
                                 if (!hi.length) return;
                                 var nxr = $(hi).parentsUntil("tbody").prevUntil(".rowzi");//exclusively.
-                               
+
                                 if (nxr.length > 0) {
                                     nxr = $(nxr).last().prev();//must take the last one.
                                     console.log("nx.length>0")
@@ -217,17 +218,19 @@
             $.each(Pinyin7kzi, function (k, chary) {
                 pinyinArr.push(k);
                 tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr>"
-                tab += "<tr class='rowzi'>";
-      
+
+                var rowstart = 0;
                 for (var i = 0; i < chary.length; i++) {
-                    if (chary[i] === "鵀") continue;//does not support latex gkai.
-                    tab += "<td class='zi'>" + chary[i] + "</td>";
-                    if ((1 + i) % 10 === 0) {
-                        tab += "</tr><tr class='rowzi'>";
-                        continue;
+                    //if (chary[i] === "鵀") continue;//does not support latex gkai.
+                    if (rowstart === 0) {
+                        tab += "<tr class='rowzi'>";
+                    }
+                    tab += `<td class='zi'>${chary[i]}</td>`;
+                    rowstart = (1 + i) % 10
+                    if (rowstart === 0) {
+                        tab += "</tr>";
                     }
                 };//for
-                tab += "</tr>";
 
             });
             $("#out").html(tab);
