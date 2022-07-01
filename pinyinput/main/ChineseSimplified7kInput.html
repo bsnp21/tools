@@ -72,9 +72,6 @@
             background-color: lightyellow;
         }
 
-        .TxtareaBlurred {
-            background-color: lightyellow;
-        }
     </style>
 
     <script language="javascript">
@@ -107,21 +104,19 @@
             $("#txtar").on("focus", function () {
                 $(".py_input_focused").removeClass("py_input_focused")
                 $(this).addClass("py_input_focused")
-                //$(".TxtareaBlurred").removeClass("TxtareaBlurred")
+               
             }).on("blur", function () {
                 $(".py_input_focused").removeClass("py_input_focused")
-                //$(this).removeClass("TxtareaFocused")
-                //$("#pinyin_hanzi_list_Table").addClass("TxtareaBlurred")
                 $("body").addClass("py_input_focused")
             })
             $("body").addClass("py_input_focused")
             $("#inp").focus()
 
-            $("#inp").keyup(function (e) {
+            $("#inp").keyup(function (evt) {
                 if ($(".TxtareaFocused").size() > 0) {
                     return;
                 }
-                var c = (e.which);
+                var c = (evt.which);
                 console.log(c);
                 $("#dbg_keydwn").text(c)
 
@@ -152,6 +147,8 @@
                     })
                 }
                 else {//arrows
+                    //evt.preventDefault();
+                    //evt.stopPropagation ()
                     switch (c) {
                         case 37://left arrow
                         case 219:// move to left "{".
