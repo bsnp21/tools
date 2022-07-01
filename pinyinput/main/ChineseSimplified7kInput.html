@@ -23,7 +23,7 @@
             left: 250px;
             height: 200px;
             width: 300px;
-            background-color: #eeaaee;
+            border-color: #eeaaee;
             font-size: 24px;
 
         }
@@ -56,6 +56,10 @@
         .hilite_row {
             background-color: #eeee00;
         }
+
+        .TxtareaFocused {
+            background-color: lightyellow;
+        }
     </style>
 
     <script language="javascript">
@@ -85,8 +89,16 @@
                 $("#txtar").val($("#txtar").val() + s);
             });
 
+            $("#txtar").on("focus", function () {
+                $(this).addClass("TxtareaFocused")
+            }).on("blur", function () {
+                $(this).removeClass("TxtareaFocused")
+            })
 
             $("body").keyup(function (e) {
+                if ($(".TxtareaFocused").size() > 0) {
+                    return;
+                }
                 var c = (e.which);
                 console.log(c);
                 $("#dbg_keydwn").text(c)
