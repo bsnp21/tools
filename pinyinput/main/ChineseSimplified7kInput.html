@@ -185,7 +185,7 @@
             $(".zi").click(function (e) {
                 var zi = $(this).text();
 
-                $("#txtar").trigger("keyup",function(e){
+                $("#txtar").trigger("keyup", function (e) {
                     console.log(zi, e.which)
 
                 })
@@ -201,16 +201,16 @@
         });
 
         function makeTable() {
-            var tab = "<table border='1'>";
-            var idx = 0;
+            var tab = "<table border='1' note='pinyin_hanzi_list_Table'>";
+
             var pinyinArr = [];
             $.each(Pinyin7kzi, function (k, chary) {
                 pinyinArr.push(k);
-                tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr><tr class='rowzi'>";
+                tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr>"
+                tab += "<tr class='rowzi'>";
+      
                 for (var i = 0; i < chary.length; i++) {
                     if (chary[i] === "鵀") continue;//does not support latex gkai.
-
-                    idx++;
                     tab += "<td class='zi'>" + chary[i] + "</td>";
                     if ((1 + i) % 10 === 0) {
                         tab += "</tr><tr class='rowzi'>";
