@@ -52,6 +52,9 @@
         .hilite {
             background-color: #ff0000;
         }
+        .hilite_row{
+            background-color: #eeee00;
+        }
     </style>
 
     <script language="javascript">
@@ -130,15 +133,17 @@
                             {
                                 var hi = $(".hilite");
                                 if (!hi.length) return;
-                                var nx = $(hi).parentsUntil("tbody").nextUntil(".rowzi");//exclusively.
-                                if (nx.length > 0) {
-                                    nx = $(nx).last().next();
+                                var nxr = $(hi).parentsUntil("tbody").nextUntil(".rowzi");//exclusively.
+                                if (nxr.length > 0) {
+                                    nxr = $(nxr).last().next();
                                 } else {
-                                    nx = $(hi).parentsUntil("tbody").next();
+                                    nxr = $(hi).parentsUntil("tbody").next();
                                 }
                                 $(".zi").removeClass("hilite");
-                                $(nx).find(".zi:eq(0)").addClass("hilite");
+                                $(nxr).find(".zi:eq(0)").addClass("hilite");
                                 g_scrollIntoViewDir = true;
+                                $(".hilite_row").removeClass("hilite_row")
+                                $(nxr).addClass("hilite_row")
                             }
                             return false;
 
@@ -147,14 +152,19 @@
                             {
                                 var hi = $(".hilite");
                                 if (!hi.length) return;
-                                var nx = $(hi).parentsUntil("tbody").prevUntil(".rowzi");//exclusively.
-                                if (nx.length > 0) {
-                                    nx = $(nx).last().prev();//must take the last one.
+                                var nxr = $(hi).parentsUntil("tbody").prevUntil(".rowzi");//exclusively.
+                               
+                                if (nxr.length > 0) {
+                                    nxr = $(nxr).last().prev();//must take the last one.
+                                    console.log("nx.length>0")
                                 } else {
-                                    nx = $(hi).parentsUntil("tbody").prev();
+                                    nxr = $(hi).parentsUntil("tbody").prev();
+                                    console.log("nx.length===0")
                                 }
                                 $(".zi").removeClass("hilite");
-                                $(nx).find(".zi:eq(0)").addClass("hilite");//[0].scrollIntoView(false);  
+                                $(".hilite_row").removeClass("hilite_row")
+                                $(nxr).addClass("hilite_row")
+                                $(nxr).find(".zi:eq(0)").addClass("hilite");//[0].scrollIntoView(false);  
                                 g_scrollIntoViewDir = false;
                             }
                             return false;
