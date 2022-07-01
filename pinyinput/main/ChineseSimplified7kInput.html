@@ -130,7 +130,7 @@
                             {
                                 var hi = $(".hilite");
                                 if (!hi.length) return;
-                                var nx = $(hi).parentsUntil("tbody").nextUntil(".rz");//exclusively.
+                                var nx = $(hi).parentsUntil("tbody").nextUntil(".rowzi");//exclusively.
                                 if (nx.length > 0) {
                                     nx = $(nx).last().next();
                                 } else {
@@ -147,7 +147,7 @@
                             {
                                 var hi = $(".hilite");
                                 if (!hi.length) return;
-                                var nx = $(hi).parentsUntil("tbody").prevUntil(".rz");//exclusively.
+                                var nx = $(hi).parentsUntil("tbody").prevUntil(".rowzi");//exclusively.
                                 if (nx.length > 0) {
                                     nx = $(nx).last().prev();//must take the last one.
                                 } else {
@@ -182,8 +182,14 @@
                 }//if(c)
             });
 
-            $(".zi").click(function () {
+            $(".zi").click(function (e) {
                 var zi = $(this).text();
+
+                $("#txtar").trigger("keyup",function(e){
+                    console.log(zi, e.which)
+
+                })
+
                 var va = $("#txtar").val();
                 $("#txtar").val(va + zi);
                 g_inpstr = "";
@@ -200,14 +206,14 @@
             var pinyinArr = [];
             $.each(Pinyin7kzi, function (k, chary) {
                 pinyinArr.push(k);
-                tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr><tr class='rz'>";
+                tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr><tr class='rowzi'>";
                 for (var i = 0; i < chary.length; i++) {
                     if (chary[i] === "鵀") continue;//does not support latex gkai.
 
                     idx++;
                     tab += "<td class='zi'>" + chary[i] + "</td>";
                     if ((1 + i) % 10 === 0) {
-                        tab += "</tr><tr class='rz'>";
+                        tab += "</tr><tr class='rowzi'>";
                         continue;
                     }
                 };//for
@@ -229,7 +235,7 @@
 
     <div id="mainmenu">
         <a href="ChineseSimplifyer.html" target="_blank">ChineseSimplifyer</a><br>
-        [;] move to left; <br>['] move to right; <br>[.] move to down; <br>[/] move to up; <br>[shift]
+        ← move to left. <br>→ move to right. <br>↓ move to down. <br>↑ move to up.<br>[shift]
         scrollintoview<br>
 
         <button id='listallp'>allpinyin</button>
