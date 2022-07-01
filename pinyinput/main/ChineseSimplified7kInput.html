@@ -18,7 +18,7 @@
 
     <style type="text/css">
         #txtar {
-            position: fixed;
+            position: xfixed;
             top: 0px;
             left: 250px;
             height: 200px;
@@ -29,18 +29,29 @@
         }
 
         #inp {
-            position: fixed;
+            position: xfixed;
             top: 210px;
             left: 250Px;
-            background-color: #eeee00;
+
+
             font-size: 24px;
-            border: none;
+
+           
+        }
+
+
+        .py_input_focused {
+            background-color: lightcyan;
+        }
+
+        .py_input_blurred {
+            background-color: lightgray;
         }
 
         #mainmenu {
             position: fixed;
             width: 300px;
-            top: 250px;
+            top: 20px;
             left: 250px;
         }
 
@@ -58,6 +69,10 @@
         }
 
         .TxtareaFocused {
+            background-color: lightyellow;
+        }
+
+        .TxtareaBlurred {
             background-color: lightyellow;
         }
     </style>
@@ -90,12 +105,19 @@
             });
 
             $("#txtar").on("focus", function () {
-                $(this).addClass("TxtareaFocused")
+                $(".py_input_focused").removeClass("py_input_focused")
+                $(this).addClass("py_input_focused")
+                //$(".TxtareaBlurred").removeClass("TxtareaBlurred")
             }).on("blur", function () {
-                $(this).removeClass("TxtareaFocused")
+                $(".py_input_focused").removeClass("py_input_focused")
+                //$(this).removeClass("TxtareaFocused")
+                //$("#pinyin_hanzi_list_Table").addClass("TxtareaBlurred")
+                $("body").addClass("py_input_focused")
             })
+            $("body").addClass("py_input_focused")
+            $("#inp").focus()
 
-            $("body").keyup(function (e) {
+            $("#inp").keyup(function (e) {
                 if ($(".TxtareaFocused").size() > 0) {
                     return;
                 }
@@ -224,7 +246,7 @@
         });
 
         function makeTable() {
-            var tab = "<table border='1' note='pinyin_hanzi_list_Table'>";
+            var tab = "<table border='1' id='pinyin_hanzi_list_Table'>";
 
             var pinyinArr = [];
             $.each(Pinyin7kzi, function (k, chary) {
@@ -255,14 +277,15 @@
 
 <BODY>
 
-    <textarea id="txtar"></textarea>
-    <input id="inp" readonly='1'></input>
-
     <div id="mainmenu">
-        <a href="ChineseSimplifyer.html" target="_blank">ChineseSimplifyer</a><br>
-        ← move to left. <br>→ move to right. <br>↓ move to down. <br>↑ move to up.<br>[shift]
-        scrollintoview<br>
+        <textarea id="txtar"></textarea>
+        <a>Input PinYin:</a><input id="inp" xreadonly='1'></input><br>
 
+
+        ← move to left. <br>→ move to right. <br>↓ move down. <br>↑ move up.<br>[shift]
+        scrollintoview<br><br>
+
+        <a href="ChineseSimplifyer.html" target="_blank">ChineseSimplifyer</a><br>
         <button id='listallp'>allpinyin</button>
         <a id="dbg_keydwn"></a>
     </div>
