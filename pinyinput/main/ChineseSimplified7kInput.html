@@ -36,7 +36,7 @@
 
             font-size: 24px;
 
-           
+
         }
 
 
@@ -140,8 +140,18 @@
                         $(".hilite").removeClass("hilite");
                         $(this).parentsUntil("tbody").next().find(".zi:eq(0)").addClass("hilite");
                     });
+                } else if (32 === c) {//space to empty input.
+                    g_inpstr = "";
+                    $("#inp").val("");
+                } else if (c === 13) {//enter to add to text.
+                    $(".hilite").each(function () {
+                        var t = $(this).text();
+                        $("#txtar").val($("#txtar").val() + t);
+                        g_inpstr = "";
+                        $("#inp").val("");
+                    })
                 }
-                else {
+                else {//arrows
                     switch (c) {
                         case 37://left arrow
                         case 219:// move to left "{".
@@ -207,20 +217,6 @@
                         case 16://shift to show
                             $(".hilite").each(function () {
                                 $(this)[0].scrollIntoView(g_scrollIntoViewDir);
-                            })
-                            return;
-
-                        case 32://space to clear
-                            g_inpstr = "";
-                            $("#inp").val("");
-                            return;
-
-                        case 13://enter to add.
-                            $(".hilite").each(function () {
-                                var t = $(this).text();
-                                $("#txtar").val($("#txtar").val() + t);
-                                g_inpstr = "";
-                                $("#inp").val("");
                             })
                             return;
                     };////switch
