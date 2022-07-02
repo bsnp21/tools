@@ -60,7 +60,7 @@
 
         }
 
-        .hilite {
+        .hilite_zi {
             background-color: #ff0000;
         }
 
@@ -71,25 +71,17 @@
         .TxtareaFocused {
             background-color: lightyellow;
         }
-
     </style>
 
     <script language="javascript">
         var g_inpstr = "", g_scrollIntoViewDir = true;//up, false:bottom.
         $(document).ready(function () {
 
-            var pyarr = makeTable();
-            function GetFirstAvailablePinyin(py, pinyinArr) {
-                for (var i = 1; i <= 5; i++) {
-                    var pyid = py + i;
-                    if (pinyinArr.indexOf(pyid) >= 0) {
-                        return pyid;
-                    }
-                }
-                return "";//alert("fatal error! no such pinyin:"+py);
-            }
+            makePinyinTable();
+
             $("#listallp").click(function () {
                 var s = "\n", syllables = {};
+                var pyarr = Object.keys(Pinyin7kzi)
                 $.each(pyarr, function (i, k) {
                     s += "" + i + ":" + k + "\n";
 
@@ -101,23 +93,32 @@
                 $("#txtar").val($("#txtar").val() + s);
             });
 
+
+
+            $("body").addClass("py_input_focused")
+            $("#inp").focus()
+            $("body").on("click", function () {
+                $("#inp").focus()
+            })
+
             $("#txtar").on("focus", function () {
                 $(".py_input_focused").removeClass("py_input_focused")
                 $(this).addClass("py_input_focused")
-               
+
             }).on("blur", function () {
                 $(".py_input_focused").removeClass("py_input_focused")
                 $("body").addClass("py_input_focused")
+            }).on("click", function (e) {
+                e.stopPropagation()
             })
-            $("body").addClass("py_input_focused")
-            $("#inp").focus()
+
+
 
             $("#inp").keyup(function (evt) {
                 if ($(".TxtareaFocused").size() > 0) {
                     return;
                 }
                 var c = (evt.which);
-                console.log(c);
                 $("#dbg_keydwn").text(c)
 
                 if ((c >= 65 && c <= 90) || 8 === c) {//letter or back
@@ -129,17 +130,17 @@
                     }
                     g_inpstr = g_inpstr.toLowerCase();
                     $("#inp").val(g_inpstr);
-                    var sid = GetFirstAvailablePinyin(g_inpstr, pyarr);
+                    var sid = GetFirstAvailablePinyin(g_inpstr);
                     $("#" + sid).each(function () {
                         $(this)[0].scrollIntoView();
-                        $(".hilite").removeClass("hilite");
-                        $(this).parentsUntil("tbody").next().find(".zi:eq(0)").addClass("hilite");
+                        $(".hilite_zi").removeClass("hilite_zi");
+                        $(this).parentsUntil("tbody").next().find(".zi:eq(0)").addClass("hilite_zi");
                     });
                 } else if (32 === c) {//space to empty input.
                     g_inpstr = "";
                     $("#inp").val("");
                 } else if (c === 13) {//enter to add to text.
-                    $(".hilite").each(function () {
+                    $(".hilite_zi").each(function () {
                         var t = $(this).text();
                         $("#txtar").val($("#txtar").val() + t);
                         g_inpstr = "";
@@ -152,28 +153,28 @@
                     switch (c) {
                         case 37://left arrow
                         case 219:// move to left "{".
-                            var hi = $(".hilite");
+                            var hi = $(".hilite_zi");
                             var prev = $(hi).prev(".zi");
                             if ($(prev).length > 0) {
-                                $(prev).addClass("hilite");
-                                $(hi).removeClass("hilite");
+                                $(prev).addClass("hilite_zi");
+                                $(hi).removeClass("hilite_zi");
                             }
                             return false;
 
                         case 39://right arrow.
                         case 221: // move to right "}".
-                            var hi = $(".hilite");
+                            var hi = $(".hilite_zi");
                             var next = $(hi).next(".zi");
                             if (next.length > 0) {
-                                $(next).addClass("hilite");
-                                $(hi).removeClass("hilite");
+                                $(next).addClass("hilite_zi");
+                                $(hi).removeClass("hilite_zi");
                             }
                             return false;
 
                         case 40://arrow down.
                         case 186://move donw [;]
                             {
-                                var hi = $(".hilite");
+                                var hi = $(".hilite_zi");
                                 if (!hi.length) return;
                                 var nxr = $(hi).parentsUntil("tbody").nextUntil(".rowzi");//exclusively.
                                 if (nxr.length > 0) {
@@ -181,8 +182,8 @@
                                 } else {
                                     nxr = $(hi).parentsUntil("tbody").next();
                                 }
-                                $(".zi").removeClass("hilite");
-                                $(nxr).find(".zi:eq(0)").addClass("hilite");
+                                $(".zi").removeClass("hilite_zi");
+                                $(nxr).find(".zi:eq(0)").addClass("hilite_zi");
                                 g_scrollIntoViewDir = true;
                                 $(".hilite_row").removeClass("hilite_row")
                                 $(nxr).addClass("hilite_row")
@@ -192,7 +193,7 @@
                         case 38://arrow up.
                         case 222://move up [']
                             {
-                                var hi = $(".hilite");
+                                var hi = $(".hilite_zi");
                                 if (!hi.length) return;
                                 var nxr = $(hi).parentsUntil("tbody").prevUntil(".rowzi");//exclusively.
 
@@ -203,16 +204,16 @@
                                     nxr = $(hi).parentsUntil("tbody").prev();
                                     console.log("nx.length===0")
                                 }
-                                $(".zi").removeClass("hilite");
+                                $(".zi").removeClass("hilite_zi");
                                 $(".hilite_row").removeClass("hilite_row")
                                 $(nxr).addClass("hilite_row")
-                                $(nxr).find(".zi:eq(0)").addClass("hilite");//[0].scrollIntoView(false);  
+                                $(nxr).find(".zi:eq(0)").addClass("hilite_zi");//[0].scrollIntoView(false);  
                                 g_scrollIntoViewDir = false;
                             }
                             return false;
 
                         case 16://shift to show
-                            $(".hilite").each(function () {
+                            $(".hilite_zi").each(function () {
                                 $(this)[0].scrollIntoView(g_scrollIntoViewDir);
                             })
                             return;
@@ -223,27 +224,19 @@
             $(".zi").click(function (e) {
                 var zi = $(this).text();
 
-                $("#txtar").trigger("keyup", function (e) {
-                    console.log(zi, e.which)
-
-                })
-
                 var va = $("#txtar").val();
                 $("#txtar").val(va + zi);
                 g_inpstr = "";
                 //console.log($(this).text());
-                $(".hilite").removeClass("hilite")
-                $(this).addClass("hilite")
+                $(".hilite_zi").removeClass("hilite_zi")
+                $(this).addClass("hilite_zi")
             });
 
-        });
+        });//$()
 
-        function makeTable() {
+        function makePinyinTable() {
             var tab = "<table border='1' id='pinyin_hanzi_list_Table'>";
-
-            var pinyinArr = [];
             $.each(Pinyin7kzi, function (k, chary) {
-                pinyinArr.push(k);
                 tab += "<tr><td colspan='10' class='pinyin' id='" + k + "'>" + k + "</td></tr>"
 
                 var rowstart = 0;
@@ -258,10 +251,18 @@
                         tab += "</tr>";
                     }
                 };//for
-
             });
             $("#out").html(tab);
-            return pinyinArr;
+        }
+        function GetFirstAvailablePinyin(py) {
+            var pinyinArr = Object.keys(Pinyin7kzi)
+            for (var i = 1; i <= 5; i++) {
+                var pyid = py + i;
+                if (pinyinArr.indexOf(pyid) >= 0) {
+                    return pyid;
+                }
+            }
+            return "";//alert("fatal error! no such pinyin:"+py);
         }
 
 
@@ -272,15 +273,18 @@
 
     <div id="mainmenu">
         <textarea id="txtar"></textarea>
-        <a>Input PinYin:</a><input id="inp" xreadonly='1'></input><br>
+        <a>Input PinYin:</a><a id="dbg_keydwn"></a>
+        <input id="inp" readonly='1'></input><br>
 
-
-        ← move to left. <br>→ move to right. <br>↓ move down. <br>↑ move up.<br>[shift]
-        scrollintoview<br><br>
+        <a>
+            ← move to left. <br>→ move to right. <br>↓ move down. <br>↑ move up.<br>[shift]
+            scrollintoview
+        </a>
+        <br><br>
 
         <a href="ChineseSimplifyer.html" target="_blank">ChineseSimplifyer</a><br>
         <button id='listallp'>allpinyin</button>
-        <a id="dbg_keydwn"></a>
+
     </div>
     <div id="out">-</div>
 </BODY>
