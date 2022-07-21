@@ -54,9 +54,9 @@
         #inptxt {
             background-color: lightgoldenrodyellow;
             width: 98%;
-           
+
             margin-left: 5px;
-           
+
         }
 
         .ioput {
@@ -109,9 +109,10 @@
 
         });//////////////////////////
         function cn_frq(_this) {
+            $(this).val("")
             var txt = $("#inptxt").val();
             var CharGrpLen = $("#CharGrpLen").val();
-            if (txt.length === 0) return alert("please paste your test in textarea");
+            if (txt.length === 0) return alert("please paste your Chinese text in textarea");
             var charFilter = $("#charFilter").val().trim();
             var cps = new ChinesePhraseStats(txt, CharGrpLen, charFilter);
             var ret = cps.gen_table();
@@ -136,6 +137,7 @@
             })
             $("#outview").append(etb);
             table_sorter();
+
         }
 
         function EngTxt2WordFreq() {
@@ -164,19 +166,12 @@
 <body>
     <!------Menu-->
     <div id='menu'>
-        <select size='3'>
-            <option value=''></option>
-            <option onclick='cn_frq(this);'>cn_frq</option>
 
-            <option value='Chinese_Chars'>Chinese Text 2 Htm</option>
-
-
-
-
-        </select><br />
         <input type="text" name="n" id="CharGrpLen" value='1' title="Chars Group Length"></input>
         <lable>GrpLen</lable><br>
-        <input type="text" name="n" id="charFilter" value='' title="charFilter"></input> <label>Filter</label>
+        <input type="text" name="n" id="charFilter" value='' title="charFilter"></input> <label>Filter</label><br>
+
+        <button onclick='cn_frq(this);'>cn_frq</button>
     </div>
     <!-------->
 
