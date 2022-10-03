@@ -15,8 +15,8 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"></script>
 
 
-        <script src="./keyprv.js"></script>
-        <script src="./keypub.js"></script>
+    <script src="./keyprv.js"></script>
+    <script src="./keypub.js"></script>
 </head>
 
 <style>
@@ -39,7 +39,9 @@
             var out = encrypt.encrypt(inp);
             $("#out").val(out)
             $("#txa").val("")
-            $("#inp").text(inp)
+
+            $("#txt").html(inp + "<br/>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
+            if (inp.length > 500) alert(`ERROR: \nInput Length=${inp.length} > 500(Max) .`)
         })
         $("#decrypter").on("click", function () {
             var inp = $("#out").val()
@@ -47,17 +49,19 @@
             encrypt.setPrivateKey(keyprv);
             var out = encrypt.decrypt(inp);
             $("#txa").val(out)
+            if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
         })
     })
 </script>
 
-<body>
 
+
+<body>
     <textarea id="txa" placeholder="original string">text</textarea>
     <br>
     <button id="encrypter">encrypt</button><button id="decrypter">decrypt</button>
     <br>
-    <div id="inp"></div>
+    <div id="txt"></div>
     <textarea id="out"></textarea>
 </body>
 
