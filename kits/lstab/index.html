@@ -33,7 +33,7 @@
 			trs += `<tr><td>${key}</td><td val='${out}'>${mydat[key]}</td></tr>`
 		}
 		$("#tbd").html(trs).find("td[val]").on("click",function(){
-			$(this).text($(this).attr("val"))
+			$(this).html($(this).attr("val"))
 			$(this).removeAttr("val")
 		})
 	}
