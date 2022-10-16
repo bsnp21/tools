@@ -83,7 +83,7 @@ function gen_tabs(consObj, Vocab_All) {
 }
 
 
-function  sort_obj_desc_by_val_ary_length(obj) {
+function sort_obj_desc_by_val_ary_length(obj) {
     const sorted_obj = Object.fromEntries(
         Object.entries(obj).sort(([k1, ar1], [k2, ar2]) => ar1.length > ar2.length ? -1 : 1) //descend. 
     )
@@ -128,7 +128,7 @@ function gen_tab1(cap, consObj, Vocab_All) {
 
     }
     ths += "</tr>"
- 
+
 
 
     var tab = `<table id="tab" border="1"><caption>${cap}</caption><tbody style="height:200px;overflow-y: scroll;display: block;">${ths}${trs}</tbody></table>`
@@ -146,7 +146,7 @@ function verify_obj(catObj, Vocab_All) {
     })
     post_gen()
 }
-function post_gen(){
+function post_gen() {
     ////Fixed TH
     setTimeout(function () {
         $("tr.trheader").each(function () {
@@ -161,30 +161,37 @@ function post_gen(){
             //Sort_Table("tab") //busy
         })
 
-    }, 100)
+    }, 1000)
 
 }
 
 
-function Name_Table_sort(cat, catObj, Vocab_All){
-    var obj =  sort_obj_desc_by_val_ary_length(catObj)
-
+function Name_Table_sort(cat, catObj, Vocab_All) {
+    var obj = sort_obj_desc_by_val_ary_length(catObj)
     gen_tab1(cat, obj, Vocab_All)
     post_gen()
-    
+
 }
 
 
-function Name_Table_Divided(cat, catObj, Vocab_All){
-    var obj =  sort_obj_desc_by_val_ary_length(catObj)
 
-    var aryOb=[]
-    for(var wkey in obj){
-        var nlen = obj[wkey].length
-        aryOb[nlen][wkey = obj[wkey]]
+function divide_ary_obj_by_ary_len(obj, Vocab_All) {
+    var aryOb = []
+    for (var i = 0; i <= Object.keys(Vocab_All).length; i++) {
+        aryOb.push({})
     }
-
-    gen_tab1(cat, obj, Vocab_All)
+    for (var wkey in obj) {
+        var nlen = obj[wkey].length
+        aryOb[nlen][wkey] = obj[wkey]
+    }
+    return aryOb;
+}
+function Name_Table_Divided(cat, catObj, Vocab_All) {
+    var aryOb = divide_ary_obj_by_ary_len(catObj, Vocab_All)
+    for (var i = 1; i <= aryOb.length; i++) {
+        var obj = aryOb[i]
+        //gen_tab1(cat, obj, Vocab_All)
+        gen_tab1(`${cat}(${i})`, obj, Vocab_All)
+    }
     post_gen()
-    
 }
