@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Vocabulary in ASV_1901</title>
+    <link href="./css/tool.css">
+    </link>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/Sort_Table.js"></script>
+    <script src="./js/Vocab_All_Versions.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(function () {
+            gen_tab(Vocab_All_Versions)
+        })
+
+
+        function sort_obj_desc_by_val(obj) {
+            const sorted_obj = Object.fromEntries(
+                Object.entries(obj).sort(([k1, ar1], [k2, ar2]) => ar1.length > ar2.length ? -1 : 1) //descend. 
+            )
+            return sorted_obj
+        }
+
+        function merge_all(Vocab_All) {
+            var obj = {}
+            for (const vsn in (Vocab_All)) {
+                console.log(vsn)
+                for (const key in (Vocab_All[vsn])) {
+                    if (undefined === obj[key]) {
+                        obj[key] = []
+                    }
+                    obj[key].push(Vocab_All[vsn][key])
+                }
+            }
+            return obj;// sort_obj_desc_by_val(obj)
+        }
+        function gen_tab(Vocab_All) {
+            var obj = merge_all(Vocab_All), trs = `<tr><th>#</th><th>Vocab</th><th>ar</th>`
+            for (const vsn in Vocab_All) {
+                trs += `<th>${vsn}</th>`
+            }
+            trs += "</tr>"
+
+            Object.keys(obj).forEach(function (skey, i) {
+                trs += `<tr><td>${i}</td><td>${skey}</td><td>${obj[skey].length}</td>`
+
+
+                for (const vsn in (Vocab_All)) {
+                    //console.log(vsn)
+                    var frq = Vocab_All[vsn][skey], clname = ""
+                    if (undefined === frq) {
+                        frq = ''
+                        clname = "class='vsname'"
+                    }
+                    trs += `<td ${clname}>${frq}</td>`
+
+                }
+
+                trs += `</tr>`
+            })
+            trs = `<table id="tab" border="1"><tbody>${trs}</tbody></table>`
+
+            var sjn = JSON.stringify(obj, null, 4)
+            trs =`<textarea>${sjn}</textarea>` + trs
+
+            $("body").html(trs)
+
+
+            Sort_Table("tab")
+        }
+    </script>
+</head>
+
+<body bgcolor="">
+</body>
+
+</html>
