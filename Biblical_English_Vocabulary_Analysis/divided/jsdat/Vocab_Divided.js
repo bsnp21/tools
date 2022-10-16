@@ -1,4 +1,4 @@
-var Vocab_Categorized = {
+var Vocab_Divided = {
     "Digi": {
         "1": [
             "2",
