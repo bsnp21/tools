@@ -83,7 +83,7 @@ function gen_tabs(consObj, Vocab_All) {
 }
 
 
-function sort_obj_desc_by_val(obj) {
+function  sort_obj_desc_by_val_ary_length(obj) {
     const sorted_obj = Object.fromEntries(
         Object.entries(obj).sort(([k1, ar1], [k2, ar2]) => ar1.length > ar2.length ? -1 : 1) //descend. 
     )
@@ -101,7 +101,7 @@ function merge_all(Vocab_All) {
             obj[key].push(Vocab_All[vsn][key])
         }
     }
-    return obj;// sort_obj_desc_by_val(obj)
+    return obj;//  sort_obj_desc_by_val_ary_length(obj)
 }
 
 
@@ -157,6 +157,8 @@ function post_gen(){
                 var width = $(THIS).find(`th:eq(${i})`).width()
                 $(this).css("width", width + "px")
             })
+
+            //Sort_Table("tab") //busy
         })
 
     }, 100)
@@ -165,6 +167,24 @@ function post_gen(){
 
 
 function Name_Table_sort(cat, catObj, Vocab_All){
-    gen_tab1(cat, catObj, Vocab_All)
-    post_gen
+    var obj =  sort_obj_desc_by_val_ary_length(catObj)
+
+    gen_tab1(cat, obj, Vocab_All)
+    post_gen()
+    
+}
+
+
+function Name_Table_Divided(cat, catObj, Vocab_All){
+    var obj =  sort_obj_desc_by_val_ary_length(catObj)
+
+    var aryOb=[]
+    for(var wkey in obj){
+        var nlen = obj[wkey].length
+        aryOb[nlen][wkey = obj[wkey]]
+    }
+
+    gen_tab1(cat, obj, Vocab_All)
+    post_gen()
+    
 }
