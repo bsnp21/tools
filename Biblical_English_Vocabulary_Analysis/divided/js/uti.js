@@ -138,13 +138,15 @@ function gen_tab1(cap, consObj, Vocab_All) {
     return trs
 }
 
+
 function verify_obj(catObj, Vocab_All) {
     $("body").html("")
     Object.keys(catObj).forEach(function (cat) {
         gen_tab1(cat, catObj[[cat]], Vocab_All)
-
     })
-   
+    post_gen()
+}
+function post_gen(){
     ////Fixed TH
     setTimeout(function () {
         $("tr.trheader").each(function () {
@@ -156,7 +158,13 @@ function verify_obj(catObj, Vocab_All) {
                 $(this).css("width", width + "px")
             })
         })
-        
+
     }, 100)
 
+}
+
+
+function Name_Table_sort(cat, catObj, Vocab_All){
+    gen_tab1(cat, catObj, Vocab_All)
+    post_gen
 }
