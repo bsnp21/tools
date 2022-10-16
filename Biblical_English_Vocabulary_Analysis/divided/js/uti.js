@@ -122,12 +122,14 @@ function gen_tab1(cap, consObj, Vocab_All) {
         trs += `</tr>`
     })
     ///
-    var ths = `<tr><th>#</th><th>Vocab</th><th>ar</th>`
+    var ths = `<tr class='trheader'><th>#</th><th>Vocab</th><th>ar</th>`
     for (const vsn in Vocab_All) {
         ths += `<th>${vsn}</th>`
+
     }
     ths += "</tr>"
-   
+ 
+
 
     var tab = `<table id="tab" border="1"><caption>${cap}</caption><tbody style="height:200px;overflow-y: scroll;display: block;">${ths}${trs}</tbody></table>`
     $("body").append(tab)
@@ -142,5 +144,19 @@ function verify_obj(catObj, Vocab_All) {
         gen_tab1(cat, catObj[[cat]], Vocab_All)
 
     })
+   
+    ////Fixed TH
+    setTimeout(function () {
+        $("tr.trheader").each(function () {
+            var THIS = this
+            var dup = $(this).clone().removeClass("trheader").addClass("cloned").css("background-color", "grey").insertBefore(this)
+                .css("position", "absolute");
+            $(dup).find("th").each(function (i) {
+                var width = $(THIS).find(`th:eq(${i})`).width()
+                $(this).css("width", width + "px")
+            })
+        })
+        
+    }, 100)
 
 }
