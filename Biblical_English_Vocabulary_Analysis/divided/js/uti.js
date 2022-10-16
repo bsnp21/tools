@@ -107,6 +107,7 @@ function merge_all(Vocab_All) {
 
 
 function gen_tab1(cap, consObj, Vocab_All) {
+    if (!consObj) return
     var trs = ""
     Object.keys(consObj).forEach(function (skey, i) {
         trs += `<tr><td>${i}</td><td>${skey}</td><td>${consObj[skey].length}</td>`
@@ -194,4 +195,8 @@ function Name_Table_Divided(cat, catObj, Vocab_All) {
         gen_tab1(`${cat}(${i})`, obj, Vocab_All)
     }
     post_gen()
+
+    var str = JSON.stringify(aryOb, null, 4)
+    str = `<textarea>${str}</textarea>`
+    $("body").prepend(str)
 }
