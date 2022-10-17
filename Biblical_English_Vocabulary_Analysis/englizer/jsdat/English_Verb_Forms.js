@@ -1656,7 +1656,7 @@ var English_Verb_Forms = {
             "writing": 0
         }
     },
-    "Regular": {
+    Regular: {
         "abandon": {
             "abandoned": 0,
             "abandoning": 0
