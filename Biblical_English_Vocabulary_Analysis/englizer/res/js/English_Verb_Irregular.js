@@ -120,12 +120,12 @@ var uti_englizer = {
 
         console.log(JSON.stringify(ret, null, 4))
         for (verb in ret) {
-            var ing = this.add_ing_rule(verb)
+            var ing = this.rule_add_ing(verb)
             ret[verb][ing] = 0
         }
-        $("body").prepend(`<textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
+        $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
     },
-    add_ing_rule: function (verb) {
+    rule_add_ing: function (verb) {
         const ing = "ing"
         if (verb === "be") return verb + ing
 
@@ -143,17 +143,17 @@ var uti_englizer = {
             return verb.replace(/[e]$/, ing)
         }
 
-        var mat = verb.match(/[u][i]([^aeiouwxy])$/)
+        var mat = verb.match(/[u][i]([^aeiouwxyn])$/)
         if (mat) {
             return verb + mat[1] + ing
         }
-        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxy])$/)
+        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxyn])$/)
         if (mat) {
             return verb + mat[1] + ing
         }
         return verb + ing
     },
-    add_ed_rule: function (verb) {
+    rule_add_ed: function (verb) {
         var ed = "ed"
         if (verb === "be") return verb + ed
 
@@ -172,27 +172,59 @@ var uti_englizer = {
             return verb.replace(/[e]$/, ed)
         }
 
-        var mat = verb.match(/[u][i]([^aeiouwxy])$/)
+        var mat = verb.match(/[u][i]([^aeiouwxyn])$/) //quit
         if (mat) {
             return verb + mat[1] + ed
         }
-        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxy])$/)
+
+        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxyn])$/) // stay, abandoned, 
         if (mat) {
             return verb + mat[1] + ed
         }
         return verb + ed
     },
     Gen_Verb_Regular: function () {
-        var str = "<table border='1'><tbody>"
-        $("li").each(function () {
-            var txt = $(this).text().trim()
-            var mat = txt.match(/^(\d+)[\.]\s+([a-z\-]+)/)
-            if (mat) {
-                console.log("mat=", txt, ":", mat[1], "=", mat[2])
-                str += `<tr><td>${txt}</td><td>${mat[2]}</td></tr>`
-            }
-        })
-        $("#out").append(str)
+        function gen_allverbs() {
+            var verbary = []
+            var str = "<table border='1' style='float:left;'><tbody>"
+            $("li").each(function () {
+                var txt = $(this).text().trim()
+                var mat = txt.match(/^(\d+)[\.]\s+([a-z\-]+)/)
+                if (mat) {
+                    var verb = mat[2]
+                    console.log("mat=", txt, ":", mat[1], "=", verb)
+                    str += `<tr><td>${txt}</td><td>${verb}</td></tr>`
+                    verbary.push(verb)
+                }
+            })
+            str += "</tbody></table>"
+            $("#out").append(str)
+            return verbary;
+        }
+        function gen2(verbar){
+            var tabs="<table border='1' style='background-color:gray;float:left;'><tbody>"
+			var Regular={}, cnt = 1
+			verbar.forEach((verb,i) => {
+				if(verb in English_Verb_Forms.Irregular){
+					tabs+= `<tr class='irreg'><td>${i+1}</td><td>${verb}</td><td>${cnt++}</td></tr>`
+				}else{
+                    var ing = uti_englizer.rule_add_ing(verb)
+					var ed = uti_englizer.rule_add_ed(verb)
+					Regular[verb]={}
+                    Regular[verb][ed]=0
+                    Regular[verb][ing]=0
+					tabs+= `<tr class='reg'><td>${i+1}</td><td>${verb}</td><td>${ed}</td><td>${ing}</td></tr>`
+				}
+				
+			});
+			tabs+=`</tbody></table><textarea>${JSON.stringify(Regular,null,4)}</textarea>`
+			$("#out").append(tabs)
+        }
+        var allverbs = gen_allverbs()
+        gen2(allverbs)
+    },
+    all_verb: function () {
+
     }
 }
 
