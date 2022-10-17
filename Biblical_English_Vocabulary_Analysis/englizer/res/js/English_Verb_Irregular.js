@@ -120,12 +120,13 @@ var uti_englizer = {
 
         console.log(JSON.stringify(ret, null, 4))
         for (verb in ret) {
-            var ing = this.add_ing_rule1(verb, "ing")
+            var ing = this.add_ing_rule1(verb)
             ret[verb][ing] = 0
         }
         $("body").prepend(`<textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
     },
-    add_ing_rule1: function (verb, ing) {
+    add_ing_rule: function (verb) {
+        const ing = "ing"
         if (verb === "be") return verb + ing
 
         var mat = verb.match(/ie$/)
@@ -151,9 +152,48 @@ var uti_englizer = {
             return verb + mat[1] + ing
         }
         return verb + ing
+    },
+    add_ed_rule: function (verb) {
+        var ed = "ed"
+        if (verb === "be") return verb + ed
+
+        var mat = verb.match(/ie$/)
+        if (mat) {
+            return verb.replace(/ie$/, "y" + ed)
+        }
+
+        var mat = verb.match(/ee$/)
+        if (mat) {
+            return verb + ed
+        }
+
+        var mat = verb.match(/[e]$/)
+        if (mat) {
+            return verb.replace(/[e]$/, ed)
+        }
+
+        var mat = verb.match(/[u][i]([^aeiouwxy])$/)
+        if (mat) {
+            return verb + mat[1] + ed
+        }
+        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxy])$/)
+        if (mat) {
+            return verb + mat[1] + ed
+        }
+        return verb + ed
+    },
+    Gen_Verb_Regular: function () {
+        var str = "<table border='1'><tbody>"
+        $("li").each(function () {
+            var txt = $(this).text().trim()
+            var mat = txt.match(/^(\d+)[\.]\s+([a-z\-]+)/)
+            if (mat) {
+                console.log("mat=", txt, ":", mat[1], "=", mat[2])
+                str += `<tr><td>${txt}</td><td>${mat[2]}</td></tr>`
+            }
+        })
+        $("#out").append(str)
     }
-
-
 }
 
 
@@ -172,10 +212,4 @@ function save_hili() {
 
 
 
-$(function () {
 
-    var verb = uti_englizer.Gen_Verb_Irregular()
-
-
-
-})
