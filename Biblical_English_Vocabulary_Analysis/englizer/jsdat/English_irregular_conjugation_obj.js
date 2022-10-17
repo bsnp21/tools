@@ -1,5 +1,4 @@
-var English_Vervs = {
-    Irregular: {
+var Irregular ={
         "arise": {
             "arose": 1,
             "arisen": 0,
@@ -1655,8 +1654,5 @@ var English_Vervs = {
             "written": 0,
             "writing": 0
         }
-    },
-    "Regular": {
-
     }
-}
+  
