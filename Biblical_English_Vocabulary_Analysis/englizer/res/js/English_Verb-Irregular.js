@@ -113,49 +113,44 @@ var uti_englizer = {
                 val2.split("/").forEach(function (val) {
                     obj[val.trim()] = 0
                 })
-
                 ret[key] = (obj)
-
             }
         })
 
 
         console.log(JSON.stringify(ret, null, 4))
         for (verb in ret) {
-            var ing = this.add_ing_rule1(verb)
+            var ing = this.add_ing_rule1(verb, "ing")
             ret[verb][ing] = 0
         }
         $("body").prepend(`<textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
-
-        ///
-        //console.log(obj)
     },
-    add_ing_rule1: function (verb) {
-        if(verb==="be") return "being"
+    add_ing_rule1: function (verb, ing) {
+        if (verb === "be") return verb + ing
 
         var mat = verb.match(/ie$/)
         if (mat) {
-            return verb.replace(/ie$/, "ying")
+            return verb.replace(/ie$/, "y" + ing)
         }
         var mat = verb.match(/ee$/)
         if (mat) {
-            return verb + "ing"
+            return verb + ing
         }
 
         var mat = verb.match(/[e]$/)
         if (mat) {
-            return verb.replace(/[e]$/, "ing")
+            return verb.replace(/[e]$/, ing)
         }
 
         var mat = verb.match(/[u][i]([^aeiouwxy])$/)
         if (mat) {
-            return verb + mat[1] + "ing"
+            return verb + mat[1] + ing
         }
         var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxy])$/)
         if (mat) {
-            return verb + mat[1] + "ing"
+            return verb + mat[1] + ing
         }
-        return verb + "ing"
+        return verb + ing
     }
 
 
