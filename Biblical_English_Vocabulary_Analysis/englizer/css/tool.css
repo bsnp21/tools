@@ -1,0 +1,25 @@
+
+
+
+
+#tholder, #tab thead, table{
+    display: block;
+    height: 225px;
+}
+#tholder, #tab tbody, tbody{
+    background-color: rgb(67, 161, 244);
+
+    height: 225px;
+    overflow-y: scroll;display: block;
+}
+.vsname{
+    background-color: aqua;
+}
+
+th{
+    background-color: grey;
+}
+
+.hili{
+    background-color: rgb(224, 35, 35);
+}

@@ -3,16 +3,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Vocabulary in ASV_1901</title>
-    <link href="./css/tool.css">
+    <link href="./css/tool.css?v=1">
     </link>
     <script src="./js/jquery.js"></script>
     <script src="./js/Sort_Table.js"></script>
     <script src="../divided/jsdat/Vocab_Divided.js"></script>
     <script src="../divided/jsdat/Vocab_Words.js"></script>
     <script src="./js/uti_englizer.js"></script>
-  
-    <style>
 
+    <style>
+        .hili {
+            background-color: rgb(224, 35, 35);
+        }
+        .shiftBtn{
+            background-color: aquamarine;
+        }
+        #menu{
+            position:fixed;
+            right:20px;
+        }
     </style>
     <script>
         $(function () {
@@ -22,13 +31,27 @@
             //Name_Table_Divided("Word", Vocab_Divided.Word, Vocab_All_Versions)
 
             var lis = uti_englizer.Find_root_variants(Vocab_Word_Ar8[8])
-     
+
         })
 
+        function Get_hili(){
+            var n = $(".eWord").size()
+            $("#out").val(n)
+
+        }
     </script>
 </head>
 
 <body bgcolor="">
 </body>
+
+<div id="menu">
+
+    <button onclick="Get_hili()">Get_Hili</button>
+    <button onclick="uti_englizer.save_hili();">save</button>
+    <button onclick="uti_englizer.load_hili();">load</button>
+    <br>
+    <textarea id="out"></textarea>
+</div>
 
 </html>
