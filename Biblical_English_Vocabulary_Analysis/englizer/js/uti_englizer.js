@@ -70,7 +70,7 @@ var uti_englizer = {
         for (var i = 0; i < ary.length; i++) {
             var key = ary[i];
             out[key] = []
-            if (key.length <= 2) {
+            if (key.length < 2) {
                 if (Spec2.indexOf(key) < 0)
                     continue;
             }

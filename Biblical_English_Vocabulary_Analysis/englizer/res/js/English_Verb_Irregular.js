@@ -201,24 +201,24 @@ var uti_englizer = {
             $("#out").append(str)
             return verbary;
         }
-        function gen2(verbar){
-            var tabs="<table border='1' style='background-color:gray;float:left;'><tbody>"
-			var Regular={}, cnt = 1
-			verbar.forEach((verb,i) => {
-				if(verb in English_Verb_Forms.Irregular){
-					tabs+= `<tr class='irreg'><td>${i+1}</td><td>${verb}</td><td>${cnt++}</td></tr>`
-				}else{
+        function gen2(verbar) {
+            var tabs = "<table border='1' style='background-color:gray;float:left;'><tbody>"
+            var Regular = {}, cnt = 1
+            verbar.forEach((verb, i) => {
+                if (verb in English_Verb_Forms.Irregular) {
+                    tabs += `<tr class='irreg'><td>${i + 1}</td><td>${verb}</td><td>${cnt++}</td></tr>`
+                } else {
                     var ing = uti_englizer.rule_add_ing(verb)
-					var ed = uti_englizer.rule_add_ed(verb)
-					Regular[verb]={}
-                    Regular[verb][ed]=0
-                    Regular[verb][ing]=0
-					tabs+= `<tr class='reg'><td>${i+1}</td><td>${verb}</td><td>${ed}</td><td>${ing}</td></tr>`
-				}
-				
-			});
-			tabs+=`</tbody></table><textarea>${JSON.stringify(Regular,null,4)}</textarea>`
-			$("#out").append(tabs)
+                    var ed = uti_englizer.rule_add_ed(verb)
+                    Regular[verb] = {}
+                    Regular[verb][ed] = 0
+                    Regular[verb][ing] = 0
+                    tabs += `<tr class='reg'><td>${i + 1}</td><td>${verb}</td><td>${ed}</td><td>${ing}</td></tr>`
+                }
+
+            });
+            tabs += `</tbody></table><textarea>${JSON.stringify(Regular, null, 4)}</textarea>`
+            $("#out").append(tabs)
         }
         var allverbs = gen_allverbs()
         gen2(allverbs)
@@ -228,6 +228,21 @@ var uti_englizer = {
     }
 }
 
+
+
+var English_Preposition = {
+    Gen_Prep_list: function () {
+        var obj = {}
+        $("td").each(function () {
+            var txt = $(this).text().trim().toLowerCase()
+            if(txt){
+                obj[txt] = 0
+            }
+        })
+        $("#outxt").val(JSON.stringify(obj, null, 4))
+    }
+
+}
 
 function enable_flipflap_shift() {
     $("body").on("keydown", function (evt) {
