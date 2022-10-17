@@ -120,7 +120,7 @@ var uti_englizer = {
 
         console.log(JSON.stringify(ret, null, 4))
         for (verb in ret) {
-            var ing = this.add_ing_rule1(verb)
+            var ing = this.add_ing_rule(verb)
             ret[verb][ing] = 0
         }
         $("body").prepend(`<textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
