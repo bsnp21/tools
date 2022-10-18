@@ -20,6 +20,17 @@
         .sinput {
             width: 660;
         }
+
+        .hili_tab {
+            background-color: lightblue;
+        }
+
+        table tbody {
+            overflow-y: scroll;
+            display: block;
+            height: 200px;
+            background-color: bisque;
+        }
     </style>
 
     <script>
@@ -31,7 +42,13 @@
                 $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
             })
 
-            var stor = new MyLocalStorage()
+            Init_yt_input()
+
+        })
+
+        function Init_yt_input() {
+
+            var stor = new ytLocalStorage()
 
             $("#ytinput_urls").on("change", function () {
                 $(".vtspeed").attr('checked', null)
@@ -84,16 +101,15 @@
                 $("#ytinput_urls").val("")
                 $(".vtspeed").attr('checked', null)
             })
-
-        })
-
+        }
 
 
-        function MyLocalStorage() {
+
+        function ytLocalStorage() {
             this.m_sid = "datalist_id"
             this.getStore()
         }
-        MyLocalStorage.prototype.getStore = function () {
+        ytLocalStorage.prototype.getStore = function () {
             var str = localStorage.getItem(this.m_sid)
             var obj = {}
             if (!str) {
@@ -107,32 +123,50 @@
             }
             return obj;
         }
-        MyLocalStorage.prototype.gen_datalist = function (obj) {
+        ytLocalStorage.prototype.gen_datalist = function (obj) {
+            var _THIS = this
             var ops = "", trs = ""
             Object.keys(obj).forEach(function (key) {
                 ops = `<option value='${key}'></option>` + ops
-                trs = `<tr><td>${obj[key]}</td><td class='urlparm'>${key}</td></tr>` + trs
+                trs = `<tr><td class='remUrl'>${obj[key]}</td><td class='urlparm'>${key}</td></tr>` + trs
             })
             $(`#${this.m_sid}`).html(ops)
             $(`#tab_${this.m_sid}`).html(trs)
-                .find(".urlparm").bind("click", function () {
-                    var par = $(this).text()
-                    var surl = `https://www.youtube.com/watch?${par}`
-                    var url = new URL(surl)
-                    var vid = url.searchParams.get("v")// URLSearchParams(surl);
-                    var desc = url.searchParams.get("desc")// URLSearchParams(surl);
-                    $("#ytinput_desc").val(desc)
-                    $("#ytinput_urls").val(surl)
-                })
+            $(`#tab_${this.m_sid}`).find(".urlparm").bind("click", function () {
+                var par = $(this).text()
+                var surl = `https://www.youtube.com/watch?${par}`
+                var url = new URL(surl)
+                var vid = url.searchParams.get("v")// URLSearchParams(surl);
+                var desc = url.searchParams.get("desc")// URLSearchParams(surl);
+                $("#ytinput_desc").val(desc)
+                $("#ytinput_urls").val(surl)
+                $(".hili_tab").removeClass("hili_tab")
+                $(this).addClass("hili_tab")
+            })
+            $(`#tab_${this.m_sid}`).find(".remUrl").bind("click", function () {
+                var url = $(this).next().text()
+                if(!confirm("remove?\n"+url))
+                _THIS.StoreRemove(url)
+                $(this).parent().remove()
+            })
         }
-        MyLocalStorage.prototype.save2_storage = function (url) {
+        ytLocalStorage.prototype.StoreRemove = function (url) {
+            var obj = this.getStore()
+            if (url in obj) {
+                delete obj[url]
+                str = JSON.stringify(obj)
+                localStorage.setItem(this.m_sid, str)
+                return obj;
+            }
+        }
+        ytLocalStorage.prototype.save2_storage = function (url) {
             var obj = this.getStore()
             obj[url] = (new Date()).toISOString().replace(/[\-|T|\:]/g, "").substring(2, 12)
             str = JSON.stringify(obj)
             localStorage.setItem(this.m_sid, str)
             return obj;
         }
-        MyLocalStorage.prototype.save2Store = function (url, cbf) {
+        ytLocalStorage.prototype.save2Store = function (url, cbf) {
             var obj = this.save2_storage(url)
             /////
             this.gen_datalist(obj)
