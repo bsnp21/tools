@@ -18,7 +18,8 @@
         }
 
         .sinput {
-            width: 660;
+            width: 100%;
+            min-width: 660;
         }
 
         .hili_tab {
@@ -36,12 +37,6 @@
     <script>
         $(function () {
 
-            $("p").on("click", function () {
-                var vid = $(this).text()
-                var speed = $("#ytspeedop").val()
-                $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
-            })
-
             Init_yt_input()
 
         })
@@ -51,7 +46,7 @@
             var stor = new ytLocalStorage()
 
             $("#ytinput_urls").on("change", function () {
-                $(".vtspeed").attr('checked', null)
+                $(".RadioSpeed").attr('checked', null)
                 var surl = $(this).val()
                 try {
                     var url = new URL(surl)
@@ -66,14 +61,15 @@
                 }
             })
 
-            $(".vtspeed").on("click", function () {
-                $("#ytspeedop").val($(this).text())
+            $(".RadioSpeed").on("click", function () {
+
                 var speed = $(this).val()
+
                 var surl = $("#ytinput_urls").val()
                 var desc = $("#ytinput_desc").val()
                 var vid = ""
-                if (!surl) return alert("empty url")
-                if (!desc) return alert("empty desc")
+                if (!surl) return !!alert("empty url")
+                if (!desc) return !!alert("empty desc")
                 try {
                     var url = new URL(surl)
                     vid = url.searchParams.get("v")// URLSearchParams(surl);
@@ -98,8 +94,8 @@
 
             })
             $("#labelspeed").on("click", function () {
-                $("#ytinput_urls").val("")
-                $(".vtspeed").attr('checked', null)
+                $(".sinput").val("")
+                $(".RadioSpeed").attr('checked', null)
             })
         }
 
@@ -190,12 +186,14 @@
 
         <div name="ytspeed" id="ytspeedop">
             <a id="labelspeed">Speed:</a>
-            <input type="radio" class="vtspeed" name="ytspeed" value="0.75">0.75</input>
-            <input type="radio" class="vtspeed" name="ytspeed" value="1.00">1.00</input>
-            <input type="radio" class="vtspeed" name="ytspeed" value="1.25">1.25</input>
-            <input type="radio" class="vtspeed" name="ytspeed" value="1.50">1.50</input>
-            <input type="radio" class="vtspeed" name="ytspeed" value="1.75">1.75</input>
-            <input type="radio" class="vtspeed" name="ytspeed" value="2.00">2.00</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="0.05">0.05</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="0.65">0.65</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="0.75">0.75</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="1.00">1.00</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="1.25">1.25</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="1.50">1.50</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="1.75">1.75</input>
+            <input type="radio" class="RadioSpeed" name="ytspeed" value="2.00">2.00</input>
         </div>
     </div>
 
