@@ -118,7 +118,10 @@
                     obj[val] = i
                 })
             } else {
-                obj = JSON.parse(str)
+                var orig = JSON.parse(str)
+                obj = Object.fromEntries(
+                    Object.entries(orig).sort(([k1, v1], [k2, v2]) => v1 < v2 ? -1 : 1) //descend. 
+                )
                 this.gen_datalist(obj)
             }
 
