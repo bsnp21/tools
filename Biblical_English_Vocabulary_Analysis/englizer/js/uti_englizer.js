@@ -57,17 +57,34 @@ var uti_englizer = {
         })
     },
 
-    gen_root_variants: function (obj) {
-        var lis = this.sort_by_key_length(obj)
-        //var str = JSON.stringify(lis, null, 4)
-        //$("body").html(`<pre>${str}</pre>`)
 
 
+
+
+
+
+
+    process_by_dictionary_verb:function(lis, out){
         const Spec2 = ["ox"]
 
         var ary = Object.keys(lis),
             out = {};
         for (var i = 0; i < ary.length; i++) {
+            
+            var key = ary[i];
+            if(this.check_in_std_verbs(kis, key, out)){
+                //out[key]={}
+            }
+        }
+        return out
+    },
+    process_inner:function(lis){
+        const Spec2 = ["ox"]
+
+        var ary = Object.keys(lis),
+            out = {};
+        for (var i = 0; i < ary.length; i++) {
+            
             var key = ary[i];
             out[key] = []
             if (key.length < 2) {
@@ -76,6 +93,7 @@ var uti_englizer = {
             }
             //if()
             for (var j = i + 1; j < ary.length; j++) {
+                var word = ary[j]
                 if (ary[j].indexOf(key) === 0) {
                     out[key].push(ary[j])
                     ary[j] = ""
@@ -86,6 +104,14 @@ var uti_englizer = {
                 }
             }
         }
+        return out
+    },
+    gen_root_variants: function (obj) {
+        var lis = this.sort_by_key_length(obj)
+
+        var out = this.process_inner(lis)
+
+
         return out
     },
     Find_root_variants: function (obj) {

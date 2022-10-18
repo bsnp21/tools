@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+    <script xsrc="./jq/jquery-2_1_3.min.js"></script>
+    <script xsrc="./js/yt_iframe_api.js"></script>
+
+    <style>
+
+    </style>
+    <script>
+        function get_videoID_from_url() {
+            const urlParams = new URLSearchParams("" + window.location.search);
+            var vid = urlParams.get("vid")
+            var startSeconds = urlParams.get("startSeconds")
+            //alert(startSeconds)
+            console.log("vid=", vid)
+            if (!vid) {
+                alert("yt_iframe_videoID.htm?vid= is empty.\n Use default 'vid=M7lc1UVf-VE' \n (for test only)")
+                vid = 'M7lc1UVf-VE'
+            }
+            var speed = urlParams.get("speed")
+            if (!speed) speed = 1
+            console.log("speed=", speed)
+            return { vid: vid, fspeed: parseFloat(speed), startSeconds: parseFloat(startSeconds) }
+        }
+        var inparam = get_videoID_from_url()
+    </script>
+
+</head>
+
+<body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+</body>
+
+</html>
+
+<script>
+
+    //https://developers.google.com/youtube/iframe_api_reference
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    //tag.src="https://www.youtube.com/watch?v=c0IhZeHvj0w&list=PLEJKF_V6_xtg_jaIWoBIbHpEbDdjjux4v&ab_channel=Nate-OnionEnglish";
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: inparam.vid,// 'M7lc1UVf-VE',
+            playerVars: {
+                autoplay: 1, //issue? not work
+                controls: 1, //show yt contrls.
+                loop: 1,  //repeat not work. https://developers.google.com/youtube/player_parameters
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayEnded,
+            },
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        console.log("setPlaybackRate : speed", inparam.fspeed)
+        player.setPlaybackRate(inparam.fspeed); //0.75
+        player.seekTo(inparam.startSeconds, true);
+        //event.target.seekTo(260,ture);
+        //player.startSeconds(10);
+        event.target.playVideo();
+
+    }
+    function onPlayEnded(event) {
+        console.log(event)
+        if (event.data === 0) {//refet: https://developers.google.com/youtube/iframe_api_reference
+            console.log("onStateChange : onPlayEnded")
+            setTimeout(function () {
+                console.log("onStateChange : repeat")
+                event.target.playVideo();
+            }, 10000)
+        }
+    }
+</script>

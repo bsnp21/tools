@@ -1,0 +1,187 @@
+<html>
+
+<head>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+    <script src="./jq/jquery-2_1_3.min.js"></script>
+
+
+    <style>
+        .about_I {
+            background-color: red;
+        }
+
+        .plus {
+            background-color: antiquewhite
+        }
+
+        .sinput {
+            width: 660;
+        }
+    </style>
+
+    <script>
+        $(function () {
+
+            $("p").on("click", function () {
+                var vid = $(this).text()
+                var speed = $("#ytspeedop").val()
+                $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
+            })
+
+            var stor = new MyLocalStorage()
+
+            $("#ytinput_urls").on("change", function () {
+                $(".vtspeed").attr('checked', null)
+                var surl = $(this).val()
+                try {
+                    var url = new URL(surl)
+                    var vid = url.searchParams.get("v")// URLSearchParams(surl);
+                    desc = url.searchParams.get("desc")// URLSearchParams(surl);
+                    surl = `${url.origin}/${url.pathname}?v=${vid}&desc=${desc}`
+                    $("#ytinput_desc").val(desc)
+                    //$("#ytinput_desc").val(vid)
+                } catch {
+                    //vid = surl
+                    //surl = `https://www.youtube.com/watch?v=${vid}&desc=${desc}`
+                }
+            })
+
+            $(".vtspeed").on("click", function () {
+                $("#ytspeedop").val($(this).text())
+                var speed = $(this).val()
+                var surl = $("#ytinput_urls").val()
+                var desc = $("#ytinput_desc").val()
+                var vid = ""
+                if (!surl) return alert("empty url")
+                if (!desc) return alert("empty desc")
+                try {
+                    var url = new URL(surl)
+                    vid = url.searchParams.get("v")// URLSearchParams(surl);
+                    //desc = url.searchParams.get("desc")// URLSearchParams(surl);
+                    surl = `${url.origin}/${url.pathname}?v=${vid}&desc=${desc}`
+                } catch {
+                    vid = surl
+                    surl = `https://www.youtube.com/watch?v=${vid}&desc=${desc}`
+                }
+
+                if (vid) {
+                    $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
+                    //$("#playhistory").prepend(`<tr><td>${surl}</td></tr>`)
+
+                    surl = `v=${vid}&desc=${desc}`
+                    stor.save2Store(surl)
+                } else {
+                    alert("Err:\n" + surl)
+                }
+
+
+
+            })
+            $("#labelspeed").on("click", function () {
+                $("#ytinput_urls").val("")
+                $(".vtspeed").attr('checked', null)
+            })
+
+        })
+
+
+
+        function MyLocalStorage() {
+            this.m_sid = "datalist_id"
+            this.getStore()
+        }
+        MyLocalStorage.prototype.getStore = function () {
+            var str = localStorage.getItem(this.m_sid)
+            var obj = {}
+            if (!str) {
+                $(`#${this.m_sid} option`).each(function (i) {
+                    var val = $(this).attr("value")
+                    obj[val] = i
+                })
+            } else {
+                obj = JSON.parse(str)
+                this.gen_datalist(obj)
+            }
+            return obj;
+        }
+        MyLocalStorage.prototype.gen_datalist = function (obj) {
+            var ops = "", trs = ""
+            Object.keys(obj).forEach(function (key) {
+                ops = `<option value='${key}'></option>` + ops
+                trs = `<tr><td>${obj[key]}</td><td class='urlparm'>${key}</td></tr>` + trs
+            })
+            $(`#${this.m_sid}`).html(ops)
+            $(`#tab_${this.m_sid}`).html(trs)
+                .find(".urlparm").bind("click", function () {
+                    var par = $(this).text()
+                    var surl = `https://www.youtube.com/watch?${par}`
+                    var url = new URL(surl)
+                    var vid = url.searchParams.get("v")// URLSearchParams(surl);
+                    var desc = url.searchParams.get("desc")// URLSearchParams(surl);
+                    $("#ytinput_desc").val(desc)
+                    $("#ytinput_urls").val(surl)
+                })
+        }
+        MyLocalStorage.prototype.save2_storage = function (url) {
+            var obj = this.getStore()
+            obj[url] = (new Date()).toISOString().replace(/[\-|T|\:]/g, "").substring(2, 12)
+            str = JSON.stringify(obj)
+            localStorage.setItem(this.m_sid, str)
+            return obj;
+        }
+        MyLocalStorage.prototype.save2Store = function (url, cbf) {
+            var obj = this.save2_storage(url)
+            /////
+            this.gen_datalist(obj)
+            if (cbf) cbf(obj)
+            return obj;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <iframe xsrc="./ElderEnglish_YouTubeSpeedx0.75.htm" frameborder="1" class="" width="650" height="400"></iframe>
+    <div name="yt_ctr">
+
+        <div name="ytspeed" id="ytspeedop">
+            <a id="labelspeed">Speed:</a>
+            <input type="radio" class="vtspeed" name="ytspeed" value="0.75">0.75</input>
+            <input type="radio" class="vtspeed" name="ytspeed" value="1.00">1.00</input>
+            <input type="radio" class="vtspeed" name="ytspeed" value="1.25">1.25</input>
+            <input type="radio" class="vtspeed" name="ytspeed" value="1.50">1.50</input>
+            <input type="radio" class="vtspeed" name="ytspeed" value="1.75">1.75</input>
+            <input type="radio" class="vtspeed" name="ytspeed" value="2.00">2.00</input>
+        </div>
+    </div>
+
+
+
+
+
+    <div>
+        <input class='sinput' id="ytinput_urls" list="datalist_id" text="--"><br>
+        <input class='sinput' id="ytinput_desc" value="">
+        <datalist id="datalist_id">
+            <option value="r">ttrrr</option>
+            <option value="c0IhZeHvj0w">tt</option>
+            <option
+                value="https://www.youtube.com/watch?v=P5dd9EkE1_I&ab_channel=%E8%80%81%E5%8F%8B%E8%A8%98%E8%8C%B6%E9%A4%A8">
+            </option>
+
+        </datalist>
+        </input>
+        <table border="1">
+            <tbody id="tab_datalist_id">
+
+            </tbody>
+        </table>
+
+</body>
+
+</html>

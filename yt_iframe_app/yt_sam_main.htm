@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+    <script src="../jq/jquery-2_1_3.min.js"></script>
+  
+
+    <style>
+        .about_I {
+            background-color: red;
+        }
+
+        .plus {
+            background-color: antiquewhite
+        }
+    </style>
+
+    <script>
+        $(function () {
+
+            $("p").on("click",function(){
+                var vid=$(this).text()
+                
+                $("iframe").attr("src","./yt_iframe_videoID.htm?vid="+vid)
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <iframe xsrc="./ElderEnglish_YouTubeSpeedx0.75.htm" frameborder="1" class="" width="650" height="400"></iframe>
+
+    <div xxid="player"></div>
+    <p>o8Y8uLRE-uE</p>
+    <p>c0IhZeHvj0w</p>
+</body>
+
+</html>
