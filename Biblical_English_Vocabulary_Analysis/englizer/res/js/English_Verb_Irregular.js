@@ -121,7 +121,9 @@ var uti_englizer = {
         console.log(JSON.stringify(ret, null, 4))
         for (verb in ret) {
             var ing = this.rule_add_ing(verb)
+            var p3s = this.rule_add_3s(verb)
             ret[verb][ing] = 0
+            ret[verb][p3s] = 0
         }
         $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
     },
@@ -143,7 +145,7 @@ var uti_englizer = {
             return verb.replace(/[e]$/, ing)
         }
 
-        var mat = verb.match(/[u][i]([^aeiouwxyn])$/)
+        var mat = verb.match(/[u][i]([^aeiouwxyn])$/)//run,begin
         if (mat) {
             return verb + mat[1] + ing
         }
@@ -183,6 +185,32 @@ var uti_englizer = {
         }
         return verb + ed
     },
+    rule_add_3s: function (verb) {
+        //Add –es instead of –s if the base form ends in -s, -z, -x, -sh, -ch, or the vowel o (but not -oo). This adds an extra syllable to the word in spoken form. 
+        // If the base form ends in consonant + y, remove the -y and add –ies:
+        var ed = "s"
+        if (verb === "have") return "has"
+
+        var mat = verb.match(/[szx]$/)
+        if (mat) {
+            ed="es"
+        }
+        var mat = verb.match(/[s|c]h$/)
+        if (mat) {
+            ed="es"
+        }
+        var mat = verb.match(/[^o][o]$/)
+        if (mat) {
+            ed="es"
+        }
+
+        var mat = verb.match(/(.+[^aeiou])(y)$/)
+        if (mat) {
+             verb = verb.replace(/y$/, "ies")
+             ed=""
+        }
+        return verb + ed
+    },
     Gen_Verb_Regular: function () {
         function gen_allverbs() {
             var verbary = []
@@ -210,10 +238,12 @@ var uti_englizer = {
                 } else {
                     var ing = uti_englizer.rule_add_ing(verb)
                     var ed = uti_englizer.rule_add_ed(verb)
+                    var p3s = uti_englizer.rule_add_3s(verb)
                     Regular[verb] = {}
                     Regular[verb][ed] = 0
                     Regular[verb][ing] = 0
-                    tabs += `<tr class='reg'><td>${i + 1}</td><td>${verb}</td><td>${ed}</td><td>${ing}</td></tr>`
+                    Regular[verb][p3s] = 0
+                    tabs += `<tr class='reg'><td>${i + 1}</td><td>${verb}</td><td>${ed}</td><td>${ing}</td><td>${p3s}</td></tr>`
                 }
 
             });
