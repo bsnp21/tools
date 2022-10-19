@@ -3,1659 +3,2025 @@ var English_Verb_Forms = {
         "arise": {
             "arose": 1,
             "arisen": 0,
-            "arising": 0
+            "arising": 0,
+            "arises": 0
         },
         "awake": {
             "awakened": 0,
             "awoke": 1,
             "awoken": 0,
-            "awaking": 0
+            "awaking": 0,
+            "awakes": 0
         },
         "backslide": {
             "backslid": 0,
             "backslidden": 0,
-            "backsliding": 0
+            "backsliding": 0,
+            "backslides": 0
         },
         "be": {
             "was, were": 1,
             "been": 0,
-            "being": 0
+            "being": 0,
+            "is": 0
         },
         "bear": {
             "bore": 1,
             "born": 0,
             "borne": 0,
-            "bearing": 0
+            "bearing": 0,
+            "bears": 0
         },
         "beat": {
             "beat": 0,
             "beaten": 0,
-            "beating": 0
+            "beating": 0,
+            "beats": 0
         },
         "become": {
             "became": 1,
             "become": 0,
-            "becoming": 0
+            "becoming": 0,
+            "becomes": 0
         },
         "begin": {
             "began": 1,
             "begun": 0,
-            "beginning": 0
+            "beginning": 0,
+            "begins": 0
         },
         "bend": {
             "bent": 0,
-            "bending": 0
+            "bending": 0,
+            "bends": 0
         },
         "bet": {
             "bet": 0,
             "betted": 0,
-            "betting": 0
+            "betting": 0,
+            "bets": 0
         },
         "bid": {
             "bid": 0,
-            "bidding": 0
+            "bidding": 0,
+            "bids": 0
         },
         "bind": {
             "bound": 0,
-            "binding": 0
+            "binding": 0,
+            "binds": 0
         },
         "bite": {
             "bit": 1,
             "bitten": 0,
-            "biting": 0
+            "biting": 0,
+            "bites": 0
         },
         "bleed": {
             "bled": 0,
-            "bleeding": 0
+            "bleeding": 0,
+            "bleeds": 0
         },
         "blow": {
             "blew": 1,
             "blown": 0,
-            "blowing": 0
+            "blowwing": 0,
+            "blows": 0
         },
         "break": {
             "broke": 1,
             "broken": 0,
-            "breaking": 0
+            "breaking": 0,
+            "breaks": 0
         },
         "breed": {
             "bred": 0,
-            "breeding": 0
+            "breeding": 0,
+            "breeds": 0
         },
         "bring": {
             "brought": 0,
-            "bringing": 0
+            "bringing": 0,
+            "brings": 0
         },
         "broadcast": {
             "broadcast": 0,
             "broadcasted": 0,
-            "broadcasting": 0
+            "broadcasting": 0,
+            "broadcasts": 0
         },
         "browbeat": {
             "browbeat": 0,
             "browbeaten": 0,
-            "browbeating": 0
+            "browbeating": 0,
+            "browbeats": 0
         },
         "build": {
             "built": 0,
-            "building": 0
+            "building": 0,
+            "builds": 0
         },
         "burn": {
             "burned": 0,
             "burnt": 0,
-            "burning": 0
+            "burning": 0,
+            "burns": 0
         },
         "burst": {
             "burst": 0,
-            "bursting": 0
+            "bursting": 0,
+            "bursts": 0
         },
         "bust": {
             "busted": 0,
             "bust": 0,
-            "busting": 0
+            "busting": 0,
+            "busts": 0
         },
         "buy": {
             "bought": 0,
-            "buying": 0
+            "buyying": 0,
+            "buys": 0
         },
         "cast": {
             "cast": 0,
-            "casting": 0
+            "casting": 0,
+            "casts": 0
         },
         "catch": {
             "caught": 0,
-            "catching": 0
+            "catching": 0,
+            "catches": 0
         },
         "choose": {
             "chose": 1,
             "chosen": 0,
-            "choosing": 0
+            "choosing": 0,
+            "chooses": 0
         },
         "cling": {
             "clung": 0,
-            "clinging": 0
+            "clinging": 0,
+            "clings": 0
         },
         "clothe": {
             "clothed": 0,
             "clad": 0,
-            "clothing": 0
+            "clothing": 0,
+            "clothes": 0
         },
         "come": {
             "came": 1,
             "come": 0,
-            "coming": 0
+            "coming": 0,
+            "comes": 0
         },
         "cost": {
             "cost": 0,
-            "costing": 0
+            "costing": 0,
+            "costs": 0
         },
         "creep": {
             "crept": 0,
-            "creeping": 0
+            "creeping": 0,
+            "creeps": 0
         },
         "crossbreed": {
             "crossbred": 0,
-            "crossbreeding": 0
+            "crossbreeding": 0,
+            "crossbreeds": 0
         },
         "cut": {
             "cut": 0,
-            "cutting": 0
+            "cutting": 0,
+            "cuts": 0
         },
         "daydream": {
             "daydreamed": 0,
             "daydreamt": 0,
-            "daydreaming": 0
+            "daydreaming": 0,
+            "daydreams": 0
         },
         "deal": {
             "dealt": 0,
-            "dealing": 0
+            "dealing": 0,
+            "deals": 0
         },
         "dig": {
             "dug": 0,
-            "digging": 0
+            "digging": 0,
+            "digs": 0
         },
         "disprove": {
             "disproved": 0,
             "disproven": 0,
-            "disproving": 0
+            "disproving": 0,
+            "disproves": 0
         },
         "dive": {
             "dived": 0,
             "dove": 1,
-            "diving": 0
+            "diving": 0,
+            "dives": 0
         },
         "do": {
             "did": 1,
             "done": 0,
-            "doing": 0
+            "doing": 0,
+            "does": 0
         },
         "draw": {
             "drew": 1,
             "drawn": 0,
-            "drawing": 0
+            "drawwing": 0,
+            "draws": 0
         },
         "dream": {
             "dreamed": 0,
             "dreamt": 0,
-            "dreaming": 0
+            "dreaming": 0,
+            "dreams": 0
         },
         "drink": {
             "drank": 1,
             "drunk": 0,
-            "drinking": 0
+            "drinking": 0,
+            "drinks": 0
         },
         "drive": {
             "drove": 1,
             "driven": 0,
-            "driving": 0
+            "driving": 0,
+            "drives": 0
         },
         "dwell": {
             "dwelt": 0,
             "dwelled": 0,
-            "dwelling": 0
+            "dwelling": 0,
+            "dwells": 0
         },
         "eat": {
             "ate": 1,
             "eaten": 0,
-            "eating": 0
+            "eating": 0,
+            "eats": 0
         },
         "fall": {
             "fell": 1,
             "fallen": 0,
-            "falling": 0
+            "falling": 0,
+            "falls": 0
         },
         "feed": {
             "fed": 0,
-            "feeding": 0
+            "feeding": 0,
+            "feeds": 0
         },
         "feel": {
             "felt": 0,
-            "feeling": 0
+            "feeling": 0,
+            "feels": 0
         },
         "fight": {
             "fought": 0,
-            "fighting": 0
+            "fighting": 0,
+            "fights": 0
         },
         "find": {
             "found": 0,
-            "finding": 0
+            "finding": 0,
+            "finds": 0
         },
         "fit": {
             "fit": 0,
             "fitted": 0,
-            "fitting": 0
+            "fitting": 0,
+            "fits": 0
         },
         "flee": {
             "fled": 0,
-            "fleeing": 0
+            "fleeing": 0,
+            "flees": 0
         },
         "fling": {
             "flung": 0,
-            "flinging": 0
+            "flinging": 0,
+            "flings": 0
         },
         "fly": {
             "flew": 1,
             "flown": 0,
-            "flying": 0
+            "flying": 0,
+            "flies": 0
         },
         "forbid": {
             "forbade": 1,
             "forbidden": 0,
-            "forbidding": 0
+            "forbidding": 0,
+            "forbids": 0
         },
         "forecast": {
             "forecast": 0,
-            "forecasting": 0
+            "forecasting": 0,
+            "forecasts": 0
         },
         "forego": {
             "forewent": 1,
             "foregone": 0,
-            "foregoing": 0
+            "foregoing": 0,
+            "foregoes": 0
         },
         "foresee": {
             "foresaw": 1,
             "foreseen": 0,
-            "foreseeing": 0
+            "foreseeing": 0,
+            "foresees": 0
         },
         "foretell": {
             "foretold": 0,
-            "foretelling": 0
+            "foretelling": 0,
+            "foretells": 0
         },
         "forget": {
             "forgot": 0,
             "forgotten": 0,
-            "forgetting": 0
+            "forgetting": 0,
+            "forgets": 0
         },
         "forgive": {
             "forgave": 1,
             "forgiven": 0,
-            "forgiving": 0
+            "forgiving": 0,
+            "forgives": 0
         },
         "forsake": {
             "forsook": 1,
             "forsaken": 0,
-            "forsaking": 0
+            "forsaking": 0,
+            "forsakes": 0
         },
         "freeze": {
             "froze": 1,
             "frozen": 0,
-            "freezing": 0
+            "freezing": 0,
+            "freezes": 0
         },
         "frostbite": {
             "frostbit": 1,
             "frostbitten": 0,
-            "frostbiting": 0
+            "frostbiting": 0,
+            "frostbites": 0
         },
         "get": {
             "got": 0,
             "gotten": 0,
-            "getting": 0
+            "getting": 0,
+            "gets": 0
         },
         "give": {
             "gave": 1,
             "given": 0,
-            "giving": 0
+            "giving": 0,
+            "gives": 0
         },
         "go": {
             "went": 1,
             "gone": 0,
-            "going": 0
+            "going": 0,
+            "goes": 0
         },
         "grind": {
             "ground": 0,
-            "grinding": 0
+            "grinding": 0,
+            "grinds": 0
         },
         "grow": {
             "grew": 1,
             "grown": 0,
-            "growing": 0
+            "growwing": 0,
+            "grows": 0
         },
         "hand-feed": {
             "hand-fed": 0,
-            "hand-feeding": 0
+            "hand-feeding": 0,
+            "hand-feeds": 0
         },
         "handwrite": {
             "handwrote": 1,
             "handwritten": 0,
-            "handwriting": 0
+            "handwriting": 0,
+            "handwrites": 0
         },
         "hang": {
             "hung": 0,
-            "hanging": 0
+            "hanging": 0,
+            "hangs": 0
         },
         "have": {
             "had": 0,
-            "having": 0
+            "having": 0,
+            "has": 0
         },
         "hear": {
             "heard": 0,
-            "hearing": 0
+            "hearing": 0,
+            "hears": 0
         },
         "hew": {
             "hewed": 0,
             "hewn": 0,
-            "hewing": 0
+            "hewwing": 0,
+            "hews": 0
         },
         "hide": {
             "hid": 1,
             "hidden": 0,
-            "hiding": 0
+            "hiding": 0,
+            "hides": 0
         },
         "hit": {
             "hit": 0,
-            "hitting": 0
+            "hitting": 0,
+            "hits": 0
         },
         "hold": {
             "held": 0,
-            "holding": 0
+            "holding": 0,
+            "holds": 0
         },
         "hurt": {
             "hurt": 0,
-            "hurting": 0
+            "hurting": 0,
+            "hurts": 0
         },
         "inbreed": {
             "inbred": 0,
-            "inbreeding": 0
+            "inbreeding": 0,
+            "inbreeds": 0
         },
         "inlay": {
             "inlaid": 0,
-            "inlaying": 0
+            "inlayying": 0,
+            "inlays": 0
         },
         "input": {
             "input": 0,
             "inputted": 0,
-            "inputting": 0
+            "inputting": 0,
+            "inputs": 0
         },
         "interbreed": {
             "interbred": 0,
-            "interbreeding": 0
+            "interbreeding": 0,
+            "interbreeds": 0
         },
         "interweave": {
             "interwove": 1,
             "interweaved": 0,
             "interwoven": 0,
-            "interweaving": 0
+            "interweaving": 0,
+            "interweaves": 0
         },
         "interwind": {
             "interwound": 0,
-            "interwinding": 0
+            "interwinding": 0,
+            "interwinds": 0
         },
         "jerry-build": {
             "jerry-built": 0,
-            "jerry-building": 0
+            "jerry-building": 0,
+            "jerry-builds": 0
         },
         "keep": {
             "kept": 0,
-            "keeping": 0
+            "keeping": 0,
+            "keeps": 0
         },
         "kneel": {
             "knelt": 0,
             "kneeled": 0,
-            "kneeling": 0
+            "kneeling": 0,
+            "kneels": 0
         },
         "knit": {
             "knitted": 0,
             "knit": 0,
-            "knitting": 0
+            "knitting": 0,
+            "knits": 0
         },
         "know": {
             "knew": 1,
             "known": 0,
-            "knowing": 0
+            "knowwing": 0,
+            "knows": 0
         },
         "lay": {
             "laid": 0,
-            "laying": 0
+            "layying": 0,
+            "lays": 0
         },
         "lead": {
             "led": 0,
-            "leading": 0
+            "leading": 0,
+            "leads": 0
         },
         "lean": {
             "leaned": 0,
             "leant": 0,
-            "leaning": 0
+            "leaning": 0,
+            "leans": 0
         },
         "leap": {
             "leaped": 0,
             "leapt": 0,
-            "leaping": 0
+            "leaping": 0,
+            "leaps": 0
         },
         "learn": {
             "learned": 0,
             "learnt": 0,
-            "learning": 0
+            "learning": 0,
+            "learns": 0
         },
         "leave": {
             "left": 0,
-            "leaving": 0
+            "leaving": 0,
+            "leaves": 0
         },
         "lend": {
             "lent": 0,
-            "lending": 0
+            "lending": 0,
+            "lends": 0
         },
         "let": {
             "let": 0,
-            "letting": 0
+            "letting": 0,
+            "lets": 0
         },
         "lie": {
             "lied": 0,
-            "lying": 0
+            "lying": 0,
+            "lies": 0
         },
         "light": {
             "lit": 0,
             "lighted": 0,
-            "lighting": 0
+            "lighting": 0,
+            "lights": 0
         },
         "lip-read": {
             "lip-read": 0,
-            "lip-reading": 0
+            "lip-reading": 0,
+            "lip-reads": 0
         },
         "lose": {
             "lost": 0,
-            "losing": 0
+            "losing": 0,
+            "loses": 0
         },
         "make": {
             "made": 0,
-            "making": 0
+            "making": 0,
+            "makes": 0
         },
         "mean": {
             "meant": 0,
-            "meaning": 0
+            "meaning": 0,
+            "means": 0
         },
         "meet": {
             "met": 0,
-            "meeting": 0
+            "meeting": 0,
+            "meets": 0
         },
         "miscast": {
             "miscast": 0,
-            "miscasting": 0
+            "miscasting": 0,
+            "miscasts": 0
         },
         "misdeal": {
             "misdealt": 0,
-            "misdealing": 0
+            "misdealing": 0,
+            "misdeals": 0
         },
         "misdo": {
             "misdid": 1,
             "misdone": 0,
-            "misdoing": 0
+            "misdoing": 0,
+            "misdoes": 0
         },
         "mishear": {
             "misheard": 0,
-            "mishearing": 0
+            "mishearing": 0,
+            "mishears": 0
         },
         "mislay": {
             "mislaid": 0,
-            "mislaying": 0
+            "mislayying": 0,
+            "mislays": 0
         },
         "mislead": {
             "misled": 0,
-            "misleading": 0
+            "misleading": 0,
+            "misleads": 0
         },
         "mislearn": {
             "mislearned": 0,
             "mislearnt": 0,
-            "mislearning": 0
+            "mislearning": 0,
+            "mislearns": 0
         },
         "misread": {
             "misread": 0,
-            "misreading": 0
+            "misreading": 0,
+            "misreads": 0
         },
         "misset": {
             "misset": 0,
-            "missetting": 0
+            "missetting": 0,
+            "missets": 0
         },
         "misspeak": {
             "misspoke": 1,
             "misspoken": 0,
-            "misspeaking": 0
+            "misspeaking": 0,
+            "misspeaks": 0
         },
         "misspell": {
             "misspelled": 0,
             "misspelt": 0,
-            "misspelling": 0
+            "misspelling": 0,
+            "misspells": 0
         },
         "misspend": {
             "misspent": 0,
-            "misspending": 0
+            "misspending": 0,
+            "misspends": 0
         },
         "mistake": {
             "mistook": 1,
             "mistaken": 0,
-            "mistaking": 0
+            "mistaking": 0,
+            "mistakes": 0
         },
         "misteach": {
             "mistaught": 0,
-            "misteaching": 0
+            "misteaching": 0,
+            "misteaches": 0
         },
         "misunderstand": {
             "misunderstood": 0,
-            "misunderstanding": 0
+            "misunderstanding": 0,
+            "misunderstands": 0
         },
         "miswrite": {
             "miswrote": 1,
             "miswritten": 0,
-            "miswriting": 0
+            "miswriting": 0,
+            "miswrites": 0
         },
         "mow": {
             "mowed": 0,
             "mown": 0,
-            "mowing": 0
+            "mowwing": 0,
+            "mows": 0
         },
         "offset": {
             "offset": 0,
-            "offsetting": 0
+            "offsetting": 0,
+            "offsets": 0
         },
         "outbid": {
             "outbid": 0,
-            "outbidding": 0
+            "outbidding": 0,
+            "outbids": 0
         },
         "outbreed": {
             "outbred": 0,
-            "outbreeding": 0
+            "outbreeding": 0,
+            "outbreeds": 0
         },
         "outdo": {
             "outdid": 1,
             "outdone": 0,
-            "outdoing": 0
+            "outdoing": 0,
+            "outdoes": 0
         },
         "outdraw": {
             "outdrew": 1,
             "outdrawn": 0,
-            "outdrawing": 0
+            "outdrawwing": 0,
+            "outdraws": 0
         },
         "outdrink": {
             "outdrank": 1,
             "outdrunk": 0,
-            "outdrinking": 0
+            "outdrinking": 0,
+            "outdrinks": 0
         },
         "outdrive": {
             "outdrove": 1,
             "outdriven": 0,
-            "outdriving": 0
+            "outdriving": 0,
+            "outdrives": 0
         },
         "outfight": {
             "outfought": 0,
-            "outfighting": 0
+            "outfighting": 0,
+            "outfights": 0
         },
         "outfly": {
             "outflew": 1,
             "outflown": 0,
-            "outflying": 0
+            "outflying": 0,
+            "outflies": 0
         },
         "outgrow": {
             "outgrew": 1,
             "outgrown": 0,
-            "outgrowing": 0
+            "outgrowwing": 0,
+            "outgrows": 0
         },
         "outleap": {
             "outleaped": 0,
             "outleapt": 0,
-            "outleaping": 0
+            "outleaping": 0,
+            "outleaps": 0
         },
         "outlie": {
             "outlied": 0,
-            "outlying": 0
+            "outlying": 0,
+            "outlies": 0
         },
         "outride": {
             "outrode": 1,
             "outridden": 0,
-            "outriding": 0
+            "outriding": 0,
+            "outrides": 0
         },
         "outrun": {
             "outran": 1,
             "outrun": 0,
-            "outrunning": 0
+            "outrunning": 0,
+            "outruns": 0
         },
         "outsell": {
             "outsold": 0,
-            "outselling": 0
+            "outselling": 0,
+            "outsells": 0
         },
         "outshine": {
             "outshined": 0,
             "outshone": 0,
-            "outshining": 0
+            "outshining": 0,
+            "outshines": 0
         },
         "outshoot": {
             "outshot": 0,
-            "outshooting": 0
+            "outshooting": 0,
+            "outshoots": 0
         },
         "outsing": {
             "outsang": 1,
             "outsung": 0,
-            "outsinging": 0
+            "outsinging": 0,
+            "outsings": 0
         },
         "outsit": {
             "outsat": 0,
-            "outsitting": 0
+            "outsitting": 0,
+            "outsits": 0
         },
         "outsleep": {
             "outslept": 0,
-            "outsleeping": 0
+            "outsleeping": 0,
+            "outsleeps": 0
         },
         "outsmell": {
             "outsmelled": 0,
             "outsmelt": 0,
-            "outsmelling": 0
+            "outsmelling": 0,
+            "outsmells": 0
         },
         "outspeak": {
             "outspoke": 1,
             "outspoken": 0,
-            "outspeaking": 0
+            "outspeaking": 0,
+            "outspeaks": 0
         },
         "outspeed": {
             "outsped": 0,
-            "outspeeding": 0
+            "outspeeding": 0,
+            "outspeeds": 0
         },
         "outspend": {
             "outspent": 0,
-            "outspending": 0
+            "outspending": 0,
+            "outspends": 0
         },
         "outswear": {
             "outswore": 1,
             "outsworn": 0,
-            "outswearing": 0
+            "outswearing": 0,
+            "outswears": 0
         },
         "outswim": {
             "outswam": 1,
             "outswum": 0,
-            "outswimming": 0
+            "outswimming": 0,
+            "outswims": 0
         },
         "outthink": {
             "outthought": 0,
-            "outthinking": 0
+            "outthinking": 0,
+            "outthinks": 0
         },
         "outthrow": {
             "outthrew": 1,
             "outthrown": 0,
-            "outthrowing": 0
+            "outthrowwing": 0,
+            "outthrows": 0
         },
         "outwrite": {
             "outwrote": 1,
             "outwritten": 0,
-            "outwriting": 0
+            "outwriting": 0,
+            "outwrites": 0
         },
         "overbid": {
             "overbid": 0,
-            "overbidding": 0
+            "overbidding": 0,
+            "overbids": 0
         },
         "overbreed": {
             "overbred": 0,
-            "overbreeding": 0
+            "overbreeding": 0,
+            "overbreeds": 0
         },
         "overbuild": {
             "overbuilt": 0,
-            "overbuilding": 0
+            "overbuilding": 0,
+            "overbuilds": 0
         },
         "overbuy": {
             "overbought": 0,
-            "overbuying": 0
+            "overbuyying": 0,
+            "overbuys": 0
         },
         "overcome": {
             "overcame": 1,
             "overcome": 0,
-            "overcoming": 0
+            "overcoming": 0,
+            "overcomes": 0
         },
         "overdo": {
             "overdid": 1,
             "overdone": 0,
-            "overdoing": 0
+            "overdoing": 0,
+            "overdoes": 0
         },
         "overdraw": {
             "overdrew": 1,
             "overdrawn": 0,
-            "overdrawing": 0
+            "overdrawwing": 0,
+            "overdraws": 0
         },
         "overdrink": {
             "overdrank": 1,
             "overdrunk": 0,
-            "overdrinking": 0
+            "overdrinking": 0,
+            "overdrinks": 0
         },
         "overeat": {
             "overate": 1,
             "overeaten": 0,
-            "overeating": 0
+            "overeating": 0,
+            "overeats": 0
         },
         "overfeed": {
             "overfed": 0,
-            "overfeeding": 0
+            "overfeeding": 0,
+            "overfeeds": 0
         },
         "overhang": {
             "overhung": 0,
-            "overhanging": 0
+            "overhanging": 0,
+            "overhangs": 0
         },
         "overhear": {
             "overheard": 0,
-            "overhearing": 0
+            "overhearing": 0,
+            "overhears": 0
         },
         "overlay": {
             "overlaid": 0,
-            "overlaying": 0
+            "overlayying": 0,
+            "overlays": 0
         },
         "overpay": {
             "overpaid": 0,
-            "overpaying": 0
+            "overpayying": 0,
+            "overpays": 0
         },
         "override": {
             "overrode": 1,
             "overridden": 0,
-            "overriding": 0
+            "overriding": 0,
+            "overrides": 0
         },
         "overrun": {
             "overran": 1,
             "overrun": 0,
-            "overrunning": 0
+            "overrunning": 0,
+            "overruns": 0
         },
         "oversee": {
             "oversaw": 1,
             "overseen": 0,
-            "overseeing": 0
+            "overseeing": 0,
+            "oversees": 0
         },
         "oversell": {
             "oversold": 0,
-            "overselling": 0
+            "overselling": 0,
+            "oversells": 0
         },
         "oversew": {
             "oversewed": 0,
             "oversewn": 0,
-            "oversewing": 0
+            "oversewwing": 0,
+            "oversews": 0
         },
         "overshoot": {
             "overshot": 0,
-            "overshooting": 0
+            "overshooting": 0,
+            "overshoots": 0
         },
         "oversleep": {
             "overslept": 0,
-            "oversleeping": 0
+            "oversleeping": 0,
+            "oversleeps": 0
         },
         "overspeak": {
             "overspoke": 1,
             "overspoken": 0,
-            "overspeaking": 0
+            "overspeaking": 0,
+            "overspeaks": 0
         },
         "overspend": {
             "overspent": 0,
-            "overspending": 0
+            "overspending": 0,
+            "overspends": 0
         },
         "overspill": {
             "overspilled": 0,
             "overspilt": 0,
-            "overspilling": 0
+            "overspilling": 0,
+            "overspills": 0
         },
         "overtake": {
             "overtook": 1,
             "overtaken": 0,
-            "overtaking": 0
+            "overtaking": 0,
+            "overtakes": 0
         },
         "overthink": {
             "overthought": 0,
-            "overthinking": 0
+            "overthinking": 0,
+            "overthinks": 0
         },
         "overthrow": {
             "overthrew": 1,
             "overthrown": 0,
-            "overthrowing": 0
+            "overthrowwing": 0,
+            "overthrows": 0
         },
         "overwind": {
             "overwound": 0,
-            "overwinding": 0
+            "overwinding": 0,
+            "overwinds": 0
         },
         "overwrite": {
             "overwrote": 1,
             "overwritten": 0,
-            "overwriting": 0
+            "overwriting": 0,
+            "overwrites": 0
         },
         "partake": {
             "partook": 1,
             "partaken": 0,
-            "partaking": 0
+            "partaking": 0,
+            "partakes": 0
         },
         "pay": {
             "paid": 0,
-            "paying": 0
+            "payying": 0,
+            "pays": 0
         },
         "plead": {
             "pleaded": 0,
             "pled": 0,
-            "pleading": 0
+            "pleading": 0,
+            "pleads": 0
         },
         "prebuild": {
             "prebuilt": 0,
-            "prebuilding": 0
+            "prebuilding": 0,
+            "prebuilds": 0
         },
         "predo": {
             "predid": 1,
             "predone": 0,
-            "predoing": 0
+            "predoing": 0,
+            "predoes": 0
         },
         "premake": {
             "premade": 0,
-            "premaking": 0
+            "premaking": 0,
+            "premakes": 0
         },
         "prepay": {
             "prepaid": 0,
-            "prepaying": 0
+            "prepayying": 0,
+            "prepays": 0
         },
         "presell": {
             "presold": 0,
-            "preselling": 0
+            "preselling": 0,
+            "presells": 0
         },
         "preset": {
             "preset": 0,
-            "presetting": 0
+            "presetting": 0,
+            "presets": 0
         },
         "preshrink": {
             "preshrank": 1,
             "preshrunk": 0,
-            "preshrinking": 0
+            "preshrinking": 0,
+            "preshrinks": 0
         },
         "proofread": {
             "proofread": 0,
-            "proofreading": 0
+            "proofreading": 0,
+            "proofreads": 0
         },
         "prove": {
             "proved": 0,
             "proven": 0,
-            "proving": 0
+            "proving": 0,
+            "proves": 0
         },
         "put": {
             "put": 0,
-            "putting": 0
+            "putting": 0,
+            "puts": 0
         },
         "quick-freeze": {
             "quick-froze": 1,
             "quick-frozen": 0,
-            "quick-freezing": 0
+            "quick-freezing": 0,
+            "quick-freezes": 0
         },
         "quit": {
             "quit": 0,
             "quitted": 0,
-            "quitting": 0
+            "quiting": 0,
+            "quits": 0
         },
         "read": {
             "read (sounds like \"red\")": 0,
-            "reading": 0
+            "reading": 0,
+            "reads": 0
         },
         "reawake": {
             "reawoke": 1,
             "reawaken": 0,
-            "reawaking": 0
+            "reawaking": 0,
+            "reawakes": 0
         },
         "rebid": {
             "rebid": 0,
-            "rebidding": 0
+            "rebidding": 0,
+            "rebids": 0
         },
         "rebind": {
             "rebound": 0,
-            "rebinding": 0
+            "rebinding": 0,
+            "rebinds": 0
         },
         "rebroadcast": {
             "rebroadcast": 0,
             "rebroadcasted": 0,
-            "rebroadcasting": 0
+            "rebroadcasting": 0,
+            "rebroadcasts": 0
         },
         "rebuild": {
             "rebuilt": 0,
-            "rebuilding": 0
+            "rebuilding": 0,
+            "rebuilds": 0
         },
         "recast": {
             "recast": 0,
-            "recasting": 0
+            "recasting": 0,
+            "recasts": 0
         },
         "recut": {
             "recut": 0,
-            "recutting": 0
+            "recutting": 0,
+            "recuts": 0
         },
         "redeal": {
             "redealt": 0,
-            "redealing": 0
+            "redealing": 0,
+            "redeals": 0
         },
         "redo": {
             "redid": 1,
             "redone": 0,
-            "redoing": 0
+            "redoing": 0,
+            "redoes": 0
         },
         "redraw": {
             "redrew": 1,
             "redrawn": 0,
-            "redrawing": 0
+            "redrawwing": 0,
+            "redraws": 0
         },
         "refit": {
             "refitted": 0,
             "refit": 0,
-            "refitting": 0
+            "refitting": 0,
+            "refits": 0
         },
         "regrind": {
             "reground": 0,
-            "regrinding": 0
+            "regrinding": 0,
+            "regrinds": 0
         },
         "regrow": {
             "regrew": 1,
             "regrown": 0,
-            "regrowing": 0
+            "regrowwing": 0,
+            "regrows": 0
         },
         "rehang": {
             "rehung": 0,
-            "rehanging": 0
+            "rehanging": 0,
+            "rehangs": 0
         },
         "rehear": {
             "reheard": 0,
-            "rehearing": 0
+            "rehearing": 0,
+            "rehears": 0
         },
         "reknit": {
             "reknitted": 0,
             "reknit": 0,
-            "reknitting": 0
+            "reknitting": 0,
+            "reknits": 0
         },
         "relay": {
             "relayed": 0,
-            "relaying": 0
+            "relayying": 0,
+            "relays": 0
         },
         "relearn": {
             "relearned": 0,
             "relearnt": 0,
-            "relearning": 0
+            "relearning": 0,
+            "relearns": 0
         },
         "relight": {
             "relit": 0,
             "relighted": 0,
-            "relighting": 0
+            "relighting": 0,
+            "relights": 0
         },
         "remake": {
             "remade": 0,
-            "remaking": 0
+            "remaking": 0,
+            "remakes": 0
         },
         "repay": {
             "repaid": 0,
-            "repaying": 0
+            "repayying": 0,
+            "repays": 0
         },
         "reread": {
             "reread": 0,
-            "rereading": 0
+            "rereading": 0,
+            "rereads": 0
         },
         "rerun": {
             "reran": 1,
             "rerun": 0,
-            "rerunning": 0
+            "rerunning": 0,
+            "reruns": 0
         },
         "resell": {
             "resold": 0,
-            "reselling": 0
+            "reselling": 0,
+            "resells": 0
         },
         "resend": {
             "resent": 0,
-            "resending": 0
+            "resending": 0,
+            "resends": 0
         },
         "reset": {
             "reset": 0,
-            "resetting": 0
+            "resetting": 0,
+            "resets": 0
         },
         "resew": {
             "resewed": 0,
             "resewn": 0,
-            "resewing": 0
+            "resewwing": 0,
+            "resews": 0
         },
         "retake": {
             "retook": 1,
             "retaken": 0,
-            "retaking": 0
+            "retaking": 0,
+            "retakes": 0
         },
         "reteach": {
             "retaught": 0,
-            "reteaching": 0
+            "reteaching": 0,
+            "reteaches": 0
         },
         "retear": {
             "retore": 1,
             "retorn": 0,
-            "retearing": 0
+            "retearing": 0,
+            "retears": 0
         },
         "retell": {
             "retold": 0,
-            "retelling": 0
+            "retelling": 0,
+            "retells": 0
         },
         "rethink": {
             "rethought": 0,
-            "rethinking": 0
+            "rethinking": 0,
+            "rethinks": 0
         },
         "retread": {
             "retread": 0,
-            "retreading": 0
+            "retreading": 0,
+            "retreads": 0
         },
         "retrofit": {
             "retrofitted": 0,
             "retrofit": 0,
-            "retrofitting": 0
+            "retrofitting": 0,
+            "retrofits": 0
         },
         "rewake": {
             "rewoke": 1,
             "rewaked": 0,
             "rewaken": 0,
-            "rewaking": 0
+            "rewaking": 0,
+            "rewakes": 0
         },
         "rewear": {
             "rewore": 1,
             "reworn": 0,
-            "rewearing": 0
+            "rewearing": 0,
+            "rewears": 0
         },
         "reweave": {
             "rewove": 1,
             "reweaved": 0,
             "rewoven": 0,
-            "reweaving": 0
+            "reweaving": 0,
+            "reweaves": 0
         },
         "rewed": {
             "rewed": 0,
             "rewedded": 0,
-            "rewedding": 0
+            "rewedding": 0,
+            "reweds": 0
         },
         "rewet": {
             "rewet": 0,
             "rewetted": 0,
-            "rewetting": 0
+            "rewetting": 0,
+            "rewets": 0
         },
         "rewin": {
             "rewon": 0,
-            "rewinning": 0
+            "rewinning": 0,
+            "rewins": 0
         },
         "rewind": {
             "rewound": 0,
-            "rewinding": 0
+            "rewinding": 0,
+            "rewinds": 0
         },
         "rewrite": {
             "rewrote": 1,
             "rewritten": 0,
-            "rewriting": 0
+            "rewriting": 0,
+            "rewrites": 0
         },
         "rid": {
             "rid": 0,
-            "ridding": 0
+            "ridding": 0,
+            "rids": 0
         },
         "ride": {
             "rode": 1,
             "ridden": 0,
-            "riding": 0
+            "riding": 0,
+            "rides": 0
         },
         "ring": {
             "rang": 1,
             "rung": 0,
-            "ringing": 0
+            "ringing": 0,
+            "rings": 0
         },
         "rise": {
             "rose": 1,
             "risen": 0,
-            "rising": 0
+            "rising": 0,
+            "rises": 0
         },
         "roughcast": {
             "roughcast": 0,
-            "roughcasting": 0
+            "roughcasting": 0,
+            "roughcasts": 0
         },
         "run": {
             "ran": 1,
             "run": 0,
-            "running": 0
+            "running": 0,
+            "runs": 0
         },
         "sand-cast": {
             "sand-cast": 0,
-            "sand-casting": 0
+            "sand-casting": 0,
+            "sand-casts": 0
         },
         "saw": {
             "sawed": 0,
             "sawn": 0,
-            "sawing": 0
+            "sawwing": 0,
+            "saws": 0
         },
         "say": {
             "said": 0,
-            "saying": 0
+            "sayying": 0,
+            "says": 0
         },
         "see": {
             "saw": 1,
             "seen": 0,
-            "seeing": 0
+            "seeing": 0,
+            "sees": 0
         },
         "seek": {
             "sought": 0,
-            "seeking": 0
+            "seeking": 0,
+            "seeks": 0
         },
         "sell": {
             "sold": 0,
-            "selling": 0
+            "selling": 0,
+            "sells": 0
         },
         "send": {
             "sent": 0,
-            "sending": 0
+            "sending": 0,
+            "sends": 0
         },
         "set": {
             "set": 0,
-            "setting": 0
+            "setting": 0,
+            "sets": 0
         },
         "sew": {
             "sewed": 0,
             "sewn": 0,
-            "sewing": 0
+            "sewwing": 0,
+            "sews": 0
         },
         "shake": {
             "shook": 1,
             "shaken": 0,
-            "shaking": 0
+            "shaking": 0,
+            "shakes": 0
         },
         "shave": {
             "shaved": 0,
             "shaven": 0,
-            "shaving": 0
+            "shaving": 0,
+            "shaves": 0
         },
         "shear": {
             "sheared": 0,
             "shorn": 0,
-            "shearing": 0
+            "shearing": 0,
+            "shears": 0
         },
         "shed": {
             "shed": 0,
-            "shedding": 0
+            "shedding": 0,
+            "sheds": 0
         },
         "shine": {
             "shined": 0,
             "shone": 0,
-            "shining": 0
+            "shining": 0,
+            "shines": 0
         },
         "shit": {
             "shit": 0,
             "shat": 0,
             "shitted": 0,
-            "shitting": 0
+            "shitting": 0,
+            "shits": 0
         },
         "shoot": {
             "shot": 0,
-            "shooting": 0
+            "shooting": 0,
+            "shoots": 0
         },
         "show": {
             "showed": 0,
             "shown": 0,
-            "showing": 0
+            "showwing": 0,
+            "shows": 0
         },
         "shrink": {
             "shrank": 1,
             "shrunk": 0,
-            "shrinking": 0
+            "shrinking": 0,
+            "shrinks": 0
         },
         "shut": {
             "shut": 0,
-            "shutting": 0
+            "shutting": 0,
+            "shuts": 0
         },
         "sight-read": {
             "sight-read": 0,
-            "sight-reading": 0
+            "sight-reading": 0,
+            "sight-reads": 0
         },
         "sing": {
             "sang": 1,
             "sung": 0,
-            "singing": 0
+            "singing": 0,
+            "sings": 0
         },
         "sink": {
             "sank": 1,
             "sunk": 0,
-            "sinking": 0
+            "sinking": 0,
+            "sinks": 0
         },
         "sit": {
             "sat": 0,
-            "sitting": 0
+            "sitting": 0,
+            "sits": 0
         },
         "slay": {
             "slayed": 0,
-            "slaying": 0
+            "slayying": 0,
+            "slays": 0
         },
         "sleep": {
             "slept": 0,
-            "sleeping": 0
+            "sleeping": 0,
+            "sleeps": 0
         },
         "slide": {
             "slid": 0,
-            "sliding": 0
+            "sliding": 0,
+            "slides": 0
         },
         "sling": {
             "slung": 0,
-            "slinging": 0
+            "slinging": 0,
+            "slings": 0
         },
         "slink": {
             "slinked": 0,
             "slunk": 0,
-            "slinking": 0
+            "slinking": 0,
+            "slinks": 0
         },
         "slit": {
             "slit": 0,
-            "slitting": 0
+            "slitting": 0,
+            "slits": 0
         },
         "smell": {
             "smelled": 0,
             "smelt": 0,
-            "smelling": 0
+            "smelling": 0,
+            "smells": 0
         },
         "sneak": {
             "sneaked": 0,
             "snuck": 0,
-            "sneaking": 0
+            "sneaking": 0,
+            "sneaks": 0
         },
         "sow": {
             "sowed": 0,
             "sown": 0,
-            "sowing": 0
+            "sowwing": 0,
+            "sows": 0
         },
         "speak": {
             "spoke": 1,
             "spoken": 0,
-            "speaking": 0
+            "speaking": 0,
+            "speaks": 0
         },
         "speed": {
             "sped": 0,
             "speeded": 0,
-            "speeding": 0
+            "speeding": 0,
+            "speeds": 0
         },
         "spell": {
             "spelled": 0,
             "spelt": 0,
-            "spelling": 0
+            "spelling": 0,
+            "spells": 0
         },
         "spend": {
             "spent": 0,
-            "spending": 0
+            "spending": 0,
+            "spends": 0
         },
         "spill": {
             "spilled": 0,
             "spilt": 0,
-            "spilling": 0
+            "spilling": 0,
+            "spills": 0
         },
         "spin": {
             "spun": 0,
-            "spinning": 0
+            "spinning": 0,
+            "spins": 0
         },
         "spit": {
             "spit": 0,
             "spat": 0,
-            "spitting": 0
+            "spitting": 0,
+            "spits": 0
         },
         "split": {
             "split": 0,
-            "splitting": 0
+            "splitting": 0,
+            "splits": 0
         },
         "spoil": {
             "spoiled": 0,
             "spoilt": 0,
-            "spoiling": 0
+            "spoiling": 0,
+            "spoils": 0
         },
         "spoon-feed": {
             "spoon-fed": 0,
-            "spoon-feeding": 0
+            "spoon-feeding": 0,
+            "spoon-feeds": 0
         },
         "spread": {
             "spread": 0,
-            "spreading": 0
+            "spreading": 0,
+            "spreads": 0
         },
         "spring": {
             "sprang": 1,
             "sprung": 0,
-            "springing": 0
+            "springing": 0,
+            "springs": 0
         },
         "stand": {
             "stood": 0,
-            "standing": 0
+            "standing": 0,
+            "stands": 0
         },
         "steal": {
             "stole": 1,
             "stolen": 0,
-            "stealing": 0
+            "stealing": 0,
+            "steals": 0
         },
         "stick": {
             "stuck": 0,
-            "sticking": 0
+            "sticking": 0,
+            "sticks": 0
         },
         "sting": {
             "stung": 0,
-            "stinging": 0
+            "stinging": 0,
+            "stings": 0
         },
         "stink": {
             "stunk": 0,
             "stank": 1,
-            "stinking": 0
+            "stinking": 0,
+            "stinks": 0
         },
         "strew": {
             "strewed": 0,
             "strewn": 0,
-            "strewing": 0
+            "strewwing": 0,
+            "strews": 0
         },
         "stride": {
             "strode": 1,
             "stridden": 0,
-            "striding": 0
+            "striding": 0,
+            "strides": 0
         },
         "strike": {
             "struck": 0,
             "stricken": 0,
-            "striking": 0
+            "striking": 0,
+            "strikes": 0
         },
         "string": {
             "strung": 0,
-            "stringing": 0
+            "stringing": 0,
+            "strings": 0
         },
         "strive": {
             "strove": 1,
             "strived": 0,
             "striven": 0,
-            "striving": 0
+            "striving": 0,
+            "strives": 0
         },
         "sublet": {
             "sublet": 0,
-            "subletting": 0
+            "subletting": 0,
+            "sublets": 0
         },
         "sunburn": {
             "sunburned": 0,
             "sunburnt": 0,
-            "sunburning": 0
+            "sunburning": 0,
+            "sunburns": 0
         },
         "swear": {
             "swore": 1,
             "sworn": 0,
-            "swearing": 0
+            "swearing": 0,
+            "swears": 0
         },
         "sweat": {
             "sweat": 0,
             "sweated": 0,
-            "sweating": 0
+            "sweating": 0,
+            "sweats": 0
         },
         "sweep": {
             "swept": 0,
-            "sweeping": 0
+            "sweeping": 0,
+            "sweeps": 0
         },
         "swell": {
             "swelled": 0,
             "swollen": 0,
-            "swelling": 0
+            "swelling": 0,
+            "swells": 0
         },
         "swim": {
             "swam": 1,
             "swum": 0,
-            "swimming": 0
+            "swimming": 0,
+            "swims": 0
         },
         "swing": {
             "swung": 0,
-            "swinging": 0
+            "swinging": 0,
+            "swings": 0
         },
         "take": {
             "took": 1,
             "taken": 0,
-            "taking": 0
+            "taking": 0,
+            "takes": 0
         },
         "teach": {
             "taught": 0,
-            "teaching": 0
+            "teaching": 0,
+            "teaches": 0
         },
         "tear": {
             "tore": 1,
             "torn": 0,
-            "tearing": 0
+            "tearing": 0,
+            "tears": 0
         },
         "telecast": {
             "telecast": 0,
-            "telecasting": 0
+            "telecasting": 0,
+            "telecasts": 0
         },
         "tell": {
             "told": 0,
-            "telling": 0
+            "telling": 0,
+            "tells": 0
         },
         "test-drive": {
             "test-drove": 1,
             "test-driven": 0,
-            "test-driving": 0
+            "test-driving": 0,
+            "test-drives": 0
         },
         "test-fly": {
             "test-flew": 1,
             "test-flown": 0,
-            "test-flying": 0
+            "test-flying": 0,
+            "test-flies": 0
         },
         "think": {
             "thought": 0,
-            "thinking": 0
+            "thinking": 0,
+            "thinks": 0
         },
         "throw": {
             "threw": 1,
             "thrown": 0,
-            "throwing": 0
+            "throwwing": 0,
+            "throws": 0
         },
         "thrust": {
             "thrust": 0,
-            "thrusting": 0
+            "thrusting": 0,
+            "thrusts": 0
         },
         "tread": {
             "trod": 0,
             "trodden": 0,
-            "treading": 0
+            "treading": 0,
+            "treads": 0
         },
         "typecast": {
             "typecast": 0,
-            "typecasting": 0
+            "typecasting": 0,
+            "typecasts": 0
         },
         "typeset": {
             "typeset": 0,
-            "typesetting": 0
+            "typesetting": 0,
+            "typesets": 0
         },
         "typewrite": {
             "typewrote": 1,
             "typewritten": 0,
-            "typewriting": 0
+            "typewriting": 0,
+            "typewrites": 0
         },
         "unbend": {
             "unbent": 0,
-            "unbending": 0
+            "unbending": 0,
+            "unbends": 0
         },
         "unbind": {
             "unbound": 0,
-            "unbinding": 0
+            "unbinding": 0,
+            "unbinds": 0
         },
         "unclothe": {
             "unclothed": 0,
             "unclad": 0,
-            "unclothing": 0
+            "unclothing": 0,
+            "unclothes": 0
         },
         "underbid": {
             "underbid": 0,
-            "underbidding": 0
+            "underbidding": 0,
+            "underbids": 0
         },
         "undercut": {
             "undercut": 0,
-            "undercutting": 0
+            "undercutting": 0,
+            "undercuts": 0
         },
         "underfeed": {
             "underfed": 0,
-            "underfeeding": 0
+            "underfeeding": 0,
+            "underfeeds": 0
         },
         "undergo": {
             "underwent": 1,
             "undergone": 0,
-            "undergoing": 0
+            "undergoing": 0,
+            "undergoes": 0
         },
         "underlie": {
             "underlay": 1,
             "underlain": 0,
-            "underlying": 0
+            "underlying": 0,
+            "underlies": 0
         },
         "undersell": {
             "undersold": 0,
-            "underselling": 0
+            "underselling": 0,
+            "undersells": 0
         },
         "underspend": {
             "underspent": 0,
-            "underspending": 0
+            "underspending": 0,
+            "underspends": 0
         },
         "understand": {
             "understood": 0,
-            "understanding": 0
+            "understanding": 0,
+            "understands": 0
         },
         "undertake": {
             "undertook": 1,
             "undertaken": 0,
-            "undertaking": 0
+            "undertaking": 0,
+            "undertakes": 0
         },
         "underwrite": {
             "underwrote": 1,
             "underwritten": 0,
-            "underwriting": 0
+            "underwriting": 0,
+            "underwrites": 0
         },
         "undo": {
             "undid": 1,
             "undone": 0,
-            "undoing": 0
+            "undoing": 0,
+            "undoes": 0
         },
         "unfreeze": {
             "unfroze": 1,
             "unfrozen": 0,
-            "unfreezing": 0
+            "unfreezing": 0,
+            "unfreezes": 0
         },
         "unhang": {
             "unhung": 0,
-            "unhanging": 0
+            "unhanging": 0,
+            "unhangs": 0
         },
         "unhide": {
             "unhid": 1,
             "unhidden": 0,
-            "unhiding": 0
+            "unhiding": 0,
+            "unhides": 0
         },
         "unknit": {
             "unknitted": 0,
             "unknit": 0,
-            "unknitting": 0
+            "unknitting": 0,
+            "unknits": 0
         },
         "unlearn": {
             "unlearned": 0,
             "unlearnt": 0,
-            "unlearning": 0
+            "unlearning": 0,
+            "unlearns": 0
         },
         "unsew": {
             "unsewed": 0,
             "unsewn": 0,
-            "unsewing": 0
+            "unsewwing": 0,
+            "unsews": 0
         },
         "unsling": {
             "unslung": 0,
-            "unslinging": 0
+            "unslinging": 0,
+            "unslings": 0
         },
         "unspin": {
             "unspun": 0,
-            "unspinning": 0
+            "unspinning": 0,
+            "unspins": 0
         },
         "unstick": {
             "unstuck": 0,
-            "unsticking": 0
+            "unsticking": 0,
+            "unsticks": 0
         },
         "unstring": {
             "unstrung": 0,
-            "unstringing": 0
+            "unstringing": 0,
+            "unstrings": 0
         },
         "unweave": {
             "unwove": 1,
             "unweaved": 0,
             "unwoven": 0,
-            "unweaving": 0
+            "unweaving": 0,
+            "unweaves": 0
         },
         "unwind": {
             "unwound": 0,
-            "unwinding": 0
+            "unwinding": 0,
+            "unwinds": 0
         },
         "uphold": {
             "upheld": 0,
-            "upholding": 0
+            "upholding": 0,
+            "upholds": 0
         },
         "upset": {
             "upset": 0,
-            "upsetting": 0
+            "upsetting": 0,
+            "upsets": 0
         },
         "wake": {
             "woke": 1,
             "waked": 0,
             "woken": 0,
-            "waking": 0
+            "waking": 0,
+            "wakes": 0
         },
         "waylay": {
             "waylaid": 0,
-            "waylaying": 0
+            "waylayying": 0,
+            "waylays": 0
         },
         "wear": {
             "wore": 1,
             "worn": 0,
-            "wearing": 0
+            "wearing": 0,
+            "wears": 0
         },
         "weave": {
             "wove": 1,
             "weaved": 0,
             "woven": 0,
-            "weaving": 0
+            "weaving": 0,
+            "weaves": 0
         },
         "wed": {
             "wed": 0,
             "wedded": 0,
-            "wedding": 0
+            "wedding": 0,
+            "weds": 0
         },
         "weep": {
             "wept": 0,
-            "weeping": 0
+            "weeping": 0,
+            "weeps": 0
         },
         "wet": {
             "wet": 0,
             "wetted": 0,
-            "wetting": 0
+            "wetting": 0,
+            "wets": 0
         },
         "whet": {
             "whetted": 0,
-            "whetting": 0
+            "whetting": 0,
+            "whets": 0
         },
         "win": {
             "won": 0,
-            "winning": 0
+            "winning": 0,
+            "wins": 0
         },
         "wind": {
             "wound": 0,
-            "winding": 0
+            "winding": 0,
+            "winds": 0
         },
         "withdraw": {
             "withdrew": 1,
             "withdrawn": 0,
-            "withdrawing": 0
+            "withdrawwing": 0,
+            "withdraws": 0
         },
         "withhold": {
             "withheld": 0,
-            "withholding": 0
+            "withholding": 0,
+            "withholds": 0
         },
         "withstand": {
             "withstood": 0,
-            "withstanding": 0
+            "withstanding": 0,
+            "withstands": 0
         },
         "wring": {
             "wrung": 0,
-            "wringing": 0
+            "wringing": 0,
+            "wrings": 0
         },
         "write": {
             "wrote": 1,
             "written": 0,
-            "writing": 0
+            "writing": 0,
+            "writes": 0
         }
-    },
+    }
+    ,
     Regular: {
         "abandon": {
             "abandoned": 0,

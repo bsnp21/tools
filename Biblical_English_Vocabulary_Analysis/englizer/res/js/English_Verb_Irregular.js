@@ -125,7 +125,7 @@ var uti_englizer = {
             ret[verb][ing] = 0
             ret[verb][p3s] = 0
         }
-        $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>${JSON.stringify(ret, null, 4)}</textarea>`)
+        $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>Irregular: ${JSON.stringify(ret, null, 4)}</textarea>`)
     },
     rule_add_ing: function (verb) {
         const ing = "ing"
@@ -140,18 +140,18 @@ var uti_englizer = {
             return verb + ing
         }
 
-        var mat = verb.match(/[e]$/)
+        var mat = verb.match(/[^aeiou][e]$/)
         if (mat) {
             return verb.replace(/[e]$/, ing)
         }
 
-        var mat = verb.match(/[u][i]([^aeiouwxyn])$/)//run,begin
+        var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/)//run,begin
         if (mat) {
             return verb + mat[1] + ing
         }
-        var mat = verb.match(/[^aeiou][aeiou]([^aeiouwxyn])$/)
+        var mat = verb.match(/[aeiou][aeiou]([^aeiou])$/)
         if (mat) {
-            return verb + mat[1] + ing
+            return verb  + ing
         }
         return verb + ing
     },
@@ -190,6 +190,7 @@ var uti_englizer = {
         // If the base form ends in consonant + y, remove the -y and add –ies:
         var ed = "s"
         if (verb === "have") return "has"
+        if (verb === "be") return "is"
 
         var mat = verb.match(/[szx]$/)
         if (mat) {
