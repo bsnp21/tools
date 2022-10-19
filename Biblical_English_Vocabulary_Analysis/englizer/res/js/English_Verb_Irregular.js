@@ -128,47 +128,56 @@ var uti_englizer = {
         $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>Irregular: ${JSON.stringify(ret, null, 4)}</textarea>`)
     },
     rule_add_ing: function (verb) {
-        //add "-ing" to the verb.
-        //when a verb ends in "e", drop the "e" and add "-ing". For example: "take + ing = taking".
-        //when a one-syllable verb ends in vowel + consonant, double the final consonant and add "-ing". For example: "hit + ing = hitting".
-        //When a verb ends in vowel + consonant with stress on the final syllable, double the consonant and add "-ing". For example: "begin + ing = beginning".
-        //Do not double the consonant of words with more than one syllable if the stress is not on the final syllable. For example: "remember" has three syllables -- re:mém:ber -- and the stress is on the second syllable. Therefore do not add another consonant -- "remembering".
-        const ing = "ing"
-        if (verb === "be") return verb + ing
+        function get_ing(verb) {
+            //add "-ing" to the verb.
+            //when a verb ends in "e", drop the "e" and add "-ing". For example: "take + ing = taking".
+            //when a one-syllable verb ends in vowel + consonant, double the final consonant and add "-ing". For example: "hit + ing = hitting".
+            //When a verb ends in vowel + consonant with stress on the final syllable, double the consonant and add "-ing". For example: "begin + ing = beginning".
+            //Do not double the consonant of words with more than one syllable if the stress is not on the final syllable. For example: "remember" has three syllables -- re:mém:ber -- and the stress is on the second syllable. Therefore do not add another consonant -- "remembering".
+            const ing = "ing"
+            if (verb === "be") return verb + ing
 
-        var mat = verb.match(/ie$/)
-        if (mat) {
-            return verb.replace(/ie$/, "y" + ing)
-        }
-        var mat = verb.match(/ee$/)
-        if (mat) {
+            var mat = verb.match(/ie$/)
+            if (mat) {
+                return verb.replace(/ie$/, "y" + ing)
+            }
+            var mat = verb.match(/ee$/)
+            if (mat) {
+                return verb + ing
+            }
+
+            var mat = verb.match(/[^aeiou][e]$/)
+            if (mat) {
+                return verb.replace(/[e]$/, ing)
+            }
+            var mat = verb.match(/[y]$/)
+            if (mat) {
+                return verb + ing
+            }
+
+            //a one-syllable verb ends in vowel + consonant,
+            var mat = verb.match(/[eo]([^aeiou])$/)  //run,begin 
+            if (mat) {
+                return verb + ing
+            }
+
+            var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/) //run,begin
+            if (mat) {
+                return verb + mat[1] + ing
+            }
+            var mat = verb.match(/[aeiou][aeiou]([^aeiou])$/)
+            if (mat) {
+                return verb + ing
+            }
             return verb + ing
         }
-
-        var mat = verb.match(/[^aeiou][e]$/)
-        if (mat) {
-            return verb.replace(/[e]$/, ing)
+        var ret = get_ing(verb)
+        if(ret in English_verb_ing_obj_1505){
+            return ret
+        }else{
+            console.error("ing not sure correct:", verb)
+            return `[${ret}]`
         }
-        var mat = verb.match(/[y]$/)
-        if (mat) {
-            return verb + ing
-        }
-
-        //a one-syllable verb ends in vowel + consonant,
-        var mat = verb.match(/[eo]([^aeiou])$/)  //run,begin 
-        if (mat) {
-            return verb + ing
-        }
-
-        var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/) //run,begin
-        if (mat) {
-            return verb + mat[1] + ing
-        }
-        var mat = verb.match(/[aeiou][aeiou]([^aeiou])$/)
-        if (mat) {
-            return verb + ing
-        }
-        return verb + ing
     },
     rule_add_ed: function (verb) {
         var ed = "ed"
@@ -181,7 +190,7 @@ var uti_englizer = {
 
         var mat = verb.match(/ee$/)
         if (mat) {
-            return verb + ed
+            return verb + "d"
         }
 
         var mat = verb.match(/[e]$/)

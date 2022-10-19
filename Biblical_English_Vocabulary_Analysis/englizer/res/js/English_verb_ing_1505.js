@@ -497,6 +497,91 @@ var ing_1505 = `
 //
 //
 //////////
+var Special_double = {
+  "beg": ["begging", "begged"],
+  "blur": ["blurring", "blurred"],
+  "flip": ["flipping", "flipped"],
+  "plan": ["planning", "planned"],
+  "stop": ["stopping", "stopped"],
+  "thin": ["thinning", "thinned"],
+  "rub": ["rubbing", "rubbed"],
+  "split": ["splitting", "(split)"],
+  "step": ["stepping", "stepped"],
+  "stir": ["stirring", "stirred"],
+  "swim": ["swimming", "(swam, swum)"],
+  "tap": ["tapping", "tapped"],
+  "wrap": ["wrapping", "wrapped"],
+
+  "fix": ["fixing", "fixed"],///
+  "play": ["playing", "played"],
+  "plow": ["plowing", "plowed"],
+  "come": ["coming", "(come, came)"],
+  "date": ["dating", "dated"],
+  "dine": ["dining", "dined"],
+  "hide": ["hiding", "(hid, hidden)"],
+  "hope": ["hoping", "hoped"],
+  "injure": ["injuring", "injured"],
+  "ride": ["riding", "(rode, ridden)"],
+  "slide": ["sliding", "slid"],
+  "smile": ["smiling", "smiled"],
+  "type": ["typing", "typed"],
+  "write": ["writing", "(wrote, written)"],
+  "bleed": ["bleeding", "(bled)"],
+  "eat": ["eating", "(ate; eaten)"],
+  "rain": ["raining", "rained"],
+  "ruin": ["ruining", "ruined"],
+  "seat": ["seating", "seated"],
+  "fool": ["fooling", "fooled"],
+  "dream": ["dreaming", "dreamed/dreamt"],
+  "feel": ["feeling", "felt"],
+  "carry": ["carrying", "carried"],
+  "dry": ["drying", "dried"],
+  "fry": ["frying", "fried"],
+  "fly": ["flying", "(flew flown)"],
+  "reply": ["replying", "replied"],
+  "study": ["studying", "studied"],
+  "try": ["trying", "tried"],
+  "worry": ["worrying", "worried"],
+  "buy": ["buying", "((bought)"],
+  "employ": ["employing", "employed"],
+  "enjoy": ["enjoying", "enjoyed"],
+  "play": ["playing", "played"],
+  "pray": ["praying", "prayed"],
+  "stay": ["staying", "stayed"],
+  "acquit": ["acquitting", "acquitted"],
+  "admit": ["admitting", "admitted"],
+  "begin": ["beginning", "(began, begun)"],
+  "commit": ["committing", "committed"],
+  "control": ["controlling", "controlled"],
+  "deter": ["deterring", "deterred"],
+  "excel": ["excelling", "excelled"],
+  "occur": ["occurring", "occurred"],
+  "prefer": ["preferring", "preferred"],
+  "refer": ["referring", "referred"],
+  "submit": ["submitting", "submitted"],
+  "transfer": ["transferring", "transferred"],
+  "budget": ["budgeting", "budgeted"],
+  "benefit": ["benefiting", "benefited"],
+  "cancel": ["canceling", "canceled"],
+  "counsel": ["counseling", "counseled"],
+  "happen": ["happening", "happened"],
+  "listen": ["listening", "listened"],
+  "marvel": ["marveling", "marveled"],
+  "offer": ["offering", "offered"],
+  "open": ["opening", "opened"],
+  "quarrel": ["quarreling", "quarreled"],
+  "ripen": ["ripening", "ripened"],
+  "visit": ["visiting", "visited"],
+  "travel": ["traveling", "traveled"],
+  "vomit": ["vomiting", "vomited"],
+  "worship": ["worshiping", "worshiped"],
+  "quit": ["quitting", "(quit)"],
+  "debut": ["debuting", "debuted"],
+  "exit": ["exiting", "exited"],
+  "tie": ["tying", "tied"],
+  "die": ["dying", "died"],
+  "lie": ["lying", "lied"],
+}
 function English_verb_ing_1505_get_ar() {
   var mat = ing_1505.match(/((\d+\.)\s+([a-z]+))/g)
   if (mat) {
@@ -506,23 +591,46 @@ function English_verb_ing_1505_get_ar() {
 }
 English_verb_ing_1505_get_ar.prototype.gen_table = function () {
   var obj = {}, mat2idx = 0, mat2ids = ''
-  var sts = "<table border='1'><tbody>"
+  var sts = "<table border='1' style='float:left;'><tbody>"
   for (var i = 0; i < this.m_ary.length; i++) {
     var str = this.m_ary[i]
     var mat = str.match(/(\d+)\.\s+([a-z]+)/)
     if (mat) {
       var ing = mat[2], cls = '', mat2ids = ''
-      var mat2 = ing.match(/([a-z])\1+ing$/)
+      var mat2 = ing.match(/([a-z])\1+ing$/) //prev one for duplicated char.
       if (mat2) {
         cls = "class='mat2'"
         mat2ids = mat2idx++
       }
-      sts += `<tr><td>${1 + i}</td><td>${str}</td><td>${mat[1]}</td><td cls>${mat[2]}</td><td>${mat2ids}</td></tr>`
-      obj[ing] = i
-    }
-  }//////
-  sts += "</tbody></table>"
-  sts += `<textarea>${JSON.stringify(obj, null, 4)}</textarea>`
-  $("body").html(sts)
+      sts += `<tr><td>${1 + i}</td><td>${str}</td><td>${mat[1]}</td><td cls>${ing}</td><td>${mat2ids}</td></tr>`
 
+      if (ing in obj) {
+        console.log("duplacated ing:", i, ing)
+        //obj[ing] *= 100000 
+      } else {
+        obj[ing] = i
+      }
+
+    }
+  }//////total is 930 without duplication. 
+  sts += "</tbody></table>"
+  sts += `<textarea>var English_verb_ing_obj_1505 = ${JSON.stringify(obj, null, 4)}</textarea>${Object.keys(obj).length}`
+  $("body").html(sts)
+  this.m_obj = obj
+  this.add_special()
+}
+English_verb_ing_1505_get_ar.prototype.add_special = function () {
+  var ar = Object.keys(this.m_obj)
+  var ar2 = Object.keys(Special_double)
+  for (var i = 0; i < ar2.length; i++) {
+    var key2 = Special_double[ar2[i]][0]
+    if (key2 in this.m_obj) {
+
+    } else {
+      this.m_obj[key2] = -100
+      console.log("addnew:", key2)
+    }
+  }
+  var len = Object.keys(this.m_obj).length
+  $("body").append(`<textarea>var English_verb_ing_obj_1505 = ${JSON.stringify(this.m_obj, null, 4)}</textarea>${len}`)
 }
