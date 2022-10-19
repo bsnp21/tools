@@ -128,6 +128,11 @@ var uti_englizer = {
         $("body").prepend(`<a>${Object.keys(ret).length}</a><textarea>Irregular: ${JSON.stringify(ret, null, 4)}</textarea>`)
     },
     rule_add_ing: function (verb) {
+        //add "-ing" to the verb.
+        //when a verb ends in "e", drop the "e" and add "-ing". For example: "take + ing = taking".
+        //when a one-syllable verb ends in vowel + consonant, double the final consonant and add "-ing". For example: "hit + ing = hitting".
+        //When a verb ends in vowel + consonant with stress on the final syllable, double the consonant and add "-ing". For example: "begin + ing = beginning".
+        //Do not double the consonant of words with more than one syllable if the stress is not on the final syllable. For example: "remember" has three syllables -- re:mém:ber -- and the stress is on the second syllable. Therefore do not add another consonant -- "remembering".
         const ing = "ing"
         if (verb === "be") return verb + ing
 
@@ -149,18 +154,19 @@ var uti_englizer = {
             return verb + ing
         }
 
-        var mat = verb.match(/[eo]([^aeiou])$/)//run,begin
+        //a one-syllable verb ends in vowel + consonant,
+        var mat = verb.match(/[eo]([^aeiou])$/)  //run,begin 
         if (mat) {
             return verb + ing
         }
 
-        var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/)//run,begin
+        var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/) //run,begin
         if (mat) {
             return verb + mat[1] + ing
         }
         var mat = verb.match(/[aeiou][aeiou]([^aeiou])$/)
         if (mat) {
-            return verb  + ing
+            return verb + ing
         }
         return verb + ing
     },
@@ -203,21 +209,21 @@ var uti_englizer = {
 
         var mat = verb.match(/[szx]$/)
         if (mat) {
-            ed="es"
+            ed = "es"
         }
         var mat = verb.match(/[s|c]h$/)
         if (mat) {
-            ed="es"
+            ed = "es"
         }
         var mat = verb.match(/[^o][o]$/)
         if (mat) {
-            ed="es"
+            ed = "es"
         }
 
         var mat = verb.match(/(.+[^aeiou])(y)$/)
         if (mat) {
-             verb = verb.replace(/y$/, "ies")
-             ed=""
+            verb = verb.replace(/y$/, "ies")
+            ed = ""
         }
         return verb + ed
     },
@@ -275,7 +281,7 @@ var English_Preposition = {
         var obj = {}
         $("td").each(function () {
             var txt = $(this).text().trim().toLowerCase()
-            if(txt){
+            if (txt) {
                 obj[txt] = 0
             }
         })
