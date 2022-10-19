@@ -26,7 +26,12 @@
             background-color: lightblue;
         }
 
-        table tbody {
+        .hili_rem {
+            border: 1px solid red;
+            background-color: red;
+        }
+
+        table tbody, #tout {
             overflow-y: scroll;
             display: block;
             height: 200px;
@@ -45,6 +50,7 @@
 
             var stor = new ytLocalStorage()
 
+
             $("#ytinput_urls").on("change", function () {
                 $(".RadioSpeed").attr('checked', null)
                 var surl = $(this).val()
@@ -61,10 +67,8 @@
                 }
             })
 
-            $(".RadioSpeed").on("click", function () {
 
-                var speed = $(this).val()
-
+            function ui_update() {
                 var surl = $("#ytinput_urls").val()
                 var desc = $("#ytinput_desc").val()
                 var vid = ""
@@ -81,22 +85,28 @@
                 }
 
                 if (vid) {
-                    $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
-                    //$("#playhistory").prepend(`<tr><td>${surl}</td></tr>`)
-
                     surl = `v=${vid}&desc=${desc}`
                     stor.save2Store(surl)
                 } else {
                     alert("Err:\n" + surl)
                 }
+                return vid
+            }
 
-
+            $(".RadioSpeed").on("click", function () {
+                var speed = $(this).val()
+                var vid = ui_update()
+                if (vid) {
+                    $("iframe").attr("src", `./yt_iframe_videoID.htm?vid=${vid}&speed=${speed}`)
+                }
 
             })
             $("#labelspeed").on("click", function () {
+                ui_update()
                 $(".sinput").val("")
                 $(".RadioSpeed").attr('checked', null)
             })
+           
         }
 
 
@@ -132,7 +142,7 @@
             })
             $(`#${this.m_sid}`).html(ops)
             $(`#tab_${this.m_sid}`).html(trs)
-            $(`#tab_${this.m_sid}`).find(".urlparm").bind("click", function () {
+            $(`#tab_${this.m_sid}`).find("td.urlparm").bind("click", function () {
                 var par = $(this).text()
                 var surl = `https://www.youtube.com/watch?${par}`
                 var url = new URL(surl)
@@ -143,12 +153,14 @@
                 $(".hili_tab").removeClass("hili_tab")
                 $(this).addClass("hili_tab")
             })
-            $(`#tab_${this.m_sid}`).find(".remUrl").bind("click", function () {
+            $(`#tab_${this.m_sid}`).find("td.remUrl").bind("click", function () {
                 var url = $(this).next().text()
-                if (!confirm("remove?\n" + url))
-                    _THIS.StoreRemove(url)
-                $(this).parent().remove()
+                if (!confirm(url+"\nwill be Removed. OK?")) return
+                var stor = new ytLocalStorage()
+                var obj = stor.StoreRemove(url)
+                stor.gen_datalist(obj)
             })
+
         }
         ytLocalStorage.prototype.StoreRemove = function (url) {
             var obj = this.getStore()
