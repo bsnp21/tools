@@ -144,6 +144,15 @@ var uti_englizer = {
         if (mat) {
             return verb.replace(/[e]$/, ing)
         }
+        var mat = verb.match(/[y]$/)
+        if (mat) {
+            return verb + ing
+        }
+
+        var mat = verb.match(/[eo]([^aeiou])$/)//run,begin
+        if (mat) {
+            return verb + ing
+        }
 
         var mat = verb.match(/[^aeiou][aeiou]([^aeiou])$/)//run,begin
         if (mat) {
@@ -248,7 +257,7 @@ var uti_englizer = {
                 }
 
             });
-            tabs += `</tbody></table><textarea>${JSON.stringify(Regular, null, 4)}</textarea>`
+            tabs += `</tbody></table><textarea>Regular: ${JSON.stringify(Regular, null, 4)}</textarea>`
             $("#out").append(tabs)
         }
         var allverbs = gen_allverbs()
