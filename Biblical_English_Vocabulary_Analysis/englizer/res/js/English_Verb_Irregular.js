@@ -172,13 +172,15 @@ var uti_englizer = {
             return verb + ing
         }
         var ret = get_ing(verb)
-        if(ret in English_verb_ing_obj_1505){
+        if (ret in English_verb_ing_obj_1505) {
             return ret
-        }else{
-            console.error("ing not sure correct:", verb)
+        } else {
+            console.log("ing not sure correct:", verb)
+            this.m_NotSureVerbIngObj[ret] = 1
             return `[${ret}]`
         }
     },
+    m_NotSureVerbIngObj: {},
     rule_add_ed: function (verb) {
         var ed = "ed"
         if (verb === "be") return verb + ed
@@ -274,9 +276,14 @@ var uti_englizer = {
             });
             tabs += `</tbody></table><textarea>Regular: ${JSON.stringify(Regular, null, 4)}</textarea>`
             $("#out").append(tabs)
+
+            
         }
         var allverbs = gen_allverbs()
         gen2(allverbs)
+
+        var keys = Object.keys(this.m_NotSureVerbIngObj)
+        gen2(keys)
     },
     all_verb: function () {
 
