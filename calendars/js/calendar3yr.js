@@ -143,184 +143,247 @@ var uuti = {
 
 
 
+var calendar3yr = {
+    gen_tbody: function (eid, inext) {
+        var today = new Date()
+        var todayID = today.toLocal_YY_MM_DD()
 
-function gen_calendar(eid, inext) {
-    var today = new Date()
-    var todayID = today.toLocal_YY_MM_DD()
+        //var yr = prompt("enter year xxxx", );
+        var yr = today.getUTCFullYear()
+        yr += inext
 
-    //var yr = prompt("enter year xxxx", );
-    var yr = today.getUTCFullYear()
-    yr += inext
+        var date = new Date(yr, 0, 1);
+        //var yearEnd = new Date(2019, 11, 1);
+        var trs = "", weekidx = 0, idaycounter = 0
+        for (var i = 0; i <= 3650; i++) {
+            var sdat = date.addDays(i);
+            var iweek = sdat.getDay()
+            var iyear = sdat.getUTCFullYear()
+            var imont = 1 + sdat.getMonth()
+            var idate = sdat.getDate()
+            var sdateID = sdat.toLocal_YY_MM_DD()
+            var contenteditable = ""
+            if (sdateID < todayID) contenteditable = ""
 
-    var date = new Date(yr, 0, 1);
-    //var yearEnd = new Date(2019, 11, 1);
-    var trs = "", weekidx = 0, idaycounter = 0
-    for (var i = 0; i <= 3650; i++) {
-        var sdat = date.addDays(i);
-        var iweek = sdat.getDay()
-        var iyear = sdat.getUTCFullYear()
-        var imont = 1 + sdat.getMonth()
-        var idate = sdat.getDate()
-        var sdateID = sdat.toLocal_YY_MM_DD()
-        var contenteditable = ""
-        if (sdateID < todayID) contenteditable = ""
+            var special = ""
+            if (ReservedDays[sdateID]) {
+                ReservedDays[sdateID].forEach((desc) => {
+                    special = `<a class='ReservedDesc' title='${desc}' href='${Festival_Website[desc]}'>${desc.substr(0, 5)}</a><br>`
+                })
+            }
 
-        var special = ""
-        if (ReservedDays[sdateID]) {
-            ReservedDays[sdateID].forEach((desc) => {
-                special = `<a class='ReservedDesc' title='${desc}' href='${Festival_Website[desc]}'>${desc.substr(0, 5)}</a><br>`
+            if (idaycounter >= 364) break
+
+
+            if (0 === iweek) {
+                trs += `<tr><th class='thidx'>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
+            }
+            if (weekidx === 0) continue;
+            idaycounter++
+
+            trs += `<td class='month${imont}'><div class='sday' title=${sdateID}  iweek='${iweek}'>${idate}</div><div class='ReservedDay'>${special}</div><div id=${sdateID} y4md='${sdat.toLocalY4MMDD()}' title=${sdateID} class='notes' ${contenteditable}></div></td>`;
+
+            if (6 === iweek) {
+                trs += "</tr>";
+            }
+        }
+        //$("#year").html(yr)
+        $(`${eid} caption`).text(yr);
+        $(`${eid} caption`).on("click", function () {
+            $(this).parent().find("tbody").slideToggle()
+        })
+        $(`${eid} tbody`).html(trs)
+            .find("td").on("click", function () {
+                $(".hili_td").removeClass("hili_td")
+                $(this).toggleClass("hili_td")
             })
-        }
-
-        if (idaycounter >= 364) break
 
 
-        if (0 === iweek) {
-            trs += `<tr><th class='thidx'>${++weekidx}<br><a class='month${imont} month_mark'>${imont}</a></th>`;
-        }
-        if (weekidx === 0) continue;
-        idaycounter++
 
-        trs += `<td class='month${imont}'><div class='sday' title=${sdateID}  iweek='${iweek}'>${idate}</div><div class='ReservedDay'>${special}</div><div id=${sdateID} title=${sdateID} class='notes' ${contenteditable}></div></td>`;
+        if (inext != 0) return $(`${eid} tbody`)
 
-        if (6 === iweek) {
-            trs += "</tr>";
-        }
-    }
-    //$("#year").html(yr)
-    $(`${eid} caption`).text(yr);
-    $(`${eid} caption`).on("click", function () {
-        $(this).parent().find("tbody").slideToggle()
-    })
-    $(`${eid} tbody`).html(trs)
-        .find("td").on("click", function () {
-            $(".hili_td").removeClass("hili_td")
-            $(this).toggleClass("hili_td")
+
+        $(`#${todayID}`).each(function () {
+            $(this).parent().find(".sday").addClass("today");
+            //$(this)[0].scrollIntoView() //run in post_gen
+        })
+
+
+        return $(`${eid} tbody`)
+    },
+    end: function () {
+        setTimeout(function () {
+            calendar3yr.post_gen()
+        }, 500)
+    },
+    post_gen: function () {
+        storage.load2ui()
+
+        $(".notes").on("keyup", function () {
+            storage.save_notes()
+        })
+
+        //set notes width
+        var width = $("td").width()
+        $(".notes").css({ "width": width - 2 })
+
+        //
+        $(".notes").on("click", function (evt) {
+            evt.stopImmediatePropagation()
+            var _This = this
+            var display = $("#editorboard").css("display")
+
+            var bhasHili = $(this).hasClass("hili_notes")
+            $(".hili_notes").removeClass("hili_notes")
+            if (!bhasHili) {
+                $(this).addClass("hili_notes")
+            }
+            bhasHili = $(this).hasClass("hili_notes")
+            if (!bhasHili) {
+                $("#editorboard").hide("slow", on_editorboard_hide)
+                return false
+            }
+
+            if (('none' == display) && bhasHili) {
+                $("#editorboard").show("slow", on_editorboard_show)
+            } else {
+                //$("#editxt").hide()
+            }
+
+            var sWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+            var iweek = $(this).parent().index() - 1;
+
+
+            var htm = $(this).html()
+            $("#editxt").html(htm)
+            $("#edishowdate").text($(this).attr("id") + ", " + sWeek[iweek])
+
+            $("#editorboard")
+                .css({
+                    position: 'absolute',
+                    xxleft: evt.pageX,
+                    top: 20 + evt.pageY,
+                    "margin-left": "auto",
+                    "margin-right": "auto",
+                    display: 'block'
+                })
+                .focus()
+
+        })
+        $(".sday").on("click", function () {
+            $(this).toggleClass("hili_day")
         })
 
 
 
-    if (inext != 0) return $(`${eid} tbody`)
 
-
-    $(`#${todayID}`).each(function () {
-        $(this).parent().find(".sday").addClass("today");
-        //$(this)[0].scrollIntoView() //run in post_gen
-    })
-
-
-    return $(`${eid} tbody`)
-}
-function post_gen() {
-    storage.load2ui()
-
-    $(".notes").on("keyup", function () {
-        storage.save_notes()
-    })
-
-    //set notes width
-    var width = $("td").width()
-    $(".notes").css({ "width": width - 2 })
-
-    //
-    $(".notes").on("click", function (evt) {
-        evt.stopImmediatePropagation()
-        var _This = this
-        var display = $("#editorboard").css("display")
-
-        var bhasHili = $(this).hasClass("hili_notes")
-        $(".hili_notes").removeClass("hili_notes")
-        if (!bhasHili) {
-            $(this).addClass("hili_notes")
-        }
-        bhasHili = $(this).hasClass("hili_notes")
-        if (!bhasHili) {
-            $("#editorboard").hide()
-            return false
-        }
-
-        if ('none' == display && bhasHili) {
-            $("#editorboard").show()
-        } else {
-            //$("#editxt").hide()
-        }
-
-        var sWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        var iweek = $(this).parent().index() - 1;
-
-
-        var htm = $(this).html()
-        $("#editxt").html(htm)
-        $("#edishowdate").text($(this).attr("id") + ", " + sWeek[iweek])
-
-        $("#editorboard")
-            .css({
-                position: 'absolute',
-                xxleft: evt.pageX,
-                top: 20 + evt.pageY,
-                "margin-left": "auto",
-                "margin-right": "auto",
-                display: 'block'
+        $("#LoadTxt").on("click", function (e) {
+            e.stopImmediatePropagation()
+            var id = $(".hili_notes").attr("id")
+            var tx = $("#editxt").html()
+            var y4md = $(".hili_notes").attr("y4md")
+            console.log(id, ":", y4md, tx)
+            MyBiblicalDiary_load(y4md, function (ret) {
+                $("#dbug").text(JSON.stringify(ret, null, 4))
             })
-            .focus()
-
-    })
-    $(".sday").on("click", function () {
-        $(this).toggleClass("hili_day")
-    })
-
-
-
-
-    ///////////////////////////////
-
-
-    $("#editxt").off("keyup").on("keyup", function (evt) {
-        if (evt.keyCode === 13) {
-            // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-            //document.execCommand('insertLineBreak', true, '<br/>');
-            // prevent the default behaviour of return key pressed
-            //return true;
+        })
+        $("#SaveTxt").on("click", function (e) {
+            e.stopImmediatePropagation()
+            var id = $(".hili_notes").attr("id")
+            var tx = $("#editxt").html()
+            var y4md = $(".hili_notes").attr("y4md")
+            console.log(id, ":", y4md, tx)
+            MyBiblicalDiary_save(y4md, tx, function (ret) {
+                $("#dbug").text(JSON.stringify(ret, null, 4))
+            })
+        })
+        ///////////////////////////////
+        //$("#editorboard").hide()
+        function on_editorboard_hide(e) {
+            console.log("on_editorboard_hide-------")
+            //alert("saves")
         }
-        var htms = $(this).html()
-        var id = $("#edishowdate").text()
-        $(`#${id}`).html(htms)
-        storage.save_notes()
-    })
-    $("#editxt").on("blur", function () {
-        var htms = $(this).html()
-        var id = $("#edishowdate").text()
-        $(`#${id}`).html(htms)
-        storage.save_notes()
-
-        $("#editorboard").hide()
-    })
-    $("#editxt").on("click", function (evt) {
-        evt.stopImmediatePropagation()
-        return false
-    })
-
-    var eid = "#tab1"
-    var rect = $(eid)[0].getBoundingClientRect();
-    var width = $(eid).width()
-    $("#editorboard").css({
-        "left": 30 + rect.left,
-        "top": 1000,
-        "width": width - 100
-    })
-    $("#editorboard").on("click", function () {
-        $(this).hide()
-    })
-    $("body").on("click", function () {
-        $("#editorboard").hide()
-    })
+        function on_editorboard_show(e) {
+            console.log("show-------")
+            //alert("loades")
+        }
 
 
-    $("#ScrollToToday").on("click", function () {
-        $(".today")[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-    })
-    setTimeout(function () {
-        $(".today")[0].scrollIntoView()
-    }, 500)
+        $("#editxt").off("keyup").on("keyup", function (evt) {
+            if (evt.keyCode === 13) {
+                // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
+                //document.execCommand('insertLineBreak', true, '<br/>');
+                // prevent the default behaviour of return key pressed
+                //return true;
+            }
+            var htms = $(this).html()
+            var id = $("#edishowdate").text()
+            $(`#${id}`).html(htms)
+            storage.save_notes()
+        })
+        $("#editxt").on("blur", function () {
+            var htms = $(this).html()
+            var id = $("#edishowdate").text()
+            $(`#${id}`).html(htms)
+            storage.save_notes()
 
+            $("#editorboard").hide("slow", on_editorboard_hide)
+        })
+        $("#editxt").on("click", function (evt) {
+            evt.stopImmediatePropagation()
+            return false
+        })
+
+        var eid = "#tab1"
+        var rect = $(eid)[0].getBoundingClientRect();
+        var width = $(eid).width()
+        $("#editorboard").css({
+            "left": 30 + rect.left,
+            "top": 1000,
+            "width": width - 100
+        })
+        $("#editorboard").on("click", function () {
+            $(this).hide("slow", on_editorboard_hide)
+        })
+        $("body").on("click", function () {
+            $("#editorboard").hide("slow")
+        })
+
+
+        $("#ScrollToToday").on("click", function () {
+            $(".today")[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+        })
+        setTimeout(function () {
+            $(".today")[0].scrollIntoView()
+        }, 500)
+
+    }
 }
+
+function MyBiblicalDiary_save(y4mmdd, txt, cbf) {
+    var par = {
+        "fnames": [
+            "./dat/MyBiblicalDiary"
+        ],
+        "data": {
+        }
+    }
+    par.data[y4mmdd.substr(0, 4)]={}
+    par.data[y4mmdd.substr(0, 4)][y4mmdd.substr(4)] = txt
+    var api = new BsnpRestApi()
+    api.ApiUsrDat_save(par, cbf)
+}
+function MyBiblicalDiary_load(y4mmdd, cbf) {
+    var par = {
+        "fnames": [
+            "./dat/MyBiblicalDiary"
+        ],
+        "data": {
+        }
+    }
+    par.data[y4mmdd.substr(0, 4)]={}
+    par.data[y4mmdd.substr(0, 4)][y4mmdd.substr(4)] = ""
+    var api = new BsnpRestApi()
+    api.ApiUsrDat_load(par, cbf)
+}
+//{"22_09_02":"Seattle: arrived<div><br><div><br></div></div>","22_09_03":"hiking","22_09_04":"Moderna:Safeway<div>VitaminB</div><div>RoomTemp=90</div>","22_09_05":"Reaction: less food, more sleep","22_09_06":"normal<div>痰 phlegm/sputum/Spittle </div>","22_09_07":"throat sounds but no pain or uncomfort<div>hiking 3 hrs</div>","22_09_08":"hiking 3hr<div>RoomTemp=97</div>","22_09_09":"Timberlake Park, 5 hrs 5 mi.","22_09_10":"Golden Beach; Botanical Garden.&nbsp;","22_09_11":"crossroad church:Heb10:25","22_09_27":"flight 2 atlanta","22_11_09":"yty<div>af-op</div>"}
