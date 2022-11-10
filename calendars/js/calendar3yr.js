@@ -286,7 +286,7 @@ var calendar3yr = {
             var mmdd = svrApi.getMMDD(y4md)
             console.log(id, ":", y4md, tx)
             svrApi.MyBiblicalDiary_load(y4, mmdd, function (ret) {
-                $("#dbug").text(JSON.stringify(ret, null, 4))
+                $("#outx").val(JSON.stringify(ret, null, 4))
                 $("#editxt").html(ret.out.data[y4][mmdd])
             })
         })
@@ -297,7 +297,7 @@ var calendar3yr = {
             var y4md = $(".hili_notes").attr("y4md")
             console.log(id, ":", y4md, tx)
             svrApi.MyBiblicalDiary_save(svrApi.getY4(y4md), svrApi.getMMDD(y4md), tx, function (ret) {
-                $("#dbug").text(JSON.stringify(ret, null, 4))
+                $("#outx").val(JSON.stringify(ret, null, 4))
             })
         })
         ///////////////////////////////
