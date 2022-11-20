@@ -51,6 +51,24 @@
             $("#txa").val(out)
             if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
         })
+
+        /////////
+
+        $("#btoa64").on("click", function () {
+            var inp = $("#txa").val()
+            var out = btoa(inp);
+            $("#out").val(out)
+            $("#txa").val("")
+
+            $("#txt").html(inp + "<br/>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
+            if (inp.length > 500) alert(`ERROR: \nInput Length=${inp.length} > 500(Max) .`)
+        })
+        $("#atob64").on("click", function () {
+            var inp = $("#out").val()
+            var out = atob(inp);
+            $("#txa").val(out)
+            if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
+        })
     })
 </script>
 
@@ -59,7 +77,7 @@
 <body>
     <textarea id="txa" placeholder="original string">text</textarea>
     <br>
-    <button id="encrypter">encrypt</button><button id="decrypter">decrypt</button>
+    <button id="encrypter">encrypt</button><button id="decrypter">decrypt</button> | <button id="btoa64">btoa</button><button id="atob64">atob</button>
     <br>
     <div id="txt"></div>
     <textarea id="out"></textarea>
