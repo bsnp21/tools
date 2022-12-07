@@ -26,7 +26,13 @@
 
     textarea {
         width: 100%;
-        height: 100px;
+        height: 500px;
+    }
+    .hili{
+        background-color: aqua;
+    }
+    textarea:focus{
+        background-color: antiquewhite;
     }
 </style>
 <script>
@@ -37,8 +43,8 @@
             var encrypt = new JSEncrypt();
             encrypt.setPublicKey(keypub);
             var out = encrypt.encrypt(inp);
-            $("#out").val(out)
-            $("#txa").val("")
+            $("#out").val(out).focus()
+            //$("#txa").val("")
 
             $("#txt").html(inp + "<br/>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
             if (inp.length > 500) alert(`ERROR: \nInput Length=${inp.length} > 500(Max) .`)
@@ -48,7 +54,7 @@
             var encrypt = new JSEncrypt();
             encrypt.setPrivateKey(keyprv);
             var out = encrypt.decrypt(inp);
-            $("#txa").val(out)
+            $("#txa").val(out).focus()
             if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
         })
 
@@ -57,17 +63,22 @@
         $("#btoa64").on("click", function () {
             var inp = $("#txa").val()
             var out = btoa(inp);
-            $("#out").val(out)
-            $("#txa").val("")
+            $("#out").val(out).focus()
+            //$("#txa").val("").focus()
 
-            $("#txt").html(inp + "<br/>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
-            if (inp.length > 500) alert(`ERROR: \nInput Length=${inp.length} > 500(Max) .`)
+            $("#txt").html(inp + "<hr/><br>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
+            
         })
         $("#atob64").on("click", function () {
             var inp = $("#out").val()
             var out = atob(inp);
-            $("#txa").val(out)
+            $("#txa").val(out).focus()
             if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
+        })
+
+        $("button").on("click",function(){
+            $(".hili").removeClass("hili")
+            $(this).addClass("hili")
         })
     })
 </script>
@@ -77,10 +88,13 @@
 <body>
     <textarea id="txa" placeholder="original string">text</textarea>
     <br>
-    <button id="encrypter">encrypt</button><button id="decrypter">decrypt</button> | <button id="btoa64">btoa</button><button id="atob64">atob</button>
+    <button id="encrypter">encrypt &darr;</button><button id="decrypter">decrypt &uarr;</button> | 
+    <button id="btoa64">btoa &darr;</button><button id="atob64">atob &uarr;</button> |
+    <button onclick="$('#out').val('')">clear &darr;</button><button onclick="$('#txa').val('')">clear &uarr;</button> |
+    <button onclick="$('#out').val($('#txa').val())">move &darr;</button><button onclick="$('#txa').val($('#out').val())">move &uarr;</button> |
     <br>
-    <div id="txt"></div>
     <textarea id="out"></textarea>
+    <div id="txt"></div>
 </body>
 
 </html>
