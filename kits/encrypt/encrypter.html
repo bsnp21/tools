@@ -28,10 +28,12 @@
         width: 100%;
         height: 500px;
     }
-    .hili{
+
+    .hili {
         background-color: aqua;
     }
-    textarea:focus{
+
+    textarea:focus {
         background-color: antiquewhite;
     }
 </style>
@@ -39,48 +41,176 @@
 
     $(function () {
         $("#encrypter").on("click", function () {
-            var inp = $("#txa").val()
-            var encrypt = new JSEncrypt();
-            encrypt.setPublicKey(keypub);
-            var out = encrypt.encrypt(inp);
-            $("#out").val(out).focus()
-            //$("#txa").val("")
-
-            $("#txt").html(inp + "<br/>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
-            if (inp.length > 500) alert(`ERROR: \nInput Length=${inp.length} > 500(Max) .`)
+            dnCode((inp) => {
+                var encrypt = new JSEncrypt();
+                encrypt.setPublicKey(keypub);
+                var out = encrypt.encrypt(inp);
+                return out
+            })
         })
         $("#decrypter").on("click", function () {
-            var inp = $("#out").val()
-            var encrypt = new JSEncrypt();
-            encrypt.setPrivateKey(keyprv);
-            var out = encrypt.decrypt(inp);
-            $("#txa").val(out).focus()
-            if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
+            upCode((inp) => {
+                var encrypt = new JSEncrypt();
+                encrypt.setPrivateKey(keyprv);
+                var out = encrypt.decrypt(inp);
+                return out
+            })
         })
 
         /////////
 
         $("#btoa64").on("click", function () {
-            var inp = $("#txa").val()
-            var out = btoa(inp);
-            $("#out").val(out).focus()
-            //$("#txa").val("").focus()
-
-            $("#txt").html(inp + "<hr/><br>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
-            
+            dnCode((inp) => { return btoa(inp) })
         })
         $("#atob64").on("click", function () {
-            var inp = $("#out").val()
-            var out = atob(inp);
-            $("#txa").val(out).focus()
-            if(out.length===0) $("#txt").text("Decryption ERROR or Empty.")
+            upCode((inp) => { return atob(inp) })
         })
 
-        $("button").on("click",function(){
+
+        /////////////
+        $("#encodeURI").on("click", function () {
+            dnCode((inp) => { return encodeURI(inp) })
+        })
+        $("#decodeURI").on("click", function () {
+            upCode((inp) => { return decodeURI(inp) })
+        })
+
+        $("#encodeURIComponent").on("click", function () {
+            dnCode((inp) => { return encodeURIComponent(inp) })
+        })
+        $("#decodeURIComponent").on("click", function () {
+            upCode((inp) => { return decodeURIComponent(inp) })
+        })
+
+        $("#escape").on("click", function () {
+            dnCode((inp) => { return escape(inp) })
+        })
+        $("#unescape").on("click", function () {
+            upCode((inp) => { return unescape(inp) })
+        })
+
+
+        ////
+        $("#btoa_unescape_encodeURIComponent").on("click", function () {
+            dnCode((inp) => { return btoa(unescape(encodeURIComponent(inp))) })
+        })
+        $("#decodeURIComponent_escape_atob").on("click", function () {
+            upCode((inp) => { return decodeURIComponent(escape(atob(inp))) })
+        })
+
+        ///////
+        ////
+        $("#btoa_unescape_encodeURIComponent_split_to_max_code").on("click", function () {
+            dnCode((inp) => {
+                var obj = JSON.parse(inp)
+                var str = JSON.stringify(obj)
+                var txt = btoa(unescape(encodeURIComponent(str)))
+                var ret = FindFrqRateOfNchars(txt, $("#strLen").val())
+                console.log(ret)
+                var ary = txt.split(ret.maxStr)
+                console.log(ary)
+                $("#maxStr").val(ret.maxStr)
+                return JSON.stringify(ary, null, 4)
+            })
+        })
+        $("#decodeURIComponent_escape_atob_join_code2").on("click", function () {
+            upCode((inp) => {
+                var arr = JSON.parse(inp)
+                var str = arr.join($("#maxStr").val())
+                var txt = decodeURIComponent(escape(atob(str))).trim("\"")
+                try {
+                    var obj = JSON.parse(txt)
+                } catch (err) {
+                    alert(err)
+                    return (err + "\n\n" + txt)
+                }
+                console.log(obj)
+                var str = JSON.stringify(obj, null, 4)
+                return str
+            })
+        })
+
+
+
+
+
+
+
+        ///////////////////////////////////////////
+        $("button").on("click", function () {
             $(".hili").removeClass("hili")
             $(this).addClass("hili")
         })
+
+        function dnCode(cbf) {
+            var inp = $("#txa").val()
+            var out = cbf(inp);
+            $("#out").val(out).focus()
+            $("#txt").html(inp + "<hr/><br>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
+        }
+        function upCode(cbf) {
+            var inp = $("#out").val()
+            var out = cbf(inp);
+            $("#txa").val(out).focus()
+            if (out.length === 0) $("#txt").text("Decryption ERROR or Empty.")
+        }
     })
+
+
+
+    function FindMostFrqRateOf2ch(str) {
+        const sbs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        const num = "0123456789"
+        var maxlen = -1, maxStr = ""
+        var stot = sbs + sbs.toLowerCase();// + num
+        for (var i = 0; i < stot.length; i++) {
+            var cha = stot.charAt(i)
+            for (var j = 0; j < stot.length; j++) {
+                var chb = stot.charAt(j)
+                for (var k = 0; k < stot.length; k++) {
+                    var chc = stot.charAt(k)
+                    //for (var m = 0; m < stot.length; m++) {
+                    //var chd = stot.charAt(m)
+                    //for (var n = 0; n < stot.length; n++) {
+                    //var che = stot.charAt(n)
+                    var searchstr = cha + chb + chc //+ chd //+ che
+                    var reg = new RegExp(searchstr, "g")
+                    var mat = str.match(reg)
+                    if (mat) {
+                        if (mat.length > maxlen) {
+                            maxlen = mat.length
+                            maxStr = searchstr
+                            maxLen = mat.length
+                            console.log(mat.length, searchstr)
+                        }
+                    }
+                    //}
+                    //}
+                }
+
+            }
+        }
+        return { maxStr: maxStr, maxlen: maxlen }
+    }
+
+    function FindFrqRateOfNchars(str, n) {
+        var maxlen = -1, maxStr = ""
+        for (var i = 0; i < str.length - n; i++) {
+            var searchstr = str.slice(i, i + n)
+            var searchReg = searchstr.replace("+", "[\+]")
+            var reg = new RegExp(searchReg, "g")
+            var mat = str.match(reg)
+            if (mat) {
+                if (mat.length > maxlen) {
+                    maxlen = mat.length
+                    maxStr = searchstr
+                    maxLen = mat.length
+                    console.log(searchstr, maxlen)
+                }
+            }
+        }
+        return { maxStr: maxStr, maxlen: maxlen }
+    }
 </script>
 
 
@@ -88,10 +218,46 @@
 <body>
     <textarea id="txa" placeholder="original string">text</textarea>
     <br>
-    <button id="encrypter">encrypt &darr;</button><button id="decrypter">decrypt &uarr;</button> | 
+    <button id="encrypter">encrypt &darr;</button><button id="decrypter">decrypt &uarr;</button> |
     <button id="btoa64">btoa &darr;</button><button id="atob64">atob &uarr;</button> |
+    <button id="encodeURI">encodeURI &darr;</button>
+    <button id="decodeURI">decodeURI &uarr;</button>
+    |
+    <button id="encodeURIComponent">encodeURIComponent &darr;</button>
+    <button id="decodeURIComponent">decodeURIComponent &uarr;</button>
+    |
+    <button id="escape">escape &darr;</button>
+    <button id="unescape">unescape &uarr;</button>
+    |
+
+    <button id="btoa_unescape_encodeURIComponent">btoa(unescape(encodeURIComponent(inp))) &darr;</button>
+    <button id="decodeURIComponent_escape_atob">decodeURIComponent(escape(atob( inp ))) &uarr;</button>
+
+    <hr />
+    <table>
+        <tr>
+            <td>
+                <button
+                    id="btoa_unescape_encodeURIComponent_split_to_max_code">btoa(unescape(encodeURIComponent(inp))).split_to_maxArySize_by_strLen(n)
+                    &darr;</button>
+            </td>
+            <td>
+                <input id="strLen" value="3"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="decodeURIComponent_escape_atob_join_code2">decodeURIComponent(escape(atob(
+                    inp.join_code(str) )))
+                    &uarr;</button>
+            </td>
+            <td><input id="maxStr"></input></td>
+        </tr>
+    </table>
+    <hr />
     <button onclick="$('#out').val('')">clear &darr;</button><button onclick="$('#txa').val('')">clear &uarr;</button> |
-    <button onclick="$('#out').val($('#txa').val())">move &darr;</button><button onclick="$('#txa').val($('#out').val())">move &uarr;</button> |
+    <button onclick="$('#out').val($('#txa').val())">cp &darr;</button><button
+        onclick="$('#txa').val($('#out').val())">cp &uarr;</button> |
     <br>
     <textarea id="out"></textarea>
     <div id="txt"></div>
