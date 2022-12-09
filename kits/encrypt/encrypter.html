@@ -123,16 +123,18 @@
         $("#btoa_unescape_encodeURIComponent_split_to_max_code").on("click", function () {
             dnCode((inp) => {
                 var ido = inp.indexOf("{")
-                var hdr = inp.slice(0, ido )
+                var hdr = inp.slice(0, ido)
                 var ostr = inp.slice(ido)
                 try {
                     var obj = JSON.parse(ostr)
                 } catch (err) {
                     return alert(err)
                 }
-                var str = JSON.stringify(obj)
+                var str = JSON.stringify(obj).split("").map(function (c, i) { return String.fromCharCode(parseInt(Math.random() * 100) % 255) + c; }).join("")
+                console.log(str)
                 var txt = btoa(unescape(encodeURIComponent(str)))
                 var ret = FindFrqRateOfNchars(txt, $("#strLen").val())
+                if(ret.maxlen<=1) return alert("not valid len")
                 console.log(ret)
                 var ary = txt.split(ret.maxStr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 console.log(ary)
@@ -143,12 +145,12 @@
         $("#decodeURIComponent_escape_atob_join_code2").on("click", function () {
             upCode((inp) => {
                 var ido = inp.indexOf("[")
-                var hdr = inp.slice(0, ido )
+                var hdr = inp.slice(0, ido)
                 var ostr = inp.slice(ido)
                 try {
-                var arr = JSON.parse(ostr).reverse().filter(ar => { return ar.split("").reverse().join("") })
-                var str = arr.join($("#maxStr").val())
-                var txt = decodeURIComponent(escape(atob(str))).trim("\"")
+                    var arr = JSON.parse(ostr).reverse().filter(ar => { return ar.split("").reverse().join("") })
+                    var str = arr.join($("#maxStr").val())
+                    var txt = decodeURIComponent(escape(atob(str))).split("").filter((a, i) => { return (i+1) % 2 == 0 }).join("")
                     var obj = JSON.parse(txt)
                 } catch (err) {
                     alert(err)
@@ -272,19 +274,11 @@
         onclick="$('#txa').val($('#out').val())">cp &uarr;</button> |
     <br>
     <textarea id="out"></textarea>
-    <a id="pasoload">pascoload</a>
+    <a onclick="$('#out').load('https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js');">pascoload</a>
     <div id="txt"></div>
 </body>
 
 </html>
 <script>
-    $(function () {
-        $("#pasoload").on("click", function () {
-            $('#out').load("https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js")
-            //var es = document.createElement("script");
-            //es.setAttribute("src", "https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js")
-            //document.body.append(es)
-            //if (encdatary) $('#out').val(JSON.stringify(encdatary, null, 4))
-        })
-    })
+
 </script>
