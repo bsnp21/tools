@@ -39,6 +39,26 @@
 </style>
 <script>
 
+    ///////////////////////////////////////////
+    $("button").on("click", function () {
+        $(".hili").removeClass("hili")
+        $(this).addClass("hili")
+    })
+
+    function dnCode(cbf) {
+        var inp = $("#txa").val()
+        var out = cbf(inp);
+        $("#out").val(out).focus()
+        $("#txt").html(inp + "<hr/><br>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
+    }
+    function upCode(cbf) {
+        var inp = $("#out").val()
+        var out = cbf(inp);
+        $("#txa").val(out).focus()
+        if (out.length === 0) $("#txt").text("Decryption ERROR or Empty.")
+    }
+
+
     $(function () {
         $("#encrypter").on("click", function () {
             dnCode((inp) => {
@@ -102,8 +122,11 @@
         ////
         $("#btoa_unescape_encodeURIComponent_split_to_max_code").on("click", function () {
             dnCode((inp) => {
+                var ido = inp.indexOf("{")
+                var hdr = inp.slice(0, ido )
+                var ostr = inp.slice(ido)
                 try {
-                    var obj = JSON.parse(inp)
+                    var obj = JSON.parse(ostr)
                 } catch (err) {
                     return alert(err)
                 }
@@ -114,15 +137,18 @@
                 var ary = txt.split(ret.maxStr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 console.log(ary)
                 $("#maxStr").val(ret.maxStr)
-                return JSON.stringify(ary, null, 4)
+                return hdr + JSON.stringify(ary, null, 4)
             })
         })
         $("#decodeURIComponent_escape_atob_join_code2").on("click", function () {
             upCode((inp) => {
-                var arr = JSON.parse(inp).reverse().filter(ar => { return ar.split("").reverse().join("") })
+                var ido = inp.indexOf("[")
+                var hdr = inp.slice(0, ido )
+                var ostr = inp.slice(ido)
+                try {
+                var arr = JSON.parse(ostr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 var str = arr.join($("#maxStr").val())
                 var txt = decodeURIComponent(escape(atob(str))).trim("\"")
-                try {
                     var obj = JSON.parse(txt)
                 } catch (err) {
                     alert(err)
@@ -130,34 +156,13 @@
                 }
                 console.log(obj)
                 var str = JSON.stringify(obj, null, 4)
-                return str
+                return hdr + str
             })
         })
 
 
 
 
-
-
-
-        ///////////////////////////////////////////
-        $("button").on("click", function () {
-            $(".hili").removeClass("hili")
-            $(this).addClass("hili")
-        })
-
-        function dnCode(cbf) {
-            var inp = $("#txa").val()
-            var out = cbf(inp);
-            $("#out").val(out).focus()
-            $("#txt").html(inp + "<hr/><br>InputLen=" + inp.length + "<br/>OutputLen=" + out.length)
-        }
-        function upCode(cbf) {
-            var inp = $("#out").val()
-            var out = cbf(inp);
-            $("#txa").val(out).focus()
-            if (out.length === 0) $("#txt").text("Decryption ERROR or Empty.")
-        }
     })
 
 
@@ -249,7 +254,7 @@
                     &darr;</button>
             </td>
             <td>
-                <input id="strLen" value="3"></input>
+                <input id="strLen" value="3">(key length)</input>
             </td>
         </tr>
         <tr>
@@ -258,7 +263,7 @@
                     inp.join_code(str) )))
                     &uarr;</button>
             </td>
-            <td><input id="maxStr"></input></td>
+            <td><input id="maxStr"></input>(key)</td>
         </tr>
     </table>
     <hr />
@@ -267,7 +272,19 @@
         onclick="$('#txa').val($('#out').val())">cp &uarr;</button> |
     <br>
     <textarea id="out"></textarea>
+    <a id="pasoload">pascoload</a>
     <div id="txt"></div>
 </body>
 
 </html>
+<script>
+    $(function () {
+        $("#pasoload").on("click", function () {
+            $('#out').load("https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js")
+            //var es = document.createElement("script");
+            //es.setAttribute("src", "https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js")
+            //document.body.append(es)
+            //if (encdatary) $('#out').val(JSON.stringify(encdatary, null, 4))
+        })
+    })
+</script>
