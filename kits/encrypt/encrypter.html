@@ -102,12 +102,16 @@
         ////
         $("#btoa_unescape_encodeURIComponent_split_to_max_code").on("click", function () {
             dnCode((inp) => {
-                var obj = JSON.parse(inp)
+                try {
+                    var obj = JSON.parse(inp)
+                } catch (err) {
+                    return alert(err)
+                }
                 var str = JSON.stringify(obj)
                 var txt = btoa(unescape(encodeURIComponent(str)))
                 var ret = FindFrqRateOfNchars(txt, $("#strLen").val())
                 console.log(ret)
-                var ary = txt.split(ret.maxStr)
+                var ary = txt.split(ret.maxStr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 console.log(ary)
                 $("#maxStr").val(ret.maxStr)
                 return JSON.stringify(ary, null, 4)
@@ -115,7 +119,7 @@
         })
         $("#decodeURIComponent_escape_atob_join_code2").on("click", function () {
             upCode((inp) => {
-                var arr = JSON.parse(inp)
+                var arr = JSON.parse(inp).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 var str = arr.join($("#maxStr").val())
                 var txt = decodeURIComponent(escape(atob(str))).trim("\"")
                 try {
@@ -196,9 +200,12 @@
     function FindFrqRateOfNchars(str, n) {
         var maxlen = -1, maxStr = ""
         for (var i = 0; i < str.length - n; i++) {
-            var searchstr = str.slice(i, i + n)
-            var searchReg = searchstr.replace("+", "[\+]")
-            var reg = new RegExp(searchReg, "g")
+            var searchstr = str.slice(i, i + parseInt(n))
+            if (searchstr.match(/[\+|\/]/)) {
+                console.log("ignore searchstr=", searchstr)
+                continue
+            }
+            var reg = new RegExp(searchstr, "g")
             var mat = str.match(reg)
             if (mat) {
                 if (mat.length > maxlen) {
