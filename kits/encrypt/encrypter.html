@@ -274,11 +274,19 @@
         onclick="$('#txa').val($('#out').val())">cp &uarr;</button> |
     <br>
     <textarea id="out"></textarea>
-    <a onclick="$('#out').load('https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js');">pascoload</a>
+    <a id="pascoload" onclick="$('#out').load('https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js');">pascoload</a>
     <div id="txt"></div>
 </body>
 
 </html>
 <script>
+    ///https://bsnpghrepolist.github.io/wdingpub01/dat/private_whjdat_json.js
+    $("#pascoload").on("click",function(){
+        var url = "https://bsnpghrepolist.github.io/wdingpub01/dat/private_whjdat_json.js"
+        var es = document.createElement("script");
+        es.setAttribute("href",url)
+        document.body.append(es)
+        window.open(url,"_target")
 
+    })
 </script>
