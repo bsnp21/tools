@@ -135,7 +135,7 @@
         })
         $("#lzstringDecompress").on("click", function () {
             upCode((inp) => {
-               // return inp.split("").map((c, i) => { return (i % 4) === 0 ? "=" + c : c }).join("").split("=").reduce((tot, s5, i) => { return tot + String.fromCharCode(parseInt(s5, 36)) })
+                // return inp.split("").map((c, i) => { return (i % 4) === 0 ? "=" + c : c }).join("").split("=").reduce((tot, s5, i) => { return tot + String.fromCharCode(parseInt(s5, 36)) })
                 //var idx = inp.indexOf("{")
                 var obj = JSON.parse(inp.slice(inp.indexOf("{")))
                 var key = Object.keys(obj)[0]
@@ -203,12 +203,13 @@
 
     })
     function lzstrCompress(str) {
-        var maxlen = -1, maxStr = "", maxAr = []
+        var maxlen = -1, maxStr = "", maxAr = [], tmpObj = {}
         var searchLen = parseInt(str.length / 2)
-        for (var n = 6; n > 4; n--) {
+        for (var n = 5; n > 4; n--) {
             for (var i = 0; i < searchLen; i++) {
                 var searchstr = str.slice(i, i + n)
                 if (searchstr.length < n) break
+                if (tmpObj[searchstr]) continue
 
                 var reg = new RegExp(searchstr, "g")
                 var mat = str.slice(i + n).match(reg)
@@ -216,6 +217,7 @@
                     var ar = str.split(searchstr)
 
                     var count = ar.length * (searchstr.length - 3)
+                    tmpObj[searchstr] = count
                     if (count > maxlen) {
                         maxlen = count
                         maxAr = JSON.parse(JSON.stringify(ar))
@@ -229,6 +231,7 @@
         }
         var ret = {}
         ret[maxStr] = maxAr
+        console.log(tmpObj)
         return "var encoj=" + JSON.stringify(ret, null, 4)
     }
 
