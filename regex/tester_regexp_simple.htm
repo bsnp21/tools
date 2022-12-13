@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <title>regexp</title>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+    <link rel="stylesheet" Xhref="./BibleStudyNotePad.css?v=2020dec21b">
+    </link>
+
+    <!-------------------------------------------->
+    <!---- Insert this before scripts import; then restor back later -->
+    <script>//if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
+    <!-------------- jq --------------------->
+    <script ____src="./doc_files/jquery-2_1_3.min.js"></script>
+    <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+    <script xxxxxxxsrc="http://localhost:7878/assets/ckeditor/adapters/jq/jquery-2_1_3.min.js"
+        note="selfseversite"></script>
+    <!-------------- ckeditor only--------------------->
+
+
+    <!-------------------------------------------->
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        table {
+            padding: 10px 10px 10px 10px;
+            margin: 10px 10px 10px 10px;
+            /*font-size:xx-large;*/
+        }
+
+        textarea {
+            width: 100%;
+            font-size: large;
+        }
+
+        .hili {
+            background-color: red;
+        }
+    </style>
+    <script>
+
+
+        function test_Match() {
+            var str = $("#destr").val()
+            var regstr = $("#regex").val()
+            var regflg = $("#regexFlag").val()
+            var rpl = $("#repls").val()
+            console.log(str)
+
+            var reg = new RegExp(regstr,regflg)
+
+            var ret = txt = str
+            try {
+                var mat = txt.match(reg)
+                if (mat) {
+                    $("#outx").val(JSON.stringify(mat, null, 4))
+                    console.log("mat:", mat)
+                } else {
+                    $("#outx").val("no match")
+                }
+            } catch (err) {
+                $("#outx").val(err)
+            }
+
+        }
+        function test_replace() {
+            var str = $("#destr").val()
+            var reg = $("#regex").val()
+            var rpl = $("#repls").val()
+
+            var ret = txt = str
+            try {
+                var mat = txt.replace(reg, rpl)
+                if (mat) {
+                    $("#outx").val(JSON.stringify(mat, null, 4))
+                    console.log("mat:", mat)
+                } else {
+                    $("#outx").val("no match")
+                }
+            } catch (err) {
+                $("#outx").val(err)
+            }
+
+        }
+
+
+        $(function () {
+
+            gen_samples_tabe()
+        })
+
+        function gen_samples_tabe() {
+            var samples = [
+                ["/var/www/html/wdaws/ddir/usrs/github.com/bsnpghrepolist/wdingpba/account/dat/a_json.js", "((.+)\/(\w+)\/account)\/((myoj)|(dat))_json\.js$", "g", "<a href='#$1'>$1</a>"],
+
+                [`
+                var e_Note_json = 
+{
+    "Gen": {
+        "1": {
+            "1": "p002,p010,wdingpba,guest001,guest,xy11,xy10,xy12,gm001"
+        }
+    }
+}`,`[\'|\"|\,](guest)[\'|\"|\,]` , "", ""],
+
+
+                ["", "", "", ""]
+            ]
+            var trs = ""
+            samples.forEach(function (ary, i) {
+                trs += `<tr><td>${1}</td>`
+                ary.forEach(function (str, i) {
+                    trs += `<td><textarea class='itm' idx='${i}'>${str}</textarea></td>`
+                })
+                trs += `</tr>`
+            })
+            $("#tbd").html(trs)
+            $(".itm").on("click", function () {
+                var id = $(this).attr("idx")
+                $(".item" + id).val($(this).val())
+            })
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+    <form action="" method="post">
+
+        <label>txt:</label>
+        <textarea id="destr" class="item0" list="hist_data" value=""
+            placeholder="test string">/var/www/html/wdaws/ddir/usrs/github.com/bsnpghrepolist/wdingpba/account/dat/a_json.js</textarea>
+
+        <label>reg=new RegExp(regstr, regflag) </label>
+        <textarea id="regex" class="item1" value="">((.+)\/(\w+)\/account)\/((myoj)|(dat))_json\.js$</textarea>
+        <label>regflag</label>
+        <input id="regexFlag" class="item2" value="g"></inpu>
+
+        <label>repstr= </label>
+        <textarea class="item3" id="repls"><a href="#$1">$1</a></textarea>
+
+
+    </form>
+    <p>
+        <button onclick="test_Match();">txt.match(reg)</button>
+        <button onclick="test_replace();">txt.replace(reg, repstr)</button>
+        <button onclick="localStorage.clear();">ClearStorage</button>
+
+    </p>
+
+
+
+
+    <div id="footer">
+        <hr>
+        <div id="otable_destr"></div>
+        <div id="otable_regex"></div>
+        <div id="otable_repls"></div>
+        <textarea id="outx" rows="25"></textarea>
+    </div>
+
+    <table border="1">
+        <tbody id="tbd">
+
+        </tbody>
+    </table>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+
+</script>
+<script>
+
+</script>

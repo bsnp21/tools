@@ -1,0 +1,299 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE>
+<html>
+  <head>
+
+    
+
+    <base href="https://pieroxy.net/blog/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    
+
+  </head>
+
+  <body>
+
+  
+
+  
+
+<script language="javascript" src="./lz/lz-string-1.4.4.js"></script>
+<script language="javascript" src="./lz/lzma.js"></script>
+<script language="javascript" src="./lz/lzma_worker.js"></script>
+<hr>
+    Text to compress:<br>
+    <textarea style="max-width:100%" cols=50 id="textd">You can type in any text here and press the "Compress" button.</textarea>
+    <br>
+    <input type="button" value="Compress" id="compress_button">
+    Time:<span id="timed"></span>
+    Size:<span id="sized"></span>
+    <hr>
+    LZ-String:<br>
+    <textarea style="max-width:100%" cols=50 id="textlzs"></textarea>
+    <br>
+    <input type="button" value="Decompress" id="decompress_lzs_button">
+    Time:<span id="timelzs"></span>
+    Size:<span id="sizelzs"></span>
+    <hr>
+    LZMA:<br>
+    <textarea style="max-width:100%" cols=50 id="textlzma"></textarea>
+    <br>
+    <input type="button" value="Decompress" id="decompress_lzma_button">
+    Time:<span id="timelzma"></span>
+    Size:<span id="sizelzma"></span>
+
+<script>
+var compress_button       = document.getElementById("compress_button"),
+    decompress_button_lzs = document.getElementById("decompress_lzs_button"),
+    decompress_button_lzma= document.getElementById("decompress_lzma_button"),
+    d_text                = document.getElementById("textd"),
+    d_output              = document.getElementById("sized"),
+    d_time                = document.getElementById("timed"),
+    lzma_text             = document.getElementById("textlzma"),
+    lzma_output           = document.getElementById("sizelzma"),
+    lzma_time             = document.getElementById("timelzma"),
+    lzs_text              = document.getElementById("textlzs"),
+    lzs_output            = document.getElementById("sizelzs"),
+    lzs_time              = document.getElementById("timelzs"),
+    my_lzma               = new LZMA("/lzstring/lzma_worker.js");
+
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^\s+|\s+$/, "");
+  }
+}
+
+function is_array(input) {
+  return typeof(input) === "object" && (input instanceof Array);
+}
+
+function convert_formated_hex_to_bytes(hex_str) {
+  var count = 0,
+      hex_arr,
+      hex_data = [],
+      hex_len,
+      i;
+  
+  if (hex_str.trim() == "") return [];
+  
+  /// Check for invalid hex characters.
+  if (/[^0-9a-fA-F\s]/.test(hex_str)) {
+    return false;
+  }
+  
+  hex_arr = hex_str.split(/([0-9a-fA-F]+)/g);
+  hex_len = hex_arr.length;
+  
+  for (i = 0; i < hex_len; ++i) {
+    if (hex_arr[i].trim() == "") {
+      continue;
+    }
+    hex_data[count++] = parseInt(hex_arr[i], 16);
+  }
+  
+  return hex_data;
+}
+function convert_formated_hex_to_string(s) {
+  var byte_arr = convert_formated_hex_to_bytes(s);
+  var res = "";
+  for (var i = 0 ; i<byte_arr.length ; i+=2) {
+    res += String.fromCharCode(byte_arr[i] | (byte_arr[i+1]<<8));
+  }
+  return res;
+}
+function convert_string_to_hex(s) {
+  var byte_arr = [];
+  for (var i = 0 ; i<s.length ; i++) {
+    var value = s.charCodeAt(i);
+    byte_arr.push(value & 255);
+    byte_arr.push((value>>8) & 255);
+  }
+  return convert_to_formated_hex(byte_arr);
+}
+
+function convert_to_formated_hex(byte_arr) {
+  var hex_str = "",
+      i,
+      len,
+      tmp_hex;
+  
+  if (!is_array(byte_arr)) {
+    return false;
+  }
+  
+  len = byte_arr.length;
+  
+  for (i = 0; i < len; ++i) {
+    if (byte_arr[i] < 0) {
+      byte_arr[i] = byte_arr[i] + 256;
+    }
+    if (byte_arr[i] === undefined) {
+      alert("Boom " + i);
+      byte_arr[i] = 0;
+    }
+    tmp_hex = byte_arr[i].toString(16);
+    
+    // Add leading zero.
+    if (tmp_hex.length == 1) tmp_hex = "0" + tmp_hex;
+    
+    if ((i + 1) % 16 === 0) {
+      tmp_hex += "\n";
+    } else {
+      tmp_hex += " ";
+    }
+    
+    hex_str += tmp_hex;
+  }
+  
+  return hex_str.trim();
+}
+
+function update_sizes(compare, lzs, lzma) {
+  var compare_result = "",
+      dsize  = d_text.value.length*2,
+      lzma_size = compare?(!lzma || lzma===-2?-2:lzma.length):-1,
+      lzs_size = compare?(!lzs || lzs===-2?-2:lzs.length):-1;
+  
+  d_output.innerHTML  = dsize  + " byte" + (dsize  !== 1 ? "s" : "");
+
+  if (lzma_size>0) {
+    if (compare && lzma_size > 0 && dsize > 0) {
+      compare_result = " (" + Math.round((lzma_size / dsize) * 100) + "%)";
+    }
+    lzma_output.innerHTML = lzma_size + " byte" + (lzma_size !== 1 ? "s" : "") + compare_result;
+  } else if (lzma_size!=-2)
+    lzma_output.innerHTML = "";
+
+  if (lzs_size>0) {
+    if (compare && lzs_size > 0 && dsize > 0) {
+      compare_result = " (" + Math.round((lzs_size / dsize) * 200) + "%)";
+    }
+    lzs_output.innerHTML = lzs_size*2 + " byte" + (lzs_size !== 1 ? "s" : "") + compare_result;
+  } else  if (lzs_size!=-2) 
+    lzs_output.innerHTML = "";
+}
+function format_time(time) {
+  if (time > 1000) {
+    return (time / 1000) + " sec";
+  }
+  return time + " ms";
+}
+
+
+compress_button.onclick = function () {
+  var start_time;
+  
+  lzs_text.value = "";
+  update_sizes();
+  var toCompress = d_text.value;
+  
+  lzs_time.innerHTML = lzma_time.innerHTML = "";
+  /// Start the clock.
+  start_time = (new Date).getTime();
+  
+  try {
+    var res = LZString144.compress(toCompress);
+    var time_delta = (new Date).getTime() - start_time;
+    lzs_time.innerHTML = format_time(time_delta);
+    lzs_text.value = convert_string_to_hex(res);
+    update_sizes(true, res, -2);
+  } catch (e) {
+    alert("An error occurred during lz-string compression. " + e);
+    update_sizes();
+  }
+  
+  start_time = (new Date).getTime();
+  my_lzma.compress(toCompress, 1, function (result) {
+    var time_delta = (new Date).getTime() - start_time;
+    lzma_time.innerHTML = format_time(time_delta);
+    lzma_text.value = "";
+
+    if (result === false) {
+      alert("An error occurred during LZMA compression.");
+      update_sizes();
+      return;
+    }
+    lzma_text.value = convert_to_formated_hex(result);
+    update_sizes(true, -2, result);
+  }, function (percent) {});
+}
+
+decompress_button_lzs.onclick = function () {
+  var comp_data = convert_formated_hex_to_string(lzs_text.value),
+      decompressed,
+      start_time;
+    
+  d_text.value = "";
+  update_sizes();
+  d_output.innerHTML = "";
+    
+  d_time.innerHTML = "";
+  /// Start the clock.
+  start_time = (new Date).getTime();
+    
+  var dec = LZString144.decompress(comp_data);
+  var time_delta = (new Date).getTime() - start_time;
+  update_sizes(true);
+  d_time.innerHTML = format_time(time_delta);
+  d_text.value = dec;
+}
+
+
+decompress_button_lzma.onclick = function () {
+    var byte_arr = convert_formated_hex_to_bytes(lzma_text.value),
+        decompressed,
+        start_time;
+    
+    d_text.value = "";
+    update_sizes();
+    
+    if (byte_arr == false) {
+      alert("invalid compressed input");
+      update_sizes();
+      return false;
+    }
+    
+    /// Start the clock.
+    start_time = (new Date).getTime();
+    d_time.innerHTML = "";
+    
+    
+    my_lzma.decompress(byte_arr, function (result) {
+      d_time.innerHTML = format_time((new Date).getTime() - start_time);
+      
+      if (result === false) {
+        alert("An error occurred during decompression.");
+        return;
+      }
+      
+      d_text.value = result;
+      update_sizes(true);
+    }, function (percent) {});
+}
+
+
+</script>
+
+
+
+  </body>
+</html>

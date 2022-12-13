@@ -109,6 +109,42 @@
             upCode((inp) => { return unescape(inp) })
         })
 
+        $("#charCodeAt").on("click", function () {
+            dnCode((inp) => {
+                //The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+                return ((" " + inp).split("").reduce((tot, c, i) => { return tot + c.codePointAt(0).toString(36).padStart(4, '0') }).slice(1))
+                //return ((" " + inp).split("").reduce((tot, c, i) => { return tot + parseInt(c.charCodeAt(0).toString(36).padStart(4, '0'),36)}).slice(1))
+                return (inp.charCodeAt(0)).toString().padStart(5, '0')
+            })
+        })
+        $("#fromCharCode").on("click", function () {
+            upCode((inp) => {
+                return inp.split("").map((c, i) => { return (i % 4) === 0 ? "=" + c : c }).join("").split("=").reduce((tot, s5, i) => { return tot + String.fromCharCode(parseInt(s5, 36)) })
+                return String.fromCharCode(inp)
+            })
+        })
+
+
+        $("#lzstringCompress").on("click", function () {
+            dnCode((inp) => {
+                //The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+                var str = (" " + inp).split("").reduce((tot, c, i) => { return tot + c.charCodeAt(0).toString(36).padStart(4, '0') }).slice(1)
+                //return str
+                return lzstrCompress(str)
+            })
+        })
+        $("#lzstringDecompress").on("click", function () {
+            upCode((inp) => {
+               // return inp.split("").map((c, i) => { return (i % 4) === 0 ? "=" + c : c }).join("").split("=").reduce((tot, s5, i) => { return tot + String.fromCharCode(parseInt(s5, 36)) })
+                //var idx = inp.indexOf("{")
+                var obj = JSON.parse(inp.slice(inp.indexOf("{")))
+                var key = Object.keys(obj)[0]
+                //var arr = obj[key]
+                var str = obj[key].join(key)
+                return str.split("").map((c, i) => { return (i % 4) === 0 ? "=" + c : c }).join("").split("=").reduce((tot, s5, i) => { return tot + String.fromCharCode(parseInt(s5, 36)) })
+                return String.fromCharCode(inp)
+            })
+        })
 
         ////
         $("#btoa_unescape_encodeURIComponent").on("click", function () {
@@ -134,7 +170,7 @@
                 console.log(str)
                 var txt = btoa(unescape(encodeURIComponent(str)))
                 var ret = FindFrqRateOfNchars(txt, $("#strLen").val())
-                if(ret.maxlen<=1) return alert("not valid len")
+                if (ret.maxlen <= 1) return alert("not valid len")
                 console.log(ret)
                 var ary = txt.split(ret.maxStr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                 console.log(ary)
@@ -150,7 +186,7 @@
                 try {
                     var arr = JSON.parse(ostr).reverse().filter(ar => { return ar.split("").reverse().join("") })
                     var str = arr.join($("#maxStr").val())
-                    var txt = decodeURIComponent(escape(atob(str))).split("").filter((a, i) => { return (i+1) % 2 == 0 }).join("")
+                    var txt = decodeURIComponent(escape(atob(str))).split("").filter((a, i) => { return (i + 1) % 2 == 0 }).join("")
                     var obj = JSON.parse(txt)
                 } catch (err) {
                     alert(err)
@@ -166,7 +202,35 @@
 
 
     })
+    function lzstrCompress(str) {
+        var maxlen = -1, maxStr = "", maxAr = []
+        var searchLen = parseInt(str.length / 2)
+        for (var n = 6; n > 4; n--) {
+            for (var i = 0; i < searchLen; i++) {
+                var searchstr = str.slice(i, i + n)
+                if (searchstr.length < n) break
 
+                var reg = new RegExp(searchstr, "g")
+                var mat = str.slice(i + n).match(reg)
+                if (mat) {
+                    var ar = str.split(searchstr)
+
+                    var count = ar.length * (searchstr.length - 3)
+                    if (count > maxlen) {
+                        maxlen = count
+                        maxAr = JSON.parse(JSON.stringify(ar))
+                        maxStr = searchstr
+                        console.log(searchstr, maxlen, (searchstr.length - 3) * maxlen)
+                    }
+                    //return searchstr + "==" + ar.length + "==" + JSON.stringify(ar, null, 4)
+                    //return str.split(searchstr).push(searchstr).join(",")
+                }
+            }
+        }
+        var ret = {}
+        ret[maxStr] = maxAr
+        return "var encoj=" + JSON.stringify(ret, null, 4)
+    }
 
 
     function FindMostFrqRateOf2ch(str) {
@@ -233,15 +297,22 @@
     <textarea id="txa" placeholder="original string">text</textarea>
     <br>
     <button id="encrypter">encrypt &darr;</button><button id="decrypter">decrypt &uarr;</button> |
-    <button id="btoa64">btoa &darr;</button><button id="atob64">atob &uarr;</button> |
+    <button id="btoa64">btoa &darr;</button><button id="atob64">atob &uarr;</button> |<br>
     <button id="encodeURI">encodeURI &darr;</button>
     <button id="decodeURI">decodeURI &uarr;</button>
     |
     <button id="encodeURIComponent">encodeURIComponent &darr;</button>
-    <button id="decodeURIComponent">decodeURIComponent &uarr;</button>
+    <button id="decodeURIComponent">decodeURIComponent &uarr;</button><br>
     |
     <button id="escape">escape &darr;</button>
-    <button id="unescape">unescape &uarr;</button>
+    <button id="unescape">unescape &uarr;</button><br>
+    |
+
+    <button id="charCodeAt">charCodeAt &darr;</button>
+    <button id="fromCharCode">fromCharCode &uarr;</button><br>
+    |
+    <button id="lzstringCompress">lzstringCompress &darr;</button>
+    <button id="lzstringDecompress">lzstringDecompress &uarr;</button><br>
     |
 
     <button id="btoa_unescape_encodeURIComponent">btoa(unescape(encodeURIComponent(inp))) &darr;</button>
@@ -274,19 +345,20 @@
         onclick="$('#txa').val($('#out').val())">cp &uarr;</button> |
     <br>
     <textarea id="out"></textarea>
-    <a id="pascoload" onclick="$('#out').load('https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js');">pascoload</a>
+    <a id="pascoload"
+        onclick="$('#out').load('https://wdingsoft.github.io/whingd/pasco/jq/encdatary.js');">pascoload</a>
     <div id="txt"></div>
 </body>
 
 </html>
 <script>
     ///https://bsnpghrepolist.github.io/wdingpba/dat/private_whjdat_json.js
-    $("#pascoload").on("click",function(){
+    $("#pascoload").on("click", function () {
         var url = "https://bsnpghrepolist.github.io/wdingpba/dat/private_whjdat_json.js"
         var es = document.createElement("script");
-        es.setAttribute("href",url)
+        es.setAttribute("href", url)
         document.body.append(es)
-        window.open(url,"_target")
+        window.open(url, "_target")
 
     })
 </script>
