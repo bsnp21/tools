@@ -12,6 +12,10 @@ var basic_draggy_kits = `
 
     width: 30px;
 }
+.draggable_disableed{
+    resize: both;
+    overflow: auto;
+}
 
 #draggy_container {
     position: relative;
@@ -23,16 +27,14 @@ var basic_draggy_kits = `
     top: 10px;
     margin-top: 0px;
 
-    background-color:lightgray;
+    background-color:white;
 }
 </style>
-<div id="draggy_container" contenteditable="true">
-
-    </div>
+<div id="draggy_container" __contenteditable="true">
+</div>
 `
 function remembered_draggy() {
     $("body").prepend(basic_draggy_kits)
-
 }
 remembered_draggy.prototype.create_draggy = function (positions) {
     var divs = ""
@@ -40,7 +42,7 @@ remembered_draggy.prototype.create_draggy = function (positions) {
         if (pid.length === 0) continue
         divs += `<div contenteditable='true' class='draggy' pid='${pid}'>${obj.text}</div>`;
     }
-    $("#draggy_container").prepend(divs)
+    $("#draggy_container").append(divs)
     //$(".fixed_draggy").addClass("draggy").removeClass("fixed_draggy")
 }
 
@@ -105,14 +107,14 @@ remembered_draggy.prototype.enable_draggy = function () {
     //return positions
 }
 
-remembered_draggy.prototype.createnew =  function() {
+remembered_draggy.prototype.createnew = function () {
     var pid = -1
     var positions = this.get_positions()
     while (1) {
         pid++
         if (!positions[pid]) {
             positions[pid] = { text: pid }
-            break
+            break;
         }
     }
     var pos = {}
