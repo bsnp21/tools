@@ -8,7 +8,7 @@ var basic_draggy_kits = `
     left: 0px;
 
     border: 1px solid black;
-    padding-top: 10px;
+    padding-top: 1px;
 
     width: 30px;
 }
@@ -35,13 +35,13 @@ var basic_draggy_kits = `
 `
 function sticky_draggy(par) {
     $("body").prepend(basic_draggy_kits)
-    this.m_deleterButtonID=par.deleterButtonID
+    this.m_deleterButtonID = par.deleterButtonID
 }
 sticky_draggy.prototype.create_draggy = function (positions) {
     var divs = ""
     for (let [pid, obj] of Object.entries(positions)) {
         if (pid.length === 0) continue
-        divs += `<div contenteditable='true' class='draggy' pid='${pid}'>${obj.text}</div>`;
+        divs += `<div contenteditable='true' class='draggy' pid='${pid}'>${pid}</div>`;
     }
     $("#draggy_container").append(divs)
     //$(".fixed_draggy").addClass("draggy").removeClass("fixed_draggy")
@@ -54,7 +54,7 @@ sticky_draggy.prototype.remember_draggy_positions = function () {
     for (let [pid, obj] of Object.entries(positions)) {
         if (obj.top < 0) obj.top = 0
         if (obj.left < 0) obj.left = 0
-        $(`.draggy[pid='${pid}']`).css("left", obj.left + "px").css("top", obj.top + "px").css("width", obj.width).css("height", obj.height).text(obj.text)
+        $(`.draggy[pid='${pid}']`).css("left", obj.left + "px").css("top", obj.top + "px").css("width", obj.width).css("height", obj.height).html(obj.html)
     }
 }
 sticky_draggy.prototype.delete_position = function (pid) {
@@ -73,6 +73,19 @@ sticky_draggy.prototype.get_positions = function () {
     }
     return positions
 }
+sticky_draggy.prototype.update_positions = function (elem, ui) {
+    var positions = this.get_positions()
+    var pid = $(elem).attr('pid')
+    if (ui) {
+        positions[pid] = ui.position
+    }
+    positions[pid].width = $(elem).css("width")
+    positions[pid].height = $(elem).css("height")
+    positions[pid].text = $(elem).text()
+    positions[pid].html = $(elem).html()
+
+    localStorage.positions = JSON.stringify(positions)
+}
 sticky_draggy.prototype.enable_draggy = function () {
     //var tot_draggy = $(".draggy").length
     var _THIS = this
@@ -84,14 +97,7 @@ sticky_draggy.prototype.enable_draggy = function () {
         $(this).draggable({
             disabled: false,
             stop: function (event, ui) {
-                var pid = $(this).attr('pid')
-                var positions = _THIS.get_positions()
-                positions[pid] = ui.position
-                positions[pid].width = $(this).css("width")
-                positions[pid].height = $(this).css("height")
-                positions[pid].text = $(this).text()
-
-                localStorage.positions = JSON.stringify(positions)
+                _THIS.update_positions(this, ui)
             }
         });
         $(this).on("click", function () {
@@ -102,7 +108,10 @@ sticky_draggy.prototype.enable_draggy = function () {
             $(this).draggable({
                 disabled: draggable_disableed,
             });
-
+            _THIS.update_positions(this)
+        })
+        $(this).on("keyup", function () {
+            _THIS.update_positions(this)
         })
         $(`#${_THIS.m_deleterButtonID}`).on("click", function () {
             var pid = $(this).text()
@@ -110,6 +119,8 @@ sticky_draggy.prototype.enable_draggy = function () {
                 _THIS.delete_position(pid)
             }
         })
+
+
     })
     //return positions
 }
@@ -120,7 +131,7 @@ sticky_draggy.prototype.createnew = function () {
     while (1) {
         pid++
         if (!positions[pid]) {
-            positions[pid] = { text: pid }
+            positions[pid] = { text: pid, html: pid }
             break;
         }
     }
@@ -141,18 +152,18 @@ sticky_draggy.prototype.localstore_export = function (cbf) {
     var positions = this.get_positions()
     this.Donwload_Obj_to_Jsfile("localstore", positions, cbf)
 }
-sticky_draggy.prototype.localstore_import = function(txt){
+sticky_draggy.prototype.localstore_import = function (txt) {
     var pstart = txt.indexOf("{")
-    if(pstart<0) return alert("not object string")
+    if (pstart < 0) return alert("not object string")
     var str = txt.slice(pstart)
-    try{
+    try {
         var obj = JSON.parse(str)
         localStorage.positions = JSON.stringify(obj)
-    }catch(e){
+    } catch (e) {
         alert(e)
     }
 }
- 
+
 sticky_draggy.prototype.Donwload_Obj_to_Jsfile = function (oname, obj, cbf) {
     var text = `var ${oname} = \n` + JSON.stringify(obj, null, 4)
     var fname = `${oname}.json.js`
