@@ -8,7 +8,7 @@
 
     <script src="./jq/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script src="./jq/remembered_draggy.js"></script>
+    <script src="./jq/sticky_draggy.js"></script>
 
 
 
@@ -128,15 +128,10 @@
     $(document).ready(function () {
 
     });
-
-
-
 </script>
 
 
 <body>
-
-
     <div id="PopupMenu">
         <button id="creator">create</button>
         <button id="deleter">deleter</button>
@@ -163,30 +158,16 @@
 
     <script>
 
-
-
-
-
-
-
         $(document).ready(function () {
-            var rdg = new remembered_draggy()
+            var rdg = new sticky_draggy({deleterButtonID:"deleter"})
+            rdg.localstore_load()
 
             $("#creator").on("click",function(){
                 rdg.createnew()
             })
-            $("#deleter").on("click", function () {
-                var pid = $(this).text()
-                if (pid) {
+            
 
-                    rdg.delete_position(pid)
-                }
-            })
-
-            var positions = rdg.get_positions()
-            rdg.create_draggy(positions)
-            rdg.enable_draggy()
-            rdg.remember_draggy_positions(positions)
+         
         })
 
 

@@ -33,8 +33,9 @@ var basic_draggy_kits = `
 <div id="draggy_container" __contenteditable="true">
 </div>
 `
-function remembered_draggy() {
+function remembered_draggy(par) {
     $("body").prepend(basic_draggy_kits)
+    this.m_deleterButtonID=par.deleterButtonID
 }
 remembered_draggy.prototype.create_draggy = function (positions) {
     var divs = ""
@@ -95,13 +96,19 @@ remembered_draggy.prototype.enable_draggy = function () {
         });
         $(this).on("click", function () {
             var pid = $(this).attr('pid')
-            $("#deleter").text(pid)
+            $(`#${_THIS.m_deleterButtonID}`).text(pid)
             $(this).toggleClass("draggable_disableed")
             var draggable_disableed = $(this).hasClass("draggable_disableed")
             $(this).draggable({
                 disabled: draggable_disableed,
             });
 
+        })
+        $(`#${_THIS.m_deleterButtonID}`).on("click", function () {
+            var pid = $(this).text()
+            if (pid) {
+                _THIS.delete_position(pid)
+            }
         })
     })
     //return positions
@@ -122,4 +129,11 @@ remembered_draggy.prototype.createnew = function () {
     this.create_draggy(pos)
     this.enable_draggy()
     localStorage.positions = JSON.stringify(positions)
+}
+
+remembered_draggy.prototype.localstore_load = function () {
+    var positions = this.get_positions()
+    this.create_draggy(positions)
+    this.enable_draggy()
+    this.remember_draggy_positions(positions)
 }
