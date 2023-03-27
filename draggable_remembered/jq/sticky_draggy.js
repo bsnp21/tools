@@ -137,3 +137,34 @@ sticky_draggy.prototype.localstore_load = function () {
     this.enable_draggy()
     this.remember_draggy_positions(positions)
 }
+sticky_draggy.prototype.localstore_export = function (cbf) {
+    var positions = this.get_positions()
+    this.Donwload_Obj_to_Jsfile("localstore", positions, cbf)
+}
+sticky_draggy.prototype.localstore_import = function(txt){
+    var pstart = txt.indexOf("{")
+    if(pstart<0) return alert("not object string")
+    var str = txt.slice(pstart)
+    try{
+        var obj = JSON.parse(str)
+        localStorage.positions = JSON.stringify(obj)
+    }catch(e){
+        alert(e)
+    }
+}
+ 
+sticky_draggy.prototype.Donwload_Obj_to_Jsfile = function (oname, obj, cbf) {
+    var text = `var ${oname} = \n` + JSON.stringify(obj, null, 4)
+    var fname = `${oname}.json.js`
+    this.Donwload_Text_to_Jsfile(fname, text)
+    if (cbf) cbf(text)
+}
+sticky_draggy.prototype.Donwload_Text_to_Jsfile = function (dwnfname, dwntext) {
+    //var obj = { "123": "abc" , "345":"fffff"}
+    let link = document.createElement('a');
+    link.download = dwnfname;///'welcome.txt';
+    let blob = new Blob([dwntext], { type: 'text/plain;charset=utf-8' });
+    link.href = URL.createObjectURL(blob);
+    link.click();
+    URL.revokeObjectURL(link.href);
+}

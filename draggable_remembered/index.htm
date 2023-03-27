@@ -120,7 +120,8 @@
         }
 
         #txa {}
-        #deleter{
+
+        #deleter {
             text-decoration: line-through;
         }
     </style>
@@ -138,21 +139,15 @@
     <div id="PopupMenu">
         <button id="creator">create</button>
         <button id="deleter">deleter</button>
-        <div id="chkboxholder_Types"></div>
         <hr />
-        <input type="radio" onclick="hili_checked();">HiliChecked</input><br>
+        <input type="checkbox" id="draggable" checked>draggable</input>
+        <hr />
+        <button id="download">download</button>
+        <button id="import2localstore">import</button>
+        <br />
 
         <textarea id="txa"></textarea><br>
-        <input type="checkbox" onclick="page_menu.toggleDrag(this)">draggable</input>
-        <input type="radio" name="opr" onclick="append_new_tr()">append_new_tr</input>
-        <hr />
-        <input type="radio" name="opr" onclick="roots_linked_str.update_edited_str()">update_edited_str</input>
-        <input type="radio" name="opr" onclick="roots_linked_str.export_d3_links()">export_d3_links</input>
-        <input type="radio" name="opr" onclick="roots_linked_str.stat_table('#status')">stat_linked_str</input>
-        <table border="1">
-            <thead id="thd1"></thead>
-            <tbody id="tbdy1"></tbody>
-        </table>
+
     </div>
 
 
@@ -162,29 +157,38 @@
     <script>
 
         $(document).ready(function () {
-            var rdg = new sticky_draggy({deleterButtonID:"deleter"})
+            var rdg = new sticky_draggy({ deleterButtonID: "deleter" })
             rdg.localstore_load()
 
-            $("#creator").on("click",function(){
+            $("#creator").on("click", function () {
                 rdg.createnew()
             })
-            
+            $("#download").on("click", function () {
+                rdg.localstore_export(function (txt) {
+                    $("#txa").val(txt)
+                })
+            })
+            $("#import2localstore").on("click", function () {
+                var txt = $("#txa").val()
+                rdg.localstore_import(txt)
+            })
 
-         
+            $("#PopupMenu").draggable({
+                    disabled: false,
+                });
+            $("#draggable").on("click", function () {
+                $("#PopupMenu").draggable({
+                    disabled: !$("#draggable").prop("checked"),
+                });
+            })
+
+
+
         })
 
 
     </script>
-    <table class="Compact">
-        <thead>
-            <tr>
-                <td>#</td>
-                <td>str</td>
-                <td>desc</td>
-            </tr>
-        </thead>
-        <tbody id="tbd"></tbody>
-    </table>
+
 
     <div id="status"></div>
 
