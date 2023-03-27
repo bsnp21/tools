@@ -122,7 +122,7 @@
         #txa {}
 
         #deleter {
-            text-decoration:wavy;
+            text-decoration: wavy;
         }
     </style>
 
@@ -139,6 +139,7 @@
     <div id="PopupMenu">
         <button id="creator">create</button>
         <button id="deleter">deleter</button>
+        <button id="backward">z-back</button>
         <hr />
         <input type="checkbox" id="draggable" checked>draggable</input>
         <hr />
@@ -174,12 +175,16 @@
             })
 
             $("#PopupMenu").draggable({
-                    disabled: false,
-                });
+                disabled: false,
+            });
             $("#draggable").on("click", function () {
                 $("#PopupMenu").draggable({
                     disabled: !$("#draggable").prop("checked"),
                 });
+            })
+            $("#backward").on("click", function () {
+                var zdx = rdg.z_back()
+                $(this).text(`z-idx:${zdx}`)
             })
 
 

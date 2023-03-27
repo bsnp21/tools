@@ -26,8 +26,7 @@ var basic_draggy_kits = `
     left: 10px;
     top: 10px;
     margin-top: 0px;
-
-    background-color:white;
+    z-index:0;
 }
 </style>
 <div id="draggy_container" __contenteditable="true">
@@ -140,6 +139,15 @@ sticky_draggy.prototype.createnew = function () {
     this.create_draggy(pos)
     this.enable_draggy()
     localStorage.positions = JSON.stringify(positions)
+}
+sticky_draggy.prototype.z_back = function () {
+    var pid = $(`#${this.m_deleterButtonID}`).text()
+    var zindex = $(`.draggy[pid='${pid}']`).css("z-index")
+    if (isNaN(zindex)) zindex = 1
+    var zdx = parseInt(zindex) - 1
+    $(`.draggy[pid='${pid}']`).css("z-index", zdx)
+    //$(this).text(`z-idx:${zdx}`)
+    return zdx
 }
 
 sticky_draggy.prototype.localstore_load = function () {
