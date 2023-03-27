@@ -8,6 +8,7 @@
 
     <script src="./jq/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="./jq/remembered_draggy.js"></script>
 
 
 
@@ -15,16 +16,14 @@
     <!-- Demo styling -->
 
     <style type="text/css">
-        body {
+        xbody {
             height: 1200px;
             width: 1130px;
             /* 595px */
             /* to centre page on screen*/
 
-            border: 1px  solid grey;
+            border: 1px solid grey;
             margin-left: 10px;
-
-
         }
 
 
@@ -121,79 +120,25 @@
         }
 
         #txa {}
-
-        .draggy{
-            position: absolute;
-            top:0px;
-            left:0px;
-        }
-        .draggy {
-            border: 1px solid black;
-            padding-top: 10px;
-
-            width: 30px;
-        }
-
-        .draggable_disableed {
-            resize: both;
-            overflow: auto;
-        }
-
-        .draggy textarea {}
-
-        #draggy_container{
-            position: relative;
-            border: 1px solid gray;
-           
-            height: 1000px;
-            width: 800px;
-            left:10px;
-            top:10px;
-            margin-top: 0px;
-
-        }
     </style>
 
 </head>
 
 <script>
     $(document).ready(function () {
-        $("#deleter").on("click", function () {
-            var pid = $(this).text()
-            if (pid) {
-                $(`.draggy[pid='${pid}']`).remove()
-                delete_position(pid)
-            }
-        })
+
     });
 
-    function createnew() {
-        var pid = -1
-        var positions = get_positions()
-        while (1) {
-            pid++
-            if (!positions[pid]) {
-                positions[pid] = { text: pid }
-                break
-            }
-        }
-        var pos={}
-        pos[pid] = positions[pid]
-        create_draggy(pos)
-        enable_draggy()
-        localStorage.positions = JSON.stringify(positions)
-    }
+
 
 </script>
 
 
 <body>
-    <div id="draggy_container"  contenteditable="true">
 
-    </div>
 
     <div id="PopupMenu">
-        <button onclick="createnew();">create</button>
+        <button id="creator">create</button>
         <button id="deleter">deleter</button>
         <div id="chkboxholder_Types"></div>
         <hr />
@@ -225,80 +170,25 @@
 
 
         $(document).ready(function () {
-            var positions = get_positions()
-            create_draggy(positions)
-            enable_draggy()
-            remember_draggy_positions(positions)
-        })
-        function create_draggy(positions) {
-            var divs = ""
-            for (let [pid, obj] of Object.entries(positions)) {
-                if (pid.length === 0) continue
-                divs += `<div contenteditable='true' class='draggy' pid='${pid}'>${obj.text}</div>`;
-            }
-            $("#draggy_container").prepend(divs)
-            //$(".fixed_draggy").addClass("draggy").removeClass("fixed_draggy")
-        }
+            var rdg = new remembered_draggy()
 
-        function remember_draggy_positions() {
-            ////
-            var positions = get_positions()
-            ////
-            for (let [pid, obj] of Object.entries(positions)) {
-                if(obj.top<0) obj.top = 0
-                if(obj.left<0) obj.left = 0
-                $(`.draggy[pid='${pid}']`).css("left", obj.left + "px").css("top", obj.top + "px").css("width", obj.width).css("height", obj.height).text(obj.text)
-            }
-        }
-        function delete_position(pid) {
-            var pos = get_positions()
-            delete pos[pid]
-            localStorage.positions = JSON.stringify(pos)
-
-        }
-        function get_positions() {
-            var positions = localStorage.positions
-            if (!positions) {
-                positions = {}
-            }
-            else {
-                positions = JSON.parse(positions)
-            }
-            return positions
-        }
-        function enable_draggy() {
-            //var tot_draggy = $(".draggy").length
-            $(".draggy").each(function (i) {
-                if ($(this).hasClass("draggy_enabled")) return
-                $(this).addClass("draggy_enabled")
-                //$(this).removeClass("newelement")
-                //$(this).attr('pid', tot_draggy + i)
-                $(this).draggable({
-                    disabled: false,
-                    stop: function (event, ui) {
-                        var pid = $(this).attr('pid')
-                        var positions = get_positions()
-                        positions[pid] = ui.position
-                        positions[pid].width = $(this).css("width")
-                        positions[pid].height = $(this).css("height")
-                        positions[pid].text = $(this).text()
-
-                        localStorage.positions = JSON.stringify(positions)
-                    }
-                });
-                $(this).on("click", function () {
-                    var pid = $(this).attr('pid')
-                    $("#deleter").text(pid)
-                    $(this).toggleClass("draggable_disableed")
-                    var draggable_disableed = $(this).hasClass("draggable_disableed")
-                    $(this).draggable({
-                        disabled: draggable_disableed,
-                    });
-
-                })
+            $("#creator").on("click",function(){
+                rdg.createnew()
             })
-            //return positions
-        }
+            $("#deleter").on("click", function () {
+                var pid = $(this).text()
+                if (pid) {
+
+                    rdg.delete_position(pid)
+                }
+            })
+
+            var positions = rdg.get_positions()
+            rdg.create_draggy(positions)
+            rdg.enable_draggy()
+            rdg.remember_draggy_positions(positions)
+        })
+
 
     </script>
     <table class="Compact">
