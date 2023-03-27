@@ -33,8 +33,15 @@ var basic_draggy_kits = `
 </div>
 `
 function sticky_draggy(par) {
+    if (par) {
+        this.draggy_set(par)
+    }
+}
+sticky_draggy.prototype.draggy_set = function (par) {
     $("body").prepend(basic_draggy_kits)
-    this.m_deleterButtonID = par.deleterButtonID
+    if (par) {
+        this.m_deleterButtonID = par.deleterButtonID
+    }
 }
 sticky_draggy.prototype.create_draggy = function (positions) {
     var divs = ""
@@ -47,7 +54,6 @@ sticky_draggy.prototype.create_draggy = function (positions) {
 }
 
 sticky_draggy.prototype.remember_draggy_positions = function () {
-    ////
     var positions = this.get_positions()
     ////
     for (let [pid, obj] of Object.entries(positions)) {
@@ -85,6 +91,15 @@ sticky_draggy.prototype.update_positions = function (elem, ui) {
 
     localStorage.positions = JSON.stringify(positions)
 }
+sticky_draggy.prototype.disable_draggy = function () {
+    $(".draggy").each(function (i) {
+        $(this).attr("pid", null)
+        $(this).draggable({
+            disabled: true
+        });
+    })
+
+}
 sticky_draggy.prototype.enable_draggy = function () {
     //var tot_draggy = $(".draggy").length
     var _THIS = this
@@ -101,7 +116,10 @@ sticky_draggy.prototype.enable_draggy = function () {
         });
         $(this).on("click", function () {
             var pid = $(this).attr('pid')
-            $(`#${_THIS.m_deleterButtonID}`).text(pid)
+            if(!pid) return
+            if (_THIS.m_deleterButtonID) {
+                $(`#${_THIS.m_deleterButtonID}`).text(pid)
+            }
             $(this).toggleClass("draggable_disableed")
             var draggable_disableed = $(this).hasClass("draggable_disableed")
             $(this).draggable({
@@ -112,12 +130,15 @@ sticky_draggy.prototype.enable_draggy = function () {
         $(this).on("keyup", function () {
             _THIS.update_positions(this)
         })
-        $(`#${_THIS.m_deleterButtonID}`).on("click", function () {
-            var pid = $(this).text()
-            if (pid) {
-                _THIS.delete_position(pid)
-            }
-        })
+
+        if (_THIS.m_deleterButtonID) {
+            $(`#${_THIS.m_deleterButtonID}`).on("click", function () {
+                var pid = $(this).text()
+                if (pid) {
+                    _THIS.delete_position(pid)
+                }
+            })
+        }
 
 
     })
