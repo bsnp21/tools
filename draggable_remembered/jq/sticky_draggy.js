@@ -33,11 +33,11 @@ var basic_draggy_kits = `
 <div id="draggy_container" __contenteditable="true">
 </div>
 `
-function remembered_draggy(par) {
+function sticky_draggy(par) {
     $("body").prepend(basic_draggy_kits)
     this.m_deleterButtonID=par.deleterButtonID
 }
-remembered_draggy.prototype.create_draggy = function (positions) {
+sticky_draggy.prototype.create_draggy = function (positions) {
     var divs = ""
     for (let [pid, obj] of Object.entries(positions)) {
         if (pid.length === 0) continue
@@ -47,7 +47,7 @@ remembered_draggy.prototype.create_draggy = function (positions) {
     //$(".fixed_draggy").addClass("draggy").removeClass("fixed_draggy")
 }
 
-remembered_draggy.prototype.remember_draggy_positions = function () {
+sticky_draggy.prototype.remember_draggy_positions = function () {
     ////
     var positions = this.get_positions()
     ////
@@ -57,13 +57,13 @@ remembered_draggy.prototype.remember_draggy_positions = function () {
         $(`.draggy[pid='${pid}']`).css("left", obj.left + "px").css("top", obj.top + "px").css("width", obj.width).css("height", obj.height).text(obj.text)
     }
 }
-remembered_draggy.prototype.delete_position = function (pid) {
+sticky_draggy.prototype.delete_position = function (pid) {
     var pos = this.get_positions()
     delete pos[pid]
     localStorage.positions = JSON.stringify(pos)
     $(`.draggy[pid='${pid}']`).remove()
 }
-remembered_draggy.prototype.get_positions = function () {
+sticky_draggy.prototype.get_positions = function () {
     var positions = localStorage.positions
     if (!positions) {
         positions = {}
@@ -73,7 +73,7 @@ remembered_draggy.prototype.get_positions = function () {
     }
     return positions
 }
-remembered_draggy.prototype.enable_draggy = function () {
+sticky_draggy.prototype.enable_draggy = function () {
     //var tot_draggy = $(".draggy").length
     var _THIS = this
     $(".draggy").each(function (i) {
@@ -114,7 +114,7 @@ remembered_draggy.prototype.enable_draggy = function () {
     //return positions
 }
 
-remembered_draggy.prototype.createnew = function () {
+sticky_draggy.prototype.createnew = function () {
     var pid = -1
     var positions = this.get_positions()
     while (1) {
@@ -131,7 +131,7 @@ remembered_draggy.prototype.createnew = function () {
     localStorage.positions = JSON.stringify(positions)
 }
 
-remembered_draggy.prototype.localstore_load = function () {
+sticky_draggy.prototype.localstore_load = function () {
     var positions = this.get_positions()
     this.create_draggy(positions)
     this.enable_draggy()
