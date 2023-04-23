@@ -1,6 +1,6 @@
 
 
-var basic_draggy_kits = `
+var Basic_Draggy_Doc = `
 <style>
 .draggy {
     position: absolute;
@@ -38,7 +38,7 @@ function sticky_draggy(par) {
     }
 }
 sticky_draggy.prototype.draggy_set = function (par) {
-    $("body").prepend(basic_draggy_kits)
+    $("body").prepend(Basic_Draggy_Doc)
     if (par) {
         this.m_deleterButtonID = par.deleterButtonID
     }
