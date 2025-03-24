@@ -38,7 +38,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Rehoboam",
-        "Names(CUV)": "",
+        "Names(CUV)": "罗波安",
         "Nation": "South",
         "Span": "17",
         "Date": "",
@@ -50,7 +50,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Abijah",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚比亚",
         "Nation": "South",
         "Span": "3",
         "Date": "",
@@ -62,7 +62,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Asa",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚撒",
         "Nation": "South",
         "Span": "41",
         "Date": "",
@@ -74,7 +74,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Jehoshaphat",
-        "Names(CUV)": "",
+        "Names(CUV)": "约沙法",
         "Nation": "South",
         "Span": "25",
         "Date": "",
@@ -86,7 +86,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Jehoram",
-        "Names(CUV)": "",
+        "Names(CUV)": "约兰",
         "Nation": "South",
         "Span": "8",
         "Date": "",
@@ -98,7 +98,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Ahaziah",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚哈谢",
         "Nation": "South",
         "Span": "1",
         "Date": "",
@@ -110,11 +110,11 @@ var KingsList =
     },
     {
         "Names(NIV)": "Athaliah",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚他利雅(f)",
         "Nation": "South",
         "Span": "6",
         "Date": "",
-        "Kinship": "",
+        "Kinship": "mother of Ahaziah;daughter of Zesbel",
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki11:1-4",
@@ -122,7 +122,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Joash",
-        "Names(CUV)": "",
+        "Names(CUV)": "约阿施",
         "Nation": "South",
         "Span": "40",
         "Date": "",
@@ -134,7 +134,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Amaziah",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚玛谢",
         "Nation": "South",
         "Span": "29",
         "Date": "",
@@ -277,8 +277,8 @@ var KingsList =
         "Notes": "Hoshea"
     },
     {
-        "Names(NIV)": "Jeroboam I",
-        "Names(CUV)": " ",
+        "Names(NIV)": "Jeroboam I",
+        "Names(CUV)": " 耶罗波安",
         "Nation": "North",
         "Span": "22",
         "Date": "",
@@ -290,7 +290,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Nadab",
-        "Names(CUV)": "",
+        "Names(CUV)": "拿答",
         "Nation": "North",
         "Span": "2",
         "Date": "",
@@ -302,7 +302,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Baasha",
-        "Names(CUV)": "",
+        "Names(CUV)": "巴沙",
         "Nation": "North",
         "Span": "24",
         "Date": "",
@@ -314,7 +314,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Elah",
-        "Names(CUV)": "",
+        "Names(CUV)": "以拉",
         "Nation": "North",
         "Span": "2",
         "Date": "",
@@ -326,7 +326,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Zimri",
-        "Names(CUV)": "",
+        "Names(CUV)": "心利",
         "Nation": "North",
         "Span": "7day",
         "Date": "",
@@ -338,7 +338,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Tibni",
-        "Names(CUV)": "",
+        "Names(CUV)": "提比尼",
         "Nation": "North",
         "Span": "4",
         "Date": "",
@@ -350,7 +350,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Omri",
-        "Names(CUV)": "",
+        "Names(CUV)": "暗利",
         "Nation": "North",
         "Span": "12",
         "Date": "",
@@ -362,7 +362,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Ahab",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚哈",
         "Nation": "North",
         "Span": "22",
         "Date": "",
@@ -374,7 +374,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Ahaziah",
-        "Names(CUV)": "",
+        "Names(CUV)": "亚哈谢",
         "Nation": "North",
         "Span": "2",
         "Date": "",
@@ -386,7 +386,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Joram",
-        "Names(CUV)": "",
+        "Names(CUV)": "约兰",
         "Nation": "North",
         "Span": "12",
         "Date": "",
@@ -398,7 +398,7 @@ var KingsList =
     },
     {
         "Names(NIV)": "Jehu",
-        "Names(CUV)": "",
+        "Names(CUV)": "耶户",
         "Nation": "North",
         "Span": "28",
         "Date": "",
