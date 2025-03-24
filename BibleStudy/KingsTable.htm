@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <title>|</title>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+
+    <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+    <script src="https://wdingbox.github.io/assetjs/libs/jq/Rapid_Sort_Table.js"></script>
+
+    <script src="./KingsList.json.js"></script>
+</head>
+
+<style>
+    body {
+        background-color: lightblue;
+    }
+
+
+    .hili {
+        background-color: yellow;
+    }
+    .clihi {
+        background-color: gray;
+    }
+</style>
+
+<script>
+
+    function load() {
+        var str = ""
+        KingsList.forEach(function (obj, idx) {
+            str += `<tr><td>${idx}</td>`
+            for ([key, val] of Object.entries(obj)) {
+                str += `<td title='${key}'>${val}</td>`
+            }
+            str += "</tr>"
+        })
+        $("#tabcontainer").html(tabtmp(str));
+        $("td").on("click",function(){
+            $(this).toggleClass("clihi")
+        })
+        var srtabl = new Rapid_Sort_Table("#tabcontainer table")
+    }
+    $(function () {
+        load();
+        $("#Load").on("click", function () {
+            load()
+        })
+        $("#Add").on("click", function () {
+            var etr = $("#KingTab tbody tr:eq(0)").html()
+            $("#KingTab tbody").append(`<tr class='hili'>${etr}</tr>`);
+
+        })
+        $("#Save").on("click", function () {
+            var dat = []
+            var etr = $("#KingTab tbody tr").each(function (irow) {
+                var obj = {}
+                $(this).find("td").each(function (icol) {
+                    if (icol === 0) return;
+                    var key = $(this).attr("title");
+                    var val = $(this).text();
+                    obj[key] = val
+                })
+                dat.push(obj)
+            })
+            var str = JSON.stringify(dat, null, 4);
+            $("#txa").val(`var KingList = \n${str}`)
+        })
+
+        svc_ip_cfg_face_links()
+
+        foot_notes()
+    })
+
+    function svc_ip_cfg_face_links() {
+
+
+    }
+
+    function foot_notes() {
+
+    }
+
+
+
+</script>
+
+<body>
+    <button id="Load">Load</button><button id="Add">Add</button><button id="Save">Save</button>
+    <div id="tabcontainer">
+        <script> function tabtmp(trs) {
+                return `
+            <table id="KingTab" border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Names(NIV)</th>
+                    <th>Names(CUV)</th>
+                    <th>State</th>
+                    <th>Dynasty</th>
+                    <th>Date</th>
+                    <th>Kinship</th>
+                    <th>Tribe</th>,
+                    <th>Verses</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody contenteditable="true">${trs}
+            </tbody>
+            </table>
+            `}
+        </script>
+
+    </div>
+    <textarea id="txa" cols="120" rows="30"></textarea>
+</body>
+
+</html>
+<script>
+    
+
+</script>
