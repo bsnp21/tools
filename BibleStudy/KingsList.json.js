@@ -464,7 +464,7 @@ var KingsList =
         "Kinship": "",
         "Spouse(NIV)": "",
         "Prophet": "",
-        "Verses": "2Ki 13:10",
+        "Verses": "2Ki13:10",
         "RelatedKing": "",
         "Notes": ""
     },
@@ -558,6 +558,5 @@ var KingsList =
         "Verses": "2Ki17:1",
         "RelatedKing": "",
         "Notes": ""
-    },
-   
+    }
 ]
