@@ -28,14 +28,14 @@
         background-color: gray;
     }
 
-    td[Nation='South'] {
-        color: blue;
-        border: 2px solid blue;
+    td[Nationality='South'] {
+        xcolor: blue;
+        border: 3px solid blue;
     }
 
-    td[Nation='North'] {
-        color: black;
-        border: 2px solid black;
+    td[Nationality='North'] {
+        xcolor: black;
+        border: 3px solid black;
     }
 
     tbody tr:nth-child(odd) {
@@ -48,16 +48,24 @@
     function loadData() {
         var str = ""
         KingsList.forEach(function (obj, idx) {
-            var attr = `Nation='${obj.Nation}'`
+            //var attr = `Nation='${obj.Nation}'`
             str += `<tr><td>${idx}</td>`
             for ([key, val] of Object.entries(obj)) {
+                var attr = ""
+                if(key==="Names(NIV)") attr=`Nationality=${obj.Nation}`
                 str += `<td title='${key}' ${attr}>${val}</td>`
             }
             str += "</tr>"
         })
         $("#tabcontainer").html(tabtmp(str));
         $("td").on("click", function () {
-            $(this).toggleClass("clihi")
+            $(".clihi").removeClass("clihi")
+            var txt = $(this).text().trim()
+            $("td").each(function(){
+                if($(this).text()===txt) {
+                    $(this).addClass("clihi")
+                }
+            })
         })
         var srtabl = new Rapid_Sort_Table("#tabcontainer table")
     }
