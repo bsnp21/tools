@@ -27,16 +27,23 @@
     .clihi {
         background-color: gray;
     }
+
+    td[Nation='South'] {
+        background-color:cadetblue;
+    }
+    td[Nation='North'] {
+        background-color:antiquewhite;
+    }
 </style>
 
 <script>
 
-    function load() {
+    function loadData() {
         var str = ""
         KingsList.forEach(function (obj, idx) {
             str += `<tr><td>${idx}</td>`
             for ([key, val] of Object.entries(obj)) {
-                str += `<td title='${key}'>${val}</td>`
+                str += `<td title='${key}' ${key}='${val}'>${val}</td>`
             }
             str += "</tr>"
         })
@@ -62,16 +69,16 @@
         })
     }
     $(function () {
-        load();
+        loadData();
         $("table").on("keyup", function () {
             updateData(".addhili")
         })
         $("#Load").on("click", function () {
-            load()
+            loadData()
         })
         $("#Add").on("click", function () {
             var etr = $("#KingTab tbody tr:eq(0)").clone();
-            $(etr).find("td").text("");$(etr).find("td:eq(0)").text("0");
+            $(etr).find("td").text(""); $(etr).find("td:eq(0)").text("0");
             etr = $(etr).html()
             $("#KingTab tbody").append(`<tr class='addhili'>${etr}</tr>`);
 
@@ -98,7 +105,7 @@
 </script>
 
 <body>
-    <button id="Load">Load</button><button id="Save">Save</button>
+    <button id="Load">Load</button><button id="Save">JSON</button>
 
     <div id="tabcontainer">
         <script> function tabtmp(trs) {
@@ -109,12 +116,13 @@
                     <th>#</th>
                     <th>Names(NIV)</th>
                     <th>Names(CUV)</th>
-                    <th>Spouse(CUV)</th>
-                    <th>State</th>
+                    
+                    <th>Nation</th>
                     <th>Span</th>
                     <th>Date</th>
                     <th>Kinship</th>
-                    <th>Tribe</th>
+                    <th>Prophet</th>
+                    <th>Spouse(NIV/CUV)</th>
                     <th>Verses</th>
                     <th>Notes</th>
                 </tr>
