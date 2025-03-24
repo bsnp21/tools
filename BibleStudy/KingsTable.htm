@@ -16,7 +16,7 @@
 
 <style>
     body {
-        background-color: lightblue;
+        background-color: white;
     }
 
 
@@ -29,10 +29,17 @@
     }
 
     td[Nation='South'] {
-        background-color:cadetblue;
+        color: blue;
+        border: 2px solid blue;
     }
+
     td[Nation='North'] {
-        background-color:antiquewhite;
+        color: black;
+        border: 2px solid black;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color:rgb(244, 244, 244);
     }
 </style>
 
@@ -41,9 +48,10 @@
     function loadData() {
         var str = ""
         KingsList.forEach(function (obj, idx) {
+            var attr = `Nation='${obj.Nation}'`
             str += `<tr><td>${idx}</td>`
             for ([key, val] of Object.entries(obj)) {
-                str += `<td title='${key}' ${key}='${val}'>${val}</td>`
+                str += `<td title='${key}' ${attr}>${val}</td>`
             }
             str += "</tr>"
         })
