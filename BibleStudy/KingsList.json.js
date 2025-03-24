@@ -10,7 +10,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Sa9:2",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "David",
@@ -22,7 +22,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "tribe": "",
         "Verses": "1Sa16:19",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Solomon",
@@ -34,7 +34,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "\t2Sa5:14",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Rehoboam",
@@ -46,7 +46,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki14:21",
-        "Notes": "Jeroboam I"
+        "RelatedKing": "Jeroboam I","Notes":""
     },
     {
         "Names(NIV)": "Abijah",
@@ -58,7 +58,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki15:1-2",
-        "Notes": "Nadab"
+        "RelatedKing": "Nadab","Notes":""
     },
     {
         "Names(NIV)": "Asa",
@@ -70,7 +70,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki15:9-10",
-        "Notes": "Baasha"
+        "RelatedKing": "Baasha","Notes":""
     },
     {
         "Names(NIV)": "Jehoshaphat",
@@ -82,7 +82,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki22:41-42",
-        "Notes": "Elah"
+        "RelatedKing": "Elah","Notes":""
     },
     {
         "Names(NIV)": "Jehoram",
@@ -94,7 +94,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki8:16-17",
-        "Notes": "Zimri"
+        "RelatedKing": "Zimri","Notes":""
     },
     {
         "Names(NIV)": "Ahaziah",
@@ -106,7 +106,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki8:25-26",
-        "Notes": "Tibni"
+        "RelatedKing": "Tibni","Notes":""
     },
     {
         "Names(NIV)": "Athaliah",
@@ -118,7 +118,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki11:1-4",
-        "Notes": "Omri"
+        "RelatedKing": "Omri","Notes":""
     },
     {
         "Names(NIV)": "Joash",
@@ -130,7 +130,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki12:1",
-        "Notes": "Ahab"
+        "RelatedKing": "Ahab","Notes":""
     },
     {
         "Names(NIV)": "Amaziah",
@@ -142,7 +142,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki14:1-2",
-        "Notes": "Ahaziah"
+        "RelatedKing": "Ahaziah","Notes":""
     },
     {
         "Names(NIV)": "Azariah (Uzziah)",
@@ -154,7 +154,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:1-2",
-        "Notes": "Joram"
+        "RelatedKing": "Joram","Notes":""
     },
     {
         "Names(NIV)": "Totham",
@@ -166,7 +166,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:32-33",
-        "Notes": "Jehu"
+        "RelatedKing": "Jehu","Notes":""
     },
     {
         "Names(NIV)": "Ahaz",
@@ -178,7 +178,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki16:1-2",
-        "Notes": "Jehoahaz"
+        "RelatedKing": "Jehoahaz","Notes":""
     },
     {
         "Names(NIV)": "Hezekiah",
@@ -190,7 +190,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki18:1-2",
-        "Notes": "Jehoash"
+        "RelatedKing": "Jehoash","Notes":""
     },
     {
         "Names(NIV)": "Manasseh",
@@ -202,7 +202,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki21:1",
-        "Notes": "Jeroboam II"
+        "RelatedKing": "Jeroboam II","Notes":""
     },
     {
         "Names(NIV)": "Amon",
@@ -214,7 +214,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki21:19",
-        "Notes": "Zechariah"
+        "RelatedKing": "Zechariah","Notes":""
     },
     {
         "Names(NIV)": "Josiah",
@@ -226,7 +226,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki22:1",
-        "Notes": "Shallum"
+        "RelatedKing": "Shallum","Notes":""
     },
     {
         "Names(NIV)": "Jehoahaz",
@@ -238,7 +238,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki23:31",
-        "Notes": "Menahem"
+        "RelatedKing": "Menahem","Notes":""
     },
     {
         "Names(NIV)": "Jehoiakim",
@@ -250,7 +250,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki23:36",
-        "Notes": "Pekahiah"
+        "RelatedKing": "Pekahiah","Notes":""
     },
     {
         "Names(NIV)": "Jehoiachin",
@@ -262,7 +262,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki24:8",
-        "Notes": "Pekah"
+        "RelatedKing": "Pekah","Notes":""
     },
     {
         "Names(NIV)": "Zedekiah",
@@ -274,7 +274,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki24:18",
-        "Notes": "Hoshea"
+        "RelatedKing": "Hoshea","Notes":""
     },
     {
         "Names(NIV)": "Jeroboam I",
@@ -286,7 +286,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki14:20",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Nadab",
@@ -298,7 +298,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki15:25",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Baasha",
@@ -310,7 +310,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki15:33",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Elah",
@@ -322,7 +322,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki16:8",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Zimri",
@@ -334,7 +334,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki16:15",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Tibni",
@@ -346,7 +346,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki.16:21-22",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Omri",
@@ -358,7 +358,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki16:23",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Ahab",
@@ -370,7 +370,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki16:29",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Ahaziah",
@@ -382,7 +382,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "1Ki22:51",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Joram",
@@ -394,7 +394,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki3:1",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Jehu",
@@ -406,7 +406,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki10:36",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Jehoahaz",
@@ -418,7 +418,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki13:1",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Jehoash",
@@ -430,7 +430,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki 13:10",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Jeroboam II",
@@ -442,7 +442,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki14:23",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Zechariah",
@@ -454,7 +454,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:8",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Shallum",
@@ -466,7 +466,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:13",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Menahem",
@@ -478,7 +478,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:17",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Pekahiah",
@@ -490,7 +490,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:23",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Pekah",
@@ -502,7 +502,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki15:27",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "Hoshea",
@@ -514,7 +514,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "2Ki17:1",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "",
@@ -526,7 +526,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "",
@@ -538,7 +538,7 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     },
     {
         "Names(NIV)": "",
@@ -550,6 +550,6 @@ var KingsList =
         "Spouse(NIV)": "",
         "Prophet": "",
         "Verses": "",
-        "Notes": ""
+        "RelatedKing": "","Notes":""
     }
 ]
