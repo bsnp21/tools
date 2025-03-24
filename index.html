@@ -7,67 +7,466 @@
 	<META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
 
 
-	<link rel="stylesheet" href="./css/index.css">
 	<script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
-	<script src="https://wdingbox.github.io/ham12/utility/htmf/bsnp/BibleStudyNotePad.js?v2021-01">
+	<script src="https://wdingbox.github.io/assetjs/libs/jq/Rapid_Sort_Table.js"></script>
+
+
 	</script>
 
 
 </head>
-<script>
-	$(function () {
-	})
-</script>
+
 <style>
 	body {
 		background-color: lightblue;
 	}
-
-	.xsmallnote {
-		font-size: x-small;
+</style>
+<script>
+	$(() => {
+		get_htm_link();
+		var sortab = new Rapid_Sort_Table("#test")
+	})
+	function get_htm_link() {
+		var str = "<table id='Tab' border='1'><caption>tools</caption><thead><tr><th>#</th><th>path</th><th>file</th></tr></thead><tbody>"
+		var lineAry = $("#ls_lR_txt").text().split(/[\r|\n]/g);
+		var dir = ".", idx=0
+		lineAry.forEach(line => {
+			var mat = line.match(/^([\.].+)[\:]$/)
+			if (mat) {
+				dir = mat[1];
+				return;
+			}
+			if (line.match(/^[\-]/)) {
+				var toks = line.split(/[\t|\s]/g)
+				var file = toks[toks.length - 1]
+				var link = `${dir}/${file}`
+				if(link.indexOf(".htm")>=0){
+					str += `<tr><td>${idx++}</td><td>${dir}</td><td><a href='${link}'>${file}</a></td></tr>`
+				}
+			}
+		})
+		str += "</tbody></table>"
+		$("#datloader").html(str)
+		var sortab = new Rapid_Sort_Table("#Tab")
 	}
-
-	.footnoteshow {
-		display: none;
-	}
-
-	.footoe {
-		text-decoration: underline;
-	}
-
-	.footoeHili {
-		background-color: lightgray;
-	}
-
-	img {
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
-	}
-	</style>
+</script>
 <body>
-<a href="./kits/"></a>
-<a href="./kits/lstab/"></a>
-<a href="./draggable_sticky/index.htm"></a>
-<a href="./calendars/calendar3yr.htm"></a>
-<a href="./pinyinput/main/ChineseSimplified7kInput.html"></a>
-<a href="./freqAnalyzer/frq_analyzer.cn.htm"></a>
-<a href="./yt_iframe_app/yt_input_url.htm" ></a>
-<a href="./regex/tester_regexp_simple.htm" ></a>
-<a href="./BibleStudy/KingsTable.htm" ></a>
-		
+	<table id="test" border="1"><thead><tr><th>#</th><th>test</th></tr></thead>
+		<tbody>
+			<tr><td>3</td><td>aaa</td></tr>
+			<tr><td>2</td><td>bbb</td></tr>
+			<tr><td>1</td><td>ccc</td></tr>
+		</tbody>
+	</table>
+	<div id="datloader"></div>
+
+	
+	<p>
+		#> ls -lR
+	</p>
+	<pre id="ls_lR_txt">
+total 8
+drwxr-xr-x  4 weiding  staff   128 Mar 23 23:38 BibleStudy
+drwxr-xr-x  7 weiding  staff   224 Oct 16  2022 Biblical_English_Vocabulary_Analysis
+drwxr-xr-x  7 weiding  staff   224 Nov  9  2022 calendars
+drwxr-xr-x  7 weiding  staff   224 Apr 24  2023 draggable_sticky
+drwxr-xr-x  4 weiding  staff   128 Jul 21  2022 freqAnalyzer
+-rw-r--r--@ 1 weiding  staff  1436 Mar 24 09:18 index.html
+drwxr-xr-x  7 weiding  staff   224 Sep 25  2021 kits
+-rw-r--r--  1 weiding  staff     0 Mar 24 11:11 ls_lR.txt
+drwxr-xr-x  7 weiding  staff   224 Mar 17  2022 oclock
+drwxr-xr-x  5 weiding  staff   160 Jun 30  2022 pinyinput
+drwxr-xr-x  3 weiding  staff    96 Dec 13  2022 regex
+drwxr-xr-x@ 9 weiding  staff   288 Feb 27  2020 web-speech-api-master
+drwxr-xr-x  8 weiding  staff   256 Oct 18  2022 yt_iframe_app
+
+./BibleStudy:
+total 48
+-rw-r--r--  1 weiding  staff  13250 Mar 24 10:21 KingsList.json.js
+-rw-r--r--@ 1 weiding  staff   4390 Mar 24 10:17 KingsTable.htm
+
+./Biblical_English_Vocabulary_Analysis:
+total 0
+drwxr-xr-x  21 weiding  staff  672 Oct 16  2022 all_versions
+drwxr-xr-x   6 weiding  staff  192 Oct 16  2022 consolid
+drwxr-xr-x  13 weiding  staff  416 Oct 16  2022 divided
+drwxr-xr-x   9 weiding  staff  288 Oct 17  2022 englizer
+
+./Biblical_English_Vocabulary_Analysis/all_versions:
+total 19688
+-rw-r--r--  1 weiding  staff   269275 Oct 15  2022 ASV_1901._json.js
+-rw-r--r--  1 weiding  staff   914237 Oct 15  2022 ASV_1901.html
+-rw-r--r--  1 weiding  staff   967609 Oct 15  2022 ESV.html
+-rw-r--r--  1 weiding  staff   282895 Oct 15  2022 ESV_json.js
+-rw-r--r--  1 weiding  staff   907903 Oct 15  2022 KJV.htm
+-rw-r--r--  1 weiding  staff   263879 Oct 15  2022 KJV_json.js
+-rw-r--r--  1 weiding  staff  1016665 Oct 15  2022 NASB.html
+-rw-r--r--  1 weiding  staff   298281 Oct 15  2022 NASB_json.js
+-rw-r--r--  1 weiding  staff  1006396 Oct 15  2022 NIV.html
+-rw-r--r--  1 weiding  staff   294627 Oct 15  2022 NIV_json.js
+-rw-r--r--  1 weiding  staff   940124 Oct 15  2022 NKJV.html
+-rw-r--r--  1 weiding  staff   274762 Oct 15  2022 NKJV_json.js
+-rw-r--r--  1 weiding  staff  1023612 Oct 15  2022 NLT.html
+-rw-r--r--  1 weiding  staff   300115 Oct 15  2022 NLT_json.js
+-rw-r--r--  1 weiding  staff   992615 Oct 15  2022 RSV.html
+-rw-r--r--  1 weiding  staff   292328 Oct 15  2022 RSV_json.js
+drwxr-xr-x  3 weiding  staff       96 Oct 15  2022 css
+drwxr-xr-x  6 weiding  staff      192 Oct 15  2022 js
+
+./Biblical_English_Vocabulary_Analysis/all_versions/css:
+total 8
+-rw-r--r--  1 weiding  staff  195 Oct 15  2022 tool.css
+
+./Biblical_English_Vocabulary_Analysis/all_versions/js:
+total 5504
+-rw-r--r--  1 weiding  staff     2394 Oct 15  2022 Sort_Table.js
+-rw-r--r--  1 weiding  staff  2721165 Oct 15  2022 Vocab_All.js
+-rwxr-xr-x  1 weiding  staff    83612 Oct 15  2022 jquery.js
+-rw-r--r--  1 weiding  staff      952 Oct 15  2022 tool.js
+
+./Biblical_English_Vocabulary_Analysis/consolid:
+total 8
+drwxr-xr-x  3 weiding  staff    96 Oct 15  2022 css
+drwxr-xr-x  6 weiding  staff   192 Oct 15  2022 js
+-rw-r--r--@ 1 weiding  staff  2312 Oct 15  2022 vocab_all_merged_27455.htm
+
+./Biblical_English_Vocabulary_Analysis/consolid/css:
+total 8
+-rw-r--r--  1 weiding  staff  234 Oct 15  2022 tool.css
+
+./Biblical_English_Vocabulary_Analysis/consolid/js:
+total 9664
+-rw-r--r--  1 weiding  staff     2394 Oct 15  2022 Sort_Table.js
+-rw-r--r--  1 weiding  staff  2721174 Oct 15  2022 Vocab_All_Versions.js
+-rw-r--r--  1 weiding  staff  2133337 Oct 15  2022 Vocab_Consolidated_27455.js
+-rwxr-xr-x  1 weiding  staff    83612 Oct 15  2022 jquery.js
+
+./Biblical_English_Vocabulary_Analysis/divided:
+total 56
+drwxr-xr-x  3 weiding  staff   96 Oct 15  2022 css
+-rw-r--r--@ 1 weiding  staff  733 Oct 15  2022 division_obj.htm
+-rw-r--r--@ 1 weiding  staff  733 Oct 15  2022 division_tab.htm
+-rw-r--r--@ 1 weiding  staff  846 Oct 16  2022 division_verify.htm
+-rw-r--r--@ 1 weiding  staff  924 Oct 16  2022 division_with_Name.htm
+-rw-r--r--@ 1 weiding  staff  927 Oct 16  2022 division_with_Name_differentLen.htm
+-rw-r--r--@ 1 weiding  staff  924 Oct 16  2022 division_with_Word.htm
+-rw-r--r--@ 1 weiding  staff  927 Oct 16  2022 division_with_Word_differentLen.htm
+drwxr-xr-x  5 weiding  staff  160 Oct 15  2022 js
+drwxr-xr-x  6 weiding  staff  192 Oct 16  2022 jsdat
+
+./Biblical_English_Vocabulary_Analysis/divided/css:
+total 8
+-rw-r--r--  1 weiding  staff  278 Oct 15  2022 tool.css
+
+./Biblical_English_Vocabulary_Analysis/divided/js:
+total 192
+-rw-r--r--  1 weiding  staff   2505 Oct 16  2022 Sort_Table.js
+-rwxr-xr-x  1 weiding  staff  83612 Oct 15  2022 jquery.js
+-rw-r--r--  1 weiding  staff   5504 Oct 16  2022 uti.js
+
+./Biblical_English_Vocabulary_Analysis/divided/jsdat:
+total 9496
+-rw-r--r--  1 weiding  staff        0 Oct 16  2022 Vocab_Digits.js
+-rw-r--r--  1 weiding  staff  2797974 Oct 16  2022 Vocab_Divided.js
+-rw-r--r--  1 weiding  staff        0 Oct 16  2022 Vocab_Names.js
+-rw-r--r--  1 weiding  staff  2058606 Oct 16  2022 Vocab_Words.js
+
+./Biblical_English_Vocabulary_Analysis/englizer:
+total 56
+drwxr-xr-x  3 weiding  staff     96 Oct 16  2022 css
+-rw-r--r--@ 1 weiding  staff   1524 Oct 16  2022 english_analizer.htm
+-rw-r--r--@ 1 weiding  staff  23209 Oct 17  2022 english_irregular_conjugation.htm
+drwxr-xr-x  5 weiding  staff    160 Oct 16  2022 js
+drwxr-xr-x  6 weiding  staff    192 Oct 19  2022 jsdat
+drwxr-xr-x  9 weiding  staff    288 Oct 19  2022 res
+
+./Biblical_English_Vocabulary_Analysis/englizer/css:
+total 8
+-rw-r--r--  1 weiding  staff  328 Oct 16  2022 tool.css
+
+./Biblical_English_Vocabulary_Analysis/englizer/js:
+total 184
+-rw-r--r--  1 weiding  staff   2505 Oct 16  2022 Sort_Table.js
+-rwxr-xr-x  1 weiding  staff  83612 Oct 16  2022 jquery.js
+-rw-r--r--  1 weiding  staff   3679 Oct 17  2022 uti_englizer.js
+
+./Biblical_English_Vocabulary_Analysis/englizer/jsdat:
+total 880
+-rw-r--r--  1 weiding  staff    2680 Oct 17  2022 English_Prep.js
+-rw-r--r--  1 weiding  staff  384696 Oct 19  2022 English_Verb_Forms.js
+-rw-r--r--  1 weiding  staff   20734 Oct 19  2022 English_Verb_ing_obj_1505.js
+-rw-r--r--  1 weiding  staff   35417 Oct 17  2022 English_irregular_conjugation_obj.js
+
+./Biblical_English_Vocabulary_Analysis/englizer/res:
+total 4824
+-rw-r--r--@ 1 weiding  staff     5089 Oct 17  2022 English_Prep.html
+-rw-r--r--@ 1 weiding  staff    85577 Oct 19  2022 English_Verb-3250.html
+-rw-r--r--@ 1 weiding  staff    67269 Oct 17  2022 English_Verb-Irregular.html
+-rw-r--r--@ 1 weiding  staff      835 Oct 19  2022 English_verb_ing1505.html
+-rw-r--r--@ 1 weiding  staff  2299862 Oct 17  2022 List-of-616-English-Irregular-Verbs.html
+drwxr-xr-x  7 weiding  staff      224 Oct 19  2022 js
+
+./Biblical_English_Vocabulary_Analysis/englizer/res/js:
+total 264
+-rw-r--r--  1 weiding  staff  10371 Oct 19  2022 English_Verb_Irregular.js
+-rw-r--r--  1 weiding  staff  26925 Oct 19  2022 English_verb_ing_1505.js
+-rw-r--r--  1 weiding  staff   3300 Oct 19  2022 English_verb_ing_xx.js
+-rw-r--r--  1 weiding  staff   2505 Oct 17  2022 Sort_Table.js
+-rwxr-xr-x  1 weiding  staff  83612 Oct 17  2022 jquery.js
+
+./calendars:
+total 72
+-rw-r--r--@ 1 weiding  staff  21847 Dec 13  2021 Jewish_Festivals.htm
+-rw-r--r--@ 1 weiding  staff  11035 Nov 14  2022 calendar3yr.htm
+drwxr-xr-x  3 weiding  staff     96 Nov  9  2022 css
+drwxr-xr-x  3 weiding  staff     96 Jun  3  2022 jq
+drwxr-xr-x  3 weiding  staff     96 Nov  9  2022 js
+
+./calendars/css:
+total 8
+-rw-r--r--  1 weiding  staff  3563 Nov 14  2022 calendar3yr.css
+
+./calendars/jq:
+total 168
+-rw-r--r--  1 weiding  staff  84319 Jun  3  2022 jquery.js
+
+./calendars/js:
+total 32
+-rw-r--r--  1 weiding  staff  13437 Nov 10  2022 calendar3yr.js
+
+./draggable_sticky:
+total 48
+-rw-r--r--  1 weiding  staff  4179 Apr 24  2023 draggy_sticky.htm
+-rw-r--r--@ 1 weiding  staff  4179 Mar 27  2023 index.htm
+drwxr-xr-x  5 weiding  staff   160 Mar 16  2024 jq
+drwxr-xr-x  2 weiding  staff    64 Mar 26  2023 js_dat
+-rw-r--r--@ 1 weiding  staff  7791 Apr 22  2023 localstore.json.js
+
+./draggable_sticky/jq:
+total 200
+-rw-r--r--  1 weiding  staff  84319 Mar 26  2023 jquery.js
+-rw-r--r--  1 weiding  staff   6110 Apr 22  2023 sticky_draggy.js
+-rw-r--r--  1 weiding  staff   7041 Mar 16  2024 sticky_draggy_on_img.js
+
+./draggable_sticky/js_dat:
+total 0
+
+./freqAnalyzer:
+total 16
+-rw-r--r--@ 1 weiding  staff  4512 Jul 21  2022 frq_analyzer.cn.htm
+drwxr-xr-x  6 weiding  staff   192 Jul 21  2022 jq
+
+./freqAnalyzer/jq:
+total 480
+-rw-r--r--  1 weiding  staff   13701 Jul 21  2022 frq_analyzer.cn.js
+-rwxrwxrwx  1 weiding  staff   84320 Jul 21  2022 jquery-2_1_3.min.js
+-rwxrwxrwx  1 weiding  staff    1411 Jul 21  2022 table_indexer.js
+-rw-r--r--  1 weiding  staff  138164 Jul 21  2022 table_sorter.js
+
+./kits:
+total 8
+drwxr-xr-x  7 weiding  staff   224 Dec 12  2022 encrypt
+-rwxr-xr-x  1 weiding  staff  1115 Sep 23  2021 index.html
+drwxr-xr-x  4 weiding  staff   128 Nov 29  2021 lstab
+drwxr-xr-x  4 weiding  staff   128 Sep 25  2021 stringifyer
+
+./kits/encrypt:
+total 64
+-rw-r--r--@ 1 weiding  staff  13875 Dec 13  2022 encrypter.html
+-rw-r--r--  1 weiding  staff   3446 Sep 25  2021 keyprv.js
+-rw-r--r--  1 weiding  staff    859 Sep 25  2021 keypub.js
+drwxr-xr-x  5 weiding  staff    160 Dec 12  2022 lz
+-rw-r--r--@ 1 weiding  staff   7428 Dec 12  2022 lz.htm
+
+./kits/encrypt/lz:
+total 304
+-rw-r--r--  1 weiding  staff   17882 Dec 12  2022 lz-string-1.4.4.js
+-rw-r--r--  1 weiding  staff    5368 Dec 12  2022 lzma.js
+-rw-r--r--  1 weiding  staff  126492 Dec 12  2022 lzma_worker.js
+
+./kits/lstab:
+total 24
+-rwxr-xr-x@ 1 weiding  staff  1264 Oct  6  2022 index.html
+-rw-r--r--  1 weiding  staff  4279 Oct  6  2022 mydat.js
+
+./kits/stringifyer:
+total 16
+-rw-r--r--  1 weiding  staff     2 Sep 25  2021 keypub.js
+-rw-r--r--@ 1 weiding  staff  1614 Sep 25  2021 stringify.html
+
+./oclock:
+total 16
+drwxr-xr-x   5 weiding  staff   160 Mar 17  2022 arc_sector
+drwxr-xr-x   8 weiding  staff   256 Mar 20  2022 learn
+-rw-r--r--@  1 weiding  staff  4388 Nov 30  2021 oclock_obi.html
+drwx------@ 23 weiding  staff   736 Nov 29  2021 oclock_obi_files
+
+./oclock/arc_sector:
+total 24
+-rw-r--r--@ 1 weiding  staff  9823 Jun 12  2022 Arclock.html
+drwx------  7 weiding  staff   224 Mar 23  2022 oclock_obi_files
+
+./oclock/arc_sector/oclock_obi_files:
+total 24
+-rw-r--r--   1 weiding  staff   644 Mar 23  2022 clock_JewishHoursNumberMarker.js
+-rw-r--r--   1 weiding  staff  1407 Mar 23  2022 clock_ObiHours_and_BlinkingBackground.js
+-rw-r--r--   1 weiding  staff   840 Mar 16  2022 clock_runtime.js
+drwxr-xr-x  11 weiding  staff   352 Mar 17  2022 css
+drwxr-xr-x  14 weiding  staff   448 Mar 17  2022 img
+
+./oclock/arc_sector/oclock_obi_files/css:
+total 72
+-rw-r--r--  1 weiding  staff   215 Mar 15  2022 clock_step0_background.css
+-rw-r--r--  1 weiding  staff   388 Mar 17  2022 clock_step1_clock.css
+-rw-r--r--  1 weiding  staff   530 Mar 15  2022 clock_step2_outer_clock_face.css
+-rw-r--r--  1 weiding  staff   394 Mar 15  2022 clock_step2b_making.css
+-rw-r--r--  1 weiding  staff   544 Mar 17  2022 clock_step2c_inner_clock.css
+-rw-r--r--  1 weiding  staff   509 Mar 15  2022 clock_step3_hands.css
+-rw-r--r--  1 weiding  staff   885 Mar 17  2022 clock_step4_arc_sector.css
+-rw-r--r--  1 weiding  staff   288 Mar 17  2022 clock_step5_number.css
+-rw-r--r--  1 weiding  staff  1948 Mar 17  2022 obi.css
+
+./oclock/arc_sector/oclock_obi_files/img:
+total 96
+-rw-r--r--  1 weiding  staff  661 Mar 15  2022 62607.gif
+-rw-r--r--  1 weiding  staff  566 Mar 15  2022 62613.gif
+-rw-r--r--  1 weiding  staff  526 Mar 15  2022 62619.gif
+-rw-r--r--  1 weiding  staff  724 Mar 15  2022 62620.gif
+-rw-r--r--  1 weiding  staff  685 Mar 15  2022 62624.gif
+-rw-r--r--  1 weiding  staff  538 Mar 15  2022 62629.gif
+-rw-r--r--  1 weiding  staff  544 Mar 15  2022 62633.gif
+-rw-r--r--  1 weiding  staff  640 Mar 15  2022 62636.gif
+-rw-r--r--  1 weiding  staff  548 Mar 15  2022 62643.gif
+-rw-r--r--  1 weiding  staff  620 Mar 15  2022 62652.gif
+-rw-r--r--  1 weiding  staff  569 Mar 15  2022 62656.gif
+-rw-r--r--  1 weiding  staff  557 Mar 15  2022 62662.gif
+
+./oclock/learn:
+total 40
+-rw-r--r--@ 1 weiding  staff  2041 Mar 16  2022 arc.htm
+-rw-r--r--@ 1 weiding  staff   557 Mar 16  2022 arc_canvas.htm
+-rw-r--r--@ 1 weiding  staff  3756 Mar 16  2022 arc_sector.htm
+drwxr-xr-x  7 weiding  staff   224 Mar 20  2022 draw_a_line
+-rw-r--r--@ 1 weiding  staff  3951 Mar 20  2022 transform.htm
+-rw-r--r--@ 1 weiding  staff  4046 Mar 20  2022 transform2arrow.htm
+
+./oclock/learn/draw_a_line:
+total 56
+-rw-r--r--@ 1 weiding  staff  2850 Mar 19  2022 draw_curve.htm
+-rw-r--r--@ 1 weiding  staff  3374 Mar 20  2022 draw_curve2Arrow.htm
+-rw-r--r--@ 1 weiding  staff  6643 Mar 19  2022 draw_line.htm
+-rw-r--r--  1 weiding  staff  3370 Mar 19  2022 draw_line.js
+-rw-r--r--  1 weiding  staff  6654 Mar 20  2022 draw_line2arrow.htm
+
+./oclock/oclock_obi_files:
+total 168
+-rw-r--r--@ 1 weiding  staff   661 Nov 29  2021 62607.gif
+-rw-r--r--@ 1 weiding  staff   566 Nov 29  2021 62613.gif
+-rw-r--r--@ 1 weiding  staff   526 Nov 29  2021 62619.gif
+-rw-r--r--@ 1 weiding  staff   724 Nov 29  2021 62620.gif
+-rw-r--r--@ 1 weiding  staff   685 Nov 29  2021 62624.gif
+-rw-r--r--@ 1 weiding  staff   538 Nov 29  2021 62629.gif
+-rw-r--r--@ 1 weiding  staff   544 Nov 29  2021 62633.gif
+-rw-r--r--@ 1 weiding  staff   640 Nov 29  2021 62636.gif
+-rw-r--r--@ 1 weiding  staff   548 Nov 29  2021 62643.gif
+-rw-r--r--@ 1 weiding  staff   620 Nov 29  2021 62652.gif
+-rw-r--r--@ 1 weiding  staff   569 Nov 29  2021 62656.gif
+-rw-r--r--@ 1 weiding  staff   557 Nov 29  2021 62662.gif
+-rw-r--r--@ 1 weiding  staff   841 Nov 29  2021 clock.js
+-rw-r--r--@ 1 weiding  staff  1029 Nov 29  2021 clock_obi.js
+-rw-r--r--@ 1 weiding  staff   215 Nov 29  2021 clock_step0_background.css
+-rw-r--r--@ 1 weiding  staff   388 Nov 30  2021 clock_step1_clock.css
+-rw-r--r--@ 1 weiding  staff   530 Nov 29  2021 clock_step2_outer_clock_face.css
+-rw-r--r--@ 1 weiding  staff   394 Nov 29  2021 clock_step2b_making.css
+-rw-r--r--@ 1 weiding  staff   492 Nov 29  2021 clock_step2c_inner_clock.css
+-rw-r--r--@ 1 weiding  staff   492 Nov 29  2021 clock_step3_hands.css
+-rw-r--r--@ 1 weiding  staff  1814 Nov 30  2021 obi.css
+
+./pinyinput:
+total 0
+drwx------  5 weiding  staff  160 Jun 30  2022 js
+drwxr-xr-x  7 weiding  staff  224 Jun 30  2022 main
+
+./pinyinput/js:
+total 328
+-rw-r--r--  1 weiding  staff  37294 Jun 30  2022 Pinyin_7kSimplified.js
+-rw-r--r--  1 weiding  staff  37679 Jun 30  2022 Simplified_Traditionals.js
+-rw-r--r--  1 weiding  staff  84320 Jun 30  2022 jquery-2_1_3.min.js
+
+./pinyinput/main:
+total 72
+-rwxr-xr-x  1 weiding  staff   2342 Jun 30  2022 CharacterSet_PrintableTestForLatex_Simplified.html
+-rwxr-xr-x@ 1 weiding  staff  10196 Jul  1  2022 ChineseSimplified7kInput.html
+-rwxr-xr-x  1 weiding  staff   2239 Jun 30  2022 ChineseSimplified7kPrintableTestForLatex.html
+-rwxr-xr-x@ 1 weiding  staff   5578 Jul  1  2022 ChineseSimplifyer.html
+-rwxr-xr-x  1 weiding  staff   5443 Jun 30  2022 ChineseTraditionalsPrintableTestForLatex.html
+
+./regex:
+total 16
+-rw-r--r--  1 weiding  staff  5042 Dec 13  2022 tester_regexp_simple.htm
+
+./web-speech-api-master:
+total 40
+-rwxr-xr-x@ 1 weiding  staff   689 Feb 27  2020 CODE_OF_CONDUCT.md
+-rwxr-xr-x@ 1 weiding  staff  6555 Feb 27  2020 LICENSE
+-rwxr-xr-x@ 1 weiding  staff  1499 Feb 27  2020 README.md
+-rwxr-xr-x@ 1 weiding  staff   698 Feb 27  2020 index.html
+drwxr-xr-x@ 5 weiding  staff   160 Feb 27  2020 phrase-matcher
+drwxr-xr-x@ 7 weiding  staff   224 Feb 27  2020 speak-easy-synthesis
+drwxr-xr-x@ 7 weiding  staff   224 Feb 27  2020 speech-color-changer
+
+./web-speech-api-master/phrase-matcher:
+total 32
+-rwxr-xr-x@ 1 weiding  staff   753 Feb 27  2020 index.html
+-rwxr-xr-x@ 1 weiding  staff  4933 Dec  9  2021 script.js
+-rwxr-xr-x@ 1 weiding  staff   604 Feb 27  2020 style.css
+
+./web-speech-api-master/speak-easy-synthesis:
+total 32
+drwxr-xr-x@ 4 weiding  staff   128 Feb 27  2020 img
+-rwxr-xr-x@ 1 weiding  staff  1211 Feb 27  2020 index.html
+-rwxr-xr-x@ 1 weiding  staff   341 Feb 27  2020 manifest.webapp
+-rwxr-xr-x@ 1 weiding  staff  2416 Feb 27  2020 script.js
+-rwxr-xr-x@ 1 weiding  staff   779 Feb 27  2020 style.css
+
+./web-speech-api-master/speak-easy-synthesis/img:
+total 352
+-rwxr-xr-x@ 1 weiding  staff   62552 Feb 27  2020 ws128.png
+-rwxr-xr-x@ 1 weiding  staff  112934 Feb 27  2020 ws512.png
+
+./web-speech-api-master/speech-color-changer:
+total 32
+drwxr-xr-x@ 4 weiding  staff   128 Feb 27  2020 img
+-rwxr-xr-x@ 1 weiding  staff   608 Feb 27  2020 index.html
+-rwxr-xr-x@ 1 weiding  staff   539 Feb 27  2020 manifest.webapp
+-rwxr-xr-x@ 1 weiding  staff  2833 Dec  9  2021 script.js
+-rwxr-xr-x@ 1 weiding  staff   453 Feb 27  2020 style.css
+
+./web-speech-api-master/speech-color-changer/img:
+total 32
+-rwxr-xr-x@ 1 weiding  staff   2853 Feb 27  2020 ws128.png
+-rwxr-xr-x@ 1 weiding  staff  11540 Feb 27  2020 ws512.png
+
+./yt_iframe_app:
+total 48
+drwxr-xr-x  4 weiding  staff   128 Oct 18  2022 jq
+drwxr-xr-x  3 weiding  staff    96 Oct 18  2022 js
+-rw-r--r--  1 weiding  staff  3369 Oct 18  2022 yt_iframe_videoID.htm
+-rw-r--r--@ 1 weiding  staff  8663 Oct 19  2022 yt_input_url.htm
+-rw-r--r--  1 weiding  staff  1037 Oct 18  2022 yt_sam_main.htm
+-rw-r--r--  1 weiding  staff  1499 Oct 18  2022 yt_sam_speed.htm
+
+./yt_iframe_app/jq:
+total 176
+-rwxrwxrwx  1 weiding  staff  84320 Oct 18  2022 jquery-2_1_3.min.js
+-rw-r--r--  1 weiding  staff   1301 Oct 18  2022 yt_iframe_api.js
+
+./yt_iframe_app/js:
+total 8
+-rw-r--r--  1 weiding  staff  1301 Oct 18  2022 yt_iframe_videoID.js
+
+</pre>
 </body>
 
 </html>
 
-
-<script>
-	$(function () {
-		$("a").each(function () {
-			var tx = $(this).text()
-			if (tx.length === 0) {
-				$(this).text($(this).attr("href")).append("<br/>")
-			}
-		})
-	})
-</script>
