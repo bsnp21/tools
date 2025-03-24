@@ -93,6 +93,21 @@
             $("#txa").val(`var KingsList = \n${str}`)
         })
     }
+    function updateCSV(eRows) {
+        var csv = ""
+        $(eRows).each(function (irow) {
+            var line = ""
+            $(this).find("td").each(function (icol) {
+                //if (icol === 0) return;
+                var key = $(this).attr("title");
+                var val = $(this).text();
+                line+=`"${val}",`
+            })
+            csv+=`${line},""\r\n`
+            
+            $("#txa").val(csv)
+        })
+    }
     $(function () {
         loadData();
         $("table").on("keyup", function () {
@@ -109,8 +124,11 @@
 
         })
 
-        $("#Save").on("click", function () {
+        $("#Save_json").on("click", function () {
             updateData("#KingTab tbody tr");
+        }) 
+        $("#Save_csv").on("click", function () {
+            updateCSV("#KingTab tbody tr");
         })
 
 
@@ -159,7 +177,7 @@
         </script>
 
     </div>
-    <button id="Add">Add</button> <button id="Save">JSON</button><br>
+    <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><br>
     <textarea id="txa" cols="120" rows="30"></textarea>
 </body>
 
