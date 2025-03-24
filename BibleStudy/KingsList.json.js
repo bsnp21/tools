@@ -277,8 +277,8 @@ var KingsList =
         "Notes": "Hoshea"
     },
     {
-        "Names(NIV)": "Jeroboam I",
-        "Names(CUV)": " 耶罗波安",
+        "Names(NIV)": "Jeroboam I",
+        "Names(CUV)": "耶罗波安",
         "Nation": "North",
         "Span": "22",
         "Date": "",
