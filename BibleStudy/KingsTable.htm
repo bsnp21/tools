@@ -67,6 +67,15 @@
                 }
             })
         })
+        $("body").on("select", function () {
+            $(".clihi").removeClass("clihi")
+            var txt = window.Selection()
+            $("td").each(function(){
+                if($(this).text().indexOf(txt)>=0) {
+                    $(this).addClass("clihi")
+                }
+            })
+        })
         var srtabl = new Rapid_Sort_Table("#tabcontainer table")
     }
     function updateData(eRows) {
