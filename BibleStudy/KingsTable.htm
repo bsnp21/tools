@@ -17,6 +17,7 @@
 <style>
     body {
         background-color: white;
+        margin-bottom: 100px;
     }
 
 
@@ -40,6 +41,7 @@
 
     tbody tr:nth-child(odd) {
         background-color:rgb(244, 244, 244);
+        zzborder: 1px solid red;
     }
 </style>
 
@@ -118,9 +120,11 @@
         })
         $("#Add").on("click", function () {
             var etr = $("#KingTab tbody tr:eq(0)").clone();
+            
             $(etr).find("td").text(""); $(etr).find("td:eq(0)").text("0");
             etr = $(etr).html()
             $("#KingTab tbody").append(`<tr class='addhili'>${etr}</tr>`);
+            $(".addhili").addclass("clihi")
 
         })
 

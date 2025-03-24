@@ -559,43 +559,5 @@ var KingsList =
         "RelatedKing": "",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "",
-        "Names(CUV)": "",
-        "Nation": "",
-        "Span": "",
-        "Date": "",
-        "Kinship": "",
-        "Spouse(NIV)": "",
-        "Prophet": "",
-        "Verses": "",
-        "RelatedKing": "",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "",
-        "Names(CUV)": "",
-        "Nation": "",
-        "Span": "",
-        "Date": "",
-        "Kinship": "",
-        "Spouse(NIV)": "",
-        "Prophet": "",
-        "Verses": "",
-        "RelatedKing": "",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "",
-        "Names(CUV)": "",
-        "Nation": "",
-        "Span": "",
-        "Date": "",
-        "Kinship": "",
-        "Spouse(NIV)": "",
-        "Prophet": "",
-        "Verses": "",
-        "RelatedKing": "",
-        "Notes": ""
-    }
+   
 ]
