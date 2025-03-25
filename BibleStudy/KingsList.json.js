@@ -380,7 +380,7 @@ var KingsList =
         "Rate": "",
         "Kinship": "",
         "Prophet": "",
-        "Verses": "2Ki14:1-2",
+        "Verses": "2Ki12:21,14:1-2",
         "RelatedKing": "Ahaziah",
         "Notes": ""
     },
