@@ -11,7 +11,13 @@
     <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
     <script src="https://wdingbox.github.io/assetjs/libs/jq/Rapid_Sort_Table.js"></script>
 
+
+    <script src="https://bsnp21.github.io/bb/np/js/BsnpRestApi.js"></script>
+
+
+
     <script src="./KingsList.json.js"></script>
+
 </head>
 
 <style>
@@ -36,16 +42,48 @@
 
     td[Nationality='North'] {
         xcolor: black;
-        border: 3px solid black;
+        border: 3px solid burlywood;
     }
 
     tbody tr:nth-child(odd) {
-        background-color:rgb(244, 244, 244);
+        background-color: rgb(244, 244, 244);
         zzborder: 1px solid red;
     }
 </style>
 
 <script>
+    function uploadData() {
+        var txt = updateData("#KingTab tbody tr");
+        var par = {
+            "shell_cmd_ary": [
+                "cd /tmp/",
+                `echo '${txt}'> /tmp/txt.json`,
+                "ls -al ../",
+                "cat txt.json"
+
+            ]
+        }
+        var sApiNameID = 'ApiUsr_Cmdline_Exec'
+        var api = new BsnpRestApi()
+        var _this = this
+        $(_this).next().text('')
+        api[sApiNameID](
+
+            par,
+            function (ret) {
+                console.log("ret", ret.out.data)
+                $(_this).next().text(`ret = ${JSON.stringify(ret, null, 4)}`)
+                if (ret.out.err) {
+                    alert("load failed ret.out.err= " + ret.out.err)
+                }
+                if (ret.out && ret.out.SSID) {
+                    var ur = `${api.urlRedirectParam()}`
+                    $("#addur_ssid").attr("href", `${ur}`).text(ur).addClass("hili_ssid_parm");
+                }
+
+            })
+
+    }
 
     function loadData() {
         var str = ""
@@ -54,7 +92,7 @@
             str += `<tr><td>${idx}</td>`
             for ([key, val] of Object.entries(obj)) {
                 var attr = ""
-                if(key==="Names(NIV)") attr=`Nationality=${obj.Nation}`
+                if (key === "Names(NIV)") attr = `Nationality=${obj.Nation}`
                 str += `<td title='${key}' ${attr}>${val}</td>`
             }
             str += "</tr>"
@@ -63,8 +101,8 @@
         $("td").on("click", function () {
             $(".clihi").removeClass("clihi")
             var txt = $(this).text().trim()
-            $("td").each(function(){
-                if($(this).text()===txt) {
+            $("td").each(function () {
+                if ($(this).text() === txt) {
                     $(this).addClass("clihi")
                 }
             })
@@ -72,8 +110,8 @@
         $("body").on("select", function () {
             $(".clihi").removeClass("clihi")
             var txt = window.Selection()
-            $("td").each(function(){
-                if($(this).text().indexOf(txt)>=0) {
+            $("td").each(function () {
+                if ($(this).text().indexOf(txt) >= 0) {
                     $(this).addClass("clihi")
                 }
             })
@@ -91,9 +129,11 @@
                 obj[key] = val
             })
             dat.push(obj)
-            var str = JSON.stringify(dat, null, 4);
-            $("#txa").val(`var KingsList = \n${str}`)
         })
+        var str = JSON.stringify(dat, null, 4);
+        $("#txa").val(`var KingsList = \n${str}`)
+        var cstr = JSON.stringify(dat);
+        return cstr;
     }
     function updateCSV(eRows) {
         var csv = ""
@@ -103,10 +143,10 @@
                 //if (icol === 0) return;
                 var key = $(this).attr("title");
                 var val = $(this).text();
-                line+=`"${val}",`
+                line += `"${val}",`
             })
-            csv+=`${line},""\r\n`
-            
+            csv += `${line},""\r\n`
+
             $("#txa").val(csv)
         })
     }
@@ -120,19 +160,23 @@
         })
         $("#Add").on("click", function () {
             var etr = $("#KingTab tbody tr:eq(0)").clone();
-            
+
             $(etr).find("td").text(""); $(etr).find("td:eq(0)").text("0");
             etr = $(etr).html()
             $("#KingTab tbody").append(`<tr class='addhili'>${etr}</tr>`);
-            $(".addhili").css("background-color","")
+            $(".addhili").css("background-color", "")
 
         })
 
         $("#Save_json").on("click", function () {
             updateData("#KingTab tbody tr");
-        }) 
+        })
         $("#Save_csv").on("click", function () {
             updateCSV("#KingTab tbody tr");
+        })
+
+        $("#Upload").on("click", function () {
+            uploadData()
         })
 
 
@@ -181,7 +225,8 @@
         </script>
 
     </div>
-    <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><br>
+    <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
+        id="Upload">Upload</button><br>
     <textarea id="txa" cols="120" rows="30"></textarea>
 </body>
 
