@@ -357,7 +357,7 @@ var KingsList =
         "Kinship": "mother of Ahaziah;daughter of Jezebel",
         "Prophet": "",
         "Verses": "2Ki11:1-4",
-        "RelatedKing": "Omri",
+        "RelatedKing": "Jehu; Omri",
         "Notes": ""
     },
     {
@@ -369,7 +369,7 @@ var KingsList =
         "Kinship": "",
         "Prophet": "",
         "Verses": "2Ki12:1",
-        "RelatedKing": "Ahab",
+        "RelatedKing": "Jehu; Hazael (Syria);",
         "Notes": ""
     },
     {
