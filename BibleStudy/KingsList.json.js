@@ -462,7 +462,7 @@ var KingsList =
         "Span": "11",
         "Date": "-609",
         "Verses": "2Ki23:36",
-        "RelatedKing": "Pekahiah",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
