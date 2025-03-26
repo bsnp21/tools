@@ -60,6 +60,9 @@
     function uploadData() {
         //var txt = updateData("#KingTab tbody tr");
         var updateObj = update_a_row(".selected_row")
+        for([key,obj] of Object.entries(updateObj)){
+            if(!key) return alert("please select a raw.")
+        }
         var par = {
             shell_cmd_ary: [
                 "sudo chmod 777 -R /var/www/html/wdaws/tools/BibleStudy",
@@ -69,16 +72,18 @@
             shell_cmd_ary_before_update: [
                 "cd /var/www/html/wdaws/tools/BibleStudy",
                 "sudo git status",
+                "sudo git diff",
                 "sudo git pull",
                 "sudo ls -lR"],
-            xshell_jspathfilename: "/var/www/html/wdaws/tools/BibleStudy/KingsList.json.js",
-            xshell_update_obj: updateObj,
-            xshell_cmd_ary_post_update: [
+            shell_update_jspathfilename: "/var/www/html/wdaws/tools/BibleStudy/KingsList.json.js",
+            shell_update_newobj: updateObj,
+            shell_cmd_ary_post_update: [
                 "cd /var/www/html/wdaws/tools/BibleStudy",
+                "sudo git diff",
                 "sudo git status",
-                "#sudo git add *",
-                "#sudo git commit -m 'updatedata'",
-                "#sudo git push"
+                "sudo git add *",
+                "sudo git commit -m 'updatedata'",
+                "sudo git push"
             ],
         }
         var sApiNameID = 'ApiUsr_Cmdline_Exec'
