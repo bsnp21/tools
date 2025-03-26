@@ -490,6 +490,6 @@ var KingsList =
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": "p88pp22"
+        "Notes": "wd01"
     }
 }
