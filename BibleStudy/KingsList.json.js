@@ -449,6 +449,6 @@ var KingsList =
         "Prophet": "",
         "Verses": "2Ki24:18",
         "RelatedKing": "Hoshea",
-        "Notes": "test.wdoooooo"
+        "Notes": "test"
     }
 }
