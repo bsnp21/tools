@@ -438,7 +438,7 @@ var KingsList =
         "Span": "31",
         "Date": "-640",
         "Verses": "2Ki22:1",
-        "RelatedKing": "Shallum",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
