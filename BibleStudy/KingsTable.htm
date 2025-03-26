@@ -58,34 +58,39 @@
 
 <script>
     function uploadData() {
-        var txt = updateData("#KingTab tbody tr");
+        //var txt = updateData("#KingTab tbody tr");
+        var updateObj = update_a_row(".selected_row")
         var par = {
-            "shell_cmd_ary": [
-                "cd /tmp/",
-                `echo '${txt}'> /tmp/txt.json`,
-                "ls -al ../",
-                "cat txt.json"
-
-            ]
+            shell_cmd_ary: [
+                "sudo chmod 777 -R /var/www/html/wdaws/tools/BibleStudy",
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "pwd",
+                "sudo ls -lR"],
+            shell_cmd_ary_before_update: [
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "sudo git status",
+                "sudo git pull",
+                "sudo ls -lR"],
+            xshell_jspathfilename: "/var/www/html/wdaws/tools/BibleStudy/KingsList.json.js",
+            xshell_update_obj: updateObj,
+            xshell_cmd_ary_post_update: [
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "sudo git status",
+                "#sudo git add *",
+                "#sudo git commit -m 'updatedata'",
+                "#sudo git push"
+            ],
         }
         var sApiNameID = 'ApiUsr_Cmdline_Exec'
         var api = new BsnpRestApi()
         var _this = this
         $(_this).next().text('')
         api[sApiNameID](
-
             par,
             function (ret) {
                 console.log("ret", ret.out.data)
-                $(_this).next().text(`ret = ${JSON.stringify(ret, null, 4)}`)
-                if (ret.out.err) {
-                    alert("load failed ret.out.err= " + ret.out.err)
-                }
-                if (ret.out && ret.out.SSID) {
-                    var ur = `${api.urlRedirectParam()}`
-                    $("#addur_ssid").attr("href", `${ur}`).text(ur).addClass("hili_ssid_parm");
-                }
-
+                var str = JSON.stringify(ret, null, 4);
+                $("#txa").val(str)
             })
 
     }
@@ -119,8 +124,9 @@
             console.log("table kkkkk");
 
         })
-        $("tr").bind("keyup", function () {
-            update_a_row(this)
+        $("tr").bind("click", function () {
+            $(".selected_row").removeClass("selected_row")
+            $(this).addClass("selected_row")
         })
 
         $("tr").each(function () {
@@ -188,7 +194,7 @@
         var str = JSON.stringify(dat, null, 4);
         $("#txa").val(`var KingsList = \n${str}`)
         var cstr = JSON.stringify(dat);
-        return cstr;
+        return dat;
     }
 
 
@@ -277,7 +283,7 @@
     </div>
 
     <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
-        id="Upload">Upload</button><br>
+        id="Upload">UpdateSeleted</button><br>
     <textarea id="txa" cols="120" rows="30"></textarea>
 </body>
 
