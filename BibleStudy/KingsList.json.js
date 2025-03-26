@@ -390,7 +390,7 @@ var KingsList =
         "Span": "16",
         "Date": "-735",
         "Verses": "2Ki16:1-2",
-        "RelatedKing": "Jehoahaz",
+        "RelatedKing": "Hoshea",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
