@@ -474,7 +474,7 @@ var KingsList =
         "Span": "3mon",
         "Date": "-598",
         "Verses": "2Ki24:8",
-        "RelatedKing": "Pekah",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
