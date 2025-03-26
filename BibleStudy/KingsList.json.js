@@ -486,7 +486,7 @@ var KingsList =
         "Span": "11",
         "Date": "-597",
         "Verses": "2Ki24:18",
-        "RelatedKing": "Hoshea",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
