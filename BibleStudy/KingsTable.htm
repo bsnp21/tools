@@ -101,8 +101,7 @@
     }
 
     function loadData() {
-        var str = "", idx = 0
-        var objKeys = [
+        const objKeys = [
             "Names(CUV)",
             "DN",
             "Span",
@@ -115,15 +114,18 @@
             "Notes"
         ]
 
-
+        var str = "", sths = "<th>#</th><th>Name(NIV)</th>", idx = 0;
+        objKeys.forEach((key, i) => {
+            sths += `<th title='${key}'>${key}</th>`
+        })
         for ([kingname, obj] of Object.entries(KingsList)) {
             str += `<tr><td>${idx++}</td><td Nationality='${obj.DN[0]}'>${kingname}</td>`
-            objKeys.forEach((key,i) => {
+            objKeys.forEach((key, i) => {
                 str += `<td title='${key}'>${obj[key]}</td>`
             })
             str += "</tr>"
         }
-        $("#tabcontainer").html(tabtmp(str));
+        $("#tabcontainer").html(tabtmp(sths, str));
         ////post create
         $("table").on("keyup", function () {
             //updateData(".addhili")
@@ -261,24 +263,11 @@
     <button id="Load">Load</button>
 
     <div id="tabcontainer">
-        <script> function tabtmp(trs) {
+        <script> function tabtmp(sths, trs) {
                 return `
             <table id="KingTab" border="1"><caption>Israel Kings List</caption>
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Names(NIV)</th>
-                    <th>Names(CUV)</th>
-                    
-                    <th title='Number of Nation'>No</th>
-                    <th>Span</th>
-                    <th>Date</th>
-                    <th>Verses</th>
-                    <th>RelatedKing</th>
-                    <th>Prophet</th>
-                    <th>Kinship</th>
-                     <th>Notes</th>
-                </tr>
+                <tr>${sths}</tr>
             </thead>
             <tbody contenteditable>${trs}</tbody>
             </table>
