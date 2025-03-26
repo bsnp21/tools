@@ -116,30 +116,18 @@
         ////post create
         $("table").on("keyup", function () {
             //updateData(".addhili")
+            console.log("table kkkkk");
+
         })
-        $("tr").on("click keyup", function () {
+        $("tr").bind("keyup", function () {
             update_a_row(this)
         })
-
-
 
         $("tr").each(function () {
             bind_td_evt_of_a_row(this)
         })
-        //$("td").on("keyup keypress keydown click", function () {
-        //    console.log("td keyup")
-        //    update_a_row($(this).parent())
-        //    $(".hili_row").removeClass("hili_row")
-        //    $(this).parent().find("td").addClass("hili_row")
-        //    $(".clihi").removeClass("clihi")
-        //    var txt = $(this).text().trim()
-        //    $("td").each(function () {
-        //        if ($(this).text() === txt) {
-        //            $(this).addClass("clihi")
-        //        }
-        //    })
-        //})
-        $("body").on("select", function () {
+
+        $("body").on("select", function () {//not working
             $(".clihi").removeClass("clihi")
             var txt = window.Selection()
             $("td").each(function () {
@@ -152,7 +140,7 @@
     }
     function bind_td_evt_of_a_row(eRow) {
         $(eRow).find("td").each(function () {
-            $(this).on("click", function () {
+            $(this).on("click keypress", function () {
                 console.log("td keyup")
                 update_a_row($(this).parent())
                 $(".hili_row").removeClass("hili_row")
