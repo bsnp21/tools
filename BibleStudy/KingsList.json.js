@@ -8,6 +8,7 @@ var KingsList =
         "Verses": "1Sa9:2",
         "RelatedKing": "",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -19,6 +20,7 @@ var KingsList =
         "Verses": "1Sa16:19",
         "RelatedKing": "",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "son of Jessie",
         "Notes": ""
     },
@@ -30,6 +32,7 @@ var KingsList =
         "Verses": "\t2Sa5:14",
         "RelatedKing": "",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "son of David",
         "Notes": ""
     },
@@ -41,6 +44,7 @@ var KingsList =
         "Verses": "1Ki14:20",
         "RelatedKing": "Rehoboam",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -52,6 +56,7 @@ var KingsList =
         "Verses": "1Ki15:25",
         "RelatedKing": "Abijah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -63,6 +68,7 @@ var KingsList =
         "Verses": "1Ki15:33",
         "RelatedKing": "Asa",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -74,6 +80,7 @@ var KingsList =
         "Verses": "1Ki16:8",
         "RelatedKing": "Jehoshaphat",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -85,6 +92,7 @@ var KingsList =
         "Verses": "1Ki16:15",
         "RelatedKing": "Jehoram",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -96,6 +104,7 @@ var KingsList =
         "Verses": "1Ki.16:21-22",
         "RelatedKing": "Ahaziah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -107,6 +116,7 @@ var KingsList =
         "Verses": "1Ki16:23",
         "RelatedKing": "Athaliah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -118,6 +128,7 @@ var KingsList =
         "Verses": "1Ki16:29",
         "RelatedKing": "Joash",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "wife Jezebel",
         "Notes": ""
     },
@@ -129,6 +140,7 @@ var KingsList =
         "Verses": "2Ki3:1",
         "RelatedKing": "Azariah (Uzziah)",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -140,6 +152,7 @@ var KingsList =
         "Verses": "2Ki10:36",
         "RelatedKing": "Totham",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -151,6 +164,7 @@ var KingsList =
         "Verses": "2Ki13:10",
         "RelatedKing": "Hezekiah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -162,6 +176,7 @@ var KingsList =
         "Verses": "2Ki14:23",
         "RelatedKing": "Manasseh",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -173,6 +188,7 @@ var KingsList =
         "Verses": "2Ki15:8",
         "RelatedKing": "Amon",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -184,6 +200,7 @@ var KingsList =
         "Verses": "2Ki15:13",
         "RelatedKing": "Josiah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -195,6 +212,7 @@ var KingsList =
         "Verses": "2Ki15:17",
         "RelatedKing": "Jehoahaz",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -206,6 +224,7 @@ var KingsList =
         "Verses": "2Ki15:23",
         "RelatedKing": "Jehoiakim",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -217,6 +236,7 @@ var KingsList =
         "Verses": "2Ki15:27",
         "RelatedKing": "Jehoiachin",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -228,6 +248,7 @@ var KingsList =
         "Verses": "2Ki17:1",
         "RelatedKing": "Zedekiah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -239,6 +260,7 @@ var KingsList =
         "Verses": "1Ki14:21",
         "RelatedKing": "Jeroboam I",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -250,6 +272,7 @@ var KingsList =
         "Verses": "1Ki15:1-2",
         "RelatedKing": "Nadab",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -261,6 +284,7 @@ var KingsList =
         "Verses": "1Ki15:9-10",
         "RelatedKing": "Baasha",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -272,6 +296,7 @@ var KingsList =
         "Verses": "1Ki22:41-42",
         "RelatedKing": "Elah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -283,6 +308,7 @@ var KingsList =
         "Verses": "2Ki8:16-17",
         "RelatedKing": "Zimri",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -294,6 +320,7 @@ var KingsList =
         "Verses": "2Ki8:25-26",
         "RelatedKing": "Tibni",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -305,6 +332,7 @@ var KingsList =
         "Verses": "2Ki11:1-4",
         "RelatedKing": "Jehu; Omri",
         "Prophet": "",
+        "Priest": "Jehoiada 耶何耶大",
         "Kinship": "mother of Ahaziah;daughter of Jezebel",
         "Notes": ""
     },
@@ -316,6 +344,7 @@ var KingsList =
         "Verses": "2Ki12:1",
         "RelatedKing": "Jehu; Hazael (Syria);",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -327,6 +356,7 @@ var KingsList =
         "Verses": "2Ki12:21,14:1-2",
         "RelatedKing": "Ahaziah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -338,6 +368,7 @@ var KingsList =
         "Verses": "2Ki15:1-2",
         "RelatedKing": "Joram",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -349,6 +380,7 @@ var KingsList =
         "Verses": "2Ki15:32-33",
         "RelatedKing": "Jehu",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -360,6 +392,7 @@ var KingsList =
         "Verses": "2Ki16:1-2",
         "RelatedKing": "Jehoahaz",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -371,6 +404,7 @@ var KingsList =
         "Verses": "2Ki18:1-2",
         "RelatedKing": "Jehoash",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -382,6 +416,7 @@ var KingsList =
         "Verses": "2Ki21:1",
         "RelatedKing": "Jeroboam II",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -393,6 +428,7 @@ var KingsList =
         "Verses": "2Ki21:19",
         "RelatedKing": "Zechariah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -404,6 +440,7 @@ var KingsList =
         "Verses": "2Ki22:1",
         "RelatedKing": "Shallum",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -415,6 +452,7 @@ var KingsList =
         "Verses": "2Ki23:31",
         "RelatedKing": "Menahem",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -426,6 +464,7 @@ var KingsList =
         "Verses": "2Ki23:36",
         "RelatedKing": "Pekahiah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -437,6 +476,7 @@ var KingsList =
         "Verses": "2Ki24:8",
         "RelatedKing": "Pekah",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": ""
     },
@@ -448,6 +488,7 @@ var KingsList =
         "Verses": "2Ki24:18",
         "RelatedKing": "Hoshea",
         "Prophet": "",
+        "Priest": "",
         "Kinship": "",
         "Notes": "p88pp22"
     }
