@@ -426,7 +426,7 @@ var KingsList =
         "Span": "2",
         "Date": "-642",
         "Verses": "2Ki21:19",
-        "RelatedKing": "Zechariah",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
