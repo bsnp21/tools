@@ -414,7 +414,7 @@ var KingsList =
         "Span": "55",
         "Date": "-697",
         "Verses": "2Ki21:1",
-        "RelatedKing": "Jeroboam II",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
