@@ -1,7 +1,6 @@
 var KingsList = 
-[
-    {
-        "Names(NIV)": "Saul",
+{
+    "Saul": {
         "Names(CUV)": "扫罗",
         "Nation": "Israel",
         "Span": "42",
@@ -12,8 +11,7 @@ var KingsList =
         "RelatedKing": "",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "David",
+    "David": {
         "Names(CUV)": "大卫",
         "Nation": "Israel",
         "Span": "40",
@@ -24,8 +22,7 @@ var KingsList =
         "RelatedKing": "",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Solomon",
+    "Solomon": {
         "Names(CUV)": "所罗门",
         "Nation": "Israel",
         "Span": "40",
@@ -36,8 +33,7 @@ var KingsList =
         "RelatedKing": "",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Jeroboam I",
+    "Jeroboam I": {
         "Names(CUV)": "耶罗波安",
         "Nation": "North",
         "Span": "22",
@@ -48,8 +44,7 @@ var KingsList =
         "RelatedKing": "Rehoboam",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Nadab",
+    "Nadab": {
         "Names(CUV)": "拿答",
         "Nation": "North",
         "Span": "2",
@@ -60,8 +55,7 @@ var KingsList =
         "RelatedKing": "Abijah",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Baasha",
+    "Baasha": {
         "Names(CUV)": "巴沙",
         "Nation": "North",
         "Span": "24",
@@ -72,8 +66,7 @@ var KingsList =
         "RelatedKing": "Asa",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Elah",
+    "Elah": {
         "Names(CUV)": "以拉",
         "Nation": "North",
         "Span": "2",
@@ -84,8 +77,7 @@ var KingsList =
         "RelatedKing": "Jehoshaphat",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Zimri",
+    "Zimri": {
         "Names(CUV)": "心利",
         "Nation": "North",
         "Span": "7day",
@@ -96,8 +88,7 @@ var KingsList =
         "RelatedKing": "Jehoram",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Tibni",
+    "Tibni": {
         "Names(CUV)": "提比尼",
         "Nation": "North",
         "Span": "4",
@@ -108,8 +99,7 @@ var KingsList =
         "RelatedKing": "Ahaziah",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Omri",
+    "Omri": {
         "Names(CUV)": "暗利",
         "Nation": "North",
         "Span": "12",
@@ -120,8 +110,7 @@ var KingsList =
         "RelatedKing": "Athaliah",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Ahab",
+    "Ahab": {
         "Names(CUV)": "亚哈",
         "Nation": "North",
         "Span": "22",
@@ -132,212 +121,7 @@ var KingsList =
         "RelatedKing": "Joash",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Ahaziah",
-        "Names(CUV)": "亚哈谢",
-        "Nation": "North",
-        "Span": "2",
-        "Date": "-853",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "1Ki22:51",
-        "RelatedKing": "Amaziah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Joram",
-        "Names(CUV)": "约兰",
-        "Nation": "North",
-        "Span": "12",
-        "Date": "-852",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki3:1",
-        "RelatedKing": "Azariah (Uzziah)",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehu",
-        "Names(CUV)": "耶户",
-        "Nation": "North",
-        "Span": "28",
-        "Date": "-841",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki10:36",
-        "RelatedKing": "Totham",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehoahaz",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "17",
-        "Date": "-814",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki13:1",
-        "RelatedKing": "Ahaz",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehoash",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "16",
-        "Date": "-798",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki13:10",
-        "RelatedKing": "Hezekiah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jeroboam II",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "41",
-        "Date": "-793",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki14:23",
-        "RelatedKing": "Manasseh",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Zechariah",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "6mon",
-        "Date": "-753",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:8",
-        "RelatedKing": "Amon",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Shallum",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "1mon",
-        "Date": "-752",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:13",
-        "RelatedKing": "Josiah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Menahem",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "10",
-        "Date": "-752",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:17",
-        "RelatedKing": "Jehoahaz",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Pekahiah",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "2",
-        "Date": "-742",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:23",
-        "RelatedKing": "Jehoiakim",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Pekah",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "20",
-        "Date": "-752",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:27",
-        "RelatedKing": "Jehoiachin",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Hoshea",
-        "Names(CUV)": "",
-        "Nation": "North",
-        "Span": "9",
-        "Date": "-732",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki17:1",
-        "RelatedKing": "Zedekiah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Rehoboam",
-        "Names(CUV)": "罗波安",
-        "Nation": "South",
-        "Span": "17",
-        "Date": "-930",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "1Ki14:21",
-        "RelatedKing": "Jeroboam I",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Abijah",
-        "Names(CUV)": "亚比亚",
-        "Nation": "South",
-        "Span": "3",
-        "Date": "-913",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "1Ki15:1-2",
-        "RelatedKing": "Nadab",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Asa",
-        "Names(CUV)": "亚撒",
-        "Nation": "South",
-        "Span": "41",
-        "Date": "-910",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "1Ki15:9-10",
-        "RelatedKing": "Baasha",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehoshaphat",
-        "Names(CUV)": "约沙法",
-        "Nation": "South",
-        "Span": "25",
-        "Date": "-872",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "1Ki22:41-42",
-        "RelatedKing": "Elah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehoram",
-        "Names(CUV)": "约兰",
-        "Nation": "South",
-        "Span": "8",
-        "Date": "-848",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki8:16-17",
-        "RelatedKing": "Zimri",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Ahaziah",
+    "Ahaziah": {
         "Names(CUV)": "亚哈谢",
         "Nation": "South",
         "Span": "1",
@@ -348,128 +132,29 @@ var KingsList =
         "RelatedKing": "Tibni",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Athaliah",
-        "Names(CUV)": "亚他利雅(f)",
-        "Nation": "South",
-        "Span": "6",
+    "Joram": {
+        "Names(CUV)": "约兰",
+        "Nation": "North",
+        "Span": "12",
+        "Date": "-852",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki3:1",
+        "RelatedKing": "Azariah (Uzziah)",
+        "Notes": ""
+    },
+    "Jehu": {
+        "Names(CUV)": "耶户",
+        "Nation": "North",
+        "Span": "28",
         "Date": "-841",
-        "Kinship": "mother of Ahaziah;daughter of Jezebel",
-        "Prophet": "",
-        "Verses": "2Ki11:1-4",
-        "RelatedKing": "Jehu; Omri",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Joash",
-        "Names(CUV)": "约阿施",
-        "Nation": "South",
-        "Span": "40",
-        "Date": "-835",
         "Kinship": "",
         "Prophet": "",
-        "Verses": "2Ki12:1",
-        "RelatedKing": "Jehu; Hazael (Syria);",
+        "Verses": "2Ki10:36",
+        "RelatedKing": "Totham",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Amaziah",
-        "Names(CUV)": "亚玛谢",
-        "Nation": "South",
-        "Span": "29",
-        "Date": "-796",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki12:21,14:1-2",
-        "RelatedKing": "Ahaziah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Azariah (Uzziah)",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "52",
-        "Date": "-792",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:1-2",
-        "RelatedKing": "Joram",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Totham",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "16",
-        "Date": "-750",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki15:32-33",
-        "RelatedKing": "Jehu",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Ahaz",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "16",
-        "Date": "-735",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki16:1-2",
-        "RelatedKing": "Jehoahaz",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Hezekiah",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "18",
-        "Date": "-715",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki18:1-2",
-        "RelatedKing": "Jehoash",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Manasseh",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "55",
-        "Date": "-697",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki21:1",
-        "RelatedKing": "Jeroboam II",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Amon",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "2",
-        "Date": "-642",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki21:19",
-        "RelatedKing": "Zechariah",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Josiah",
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "31",
-        "Date": "-640",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki22:1",
-        "RelatedKing": "Shallum",
-        "Notes": ""
-    },
-    {
-        "Names(NIV)": "Jehoahaz",
+    "Jehoahaz": {
         "Names(CUV)": "",
         "Nation": "South",
         "Span": "3mon",
@@ -480,8 +165,260 @@ var KingsList =
         "RelatedKing": "Menahem",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Jehoiakim",
+    "Jehoash": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "16",
+        "Date": "-798",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki13:10",
+        "RelatedKing": "Hezekiah",
+        "Notes": ""
+    },
+    "Jeroboam II": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "41",
+        "Date": "-793",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki14:23",
+        "RelatedKing": "Manasseh",
+        "Notes": ""
+    },
+    "Zechariah": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "6mon",
+        "Date": "-753",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:8",
+        "RelatedKing": "Amon",
+        "Notes": ""
+    },
+    "Shallum": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "1mon",
+        "Date": "-752",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:13",
+        "RelatedKing": "Josiah",
+        "Notes": ""
+    },
+    "Menahem": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "10",
+        "Date": "-752",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:17",
+        "RelatedKing": "Jehoahaz",
+        "Notes": ""
+    },
+    "Pekahiah": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "2",
+        "Date": "-742",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:23",
+        "RelatedKing": "Jehoiakim",
+        "Notes": ""
+    },
+    "Pekah": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "20",
+        "Date": "-752",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:27",
+        "RelatedKing": "Jehoiachin",
+        "Notes": ""
+    },
+    "Hoshea": {
+        "Names(CUV)": "",
+        "Nation": "North",
+        "Span": "9",
+        "Date": "-732",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki17:1",
+        "RelatedKing": "Zedekiah",
+        "Notes": ""
+    },
+    "Rehoboam": {
+        "Names(CUV)": "罗波安",
+        "Nation": "South",
+        "Span": "17",
+        "Date": "-930",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "1Ki14:21",
+        "RelatedKing": "Jeroboam I",
+        "Notes": ""
+    },
+    "Abijah": {
+        "Names(CUV)": "亚比亚",
+        "Nation": "South",
+        "Span": "3",
+        "Date": "-913",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "1Ki15:1-2",
+        "RelatedKing": "Nadab",
+        "Notes": ""
+    },
+    "Asa": {
+        "Names(CUV)": "亚撒",
+        "Nation": "South",
+        "Span": "41",
+        "Date": "-910",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "1Ki15:9-10",
+        "RelatedKing": "Baasha",
+        "Notes": ""
+    },
+    "Jehoshaphat": {
+        "Names(CUV)": "约沙法",
+        "Nation": "South",
+        "Span": "25",
+        "Date": "-872",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "1Ki22:41-42",
+        "RelatedKing": "Elah",
+        "Notes": ""
+    },
+    "Jehoram": {
+        "Names(CUV)": "约兰",
+        "Nation": "South",
+        "Span": "8",
+        "Date": "-848",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki8:16-17",
+        "RelatedKing": "Zimri",
+        "Notes": ""
+    },
+    "Athaliah": {
+        "Names(CUV)": "亚他利雅(f)",
+        "Nation": "South",
+        "Span": "6",
+        "Date": "-841",
+        "Kinship": "mother of Ahaziah;daughter of Jezebel",
+        "Prophet": "",
+        "Verses": "2Ki11:1-4",
+        "RelatedKing": "Jehu; Omri",
+        "Notes": ""
+    },
+    "Joash": {
+        "Names(CUV)": "约阿施",
+        "Nation": "South",
+        "Span": "40",
+        "Date": "-835",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki12:1",
+        "RelatedKing": "Jehu; Hazael (Syria);",
+        "Notes": ""
+    },
+    "Amaziah": {
+        "Names(CUV)": "亚玛谢",
+        "Nation": "South",
+        "Span": "29",
+        "Date": "-796",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki12:21,14:1-2",
+        "RelatedKing": "Ahaziah",
+        "Notes": ""
+    },
+    "Azariah (Uzziah)": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "52",
+        "Date": "-792",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:1-2",
+        "RelatedKing": "Joram",
+        "Notes": ""
+    },
+    "Totham": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "16",
+        "Date": "-750",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki15:32-33",
+        "RelatedKing": "Jehu",
+        "Notes": ""
+    },
+    "Ahaz": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "16",
+        "Date": "-735",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki16:1-2",
+        "RelatedKing": "Jehoahaz",
+        "Notes": ""
+    },
+    "Hezekiah": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "18",
+        "Date": "-715",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki18:1-2",
+        "RelatedKing": "Jehoash",
+        "Notes": ""
+    },
+    "Manasseh": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "55",
+        "Date": "-697",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki21:1",
+        "RelatedKing": "Jeroboam II",
+        "Notes": ""
+    },
+    "Amon": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "2",
+        "Date": "-642",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki21:19",
+        "RelatedKing": "Zechariah",
+        "Notes": ""
+    },
+    "Josiah": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "31",
+        "Date": "-640",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki22:1",
+        "RelatedKing": "Shallum",
+        "Notes": ""
+    },
+    "Jehoiakim": {
         "Names(CUV)": "",
         "Nation": "South",
         "Span": "11",
@@ -492,8 +429,7 @@ var KingsList =
         "RelatedKing": "Pekahiah",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Jehoiachin",
+    "Jehoiachin": {
         "Names(CUV)": "",
         "Nation": "South",
         "Span": "3mon",
@@ -504,8 +440,7 @@ var KingsList =
         "RelatedKing": "Pekah",
         "Notes": ""
     },
-    {
-        "Names(NIV)": "Zedekiah",
+    "Zedekiah": {
         "Names(CUV)": "",
         "Nation": "South",
         "Span": "11",
@@ -516,4 +451,4 @@ var KingsList =
         "RelatedKing": "Hoshea",
         "Notes": ""
     }
-]
+}

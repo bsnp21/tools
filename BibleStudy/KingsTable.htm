@@ -36,12 +36,12 @@
     }
 
     td[Nationality='South'] {
-        xcolor:deepskyblue;
+        xcolor: deepskyblue;
         border: 3px solid deepskyblue;
     }
 
     td[Nationality='North'] {
-        xcolor:lightblue;
+        xcolor: lightblue;
         border: 3px solid lightblue;
     }
 
@@ -86,17 +86,27 @@
     }
 
     function loadData() {
-        var str = ""
-        KingsList.forEach(function (obj, idx) {
-            //var attr = `Nation='${obj.Nation}'`
-            str += `<tr><td>${idx}</td>`
+        var str = "", idx = 0
+        //KingsList.forEach(function (obj, idx) {
+        //    //var attr = `Nation='${obj.Nation}'`
+        //    str += `<tr><td>${idx}</td>`
+        //    for ([key, val] of Object.entries(obj)) {
+        //        var attr = ""
+        //        if (key === "Names(NIV)") attr = `Nationality=${obj.Nation}`
+        //        str += `<td title='${key}' ${attr}>${val}</td>`
+        //    }
+        //    str += "</tr>"
+        //})
+
+        for ([kingname, obj] of Object.entries(KingsList)) {
+            str += `<tr><td>${idx++}</td><td>${kingname}</td>`
             for ([key, val] of Object.entries(obj)) {
                 var attr = ""
                 if (key === "Names(NIV)") attr = `Nationality=${obj.Nation}`
                 str += `<td title='${key}' ${attr}>${val}</td>`
             }
             str += "</tr>"
-        })
+        }
         $("#tabcontainer").html(tabtmp(str));
         $("td").on("click", function () {
             $(".clihi").removeClass("clihi")
@@ -119,16 +129,17 @@
         var srtabl = new Rapid_Sort_Table("#tabcontainer table")
     }
     function updateData(eRows) {
-        var dat = []
+        var dat = {}
         $(eRows).each(function (irow) {
+            var pkey = $(this).find("td:eq(1)").text().trim();
             var obj = {}
             $(this).find("td").each(function (icol) {
-                if (icol === 0) return;
+                if (icol <= 1) return;
                 var key = $(this).attr("title");
                 var val = $(this).text();
                 obj[key] = val
             })
-            dat.push(obj)
+            dat[pkey] = obj;
         })
         var str = JSON.stringify(dat, null, 4);
         $("#txa").val(`var KingsList = \n${str}`)
@@ -182,15 +193,7 @@
 
     })
 
-    function svc_ip_cfg_face_links() {
-
-
-    }
-
-    function foot_notes() {
-
-    }
-
+    
 
 
 </script>
@@ -225,7 +228,7 @@
         </script>
 
     </div>
-    
+
     <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
         id="Upload">Upload</button><br>
     <textarea id="txa" cols="120" rows="30"></textarea>
