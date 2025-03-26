@@ -333,7 +333,7 @@ var KingsList =
         "RelatedKing": "Jehu; Omri",
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
-        "Kinship": "mother of Ahaziah;daughter of Jezebel",
+        "Kinship": "mother of Ahaziah; daughter of Jezebel",
         "Notes": ""
     },
     "Joash": {
@@ -344,7 +344,7 @@ var KingsList =
         "Verses": "2Ki12:1",
         "RelatedKing": "Jehu; Hazael (Syria);",
         "Prophet": "",
-        "Priest": "",
+        "Priest": "Jehoiada 耶何耶大",
         "Kinship": "",
         "Notes": ""
     },
