@@ -318,7 +318,7 @@ var KingsList =
         "Span": "1",
         "Date": "-841",
         "Verses": "2Ki8:25-26",
-        "RelatedKing": "Tibni",
+        "RelatedKing": "Jehu, Tibni",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
