@@ -114,11 +114,10 @@
         //})
 
         for ([kingname, obj] of Object.entries(KingsList)) {
-            str += `<tr><td>${idx++}</td><td>${kingname}</td>`
+
+            str += `<tr><td>${idx++}</td><td Nationality='${obj.Nation}'>${kingname}</td>`
             for ([key, val] of Object.entries(obj)) {
-                var attr = ""
-                if (key === "Names(NIV)") attr = `Nationality=${obj.Nation}`
-                str += `<td title='${key}' ${attr}>${val}</td>`
+                str += `<td title='${key}'>${val}</td>`
             }
             str += "</tr>"
         }
@@ -159,7 +158,7 @@
                 $(".clihi").removeClass("clihi")
                 var txt = $(this).text().trim()
                 $("td").each(function () {
-                    if ($(this).text() === txt) {
+                    if ($(this).text() === txt && txt.length>0) {
                         $(this).addClass("clihi")
                     }
                 })

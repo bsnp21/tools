@@ -121,17 +121,7 @@ var KingsList =
         "RelatedKing": "Joash",
         "Notes": ""
     },
-    "Ahaziah": {
-        "Names(CUV)": "亚哈谢",
-        "Nation": "South",
-        "Span": "1",
-        "Date": "-841",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki8:25-26",
-        "RelatedKing": "Tibni",
-        "Notes": ""
-    },
+   
     "Joram": {
         "Names(CUV)": "约兰",
         "Nation": "North",
@@ -154,17 +144,7 @@ var KingsList =
         "RelatedKing": "Totham",
         "Notes": ""
     },
-    "Jehoahaz": {
-        "Names(CUV)": "",
-        "Nation": "South",
-        "Span": "3mon",
-        "Date": "-609",
-        "Kinship": "",
-        "Prophet": "",
-        "Verses": "2Ki23:31",
-        "RelatedKing": "Menahem",
-        "Notes": ""
-    },
+   
     "Jehoash": {
         "Names(CUV)": "",
         "Nation": "North",
@@ -308,6 +288,17 @@ var KingsList =
         "RelatedKing": "Zimri",
         "Notes": ""
     },
+    "Ahaziah": {
+        "Names(CUV)": "亚哈谢",
+        "Nation": "South",
+        "Span": "1",
+        "Date": "-841",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki8:25-26",
+        "RelatedKing": "Tibni",
+        "Notes": ""
+    },
     "Athaliah": {
         "Names(CUV)": "亚他利雅(f)",
         "Nation": "South",
@@ -416,6 +407,18 @@ var KingsList =
         "Prophet": "",
         "Verses": "2Ki22:1",
         "RelatedKing": "Shallum",
+        "Notes": ""
+    },
+
+    "Jehoahaz": {
+        "Names(CUV)": "",
+        "Nation": "South",
+        "Span": "3mon",
+        "Date": "-609",
+        "Kinship": "",
+        "Prophet": "",
+        "Verses": "2Ki23:31",
+        "RelatedKing": "Menahem",
         "Notes": ""
     },
     "Jehoiakim": {
