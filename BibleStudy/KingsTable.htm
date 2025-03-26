@@ -35,6 +35,11 @@
         background-color: gray;
     }
 
+    .hili_row {
+        border: 2px solid red;
+        background-color: darkseagreen;
+    }
+
     td[Nationality='South'] {
         xcolor: deepskyblue;
         border: 3px solid deepskyblue;
@@ -108,15 +113,32 @@
             str += "</tr>"
         }
         $("#tabcontainer").html(tabtmp(str));
-        $("td").on("click", function () {
-            $(".clihi").removeClass("clihi")
-            var txt = $(this).text().trim()
-            $("td").each(function () {
-                if ($(this).text() === txt) {
-                    $(this).addClass("clihi")
-                }
-            })
+        ////post create
+        $("table").on("keyup", function () {
+            //updateData(".addhili")
         })
+        $("tr").on("click keyup", function () {
+            update_a_row(this)
+        })
+
+
+
+        $("tr").each(function () {
+            bind_td_evt_of_a_row(this)
+        })
+        //$("td").on("keyup keypress keydown click", function () {
+        //    console.log("td keyup")
+        //    update_a_row($(this).parent())
+        //    $(".hili_row").removeClass("hili_row")
+        //    $(this).parent().find("td").addClass("hili_row")
+        //    $(".clihi").removeClass("clihi")
+        //    var txt = $(this).text().trim()
+        //    $("td").each(function () {
+        //        if ($(this).text() === txt) {
+        //            $(this).addClass("clihi")
+        //        }
+        //    })
+        //})
         $("body").on("select", function () {
             $(".clihi").removeClass("clihi")
             var txt = window.Selection()
@@ -127,6 +149,23 @@
             })
         })
         var srtabl = new Rapid_Sort_Table("#tabcontainer table")
+    }
+    function bind_td_evt_of_a_row(eRow) {
+        $(eRow).find("td").each(function () {
+            $(this).on("click", function () {
+                console.log("td keyup")
+                update_a_row($(this).parent())
+                $(".hili_row").removeClass("hili_row")
+                $(this).parent().find("td").addClass("hili_row")
+                $(".clihi").removeClass("clihi")
+                var txt = $(this).text().trim()
+                $("td").each(function () {
+                    if ($(this).text() === txt) {
+                        $(this).addClass("clihi")
+                    }
+                })
+            })
+        })
     }
     function updateData(eRows) {
         var dat = {}
@@ -146,6 +185,25 @@
         var cstr = JSON.stringify(dat);
         return cstr;
     }
+    function update_a_row(eRow) {
+        var dat = {}
+        var pkey = $(eRow).find("td:eq(1)").text().trim();
+        var obj = {}
+        $(eRow).find("td").each(function (icol) {
+            if (icol <= 1) return;
+            var key = $(this).attr("title");
+            var val = $(this).text();
+            obj[key] = val
+        })
+        dat[pkey] = obj;
+
+        var str = JSON.stringify(dat, null, 4);
+        $("#txa").val(`var KingsList = \n${str}`)
+        var cstr = JSON.stringify(dat);
+        return cstr;
+    }
+
+
     function updateCSV(eRows) {
         var csv = ""
         $(eRows).each(function (irow) {
@@ -163,9 +221,10 @@
     }
     $(function () {
         loadData();
-        $("table").on("keyup", function () {
-            updateData(".addhili")
-        })
+
+
+
+
         $("#Load").on("click", function () {
             loadData()
         })
@@ -174,8 +233,9 @@
 
             $(etr).find("td").text(""); $(etr).find("td:eq(0)").text("0");
             etr = $(etr).html()
-            $("#KingTab tbody").append(`<tr class='addhili'>${etr}</tr>`);
+            var ret = $("#KingTab tbody").append(`<tr class='addhili'>${etr}</tr>`);
             $(".addhili").css("background-color", "")
+            bind_td_evt_of_a_row(ret)
 
         })
 
@@ -185,7 +245,6 @@
         $("#Save_csv").on("click", function () {
             updateCSV("#KingTab tbody tr");
         })
-
         $("#Upload").on("click", function () {
             uploadData()
         })
@@ -193,7 +252,7 @@
 
     })
 
-    
+
 
 
 </script>
