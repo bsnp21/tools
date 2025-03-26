@@ -450,7 +450,7 @@ var KingsList =
         "Span": "3mon",
         "Date": "-609",
         "Verses": "2Ki23:31",
-        "RelatedKing": "Menahem",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
