@@ -102,22 +102,24 @@
 
     function loadData() {
         var str = "", idx = 0
-        //KingsList.forEach(function (obj, idx) {
-        //    //var attr = `Nation='${obj.Nation}'`
-        //    str += `<tr><td>${idx}</td>`
-        //    for ([key, val] of Object.entries(obj)) {
-        //        var attr = ""
-        //        if (key === "Names(NIV)") attr = `Nationality=${obj.Nation}`
-        //        str += `<td title='${key}' ${attr}>${val}</td>`
-        //    }
-        //    str += "</tr>"
-        //})
+        var objKeys = [
+            "Names(CUV)",
+            "DN",
+            "Span",
+            "Date",
+            "Verses",
+            "RelatedKing",
+            "Prophet",
+            "Kinship",
+            "Notes"
+        ]
+
 
         for ([kingname, obj] of Object.entries(KingsList)) {
             str += `<tr><td>${idx++}</td><td Nationality='${obj.DN[0]}'>${kingname}</td>`
-            for ([key, val] of Object.entries(obj)) {
-                str += `<td title='${key}'>${val}</td>`
-            }
+            objKeys.forEach((key,i) => {
+                str += `<td title='${key}'>${obj[key]}</td>`
+            })
             str += "</tr>"
         }
         $("#tabcontainer").html(tabtmp(str));
@@ -270,11 +272,10 @@
                     <th title='Number of Nation'>No</th>
                     <th>Span</th>
                     <th>Date</th>
-                    <th>Kinship</th>
-                    <th>Prophet</th>
-                   
                     <th>Verses</th>
                     <th>RelatedKing</th>
+                    <th>Prophet</th>
+                    <th>Kinship</th>
                      <th>Notes</th>
                 </tr>
             </thead>
