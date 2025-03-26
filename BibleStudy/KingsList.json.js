@@ -3,7 +3,7 @@ var KingsList =
     "Saul": {
         "Names(CUV)": "扫罗",
         "DN": "I1",
-        "Nation": "Israel",
+        
         "Span": "42",
         "Date": "-1052",
         "Kinship": "",
@@ -15,7 +15,7 @@ var KingsList =
     "David": {
         "Names(CUV)": "大卫",
         "DN": "I2",
-        "Nation": "Israel",
+        
         "Span": "40",
         "Date": "-1010",
         "Kinship": "son of Jessie",
@@ -27,7 +27,7 @@ var KingsList =
     "Solomon": {
         "Names(CUV)": "所罗门",
         "DN": "I3",
-        "Nation": "Israel",
+        
         "Span": "40",
         "Date": "-970",
         "Kinship": "son of David",
@@ -39,7 +39,7 @@ var KingsList =
     "Jeroboam I": {
         "Names(CUV)": "耶罗波安",
         "DN": "N01",
-        "Nation": "North",
+        
         "Span": "22",
         "Date": "-930",
         "Kinship": "",
@@ -51,7 +51,7 @@ var KingsList =
     "Nadab": {
         "Names(CUV)": "拿答",
         "DN": "N02",
-        "Nation": "North",
+        
         "Span": "2",
         "Date": "-909",
         "Kinship": "",
@@ -63,7 +63,7 @@ var KingsList =
     "Baasha": {
         "Names(CUV)": "巴沙",
         "DN": "N03",
-        "Nation": "North",
+        
         "Span": "24",
         "Date": "-908",
         "Kinship": "",
@@ -75,7 +75,7 @@ var KingsList =
     "Elah": {
         "Names(CUV)": "以拉",
         "DN": "N04",
-        "Nation": "North",
+        
         "Span": "2",
         "Date": "-886",
         "Kinship": "",
@@ -87,7 +87,7 @@ var KingsList =
     "Zimri": {
         "Names(CUV)": "心利",
         "DN": "N05",
-        "Nation": "North",
+        
         "Span": "7day",
         "Date": "-885",
         "Kinship": "",
@@ -99,7 +99,7 @@ var KingsList =
     "Tibni": {
         "Names(CUV)": "提比尼",
         "DN": "N06",
-        "Nation": "North",
+        
         "Span": "4",
         "Date": "-885",
         "Kinship": "",
@@ -111,7 +111,7 @@ var KingsList =
     "Omri": {
         "Names(CUV)": "暗利",
         "DN": "N07",
-        "Nation": "North",
+        
         "Span": "12",
         "Date": "-885",
         "Kinship": "",
@@ -123,7 +123,7 @@ var KingsList =
     "Ahab": {
         "Names(CUV)": "亚哈",
         "DN": "N08",
-        "Nation": "North",
+        
         "Span": "22",
         "Date": "-874",
         "Kinship": "wife Jezebel",
@@ -135,7 +135,7 @@ var KingsList =
     "Joram": {
         "Names(CUV)": "约兰",
         "DN": "N09",
-        "Nation": "North",
+        
         "Span": "12",
         "Date": "-852",
         "Kinship": "",
@@ -147,7 +147,7 @@ var KingsList =
     "Jehu": {
         "Names(CUV)": "耶户",
         "DN": "N10",
-        "Nation": "North",
+        
         "Span": "28",
         "Date": "-841",
         "Kinship": "",
@@ -159,7 +159,7 @@ var KingsList =
     "Jehoash": {
         "Names(CUV)": "",
         "DN": "N11",
-        "Nation": "North",
+        
         "Span": "16",
         "Date": "-798",
         "Kinship": "",
@@ -171,7 +171,7 @@ var KingsList =
     "Jeroboam II": {
         "Names(CUV)": "",
         "DN": "N12",
-        "Nation": "North",
+        
         "Span": "41",
         "Date": "-793",
         "Kinship": "",
@@ -183,7 +183,7 @@ var KingsList =
     "Zechariah": {
         "Names(CUV)": "",
         "DN": "N13",
-        "Nation": "North",
+        
         "Span": "6mon",
         "Date": "-753",
         "Kinship": "",
@@ -195,7 +195,7 @@ var KingsList =
     "Shallum": {
         "Names(CUV)": "",
         "DN": "N14",
-        "Nation": "North",
+        
         "Span": "1mon",
         "Date": "-752",
         "Kinship": "",
@@ -207,7 +207,7 @@ var KingsList =
     "Menahem": {
         "Names(CUV)": "",
         "DN": "N15",
-        "Nation": "North",
+        
         "Span": "10",
         "Date": "-752",
         "Kinship": "",
@@ -219,7 +219,7 @@ var KingsList =
     "Pekahiah": {
         "Names(CUV)": "",
         "DN": "N16",
-        "Nation": "North",
+        
         "Span": "2",
         "Date": "-742",
         "Kinship": "",
@@ -231,7 +231,7 @@ var KingsList =
     "Pekah": {
         "Names(CUV)": "",
         "DN": "N17",
-        "Nation": "North",
+        
         "Span": "20",
         "Date": "-752",
         "Kinship": "",
@@ -243,7 +243,7 @@ var KingsList =
     "Hoshea": {
         "Names(CUV)": "",
         "DN": "N18",
-        "Nation": "North",
+        
         "Span": "9",
         "Date": "-732",
         "Kinship": "",
@@ -255,7 +255,7 @@ var KingsList =
     "Rehoboam": {
         "Names(CUV)": "罗波安",
         "DN": "S01",
-        "Nation": "South",
+        
         "Span": "17",
         "Date": "-930",
         "Kinship": "",
@@ -267,7 +267,7 @@ var KingsList =
     "Abijah": {
         "Names(CUV)": "亚比亚",
         "DN": "S02",
-        "Nation": "South",
+        
         "Span": "3",
         "Date": "-913",
         "Kinship": "",
@@ -279,7 +279,7 @@ var KingsList =
     "Asa": {
         "Names(CUV)": "亚撒",
         "DN": "S03",
-        "Nation": "South",
+        
         "Span": "41",
         "Date": "-910",
         "Kinship": "",
@@ -291,7 +291,7 @@ var KingsList =
     "Jehoshaphat": {
         "Names(CUV)": "约沙法",
         "DN": "S04",
-        "Nation": "South",
+        
         "Span": "25",
         "Date": "-872",
         "Kinship": "",
@@ -303,7 +303,7 @@ var KingsList =
     "Jehoram": {
         "Names(CUV)": "约兰",
         "DN": "S05",
-        "Nation": "South",
+        
         "Span": "8",
         "Date": "-848",
         "Kinship": "",
@@ -315,7 +315,7 @@ var KingsList =
     "Ahaziah": {
         "Names(CUV)": "亚哈谢",
         "DN": "S06",
-        "Nation": "South",
+        
         "Span": "1",
         "Date": "-841",
         "Kinship": "",
@@ -327,7 +327,7 @@ var KingsList =
     "Athaliah (F)": {
         "Names(CUV)": "亚他利雅 (F)",
         "DN": "S07",
-        "Nation": "South",
+        
         "Span": "6",
         "Date": "-841",
         "Kinship": "mother of Ahaziah;daughter of Jezebel",
@@ -339,7 +339,7 @@ var KingsList =
     "Joash": {
         "Names(CUV)": "约阿施",
         "DN": "S08",
-        "Nation": "South",
+        
         "Span": "40",
         "Date": "-835",
         "Kinship": "",
@@ -351,7 +351,7 @@ var KingsList =
     "Amaziah": {
         "Names(CUV)": "亚玛谢",
         "DN": "S09",
-        "Nation": "South",
+        
         "Span": "29",
         "Date": "-796",
         "Kinship": "",
@@ -363,7 +363,7 @@ var KingsList =
     "Azariah (Uzziah)": {
         "Names(CUV)": "",
         "DN": "S10",
-        "Nation": "South",
+        
         "Span": "52",
         "Date": "-792",
         "Kinship": "",
@@ -375,7 +375,7 @@ var KingsList =
     "Totham": {
         "Names(CUV)": "",
         "DN": "S11",
-        "Nation": "South",
+        
         "Span": "16",
         "Date": "-750",
         "Kinship": "",
@@ -387,7 +387,7 @@ var KingsList =
     "Ahaz": {
         "Names(CUV)": "",
         "DN": "S12",
-        "Nation": "South",
+        
         "Span": "16",
         "Date": "-735",
         "Kinship": "",
@@ -399,7 +399,7 @@ var KingsList =
     "Hezekiah": {
         "Names(CUV)": "",
         "DN": "S13",
-        "Nation": "South",
+        
         "Span": "18",
         "Date": "-715",
         "Kinship": "",
@@ -411,7 +411,7 @@ var KingsList =
     "Manasseh": {
         "Names(CUV)": "",
         "DN": "S14",
-        "Nation": "South",
+        
         "Span": "55",
         "Date": "-697",
         "Kinship": "",
@@ -423,7 +423,7 @@ var KingsList =
     "Amon": {
         "Names(CUV)": "",
         "DN": "S15",
-        "Nation": "South",
+        
         "Span": "2",
         "Date": "-642",
         "Kinship": "",
@@ -435,7 +435,7 @@ var KingsList =
     "Josiah": {
         "Names(CUV)": "",
         "DN": "S16",
-        "Nation": "South",
+        
         "Span": "31",
         "Date": "-640",
         "Kinship": "",
@@ -447,7 +447,7 @@ var KingsList =
     "Jehoahaz": {
         "Names(CUV)": "",
         "DN": "S17",
-        "Nation": "South",
+        
         "Span": "3mon",
         "Date": "-609",
         "Kinship": "",
@@ -459,7 +459,7 @@ var KingsList =
     "Jehoiakim": {
         "Names(CUV)": "",
         "DN": "S18",
-        "Nation": "South",
+        
         "Span": "11",
         "Date": "-609",
         "Kinship": "",
@@ -471,7 +471,7 @@ var KingsList =
     "Jehoiachin": {
         "Names(CUV)": "",
         "DN": "S19",
-        "Nation": "South",
+        
         "Span": "3mon",
         "Date": "-598",
         "Kinship": "",
@@ -483,7 +483,7 @@ var KingsList =
     "Zedekiah": {
         "Names(CUV)": "",
         "DN": "S20",
-        "Nation": "South",
+        
         "Span": "11",
         "Date": "-597",
         "Kinship": "",
