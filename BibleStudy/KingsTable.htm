@@ -131,11 +131,14 @@
             sths += `<th title='${key}'>${key}</th>`
         })
         for ([kingname, obj] of Object.entries(KingsList)) {
-            str += `<tr><td>${idx++}</td><td Nationality='${obj.DN[0]}'>${kingname}</td>`
+            var stds0 = `<td>${idx++}</td><td Nationality='${obj.DN[0]}'>${kingname}</td>`
+            var stds1 = "", flagEmpty = "";
             objKeys.forEach((key, i) => {
-                str += `<td title='${key}'>${obj[key]}</td>`
+                flagEmpty += obj[key]
+                stds1 += `<td title='${key}'>${obj[key]}</td>`
             })
-            str += "</tr>"
+            if (flagEmpty.length === 0) continue;
+            str += `<tr>${stds0}${stds1}</tr>`
         }
         $("#tabcontainer").html(tabtmp(sths, str));
         ////post create
@@ -175,8 +178,9 @@
                 //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
                 var txt = $(this).text().trim()
-                var ary = txt.split(/[\s|\;|\,|\(|\))]/g).filter(itm => { return itm.trim().length > 0; })
+                var ary = txt.split(/[\s|\;|\,|\(|\))|\'|\"']/g).filter(itm => { return itm.trim().length > 0; })
                 ary.forEach(function (tok) {
+                    if (tok.trim().length <= 1) return;
                     if (["son", "mother", "father", "king", "queen", "wife", "I", "F", "of"].indexOf(tok) >= 0) return;
                     $(`td:contains(${tok})`).addClass("clihi")
                 })
