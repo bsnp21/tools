@@ -361,7 +361,7 @@ var KingsList =
         "Notes": ""
     },
     "Azariah (Uzziah)": {
-        "Names(CUV)": "",
+        "Names(CUV)": "乌西亚",
         "DN": "S10",
         "Span": "52",
         "Date": "-792",
