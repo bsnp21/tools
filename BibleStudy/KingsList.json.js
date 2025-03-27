@@ -151,7 +151,7 @@ var KingsList =
         "Date": "-841",
         "Verses": "2Ki10:36",
         "RelatedKing": "Totham",
-        "Prophet": "",
+        "Prophet": "Elisha",
         "Priest": "",
         "Kinship": "",
         "Notes": ""
