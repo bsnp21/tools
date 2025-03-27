@@ -160,14 +160,17 @@
             $(this).on("click keypress", function () {
                 console.log("td keyup")
                 GetObjFr_a_row($(this).parent())
+
+                //hili the seleted row.
                 $(".hili_row").removeClass("hili_row")
                 $(this).parent().find("td").addClass("hili_row")
+
+                //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
                 var txt = $(this).text().trim()
-                $("td").each(function () {
-                    if ($(this).text() === txt && txt.length > 0) {
-                        $(this).addClass("clihi")
-                    }
+                var ary = txt.split(/[\s|\;|\,]/g).filter(itm => { return itm.trim().length > 0; })
+                ary.forEach(function (tok) {
+                    $(`td:contains(${tok})`).addClass("clihi")
                 })
             })
         })
