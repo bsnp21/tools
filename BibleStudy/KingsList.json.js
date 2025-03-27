@@ -465,7 +465,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "Jeconiah's father",
         "Notes": ""
     },
     "Jehoiachin": {
