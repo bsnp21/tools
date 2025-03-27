@@ -273,7 +273,7 @@ var KingsList =
         "RelatedKing": "Jeroboam I",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:7b;",
+        "Kinship": "Mat1:07b;",
         "Notes": ""
     },
     "Asa": {
