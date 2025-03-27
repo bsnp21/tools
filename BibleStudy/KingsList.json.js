@@ -338,7 +338,7 @@ var KingsList =
     },
     "Joash": {
         "Names(CUV)": "约阿施",
-        "DN": "S08",
+        "DN": "S08+",
         "Span": "40",
         "Date": "-835",
         "Verses": "2Ki12:1,2Ch24:1",
@@ -346,7 +346,7 @@ var KingsList =
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
         "Kinship": "mother Zibiah from Beersheba",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Amaziah": {
         "Names(CUV)": "亚玛谢",
