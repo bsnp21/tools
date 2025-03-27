@@ -341,7 +341,7 @@ var KingsList =
         "DN": "S08",
         "Span": "40",
         "Date": "-835",
-        "Verses": "2Ki12:1",
+        "Verses": "2Ki12:1,2Ch24:1",
         "RelatedKing": "Jehu; Hazael (Syria);",
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
