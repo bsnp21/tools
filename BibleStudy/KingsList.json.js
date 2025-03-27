@@ -433,7 +433,7 @@ var KingsList =
         "Notes": ""
     },
     "Josiah": {
-        "Names(CUV)": "",
+        "Names(CUV)": "约西亚",
         "DN": "S16",
         "Span": "31",
         "Date": "-640",
