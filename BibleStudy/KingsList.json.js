@@ -478,7 +478,7 @@ var KingsList =
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Zedekiah": {
         "Names(CUV)": "",
