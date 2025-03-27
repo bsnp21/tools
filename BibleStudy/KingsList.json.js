@@ -127,7 +127,7 @@ var KingsList =
         "Date": "-874",
         "Verses": "1Ki16:29",
         "RelatedKing": "Joash",
-        "Prophet": "",
+        "Prophet": "Elijah",
         "Priest": "",
         "Kinship": "wife Jezebel",
         "Notes": ""
