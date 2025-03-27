@@ -286,7 +286,7 @@ var KingsList =
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": "wd"
+        "Notes": ""
     },
     "Jehoshaphat": {
         "Names(CUV)": "约沙法",
