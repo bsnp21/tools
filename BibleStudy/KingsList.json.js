@@ -346,7 +346,7 @@ var KingsList =
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
         "Kinship": "mother Zibiah from Beersheba",
-        "Notes": "wd"
+        "Notes": ""
     },
     "Amaziah": {
         "Names(CUV)": "亚玛谢",
