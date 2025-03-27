@@ -282,11 +282,11 @@ var KingsList =
         "Span": "41",
         "Date": "-910",
         "Verses": "1Ki15:9-10",
-        "RelatedKing": "Baasha",
+        "RelatedKing": "Nadab, Baasha",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Jehoshaphat": {
         "Names(CUV)": "约沙法",
