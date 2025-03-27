@@ -21,7 +21,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:6a; son of Jessie",
+        "Kinship": "Mat1:06a; son of Jessie",
         "Notes": ""
     },
     "Solomon": {
