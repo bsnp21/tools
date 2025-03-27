@@ -491,5 +491,17 @@ var KingsList =
         "Priest": "",
         "Kinship": "",
         "Notes": "git01"
+    },
+    "Zedekiah (Mattaniah)": {
+        "Names(CUV)": "西底家 (玛探雅)",
+        "DN": "S20",
+        "Span": "11",
+        "Date": "-597",
+        "Verses": "2Ki24:18",
+        "RelatedKing": "",
+        "Prophet": "",
+        "Priest": "",
+        "Kinship": "",
+        "Notes": "git01"
     }
 }
