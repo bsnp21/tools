@@ -369,7 +369,7 @@ var KingsList =
         "RelatedKing": "Joram",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "Mat1:8c;",
         "Notes": ""
     },
     "Totham": {
