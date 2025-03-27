@@ -58,13 +58,12 @@
 
 <script>
     function UpdateSelected() {
-        //var txt = updateData("#KingTab tbody tr");
-        var updateObj = update_a_row(".selected_row")
+        var updateObj = GetObjFr_a_row(".selected_row")
         var updateNotes = ""
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
             updateNotes = obj.Notes
-            if (!obj.Notes && !confirm("It's better to fill a name or sth in 'Notes'. \nContinue anyway?")){
+            if (!obj.Notes && !confirm("It's better to fill a name or sth in 'Notes'. \nContinue anyway?")) {
                 return
             }
         }
@@ -134,9 +133,7 @@
         $("#tabcontainer").html(tabtmp(sths, str));
         ////post create
         $("table").on("keyup", function () {
-            //updateData(".addhili")
             console.log("table kkkkk");
-
         })
         $("tr").bind("click", function () {
             $(".selected_row").removeClass("selected_row")
@@ -162,7 +159,7 @@
         $(eRow).find("td").each(function () {
             $(this).on("click keypress", function () {
                 console.log("td keyup")
-                update_a_row($(this).parent())
+                GetObjFr_a_row($(this).parent())
                 $(".hili_row").removeClass("hili_row")
                 $(this).parent().find("td").addClass("hili_row")
                 $(".clihi").removeClass("clihi")
@@ -175,25 +172,19 @@
             })
         })
     }
-    function updateData(eRows) {
+    function GetObjFr_table(eRows) {
         var dat = {}
-        $(eRows).each(function (irow) {
+        $(eRows).each(function (i) {
             var pkey = $(this).find("td:eq(1)").text().trim();
-            var obj = {}
-            $(this).find("td").each(function (icol) {
-                if (icol <= 1) return;
-                var key = $(this).attr("title");
-                var val = $(this).text();
-                obj[key] = val
-            })
-            dat[pkey] = obj;
+            var obj = GetObjFr_a_row(this)
+            dat[pkey] = obj[pkey];
         })
         var str = JSON.stringify(dat, null, 4);
         $("#txa").val(`var KingsList = \n${str}`)
         var cstr = JSON.stringify(dat);
         return cstr;
     }
-    function update_a_row(eRow) {
+    function GetObjFr_a_row(eRow) {
         var dat = {}
         var pkey = $(eRow).find("td:eq(1)").text().trim();
         var obj = {}
@@ -248,7 +239,7 @@
         })
 
         $("#Save_json").on("click", function () {
-            updateData("#KingTab tbody tr");
+            GetObjFr_table("#KingTab tbody tr");
         })
         $("#Save_csv").on("click", function () {
             updateCSV("#KingTab tbody tr");
@@ -281,7 +272,8 @@
         </script>
 
     </div>
-    <p><b>Note:</b> DN represents Dynasty Number with good (+) or bad (-). E.g. S08+ means the 8th King of South Israel (Judah) is relatively good.  </p>
+    <p><b>Note:</b> DN represents Dynasty Number with good (+) or bad (-). E.g. S08+ means the 8th King of South Israel
+        (Judah) is relatively good. </p>
 
 
     <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
