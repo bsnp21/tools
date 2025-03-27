@@ -343,10 +343,10 @@ var KingsList =
         "Date": "-835",
         "Verses": "2Ki12:1;2Ch24:1",
         "RelatedKing": "Jehu; Hazael (Syria);",
-        "Prophet": "",
+        "Prophet": "(Elisha)",
         "Priest": "Jehoiada 耶何耶大",
         "Kinship": "mother Zibiah from Beersheba",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Amaziah": {
         "Names(CUV)": "亚玛谢",
