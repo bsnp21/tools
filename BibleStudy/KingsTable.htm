@@ -168,7 +168,7 @@
                 //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
                 var txt = $(this).text().trim()
-                var ary = txt.split(/[\s|\;|\,]/g).filter(itm => { return itm.trim().length > 0; })
+                var ary = txt.split(/[\s|\;|\,|\(|\))]/g).filter(itm => { return itm.trim().length > 0; })
                 ary.forEach(function (tok) {
                     $(`td:contains(${tok})`).addClass("clihi")
                 })
