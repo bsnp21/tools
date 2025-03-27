@@ -29,11 +29,11 @@ var KingsList =
         "DN": "I3",
         "Span": "40",
         "Date": "-970",
-        "Verses": "\t2Sa5:14",
+        "Verses": "2Sa5:14",
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "son of David",
+        "Kinship": "Mat1:6b; son of David",
         "Notes": ""
     },
     "Jeroboam I": {
