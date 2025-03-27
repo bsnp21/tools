@@ -393,7 +393,7 @@ var KingsList =
         "RelatedKing": "Hoshea",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "Mat1:9b;",
         "Notes": ""
     },
     "Hezekiah": {
