@@ -481,7 +481,7 @@ var KingsList =
         "Notes": ""
     },
     "Zedekiah": {
-        "Names(CUV)": "",
+        "Names(CUV)": "西底家",
         "DN": "S20",
         "Span": "11",
         "Date": "-597",
