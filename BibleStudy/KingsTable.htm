@@ -170,6 +170,7 @@
                 var txt = $(this).text().trim()
                 var ary = txt.split(/[\s|\;|\,|\(|\))]/g).filter(itm => { return itm.trim().length > 0; })
                 ary.forEach(function (tok) {
+                    if (["son", "mother", "father", "king", "queen", "wife", "F", "of"].indexOf(tok) >= 0) return;
                     $(`td:contains(${tok})`).addClass("clihi")
                 })
             })
