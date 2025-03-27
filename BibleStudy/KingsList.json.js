@@ -373,7 +373,7 @@ var KingsList =
         "Notes": ""
     },
     "Totham": {
-        "Names(CUV)": "",
+        "Names(CUV)": "约坦",
         "DN": "S11",
         "Span": "16",
         "Date": "-750",
