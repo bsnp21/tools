@@ -62,7 +62,7 @@
         var updateObj = update_a_row(".selected_row")
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
-            if (!obj.Notes) return alert("please add a name in Notes.")
+            if (!obj.Notes) return alert("please add a name or sth in Notes.")
         }
 
         var par = {
