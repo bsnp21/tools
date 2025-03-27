@@ -397,7 +397,7 @@ var KingsList =
         "Notes": ""
     },
     "Hezekiah": {
-        "Names(CUV)": "",
+        "Names(CUV)": "希西家",
         "DN": "S13",
         "Span": "18",
         "Date": "-715",
