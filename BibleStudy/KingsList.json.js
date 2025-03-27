@@ -309,7 +309,7 @@ var KingsList =
         "RelatedKing": "Zimri",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:8b;",
+        "Kinship": "Mat1:08b;",
         "Notes": ""
     },
     "Ahaziah": {
