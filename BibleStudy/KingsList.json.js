@@ -445,7 +445,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoahaz": {
-        "Names(CUV)": "耶哥尼雅",
+        "Names(CUV)": "",
         "DN": "S17",
         "Span": "3mon",
         "Date": "-609",
