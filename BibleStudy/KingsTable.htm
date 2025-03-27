@@ -57,12 +57,14 @@
 </style>
 
 <script>
-    function uploadData() {
+    function UpdateSelected() {
         //var txt = updateData("#KingTab tbody tr");
         var updateObj = update_a_row(".selected_row")
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
+            if (!obj.Notes) return alert("please add a name in Notes.")
         }
+
         var par = {
             shell_cmd_ary: [
                 "sudo chmod 777 -R /var/www/html/wdaws/tools/BibleStudy",
@@ -248,7 +250,7 @@
             updateCSV("#KingTab tbody tr");
         })
         $("#Upload").on("click", function () {
-            uploadData()
+            UpdateSelected()
         })
 
 
@@ -277,7 +279,7 @@
     </div>
 
     <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
-        id="Upload">UpdateSeleted</button><br>
+        id="Upload">UpdateSelected</button><br>
     <textarea id="txa" cols="120" rows="30"></textarea>
 </body>
 
