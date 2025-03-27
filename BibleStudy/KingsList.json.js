@@ -297,7 +297,7 @@ var KingsList =
         "RelatedKing": "Elah",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "Mat1:8a;",
         "Notes": ""
     },
     "Jehoram": {
