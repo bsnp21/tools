@@ -199,8 +199,8 @@
         var obj = {}
         $(eRow).find("td").each(function (icol) {
             if (icol <= 1) return;
-            var key = $(this).attr("title");
-            var val = $(this).text();
+            var key = $(this).attr("title").trim();
+            var val = $(this).text().trim();
             obj[key] = val
         })
         dat[pkey] = obj;
