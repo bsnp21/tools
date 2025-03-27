@@ -421,7 +421,7 @@ var KingsList =
         "Notes": ""
     },
     "Amon": {
-        "Names(CUV)": "",
+        "Names(CUV)": "亚们",
         "DN": "S15",
         "Span": "2",
         "Date": "-642",
