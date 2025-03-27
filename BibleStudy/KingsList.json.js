@@ -326,7 +326,7 @@ var KingsList =
     },
     "Athaliah (F)": {
         "Names(CUV)": "亚他利雅 (F)",
-        "DN": "S07",
+        "DN": "S07-",
         "Span": "6",
         "Date": "-841",
         "Verses": "2Ki11:1-4",
