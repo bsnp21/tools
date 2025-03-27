@@ -60,8 +60,10 @@
     function UpdateSelected() {
         //var txt = updateData("#KingTab tbody tr");
         var updateObj = update_a_row(".selected_row")
+        var updateNotes = ""
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
+            updateNotes = obj.Notes
             if (!obj.Notes) return alert("please add a name or sth in Notes.")
         }
 
@@ -84,7 +86,7 @@
                 "sudo git diff",
                 "sudo git status",
                 "sudo git add *",
-                `sudo git commit -m 'updated notes: ${updateObj.Notes}'`,
+                `sudo git commit -m 'updated notes: ${updateNotes}'`,
                 "sudo git push"
             ],
         }
