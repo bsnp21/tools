@@ -270,7 +270,7 @@ var KingsList =
         "Span": "3",
         "Date": "-913",
         "Verses": "1Ki15:1-2",
-        "RelatedKing": "Nadab",
+        "RelatedKing": "Jeroboam I",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
