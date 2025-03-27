@@ -60,11 +60,14 @@
     function UpdateSelected() {
         //var txt = updateData("#KingTab tbody tr");
         var updateObj = update_a_row(".selected_row")
+        if(!updateObj)  return;
         var updateNotes = ""
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
             updateNotes = obj.Notes
-            if (!obj.Notes) return alert("please add a name or sth in Notes.")
+            if (!obj.Notes && !confirm("It's better to fill a name or sth in 'Notes'. \nContinue anyway?")){
+                return
+            }
         }
 
         var par = {
@@ -194,6 +197,7 @@
     function update_a_row(eRow) {
         var dat = {}
         var pkey = $(eRow).find("td:eq(1)").text().trim();
+        if(!pkey) return alert("King's name is empty.")
         var obj = {}
         $(eRow).find("td").each(function (icol) {
             if (icol <= 1) return;
