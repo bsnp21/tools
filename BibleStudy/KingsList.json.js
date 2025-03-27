@@ -405,7 +405,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "Mat1:9c;",
         "Notes": ""
     },
     "Manasseh": {
