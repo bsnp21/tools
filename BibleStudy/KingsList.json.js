@@ -409,7 +409,7 @@ var KingsList =
         "Notes": ""
     },
     "Manasseh": {
-        "Names(CUV)": "",
+        "Names(CUV)": "玛拿西",
         "DN": "S14",
         "Span": "55",
         "Date": "-697",
