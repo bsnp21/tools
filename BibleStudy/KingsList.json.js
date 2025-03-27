@@ -285,7 +285,7 @@ var KingsList =
         "RelatedKing": "Nadab, Baasha",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:7c;",
+        "Kinship": "Mat1:07c;",
         "Notes": ""
     },
     "Jehoshaphat": {
