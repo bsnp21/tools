@@ -180,7 +180,6 @@ var KingsList =
         "Kinship": "",
         "Notes": "wd"
     },
-   
     "Jeroboam II": {
         "Names(CUV)": "",
         "DN": "N12",
@@ -457,7 +456,6 @@ var KingsList =
         "Kinship": "Mat1:10c;",
         "Notes": ""
     },
-   
     "Jehoiakim": {
         "Names(CUV)": "",
         "DN": "S18",
