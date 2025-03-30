@@ -158,7 +158,7 @@ var KingsList =
     },
     "Jehoash": {
         "Names(CUV)": "约哈斯",
-        "DN": "N11",
+        "DN": "N11-",
         "Span": "16",
         "Date": "-798",
         "Verses": "2Ki13:10",
