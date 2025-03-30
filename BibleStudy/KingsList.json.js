@@ -162,7 +162,7 @@ var KingsList =
         "Span": "16",
         "Date": "-798",
         "Verses": "2Ki13:10",
-        "RelatedKing": "Joash",
+        "RelatedKing": "Joash; Ben-Hadad(Aram)",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
