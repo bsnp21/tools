@@ -469,7 +469,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoiachin": {
-        "Name(CUV)": "约雅斤",
+        "Names(CUV)": "约雅斤",
         "DN": "S19",
         "Span": "3mon",
         "Date": "-598",
