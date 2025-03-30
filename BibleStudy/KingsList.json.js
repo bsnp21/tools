@@ -181,7 +181,7 @@ var KingsList =
         "Notes": "wd"
     },
     "Jeroboam II": {
-        "Names(CUV)": "",
+        "Names(CUV)": "耶罗波安",
         "DN": "N13",
         "Span": "41",
         "Date": "-793",
