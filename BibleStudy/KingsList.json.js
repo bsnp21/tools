@@ -445,16 +445,16 @@ var KingsList =
         "Notes": ""
     },
     "Jehoahaz": {
-        "Names(CUV)": "",
-        "DN": "S17",
-        "Span": "3mon",
-        "Date": "-609",
-        "Verses": "2Ki23:31",
-        "RelatedKing": "",
+        "Names(CUV)": "约哈斯",
+        "DN": "N11-",
+        "Span": "16",
+        "Date": "-798",
+        "Verses": "2Ki13:10",
+        "RelatedKing": "Joash; Ben-Hadad(Aram)",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Jehoiakim": {
         "Names(CUV)": "",
