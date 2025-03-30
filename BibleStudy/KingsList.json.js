@@ -159,11 +159,11 @@ var KingsList =
     "Jehoahaz": {
         "Names(CUV)": "约哈斯",
         "DN": "N11-",
-        "Span": "17",
-        "Date": "-814",
+        "Span": "16",
+        "Date": "-798",
         "Verses": "2Ki13:10",
         "RelatedKing": "Joash; Ben-Hadad(Aram)",
-        "Prophet": "",
+        "Prophet": "Elisha",
         "Priest": "",
         "Kinship": "",
         "Notes": "wd"
