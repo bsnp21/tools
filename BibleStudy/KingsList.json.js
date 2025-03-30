@@ -157,7 +157,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoash": {
-        "Names(CUV)": "",
+        "Names(CUV)": "约哈斯",
         "DN": "N11",
         "Span": "16",
         "Date": "-798",
@@ -166,7 +166,7 @@ var KingsList =
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
-        "Notes": ""
+        "Notes": "wd"
     },
     "Jeroboam II": {
         "Names(CUV)": "",
