@@ -175,7 +175,7 @@ var KingsList =
         "Date": "-798",
         "Verses": "2Ki13:10",
         "RelatedKing": "Joash; Ben-Hadad(Aram)",
-        "Prophet": "",
+        "Prophet": "Elisha",
         "Priest": "",
         "Kinship": "",
         "Notes": "wd"
