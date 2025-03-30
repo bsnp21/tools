@@ -162,7 +162,7 @@ var KingsList =
         "Span": "16",
         "Date": "-798",
         "Verses": "2Ki13:10",
-        "RelatedKing": "Hezekiah",
+        "RelatedKing": "Joash",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
