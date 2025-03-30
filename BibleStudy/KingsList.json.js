@@ -160,7 +160,7 @@ var KingsList =
         "Names(CUV)": "约哈斯",
         "DN": "N11-",
         "Span": "17",
-        "Date": "-725",
+        "Date": "-814",
         "Verses": "2Ki13:10",
         "RelatedKing": "Joash; Ben-Hadad(Aram)",
         "Prophet": "",
