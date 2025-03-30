@@ -1,7 +1,7 @@
 var KingsList = 
 {
     "Saul": {
-        "Names(CUV)": "扫罗",
+        "Name(CUV)": "扫罗",
         "DN": "I1",
         "Span": "42",
         "Date": "-1052",
@@ -13,7 +13,7 @@ var KingsList =
         "Notes": ""
     },
     "David": {
-        "Names(CUV)": "大卫",
+        "Name(CUV)": "大卫",
         "DN": "I2",
         "Span": "40",
         "Date": "-1010",
@@ -25,7 +25,7 @@ var KingsList =
         "Notes": ""
     },
     "Solomon": {
-        "Names(CUV)": "所罗门",
+        "Name(CUV)": "所罗门",
         "DN": "I3",
         "Span": "40",
         "Date": "-970",
@@ -37,7 +37,7 @@ var KingsList =
         "Notes": ""
     },
     "Jeroboam I": {
-        "Names(CUV)": "耶罗波安",
+        "Name(CUV)": "耶罗波安",
         "DN": "N01",
         "Span": "22",
         "Date": "-930",
@@ -49,7 +49,7 @@ var KingsList =
         "Notes": ""
     },
     "Nadab": {
-        "Names(CUV)": "拿答",
+        "Name(CUV)": "拿答",
         "DN": "N02",
         "Span": "2",
         "Date": "-909",
@@ -61,7 +61,7 @@ var KingsList =
         "Notes": ""
     },
     "Baasha": {
-        "Names(CUV)": "巴沙",
+        "Name(CUV)": "巴沙",
         "DN": "N03",
         "Span": "24",
         "Date": "-908",
@@ -73,7 +73,7 @@ var KingsList =
         "Notes": ""
     },
     "Elah": {
-        "Names(CUV)": "以拉",
+        "Name(CUV)": "以拉",
         "DN": "N04",
         "Span": "2",
         "Date": "-886",
@@ -85,7 +85,7 @@ var KingsList =
         "Notes": ""
     },
     "Zimri": {
-        "Names(CUV)": "心利",
+        "Name(CUV)": "心利",
         "DN": "N05",
         "Span": "7day",
         "Date": "-885",
@@ -97,7 +97,7 @@ var KingsList =
         "Notes": ""
     },
     "Tibni": {
-        "Names(CUV)": "提比尼",
+        "Name(CUV)": "提比尼",
         "DN": "N06",
         "Span": "4",
         "Date": "-885",
@@ -109,7 +109,7 @@ var KingsList =
         "Notes": ""
     },
     "Omri": {
-        "Names(CUV)": "暗利",
+        "Name(CUV)": "暗利",
         "DN": "N07",
         "Span": "12",
         "Date": "-885",
@@ -121,7 +121,7 @@ var KingsList =
         "Notes": ""
     },
     "Ahab": {
-        "Names(CUV)": "亚哈",
+        "Name(CUV)": "亚哈",
         "DN": "N08",
         "Span": "22",
         "Date": "-874",
@@ -133,7 +133,7 @@ var KingsList =
         "Notes": ""
     },
     "Joram": {
-        "Names(CUV)": "约兰",
+        "Name(CUV)": "约兰",
         "DN": "N09",
         "Span": "12",
         "Date": "-852",
@@ -145,7 +145,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehu": {
-        "Names(CUV)": "耶户",
+        "Name(CUV)": "耶户",
         "DN": "N10",
         "Span": "28",
         "Date": "-841",
@@ -157,7 +157,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoahaz": {
-        "Names(CUV)": "约哈斯",
+        "Name(CUV)": "约哈斯",
         "DN": "N11-",
         "Span": "16",
         "Date": "-798",
@@ -169,7 +169,7 @@ var KingsList =
         "Notes": "wd"
     },
     "Jehoash": {
-        "Names(CUV)": "约阿施",
+        "Name(CUV)": "约阿施",
         "DN": "N12-",
         "Span": "16",
         "Date": "-798",
@@ -181,7 +181,7 @@ var KingsList =
         "Notes": "wd"
     },
     "Jeroboam II": {
-        "Names(CUV)": "耶罗波安",
+        "Name(CUV)": "耶罗波安",
         "DN": "N13",
         "Span": "41",
         "Date": "-793",
@@ -193,7 +193,7 @@ var KingsList =
         "Notes": ""
     },
     "Zechariah": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N14",
         "Span": "6mon",
         "Date": "-753",
@@ -205,7 +205,7 @@ var KingsList =
         "Notes": ""
     },
     "Shallum": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N15",
         "Span": "1mon",
         "Date": "-752",
@@ -217,7 +217,7 @@ var KingsList =
         "Notes": ""
     },
     "Menahem": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N16",
         "Span": "10",
         "Date": "-752",
@@ -229,7 +229,7 @@ var KingsList =
         "Notes": ""
     },
     "Pekahiah": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N17",
         "Span": "2",
         "Date": "-742",
@@ -241,7 +241,7 @@ var KingsList =
         "Notes": ""
     },
     "Pekah": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N18",
         "Span": "20",
         "Date": "-752",
@@ -253,7 +253,7 @@ var KingsList =
         "Notes": ""
     },
     "Hoshea": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "N19",
         "Span": "9",
         "Date": "-732",
@@ -265,7 +265,7 @@ var KingsList =
         "Notes": ""
     },
     "Rehoboam": {
-        "Names(CUV)": "罗波安",
+        "Name(CUV)": "罗波安",
         "DN": "S01",
         "Span": "17",
         "Date": "-930",
@@ -277,7 +277,7 @@ var KingsList =
         "Notes": ""
     },
     "Abijah": {
-        "Names(CUV)": "亚比亚",
+        "Name(CUV)": "亚比亚",
         "DN": "S02",
         "Span": "3",
         "Date": "-913",
@@ -289,7 +289,7 @@ var KingsList =
         "Notes": ""
     },
     "Asa": {
-        "Names(CUV)": "亚撒",
+        "Name(CUV)": "亚撒",
         "DN": "S03",
         "Span": "41",
         "Date": "-910",
@@ -301,7 +301,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoshaphat": {
-        "Names(CUV)": "约沙法",
+        "Name(CUV)": "约沙法",
         "DN": "S04",
         "Span": "25",
         "Date": "-872",
@@ -313,7 +313,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoram": {
-        "Names(CUV)": "约兰",
+        "Name(CUV)": "约兰",
         "DN": "S05",
         "Span": "8",
         "Date": "-848",
@@ -325,7 +325,7 @@ var KingsList =
         "Notes": ""
     },
     "Ahaziah": {
-        "Names(CUV)": "亚哈谢",
+        "Name(CUV)": "亚哈谢",
         "DN": "S06",
         "Span": "1",
         "Date": "-841",
@@ -337,7 +337,7 @@ var KingsList =
         "Notes": ""
     },
     "Athaliah (F)": {
-        "Names(CUV)": "亚他利雅 (F)",
+        "Name(CUV)": "亚他利雅 (F)",
         "DN": "S07-",
         "Span": "6",
         "Date": "-841",
@@ -349,7 +349,7 @@ var KingsList =
         "Notes": ""
     },
     "Joash": {
-        "Names(CUV)": "约阿施",
+        "Name(CUV)": "约阿施",
         "DN": "S08+",
         "Span": "40",
         "Date": "-835",
@@ -361,7 +361,7 @@ var KingsList =
         "Notes": "wd"
     },
     "Amaziah": {
-        "Names(CUV)": "亚玛谢",
+        "Name(CUV)": "亚玛谢",
         "DN": "S09",
         "Span": "29",
         "Date": "-796",
@@ -373,7 +373,7 @@ var KingsList =
         "Notes": ""
     },
     "Azariah (Uzziah)": {
-        "Names(CUV)": "乌西亚",
+        "Name(CUV)": "乌西亚",
         "DN": "S10",
         "Span": "52",
         "Date": "-792",
@@ -385,7 +385,7 @@ var KingsList =
         "Notes": ""
     },
     "Totham": {
-        "Names(CUV)": "约坦",
+        "Name(CUV)": "约坦",
         "DN": "S11",
         "Span": "16",
         "Date": "-750",
@@ -397,7 +397,7 @@ var KingsList =
         "Notes": ""
     },
     "Ahaz": {
-        "Names(CUV)": "亚哈斯",
+        "Name(CUV)": "亚哈斯",
         "DN": "S12",
         "Span": "16",
         "Date": "-735",
@@ -409,7 +409,7 @@ var KingsList =
         "Notes": ""
     },
     "Hezekiah": {
-        "Names(CUV)": "希西家",
+        "Name(CUV)": "希西家",
         "DN": "S13",
         "Span": "18",
         "Date": "-715",
@@ -421,7 +421,7 @@ var KingsList =
         "Notes": ""
     },
     "Manasseh": {
-        "Names(CUV)": "玛拿西",
+        "Name(CUV)": "玛拿西",
         "DN": "S14",
         "Span": "55",
         "Date": "-697",
@@ -433,7 +433,7 @@ var KingsList =
         "Notes": ""
     },
     "Amon": {
-        "Names(CUV)": "亚们",
+        "Name(CUV)": "亚们",
         "DN": "S15",
         "Span": "2",
         "Date": "-642",
@@ -445,7 +445,7 @@ var KingsList =
         "Notes": ""
     },
     "Josiah": {
-        "Names(CUV)": "约西亚",
+        "Name(CUV)": "约西亚",
         "DN": "S16",
         "Span": "31",
         "Date": "-640",
@@ -457,7 +457,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoiakim": {
-        "Names(CUV)": "",
+        "Name(CUV)": "",
         "DN": "S18",
         "Span": "11",
         "Date": "-609",
@@ -469,7 +469,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoiachin": {
-        "Names(CUV)": "约雅斤",
+        "Name(CUV)": "约雅斤",
         "DN": "S19",
         "Span": "3mon",
         "Date": "-598",
@@ -481,7 +481,7 @@ var KingsList =
         "Notes": ""
     },
     "Zedekiah (Mattaniah)": {
-        "Names(CUV)": "西底家 (玛探雅)",
+        "Name(CUV)": "西底家 (玛探雅)",
         "DN": "S20",
         "Span": "11",
         "Date": "-597",
