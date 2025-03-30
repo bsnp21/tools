@@ -156,6 +156,18 @@ var KingsList =
         "Kinship": "",
         "Notes": ""
     },
+    "Jehoahaz": {
+        "Names(CUV)": "约哈斯",
+        "DN": "N11-",
+        "Span": "16",
+        "Date": "-798",
+        "Verses": "2Ki13:10",
+        "RelatedKing": "Joash; Ben-Hadad(Aram)",
+        "Prophet": "",
+        "Priest": "",
+        "Kinship": "",
+        "Notes": "wd"
+    },
     "Jehoash": {
         "Names(CUV)": "约哈斯",
         "DN": "N11-",
@@ -168,6 +180,7 @@ var KingsList =
         "Kinship": "",
         "Notes": "wd"
     },
+   
     "Jeroboam II": {
         "Names(CUV)": "",
         "DN": "N12",
