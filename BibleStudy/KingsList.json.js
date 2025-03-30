@@ -169,8 +169,8 @@ var KingsList =
         "Notes": "wd"
     },
     "Jehoash": {
-        "Names(CUV)": "约哈斯",
-        "DN": "N11-",
+        "Names(CUV)": "约阿施",
+        "DN": "N12-",
         "Span": "16",
         "Date": "-798",
         "Verses": "2Ki13:10",
@@ -180,10 +180,9 @@ var KingsList =
         "Kinship": "",
         "Notes": "wd"
     },
-   
     "Jeroboam II": {
         "Names(CUV)": "",
-        "DN": "N12",
+        "DN": "N13",
         "Span": "41",
         "Date": "-793",
         "Verses": "2Ki14:23",
@@ -195,7 +194,7 @@ var KingsList =
     },
     "Zechariah": {
         "Names(CUV)": "",
-        "DN": "N13",
+        "DN": "N14",
         "Span": "6mon",
         "Date": "-753",
         "Verses": "2Ki15:8",
@@ -207,7 +206,7 @@ var KingsList =
     },
     "Shallum": {
         "Names(CUV)": "",
-        "DN": "N14",
+        "DN": "N15",
         "Span": "1mon",
         "Date": "-752",
         "Verses": "2Ki15:13",
@@ -219,7 +218,7 @@ var KingsList =
     },
     "Menahem": {
         "Names(CUV)": "",
-        "DN": "N15",
+        "DN": "N16",
         "Span": "10",
         "Date": "-752",
         "Verses": "2Ki15:17",
@@ -231,7 +230,7 @@ var KingsList =
     },
     "Pekahiah": {
         "Names(CUV)": "",
-        "DN": "N16",
+        "DN": "N17",
         "Span": "2",
         "Date": "-742",
         "Verses": "2Ki15:23",
@@ -243,7 +242,7 @@ var KingsList =
     },
     "Pekah": {
         "Names(CUV)": "",
-        "DN": "N17",
+        "DN": "N18",
         "Span": "20",
         "Date": "-752",
         "Verses": "2Ki15:27",
@@ -255,7 +254,7 @@ var KingsList =
     },
     "Hoshea": {
         "Names(CUV)": "",
-        "DN": "N18",
+        "DN": "N19",
         "Span": "9",
         "Date": "-732",
         "Verses": "2Ki17:1",
@@ -457,7 +456,6 @@ var KingsList =
         "Kinship": "Mat1:10c;",
         "Notes": ""
     },
-   
     "Jehoiakim": {
         "Names(CUV)": "",
         "DN": "S18",
@@ -480,18 +478,6 @@ var KingsList =
         "Prophet": "",
         "Priest": "",
         "Kinship": "= Jeconiah",
-        "Notes": ""
-    },
-    "Zedekiah": {
-        "Names(CUV)": "",
-        "DN": "",
-        "Span": "",
-        "Date": "",
-        "Verses": "",
-        "RelatedKing": "",
-        "Prophet": "",
-        "Priest": "",
-        "Kinship": "",
         "Notes": ""
     },
     "Zedekiah (Mattaniah)": {
