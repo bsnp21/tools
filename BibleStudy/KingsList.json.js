@@ -101,7 +101,7 @@ var KingsList =
         "DN": "N06",
         "Span": "4",
         "Date": "-885",
-        "Verses": "1Ki.16:21-22",
+        "Verses": "1Ki16:21-22",
         "RelatedKing": "Ahaziah",
         "Prophet": "",
         "Priest": "",
