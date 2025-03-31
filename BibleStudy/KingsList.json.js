@@ -345,7 +345,7 @@ var KingsList =
         "RelatedKing": "Jehu; Omri",
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
-        "Kinship": "mother of Ahaziah; daughter of Jezebel",
+        "Kinship": "m: Jezebel",
         "Notes": ""
     },
     "Joash": {
