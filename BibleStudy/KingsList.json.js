@@ -129,7 +129,7 @@ var KingsList =
         "RelatedKing": "Joash",
         "Prophet": "Elijah",
         "Priest": "",
-        "Kinship": "wife Jezebel",
+        "Kinship": "q: Jezebel",
         "Notes": ""
     },
     "Joram": {
