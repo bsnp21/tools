@@ -501,7 +501,7 @@ var KingsList =
         "RelatedKing": "Jehu; Omri",
         "Prophet": "",
         "Priest": "Jehoiada 耶何耶大",
-        "Kinship": "m: Jezebel",
+        "Kinship": "M: Jezebel",
         "Notes": ""
     }
 }
