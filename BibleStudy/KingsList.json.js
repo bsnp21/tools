@@ -5,7 +5,7 @@ var KingsList =
         "DN": "I1",
         "Span": "42",
         "Date": "-1052",
-        "Verses": "1Sa9:2",
+        "Verses": "1Sa09:2",
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
