@@ -354,7 +354,7 @@ var KingsList =
         "Span": "40",
         "Date": "-835",
         "Verses": "2Ki12:1; 2Ch24:1",
-        "RelatedKing": "Jehu; Jehoash; Hazael (Syria);",
+        "RelatedKing": "Jehoash; Hazael (Syria);",
         "Prophet": "(Elisha)",
         "Priest": "Jehoiada 耶何耶大",
         "Kinship": "son of Ahaziah, Zibiah (mother) from Beersheba",
