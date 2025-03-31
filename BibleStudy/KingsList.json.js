@@ -162,7 +162,7 @@ var KingsList =
         "Span": "17",
         "Date": "-798",
         "Verses": "2Ki13:1",
-        "RelatedKing": "Joash; Ben-Hadad(Aram)",
+        "RelatedKing": "Joash; Ben-Hadad(Aram)",
         "Prophet": "Elisha",
         "Priest": "",
         "Kinship": "",
@@ -174,7 +174,7 @@ var KingsList =
         "Span": "16",
         "Date": "-798",
         "Verses": "2Ki13:10",
-        "RelatedKing": "Joash; Ben-Hadad(Aram)",
+        "RelatedKing": "Joash; Ben-Hadad(Aram)",
         "Prophet": "Elisha",
         "Priest": "",
         "Kinship": "",
@@ -333,7 +333,7 @@ var KingsList =
         "RelatedKing": "Jehu, Tibni",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "m: Athaliah",
+        "Kinship": "m: Athaliah",
         "Notes": ""
     },
     "Athaliah (q)": {
@@ -354,10 +354,10 @@ var KingsList =
         "Span": "40",
         "Date": "-835",
         "Verses": "2Ki12:1; 2Ch24:1",
-        "RelatedKing": "Jehoash; Hazael (Syria);",
+        "RelatedKing": "Jehoash; Hazael (Syria);",
         "Prophet": "(Elisha)",
         "Priest": "Jehoiada 耶何耶大",
-        "Kinship": "son of Ahaziah, Zibiah (mother) from Beersheba",
+        "Kinship": "son of Ahaziah, Zibiah (mother) from Beersheba",
         "Notes": "wd"
     },
     "Amaziah": {
@@ -373,7 +373,7 @@ var KingsList =
         "Notes": ""
     },
     "Azariah (Uzziah)": {
-        "Name(CUV)": "亚撒利雅 (乌西亚)",
+        "Name(CUV)": "亚撒利雅 (乌西亚)",
         "DN": "S10",
         "Span": "52",
         "Date": "-792",
@@ -477,7 +477,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "= Jeconiah",
+        "Kinship": "= Jeconiah",
         "Notes": ""
     },
     "Zedekiah (Mattaniah)": {
