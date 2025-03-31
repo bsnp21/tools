@@ -67,11 +67,17 @@
         background-color: rgb(244, 244, 244);
         zzborder: 1px solid red;
     }
+    #bsnpLink{
+        color: lightgray;
+    }
 </style>
 <script>
     function ConvertBcv2linked() {
-        var bsnpLink = $("#txa").val().trim();
-        if(bsnpLink.indexOf("http")==0) BsnpGuestLink = bsnpLink
+        var bsnpLink = $("#bsnpLink").text().trim();
+        if(bsnpLink.indexOf("http")==0) {
+            BsnpGuestLink = bsnpLink
+            localStorage.setItem("bsnpLink", bsnpLink)
+        }
         $("td").each(function () {
             var sverses = $(this).text().trim();
             var bcvAry = CNST.StdBcvAry_FromAnyStr(sverses)
@@ -262,7 +268,7 @@
         loadData();
 
 
-
+        $("#bsnpLink").text(localStorage.getItem("bsnpLink"))
 
 
         $("#Load").on("click", function () {
@@ -299,7 +305,7 @@
 </script>
 
 <body>
-    <div id="bsnpLink" style="width: 200%;">-</div>
+    <div id="bsnpLink" style="width: 200%;" contenteditable></div>
     <button id="Load">Load</button>
 
     <div id="tabcontainer">
