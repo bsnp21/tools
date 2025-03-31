@@ -336,8 +336,8 @@ var KingsList =
         "Kinship": "m: Athaliah",
         "Notes": ""
     },
-    "Athaliah (f)": {
-        "Name(CUV)": "亚他利雅 (f)",
+    "Athaliah (q)": {
+        "Name(CUV)": "亚他利雅 (q)",
         "DN": "S07-",
         "Span": "6",
         "Date": "-841",
