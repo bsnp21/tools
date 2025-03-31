@@ -489,7 +489,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "z",
+        "Kinship": "",
         "Notes": "git01"
     }
 }
