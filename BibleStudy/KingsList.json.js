@@ -197,7 +197,7 @@ var KingsList =
         "DN": "N14",
         "Span": "6mon",
         "Date": "-753",
-        "Verses": "2Ki15:8",
+        "Verses": "2Ki14:29",
         "RelatedKing": "Amon",
         "Prophet": "",
         "Priest": "",
