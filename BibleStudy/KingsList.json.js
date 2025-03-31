@@ -193,7 +193,7 @@ var KingsList =
         "Notes": ""
     },
     "Zechariah": {
-        "Name(CUV)": "",
+        "Name(CUV)": "撒迦利雅",
         "DN": "N14",
         "Span": "6mon",
         "Date": "-753",
