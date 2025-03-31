@@ -365,7 +365,7 @@ var KingsList =
         "DN": "S09",
         "Span": "29",
         "Date": "-796",
-        "Verses": "2Ki12:21,14:1-2",
+        "Verses": "2Ki12:21; 2Ki14:1-2",
         "RelatedKing": "Jehoash",
         "Prophet": "",
         "Priest": "",
