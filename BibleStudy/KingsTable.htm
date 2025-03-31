@@ -22,6 +22,7 @@
 
 
     <script src="./KingsList.json.js"></script>
+    <script src="./BsnpGuestLink.js"></script>
 
 </head>
 
@@ -69,17 +70,19 @@
 </style>
 <script>
     function ConvertBcv2linked() {
-        var bsnpLink = $("#bsnpLink").val();
-        localStorage.setItem("bsnpLink", bsnpLink)
-        $("td[title='Verses']").each(function () {
-            var sverses = $(this).text()
+        var bsnpLink = $("#txa").val().trim();
+        if(bsnpLink.indexOf("http")==0) BsnpGuestLink = bsnpLink
+        $("td").each(function () {
+            var sverses = $(this).text().trim();
             var bcvAry = CNST.StdBcvAry_FromAnyStr(sverses)
             bcvAry.forEach(function (bcv) {
-                var sa = `<a href='${bsnpLink}#${bcv}'>${bcv}</a>`
+                var sa = `<a href='${BsnpGuestLink}#${bcv}'>${bcv}</a>`
                 sverses = sverses.replace(bcv, sa);
             })
+            //if (bcvAry) {
             $(this).html(sverses)
             $(this).attr("contenteditable", null)
+            //}
         })
 
     }
@@ -259,7 +262,7 @@
         loadData();
 
 
-        $("#bsnpLink").val(localStorage.getItem("bsnpLink"))
+
 
 
         $("#Load").on("click", function () {
@@ -296,7 +299,7 @@
 </script>
 
 <body>
-    <input id="bsnpLink" style="width: 100%;">
+    <div id="bsnpLink" style="width: 200%;">-</div>
     <button id="Load">Load</button>
 
     <div id="tabcontainer">
@@ -318,7 +321,7 @@
 
     <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
         id="Upload">UpdateSelected</button><br>
-    <textarea id="txa" cols="120" rows="30"></textarea>
+    <textarea id="txa" cols="160" rows="30"></textarea>
 </body>
 
 </html>
