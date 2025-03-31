@@ -377,7 +377,7 @@ var KingsList =
         "DN": "S10",
         "Span": "52",
         "Date": "-792",
-        "Verses": "2Ki15:1-2",
+        "Verses": "2Ki15:1-2; 2Ki14:21",
         "RelatedKing": "Joram",
         "Prophet": "",
         "Priest": "",
