@@ -11,9 +11,14 @@
     <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
     <script src="https://wdingbox.github.io/assetjs/libs/jq/Rapid_Sort_Table.js"></script>
 
-
+    <!---Rest API for update -->
     <script src="https://bsnp21.github.io/bb/np/js/BsnpRestApi.js"></script>
 
+    <!-------for linked verses -->
+    <script src="https://bsnp21.github.io/bb/np/js/BsnpRestConst.js?rev=250104"></script>
+
+    <script xxxsrc="./BsnpRestConst.js"></script>
+    <script src="https://bsnp21.github.io/bb/np/js/UtiLib.js?rev=250104"></script>
 
 
     <script src="./KingsList.json.js"></script>
@@ -62,6 +67,23 @@
         zzborder: 1px solid red;
     }
 </style>
+<script>
+    function ConvertBcv2linked() {
+        var bsnpLink = $("#bsnpLink").val();
+        localStorage.setItem("bsnpLink", bsnpLink)
+        $("td[title='Verses']").each(function () {
+            var sverses = $(this).text()
+            var bcvAry = CNST.StdBcvAry_FromAnyStr(sverses)
+            bcvAry.forEach(function (bcv) {
+                var sa = `<a href='${bsnpLink}#${bcv}'>${bcv}</a>`
+                sverses = sverses.replace(bcv, sa);
+            })
+            $(this).html(sverses)
+            $(this).attr("contenteditable", null)
+        })
+
+    }
+</script>
 
 <script>
     function UpdateSelected() {
@@ -237,10 +259,12 @@
         loadData();
 
 
+        $("#bsnpLink").val(localStorage.getItem("bsnpLink"))
 
 
         $("#Load").on("click", function () {
-            loadData()
+            loadData();
+            ConvertBcv2linked()
         })
         $("#Add").on("click", function () {
             var etr = $("#KingTab tbody tr:eq(0)").clone();
@@ -272,6 +296,7 @@
 </script>
 
 <body>
+    <input id="bsnpLink" style="width: 100%;">
     <button id="Load">Load</button>
 
     <div id="tabcontainer">
