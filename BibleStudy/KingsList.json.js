@@ -491,5 +491,17 @@ var KingsList =
         "Priest": "",
         "Kinship": "",
         "Notes": "git01"
+    },
+    "Athaliah (f)": {
+        "Name(CUV)": "亚他利雅 (f)",
+        "DN": "S07-",
+        "Span": "6",
+        "Date": "-841",
+        "Verses": "2Ki11:1-4",
+        "RelatedKing": "Jehu; Omri",
+        "Prophet": "",
+        "Priest": "Jehoiada 耶何耶大",
+        "Kinship": "m: Jezebel",
+        "Notes": ""
     }
 }
