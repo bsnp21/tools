@@ -67,14 +67,15 @@
         background-color: rgb(244, 244, 244);
         zzborder: 1px solid red;
     }
-    #bsnpLink{
+
+    #bsnpLink {
         color: lightgray;
     }
 </style>
 <script>
     function ConvertBcv2linked() {
         var bsnpLink = $("#bsnpLink").text().trim();
-        if(bsnpLink.indexOf("http")==0) {
+        if (bsnpLink.indexOf("http") == 0) {
             BsnpGuestLink = bsnpLink
             localStorage.setItem("bsnpLink", bsnpLink)
         }
