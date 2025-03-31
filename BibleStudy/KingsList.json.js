@@ -491,5 +491,5 @@ var KingsList =
         "Priest": "",
         "Kinship": "",
         "Notes": "git01"
-    },
+    }
 }
