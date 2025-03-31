@@ -333,7 +333,7 @@ var KingsList =
         "RelatedKing": "Jehu, Tibni",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "m: Athaliah",
         "Notes": ""
     },
     "Athaliah (F)": {
