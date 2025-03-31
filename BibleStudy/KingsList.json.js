@@ -317,7 +317,7 @@ var KingsList =
         "DN": "S05",
         "Span": "8",
         "Date": "-848",
-        "Verses": "2Ki8:16-17",
+        "Verses": "2Ki08:16-17",
         "RelatedKing": "Zimri",
         "Prophet": "",
         "Priest": "",
