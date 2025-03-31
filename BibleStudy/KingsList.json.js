@@ -185,7 +185,7 @@ var KingsList =
         "DN": "N13",
         "Span": "41",
         "Date": "-793",
-        "Verses": "2Ki14:23",
+        "Verses": "2Ki14:23; 2Ki14:16",
         "RelatedKing": "Manasseh",
         "Prophet": "",
         "Priest": "",
