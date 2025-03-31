@@ -357,7 +357,7 @@ var KingsList =
         "RelatedKing": "Jehoash; Hazael (Syria);",
         "Prophet": "(Elisha)",
         "Priest": "Jehoiada 耶何耶大",
-        "Kinship": "son of Ahaziah, Zibiah (mother) from Beersheba",
+        "Kinship": "f:Ahaziah, m:Zibiah from Beersheba",
         "Notes": "wd"
     },
     "Amaziah": {
