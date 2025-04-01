@@ -369,7 +369,7 @@ var KingsList =
         "RelatedKing": "Jehoash",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "m: Jehoaddin from Jerusalem",
         "Notes": ""
     },
     "Azariah (Uzziah)": {
