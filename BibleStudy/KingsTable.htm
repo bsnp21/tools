@@ -40,6 +40,9 @@
     .clihi {
         background-color: gray;
     }
+    .hili_Footprint{
+        border: 3px solid darkorange;
+    }
 
     .hili_row {
         border: 2px solid red;
@@ -71,6 +74,7 @@
     #bsnpLink {
         color: lightgray;
     }
+
 </style>
 <script>
     function ConvertBcv2linked() {
@@ -202,6 +206,8 @@
             $(this).on("click keypress", function () {
                 console.log("td keyup")
                 GetObjFr_a_row($(this).parent())
+
+                $(this).toggleClass("hili_Footprint")
 
                 //hili the seleted row.
                 $(".hili_row").removeClass("hili_row")
