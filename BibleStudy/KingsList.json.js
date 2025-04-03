@@ -187,7 +187,7 @@ var KingsList =
         "Date": "-793",
         "Verses": "2Ki14:23; 2Ki14:16",
         "RelatedKing": "Manasseh",
-        "Prophet": "",
+        "Prophet": "Jonah, 2Ki14:25",
         "Priest": "",
         "Kinship": "",
         "Notes": ""
