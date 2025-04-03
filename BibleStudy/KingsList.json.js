@@ -182,7 +182,7 @@ var KingsList =
     },
     "Jeroboam II": {
         "Name(CUV)": "耶罗波安",
-        "DN": "N13",
+        "DN": "N13-",
         "Span": "41",
         "Date": "-793",
         "Verses": "2Ki14:23; 2Ki14:16",
