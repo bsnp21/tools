@@ -377,11 +377,11 @@ var KingsList =
         "DN": "S10+",
         "Span": "52",
         "Date": "-792",
-        "Verses": "2Ki15:1-2; 2Ki14:21",
-        "RelatedKing": "Joram",
+        "Verses": "2Ki15:1-2; 2Ki14:21; 2Ch26",
+        "RelatedKing": "Jeroboam II",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:08c;",
+        "Kinship": "Mat1:08c; m: Jecoliah fr  Jerusalem",
         "Notes": ""
     },
     "Totham": {
