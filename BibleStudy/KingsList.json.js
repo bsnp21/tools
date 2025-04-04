@@ -380,7 +380,7 @@ var KingsList =
         "Verses": "2Ki15:1-2; 2Ki14:21; 2Ch26",
         "RelatedKing": "Jeroboam II",
         "Prophet": "",
-        "Priest": "",
+        "Priest": "Azariah",
         "Kinship": "Mat1:08c; m: Jecoliah fr  Jerusalem",
         "Notes": ""
     },
