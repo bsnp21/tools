@@ -194,7 +194,7 @@ var KingsList =
     },
     "Zechariah": {
         "Name(CUV)": "撒迦利雅",
-        "DN": "N14",
+        "DN": "N14-",
         "Span": "6mon",
         "Date": "-753",
         "Verses": "2Ki14:29",
