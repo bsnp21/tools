@@ -217,7 +217,7 @@ var KingsList =
         "Notes": ""
     },
     "Menahem": {
-        "Name(CUV)": "",
+        "Name(CUV)": "米拿现",
         "DN": "N16",
         "Span": "10",
         "Date": "-752",
