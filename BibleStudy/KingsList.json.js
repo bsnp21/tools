@@ -205,7 +205,7 @@ var KingsList =
         "Notes": ""
     },
     "Shallum": {
-        "Name(CUV)": "",
+        "Name(CUV)": "沙龙",
         "DN": "N15",
         "Span": "1mon",
         "Date": "-752",
