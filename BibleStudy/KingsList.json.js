@@ -386,7 +386,7 @@ var KingsList =
     },
     "Totham": {
         "Name(CUV)": "约坦",
-        "DN": "S11",
+        "DN": "S11+",
         "Span": "16",
         "Date": "-750",
         "Verses": "2Ki15:32-33",
