@@ -40,11 +40,12 @@
     .clihi {
         background-color: gray;
     }
-    .hili_Footprint{
+
+    .hili_Footprint {
         border: 3px solid darkorange;
     }
 
-    .hili_row {
+    .hili_row_Edit {
         border: 2px solid red;
         background-color: yellow;
     }
@@ -74,7 +75,6 @@
     #bsnpLink {
         color: lightgray;
     }
-
 </style>
 <script>
     function ConvertBcv2linked() {
@@ -210,8 +210,10 @@
                 $(this).toggleClass("hili_Footprint")
 
                 //hili the seleted row.
-                $(".hili_row").removeClass("hili_row")
-                $(this).parent().find("td").addClass("hili_row")
+                $(".hili_row_Edit").removeClass("hili_row_Edit")
+                if ($(this).attr("contenteditable") != null) {
+                    $(this).parent().find("td").addClass("hili_row_Edit")
+                }
 
                 //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
