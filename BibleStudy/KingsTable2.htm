@@ -171,7 +171,7 @@
         "Kinship",
         "Notes"
     ]
-    function loadData(LeftoRite) {
+    function table_creation(LeftoRite) {
         var objKeys = [
             "Name(CUV)",
             "DN",
@@ -214,11 +214,11 @@
                 var iSpan = 5 * parseInt(obj.Span)
                 if (obj.DN[0] === "I") iSpan = 0
 
-                var stds0 = `<td Nationality='${obj.DN[0]}' contenteditable>${kingname}</td>`
+                var stds0 = `<td Nationality='${obj.DN[0]}' >${kingname}</td>`
                 var stds1 = "", flagEmptyData = "";
                 objKeys.forEach((key, i) => {
                     flagEmptyData += obj[key]
-                    stds1 += `<td title='${key}' contenteditable>${obj[key]}</td>`
+                    stds1 += `<td title='${key}' xcontenteditable>${obj[key]}</td>`
                 })
                 if (flagEmptyData.length === 0) continue;
 
@@ -230,18 +230,33 @@
 
         $(`#KingTab${LeftoRite} thead tr`).html(get_ths(LeftoRite))
         $(`#KingTab${LeftoRite} tbody`).html(get_trs(LeftoRite));
+    }
+    function post_table_creation() {
         ////post create
-        $("table").on("keyup", function () {
-            console.log("table kkkkk");
+
+        $("td").bind("click", function () {
+            //$(".selected_row").removeClass("selected_row")
+            //$(this).addClass("selected_row")
+            $(this).toggleClass("hili_Footprint");
+
+            /////
+            //// hili all other td contain info in this td.
+            $(".clihi").removeClass("clihi")
+            var txt = $(this).text().trim()
+            var ary = txt.split(/[\s|\;|\,|\(|\))|\'|\"']/g).filter(itm => { return itm.trim().length > 0; })
+            ary.forEach(function (tok) {
+                if (tok.trim().length <= 1) return;
+                if (["son", "mother", "father", "king", "queen", "wife", "I", "f", "m", "of"].indexOf(tok) >= 0) return;
+                $(`td:contains(${tok})`).addClass("clihi")
+            })
         })
-        $("tr").bind("click", function () {
-            $(".selected_row").removeClass("selected_row")
-            $(this).addClass("selected_row")
-        })
+
+        //$("td").toggleClass("hili_Footprint")
 
         $("tr").each(function () {
             bind_td_evt_of_a_row(this)
         })
+        var srtabl = new Rapid_Sort_Table("#tabcontainer table")
 
         $("body").on("select", function () {//not working
             $(".clihi").removeClass("clihi")
@@ -252,15 +267,15 @@
                 }
             })
         })
-        var srtabl = new Rapid_Sort_Table("#tabcontainer table")
     }
     function bind_td_evt_of_a_row(eRow) {
-        $(eRow).find("td").each(function () {
+        return
+        $("tr").find("td").each(function () {
             $(this).on("click keypress", function () {
                 console.log("td keyup")
                 GetObjFr_a_row($(this).parent())
 
-                $(this).toggleClass("hili_Footprint")
+
 
                 //hili the seleted row.
                 $(".hili_row_Edit").removeClass("hili_row_Edit")
@@ -268,15 +283,7 @@
                     $(this).parent().find("td").addClass("hili_row_Edit")
                 }
 
-                //// hili all other td contain info in this td.
-                $(".clihi").removeClass("clihi")
-                var txt = $(this).text().trim()
-                var ary = txt.split(/[\s|\;|\,|\(|\))|\'|\"']/g).filter(itm => { return itm.trim().length > 0; })
-                ary.forEach(function (tok) {
-                    if (tok.trim().length <= 1) return;
-                    if (["son", "mother", "father", "king", "queen", "wife", "I", "F", "of"].indexOf(tok) >= 0) return;
-                    $(`td:contains(${tok})`).addClass("clihi")
-                })
+
             })
         })
     }
@@ -327,15 +334,16 @@
         })
     }
     $(function () {
-        loadData("Left");
-        loadData("Rite");
+        table_creation("Left");
+        table_creation("Rite");
+        post_table_creation();
 
 
         $("#bsnpLink").text(localStorage.getItem("bsnpLink"))
 
 
         $("#Load").on("click", function () {
-            loadData("Left");
+            table_creation("Left");
             ConvertBcv2linked()
         })
         $("#Add").on("click", function () {
