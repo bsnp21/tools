@@ -229,12 +229,12 @@ var KingsList =
         "Notes": ""
     },
     "Pekahiah": {
-        "Name(CUV)": "",
-        "DN": "N17",
+        "Name(CUV)": "比加辖",
+        "DN": "N17-",
         "Span": "2",
         "Date": "-742",
         "Verses": "2Ki15:23",
-        "RelatedKing": "Jehoiakim",
+        "RelatedKing": "Azariah",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
