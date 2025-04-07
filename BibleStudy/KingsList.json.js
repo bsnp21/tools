@@ -249,7 +249,7 @@ var KingsList =
         "RelatedKing": "Azariah",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "f: Remaliah",
         "Notes": ""
     },
     "Hoshea": {
