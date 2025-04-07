@@ -246,7 +246,7 @@ var KingsList =
         "Span": "20",
         "Date": "-752",
         "Verses": "2Ki15:27",
-        "RelatedKing": "Jehoiachin",
+        "RelatedKing": "Azariah",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
