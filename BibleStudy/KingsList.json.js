@@ -87,7 +87,7 @@ var KingsList =
     "Zimri": {
         "Name(CUV)": "心利",
         "DN": "N05",
-        "Span": "7day",
+        "Span": ".07",
         "Date": "-885",
         "Verses": "1Ki16:15",
         "RelatedKing": "Jehoram",
@@ -195,7 +195,7 @@ var KingsList =
     "Zechariah": {
         "Name(CUV)": "撒迦利雅",
         "DN": "N14-",
-        "Span": "6mon",
+        "Span": ".6",
         "Date": "-753",
         "Verses": "2Ki14:29",
         "RelatedKing": "Azariah; Amon",
@@ -207,7 +207,7 @@ var KingsList =
     "Shallum": {
         "Name(CUV)": "沙龙",
         "DN": "N15",
-        "Span": "1mon",
+        "Span": ".1",
         "Date": "-752",
         "Verses": "2Ki15:13",
         "RelatedKing": "Josiah",
@@ -471,7 +471,7 @@ var KingsList =
     "Jehoiachin": {
         "Name(CUV)": "约雅斤",
         "DN": "S19",
-        "Span": "3mon",
+        "Span": ".3",
         "Date": "-598",
         "Verses": "2Ki24:8",
         "RelatedKing": "",
