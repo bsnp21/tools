@@ -261,7 +261,7 @@ var KingsList =
         "RelatedKing": "Azariah (Uzziah)",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "f: Remaliah",
+        "Kinship": "",
         "Notes": ""
     },
     "Rehoboam": {
