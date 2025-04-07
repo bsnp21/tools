@@ -75,6 +75,16 @@
     #bsnpLink {
         color: lightgray;
     }
+
+    #xxxxKingTabLeft tbody tr:nth-child(1) {
+        height: 70px;
+
+    }
+
+    #xxxxxKingTabRite tbody tr:nth-child(6) {
+        height: 80px;
+
+    }
 </style>
 <script>
     function ConvertBcv2linked() {
@@ -201,6 +211,8 @@
                 } else {
                     if (obj.DN[0] == "N") continue
                 }
+                var iSpan = 5 * parseInt(obj.Span)
+                if (obj.DN[0] === "I") iSpan = 0
 
                 var stds0 = `<td Nationality='${obj.DN[0]}' contenteditable>${kingname}</td>`
                 var stds1 = "", flagEmptyData = "";
@@ -211,7 +223,7 @@
                 if (flagEmptyData.length === 0) continue;
 
                 var tds = ("Left" === LeftoRite) ? `${stds1}${stds0}` : `${stds0}${stds1}`
-                str += `<tr>${tds}</tr>`
+                str += `<tr style='height:${iSpan}px'>${tds}</tr>`
             }
             return str;
         }
@@ -361,15 +373,15 @@
 
     <div id="tabcontainer">
 
-        <table id="KingTabLeft" border="1" style="float: left;width: 100px;margin-top: 200px;">
-            <caption>Israel Kings List</caption>
+        <table id="KingTabLeft" border="1" style="float: left;width: 100px;margin-top: 132px;">
+            <caption>North Israel Kings List</caption>
             <thead>
                 <tr id="theadtr1">${sths}</tr>
             </thead>
             <tbody>${trs}</tbody>
         </table>
         <table id="KingTabRite" border="1" style="float: none;">
-            <caption>Israel Kings List</caption>
+            <caption>South Israel Kings List</caption>
             <thead>
                 <tr id="theadtr1">${sths}</tr>
             </thead>
