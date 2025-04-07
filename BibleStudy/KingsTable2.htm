@@ -1,0 +1,394 @@
+<html>
+
+<head>
+    <title>KingsList</title>
+    <base target="_blank" />
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+
+    <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+    <script src="https://wdingbox.github.io/assetjs/libs/jq/Rapid_Sort_Table.js"></script>
+
+    <!---Rest API for update -->
+    <script src="https://bsnp21.github.io/bb/np/js/BsnpRestApi.js"></script>
+
+    <!-------for linked verses -->
+    <script src="https://bsnp21.github.io/bb/np/js/BsnpRestConst.js?rev=250104"></script>
+
+    <script xxxsrc="./BsnpRestConst.js"></script>
+    <script src="https://bsnp21.github.io/bb/np/js/UtiLib.js?rev=250104"></script>
+
+
+    <script src="./KingsList.json.js"></script>
+    <script src="./BsnpGuestLink.js"></script>
+
+</head>
+
+<style>
+    body {
+        background-color: white;
+        margin-bottom: 100px;
+    }
+
+
+    .addhili {
+        background-color: yellow;
+    }
+
+    .clihi {
+        background-color: gray;
+    }
+
+    .hili_Footprint {
+        border: 3px solid darkorange;
+    }
+
+    .hili_row_Edit {
+        border: 2px solid red;
+        background-color: yellow;
+    }
+
+    td[Nationality='I'] {
+        xcolor: deepskyblue;
+        font-weight: bold;
+    }
+
+    td[Nationality='S'] {
+        xcolor: deepskyblue;
+        font-weight: bold;
+        border: 3px solid deepskyblue;
+    }
+
+    td[Nationality='N'] {
+        xcolor: lightblue;
+
+        border: 3px solid lightblue;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: rgb(244, 244, 244);
+        zzborder: 1px solid red;
+    }
+
+    #bsnpLink {
+        color: lightgray;
+    }
+</style>
+<script>
+    function ConvertBcv2linked() {
+        var bsnpLink = $("#bsnpLink").text().trim();
+        if (bsnpLink.indexOf("http") == 0) {
+            BsnpGuestLink = bsnpLink
+            localStorage.setItem("bsnpLink", bsnpLink)
+        }
+        $("td").each(function () {
+            var sverses = $(this).text().trim();
+            var bcvAry = CNST.StdBcvAry_FromAnyStr(sverses)
+            bcvAry.forEach(function (bcv) {
+                var sa = `<a href='${BsnpGuestLink}#${bcv}'>${bcv}</a>`
+                sverses = sverses.replace(bcv, sa);
+            })
+            //if (bcvAry) {
+            $(this).html(sverses)
+            $(this).attr("contenteditable", null)
+            //}
+        })
+
+    }
+</script>
+
+<script>
+    function UpdateSelected() {
+        var updateObj = GetObjFr_a_row(".selected_row")
+        var updateNotes = ""
+        for ([key, obj] of Object.entries(updateObj)) {
+            if (!key) return alert("please select a raw.")
+            updateNotes = obj.Notes
+            if (!obj.Notes && !confirm("It's better to fill a name or sth in 'Notes'. \nContinue anyway?")) {
+                return
+            }
+        }
+
+        var par = {
+            shell_cmd_ary: [
+                "sudo chmod 777 -R /var/www/html/wdaws/tools/BibleStudy",
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "pwd",
+                "sudo ls -lR"],
+            shell_cmd_ary_before_update: [
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "sudo git status",
+                "sudo git diff",
+                "sudo git pull",
+                "sudo ls -lR"],
+            shell_update_jspathfilename: "/var/www/html/wdaws/tools/BibleStudy/KingsList.json.js",
+            shell_update_newobj: updateObj,
+            shell_cmd_ary_post_update: [
+                "cd /var/www/html/wdaws/tools/BibleStudy",
+                "sudo git diff",
+                "sudo git status",
+                "sudo git add *",
+                `sudo git commit -m 'updated notes: ${updateNotes}'`,
+                "sudo git push"
+            ],
+        }
+        var sApiNameID = 'ApiUsr_Cmdline_Exec'
+        var api = new BsnpRestApi()
+        var _this = this
+        $(_this).next().text('')
+        api[sApiNameID](
+            par,
+            function (ret) {
+                console.log("ret", ret.out.data)
+                var str = JSON.stringify(ret, null, 4);
+                $("#txa").val(str)
+            })
+
+    }
+
+
+    const Rite_objKeys = [
+        "Name(CUV)",
+        "DN",
+        "Span",
+        "Date",
+        "Verses",
+        "RelatedKing",
+        "Prophet",
+        "Priest",
+        "Kinship",
+        "Notes"
+    ]
+    function loadData(LeftoRite) {
+        var objKeys = [
+            "Name(CUV)",
+            "DN",
+            "Span",
+            "Date",
+            "Verses",
+            "RelatedKing",
+            "Prophet",
+            "Priest",
+            "Kinship",
+            "Notes"
+        ]
+        if ("Left" === LeftoRite) {
+            objKeys = objKeys.reverse()
+        }
+
+        var idx = 0;//, sths = "";//"<th>#</th><th>Name(NIV)</th>", idx = 0;
+
+        function get_ths() {
+            var sths = "";
+            objKeys.forEach((key, i) => {
+                sths += `<th title='${key}'>${key}</th>`
+            })
+            if ("Left" === LeftoRite) {
+                sths += `<th>Name(NIV)</th>`
+            } else {
+                sths = `<th>Name(NIV)</th>` + sths
+            }
+            return sths;
+        }
+
+        function get_trs(LeftoRite) {
+            var str = "";
+            for ([kingname, obj] of Object.entries(KingsList)) {
+                if ("Left" === LeftoRite) {
+                    if (obj.DN[0] == "S" || obj.DN[0] == "I") continue
+                } else {
+                    if (obj.DN[0] == "N") continue
+                }
+
+                var stds0 = `<td Nationality='${obj.DN[0]}' contenteditable>${kingname}</td>`
+                var stds1 = "", flagEmptyData = "";
+                objKeys.forEach((key, i) => {
+                    flagEmptyData += obj[key]
+                    stds1 += `<td title='${key}' contenteditable>${obj[key]}</td>`
+                })
+                if (flagEmptyData.length === 0) continue;
+
+                var tds = ("Left" === LeftoRite) ? `${stds1}${stds0}` : `${stds0}${stds1}`
+                str += `<tr>${tds}</tr>`
+            }
+            return str;
+        }
+
+        $(`#KingTab${LeftoRite} thead tr`).html(get_ths(LeftoRite))
+        $(`#KingTab${LeftoRite} tbody`).html(get_trs(LeftoRite));
+        ////post create
+        $("table").on("keyup", function () {
+            console.log("table kkkkk");
+        })
+        $("tr").bind("click", function () {
+            $(".selected_row").removeClass("selected_row")
+            $(this).addClass("selected_row")
+        })
+
+        $("tr").each(function () {
+            bind_td_evt_of_a_row(this)
+        })
+
+        $("body").on("select", function () {//not working
+            $(".clihi").removeClass("clihi")
+            var txt = window.Selection()
+            $("td").each(function () {
+                if ($(this).text().indexOf(txt) >= 0) {
+                    $(this).addClass("clihi")
+                }
+            })
+        })
+        var srtabl = new Rapid_Sort_Table("#tabcontainer table")
+    }
+    function bind_td_evt_of_a_row(eRow) {
+        $(eRow).find("td").each(function () {
+            $(this).on("click keypress", function () {
+                console.log("td keyup")
+                GetObjFr_a_row($(this).parent())
+
+                $(this).toggleClass("hili_Footprint")
+
+                //hili the seleted row.
+                $(".hili_row_Edit").removeClass("hili_row_Edit")
+                if ($(this).attr("contenteditable") != null) {
+                    $(this).parent().find("td").addClass("hili_row_Edit")
+                }
+
+                //// hili all other td contain info in this td.
+                $(".clihi").removeClass("clihi")
+                var txt = $(this).text().trim()
+                var ary = txt.split(/[\s|\;|\,|\(|\))|\'|\"']/g).filter(itm => { return itm.trim().length > 0; })
+                ary.forEach(function (tok) {
+                    if (tok.trim().length <= 1) return;
+                    if (["son", "mother", "father", "king", "queen", "wife", "I", "F", "of"].indexOf(tok) >= 0) return;
+                    $(`td:contains(${tok})`).addClass("clihi")
+                })
+            })
+        })
+    }
+    function GetObjFr_table(eRows) {
+        var dat = {}
+        $(eRows).each(function (i) {
+            var pkey = $(this).find("td:eq(1)").text().trim();
+            var obj = GetObjFr_a_row(this)
+            dat[pkey] = obj[pkey];
+        })
+        var str = JSON.stringify(dat, null, 4);
+        $("#txa").val(`var KingsList = \n${str}`)
+        var cstr = JSON.stringify(dat);
+        return cstr;
+    }
+    function GetObjFr_a_row(eRow) {
+        var dat = {}
+        var pkey = $(eRow).find("td:eq(1)").text().trim();
+        var obj = {}
+        $(eRow).find("td").each(function (icol) {
+            if (icol <= 1) return;
+            var key = $(this).attr("title").trim();
+            var val = $(this).text().trim();
+            obj[key] = val
+        })
+        dat[pkey] = obj;
+
+        var str = JSON.stringify(dat, null, 4);
+        $("#txa").val(`var KingsList = \n${str}`)
+        var cstr = JSON.stringify(dat);
+        return dat;
+    }
+
+
+    function updateCSV(eRows) {
+        var csv = ""
+        $(eRows).each(function (irow) {
+            var line = ""
+            $(this).find("td").each(function (icol) {
+                //if (icol === 0) return;
+                var key = $(this).attr("title");
+                var val = $(this).text();
+                line += `"${val}",`
+            })
+            csv += `${line},""\r\n`
+
+            $("#txa").val(csv)
+        })
+    }
+    $(function () {
+        loadData("Left");
+        loadData("Rite");
+
+
+        $("#bsnpLink").text(localStorage.getItem("bsnpLink"))
+
+
+        $("#Load").on("click", function () {
+            loadData("Left");
+            ConvertBcv2linked()
+        })
+        $("#Add").on("click", function () {
+            var etr = $("#KingTabRite tbody tr:eq(0)").clone();
+
+            $(etr).find("td").text(""); $(etr).find("td:eq(0)").text("0");
+            etr = $(etr).html()
+            var ret = $("#KingTabRite tbody").append(`<tr class='addhili'>${etr}</tr>`);
+            $(".addhili").css("background-color", "")
+            bind_td_evt_of_a_row(ret)
+
+        })
+
+        $("#Save_json").on("click", function () {
+            GetObjFr_table("#KingTabRite tbody tr");
+        })
+        $("#Save_csv").on("click", function () {
+            updateCSV("#KingTabRite tbody tr");
+        })
+        $("#Upload").on("click", function () {
+            UpdateSelected()
+        })
+
+
+    })
+
+
+
+
+</script>
+
+<body>
+    <div id="bsnpLink" style="width: 200%;" contenteditable></div>
+    <button id="Load">Load</button>
+
+    <div id="tabcontainer">
+
+        <table id="KingTabLeft" border="1" style="float: left;width: 100px;margin-top: 200px;">
+            <caption>Israel Kings List</caption>
+            <thead>
+                <tr id="theadtr1">${sths}</tr>
+            </thead>
+            <tbody>${trs}</tbody>
+        </table>
+        <table id="KingTabRite" border="1" style="float: none;">
+            <caption>Israel Kings List</caption>
+            <thead>
+                <tr id="theadtr1">${sths}</tr>
+            </thead>
+            <tbody>${trs}</tbody>
+        </table>
+
+
+    </div>
+    <p><b>Note:</b> DN represents Dynasty Number with good (+) or bad (-). E.g. S08+ means the 8th King of South Israel
+        (Judah) is relatively good. </p>
+
+
+    <button id="Add">Add</button> <button id="Save_json">JSON</button><button id="Save_csv">CSV</button><button
+        id="Upload">UpdateSelected</button><br>
+    <textarea id="txa" cols="160" rows="30"></textarea>
+</body>
+
+</html>
+<script>
+
+
+</script>
