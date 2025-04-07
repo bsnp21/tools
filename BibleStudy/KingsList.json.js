@@ -241,8 +241,8 @@ var KingsList =
         "Notes": ""
     },
     "Pekah": {
-        "Name(CUV)": "",
-        "DN": "N18",
+        "Name(CUV)": "比加",
+        "DN": "N18-",
         "Span": "20",
         "Date": "-752",
         "Verses": "2Ki15:27",
