@@ -390,7 +390,7 @@ var KingsList =
         "Span": "16",
         "Date": "-750",
         "Verses": "2Ki15:32-33",
-        "RelatedKing": "Jehu",
+        "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
         "Kinship": "Mat1:09a;",
