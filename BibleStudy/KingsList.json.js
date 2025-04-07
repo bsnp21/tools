@@ -253,7 +253,7 @@ var KingsList =
         "Notes": ""
     },
     "Hoshea": {
-        "Name(CUV)": "",
+        "Name(CUV)": "何细亚",
         "DN": "N19",
         "Span": "9",
         "Date": "-732",
@@ -261,7 +261,7 @@ var KingsList =
         "RelatedKing": "Zedekiah",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "",
+        "Kinship": "f: Remaliah",
         "Notes": ""
     },
     "Rehoboam": {
