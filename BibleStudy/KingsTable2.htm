@@ -231,7 +231,7 @@
             return str;
         }
 
-        $(`#KingTab${LeftoRite} thead tr`).html(get_ths(LeftoRite))
+        $(`#KingTab${LeftoRite} thead`).html(get_ths(LeftoRite))
         $(`#KingTab${LeftoRite} tbody`).html(get_trs(LeftoRite));
     }
     function post_table_creation() {
@@ -386,17 +386,13 @@
 
         <table id="KingTabLeft" border="1" style="float: left;width: 100px;margin-top: 132px;">
             <caption>North Israel Kings List</caption>
-            <thead>
-                <tr id="theadtr1">${sths}</tr>
-            </thead>
-            <tbody>${trs}</tbody>
+            <thead></thead>
+            <tbody></tbody>
         </table>
         <table id="KingTabRite" border="1" style="float: none;">
             <caption>South Israel Kings List</caption>
-            <thead>
-                <tr id="theadtr1">${sths}</tr>
-            </thead>
-            <tbody>${trs}</tbody>
+            <thead></thead>
+            <tbody></tbody>
         </table>
 
 
