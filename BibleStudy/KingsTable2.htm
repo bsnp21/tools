@@ -30,6 +30,9 @@
     body {
         background-color: white;
         margin-bottom: 100px;
+        margin-left: 100px;
+        width: 1800px;
+        border: 1px 1px 1px 1px solid lightgray;
     }
 
 
@@ -211,7 +214,7 @@
                 } else {
                     if (obj.DN[0] == "N") continue
                 }
-                var iSpan = 5 * parseInt(obj.Span)
+                var iSpan = 20 * parseInt(obj.Span)
                 if (obj.DN[0] === "I") iSpan = 0
 
                 var stds0 = `<td Nationality='${obj.DN[0]}' >${kingname}</td>`
