@@ -108,7 +108,7 @@
         var updateObj = GetObjFr_a_row(".selected_row_Edit")
         var updateNotes = ""
         for ([key, obj] of Object.entries(updateObj)) {
-            if (!key) return alert("please select a raw.")
+            if (!key) return alert("please select a King to edit the row.")
             updateNotes = obj.Notes
             if (!obj.Notes && !confirm("It's better to fill a name or sth in 'Notes'. \nContinue anyway?")) {
                 return
