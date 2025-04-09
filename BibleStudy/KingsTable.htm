@@ -105,7 +105,7 @@
 
 <script>
     function UpdateSelected() {
-        var updateObj = GetObjFr_a_row(".selected_row")
+        var updateObj = GetObjFr_a_row(".selected_row_Edit")
         var updateNotes = ""
         for ([key, obj] of Object.entries(updateObj)) {
             if (!key) return alert("please select a raw.")
@@ -185,10 +185,7 @@
         $("table").on("keyup", function () {
             console.log("table kkkkk");
         })
-        $("tr").bind("click", function () {
-            $(".selected_row").removeClass("selected_row")
-            $(this).addClass("selected_row")
-        })
+
 
         $("tr").each(function () {
             bind_td_evt_of_a_row(this)
@@ -213,9 +210,6 @@
 
                 $(this).toggleClass("hili_Footprint")
 
-                //
-
-
                 //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
                 var txt = $(this).text().trim()
@@ -230,11 +224,16 @@
         })
 
         $("td[Nationality]").on("click", function () {
-            $("td[contenteditable]").removeAttr("contenteditable");
+            $("*[contenteditable]").removeAttr("contenteditable");
             $(this).parent().find("td").attr("contenteditable", true);
+
+            $(".selected_row_Edit").removeClass("selected_row_Edit")
+            $(this).parent().addClass("selected_row_Edit")
+            //$(this).focus()
         })
         $("td.idx").on("click", function () {
-            $("td[contenteditable]").removeAttr("contenteditable");
+            $("*[contenteditable]").removeAttr("contenteditable");
+            $(".selected_row_Edit").removeClass("selected_row_Edit")
         })
     }
     function GetObjFr_table(eRows) {
