@@ -46,7 +46,11 @@
     }
 
     .hili_row_Edit {
-        border: 2px solid red;
+        border: 2px solid red !important;
+        background-color: yellow !important;
+    }
+
+    td[contenteditable] {
         background-color: yellow;
     }
 
@@ -167,11 +171,11 @@
             sths += `<th title='${key}'>${key}</th>`
         })
         for ([kingname, obj] of Object.entries(KingsList)) {
-            var stds0 = `<td>${idx++}</td><td Nationality='${obj.DN[0]}' contenteditable>${kingname}</td>`
+            var stds0 = `<td class='idx'>${idx++}</td><td Nationality='${obj.DN[0]}' >${kingname}</td>`
             var stds1 = "", flagEmpty = "";
             objKeys.forEach((key, i) => {
                 flagEmpty += obj[key]
-                stds1 += `<td title='${key}' contenteditable>${obj[key]}</td>`
+                stds1 += `<td title='${key}' >${obj[key]}</td>`
             })
             if (flagEmpty.length === 0) continue;
             str += `<tr>${stds0}${stds1}</tr>`
@@ -209,11 +213,8 @@
 
                 $(this).toggleClass("hili_Footprint")
 
-                //hili the seleted row.
-                $(".hili_row_Edit").removeClass("hili_row_Edit")
-                if ($(this).attr("contenteditable") != null) {
-                    $(this).parent().find("td").addClass("hili_row_Edit")
-                }
+                //
+
 
                 //// hili all other td contain info in this td.
                 $(".clihi").removeClass("clihi")
@@ -221,10 +222,19 @@
                 var ary = txt.split(/[\s|\;|\,|\(|\))|\'|\"']/g).filter(itm => { return itm.trim().length > 0; })
                 ary.forEach(function (tok) {
                     if (tok.trim().length <= 1) return;
-                    if (["son", "mother", "father", "king", "queen", "wife", "I", "f",  "m", "of"].indexOf(tok) >= 0) return;
+                    if (["son", "mother", "father", "king", "queen", "wife", "I", "f", "m", "of"].indexOf(tok) >= 0) return;
                     $(`td:contains(${tok})`).addClass("clihi")
                 })
+                $(this).removeClass("clihi")
             })
+        })
+
+        $("td[Nationality]").on("click", function () {
+            $("td[contenteditable]").removeAttr("contenteditable");
+            $(this).parent().find("td").attr("contenteditable", true);
+        })
+        $("td.idx").on("click", function () {
+            $("td[contenteditable]").removeAttr("contenteditable");
         })
     }
     function GetObjFr_table(eRows) {
