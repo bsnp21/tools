@@ -398,7 +398,7 @@ var KingsList =
     },
     "Ahaz": {
         "Name(CUV)": "亚哈斯",
-        "DN": "S12",
+        "DN": "S12-",
         "Span": "16",
         "Date": "-735",
         "Verses": "2Ki16:1-2",
