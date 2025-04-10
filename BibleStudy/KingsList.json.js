@@ -401,7 +401,7 @@ var KingsList =
         "DN": "S12-",
         "Span": "16",
         "Date": "-735",
-        "Verses": "2Ki16:1-2",
+        "Verses": "2Ki16:1-2; 2Ch28;",
         "RelatedKing": "Pekah",
         "Prophet": "Uriah",
         "Priest": "",
