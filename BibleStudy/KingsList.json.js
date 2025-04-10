@@ -403,7 +403,7 @@ var KingsList =
         "Date": "-735",
         "Verses": "2Ki16:1-2",
         "RelatedKing": "Pekah",
-        "Prophet": "",
+        "Prophet": "Uriah",
         "Priest": "",
         "Kinship": "Mat1:09b;",
         "Notes": ""
