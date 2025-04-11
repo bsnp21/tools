@@ -258,7 +258,7 @@ var KingsList =
         "Span": "9",
         "Date": "-732",
         "Verses": "2Ki17:1",
-        "RelatedKing": "Azariah (Uzziah)",
+        "RelatedKing": "Ahaz",
         "Prophet": "",
         "Priest": "",
         "Kinship": "",
