@@ -260,7 +260,7 @@ var KingsList =
         "Verses": "2Ki17:1",
         "RelatedKing": "Ahaz",
         "Prophet": "",
-        "Priest": "",
+        "Priest": "Shalmaneser",
         "Kinship": "",
         "Notes": ""
     },
