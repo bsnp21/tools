@@ -254,7 +254,7 @@ var KingsList =
     },
     "Hoshea": {
         "Name(CUV)": "何细亚",
-        "DN": "N19",
+        "DN": "N19-",
         "Span": "9",
         "Date": "-732",
         "Verses": "2Ki17:1",
