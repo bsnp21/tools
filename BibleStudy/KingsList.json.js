@@ -410,7 +410,7 @@ var KingsList =
     },
     "Hezekiah": {
         "Name(CUV)": "希西家",
-        "DN": "S13",
+        "DN": "S13+",
         "Span": "18",
         "Date": "-715",
         "Verses": "2Ki18:1-2",
