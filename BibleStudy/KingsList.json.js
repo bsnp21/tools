@@ -457,7 +457,7 @@ var KingsList =
         "Notes": ""
     },
     "Jehoiakim": {
-        "Name(CUV)": "",
+        "Name(CUV)": "利亚敬",
         "DN": "S18",
         "Span": "11",
         "Date": "-609",
