@@ -416,7 +416,7 @@ var KingsList =
         "Verses": "2Ki18:1-2",
         "RelatedKing": "Hoshea",
         "Prophet": "",
-        "Priest": "",
+        "Priest": "Isaiah",
         "Kinship": "Mat1:09c;",
         "Notes": ""
     },
