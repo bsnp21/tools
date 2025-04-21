@@ -414,9 +414,9 @@ var KingsList =
         "Span": "18",
         "Date": "-715",
         "Verses": "2Ki18:1-2",
-        "RelatedKing": "Hoshea",
-        "Prophet": "",
-        "Priest": "Isaiah",
+        "RelatedKing": "Hoshea; Merodach-Baladan",
+        "Prophet": "Isaiah",
+        "Priest": "",
         "Kinship": "Mat1:09c;",
         "Notes": ""
     },
