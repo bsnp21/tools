@@ -434,14 +434,14 @@ var KingsList =
     },
     "Amon": {
         "Name(CUV)": "亚们",
-        "DN": "S15",
+        "DN": "S15-",
         "Span": "2",
         "Date": "-642",
         "Verses": "2Ki21:19",
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:10b;",
+        "Kinship": "Mat1:10b; m: Meshullemeth",
         "Notes": ""
     },
     "Josiah": {
