@@ -429,7 +429,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "Mat1:10a;",
+        "Kinship": "Mat1:10a; m: Hephzibah",
         "Notes": ""
     },
     "Amon": {
