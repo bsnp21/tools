@@ -427,7 +427,7 @@ var KingsList =
         "Date": "-697",
         "Verses": "2Ki21:1",
         "RelatedKing": "",
-        "Prophet": "",
+        "Prophet": "Isaiah",
         "Priest": "",
         "Kinship": "Mat1:10a; m: Hephzibah",
         "Notes": ""
