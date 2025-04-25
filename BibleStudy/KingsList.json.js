@@ -449,7 +449,7 @@ var KingsList =
         "DN": "S16+",
         "Span": "31",
         "Date": "-640",
-        "Verses": "2Ki22:1",
+        "Verses": "2Ki22:1; 2Ch34:1",
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
