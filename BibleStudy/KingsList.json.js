@@ -452,7 +452,7 @@ var KingsList =
         "Verses": "2Ki22:1; 2Ch34:1",
         "RelatedKing": "",
         "Prophet": "",
-        "Priest": "Hilkiah",
+        "Priest": "Hilkiah; Huldah",
         "Kinship": "Mat1:10c;",
         "Notes": ""
     },
