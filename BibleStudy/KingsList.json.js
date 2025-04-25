@@ -446,7 +446,7 @@ var KingsList =
     },
     "Josiah": {
         "Name(CUV)": "约西亚",
-        "DN": "S16",
+        "DN": "S16+",
         "Span": "31",
         "Date": "-640",
         "Verses": "2Ki22:1",
