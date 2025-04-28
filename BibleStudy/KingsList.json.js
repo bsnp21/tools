@@ -456,7 +456,6 @@ var KingsList =
         "Kinship": "Mat1:10c;",
         "Notes": ""
     },
-
     "Jehoahaz-II": {
         "Name(CUV)": "约哈斯",
         "DN": "S17-",
@@ -469,7 +468,6 @@ var KingsList =
         "Kinship": "",
         "Notes": "wd"
     },
-    
     "Jehoiakim": {
         "Name(CUV)": "利亚敬",
         "DN": "S18",
