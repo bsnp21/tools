@@ -459,7 +459,7 @@ var KingsList =
     "Jehoahaz-II": {
         "Name(CUV)": "约哈斯",
         "DN": "S17-",
-        "Span": "17",
+        "Span": ".3",
         "Date": "-798",
         "Verses": "2Ki23:30",
         "RelatedKing": "",
