@@ -469,8 +469,8 @@ var KingsList =
         "Notes": "wd"
     },
     "Jehoiakim": {
-        "Name(CUV)": "利亚敬",
-        "DN": "S18",
+        "Name(CUV)": "约雅敬  (以利亚敬)",
+        "DN": "S18-",
         "Span": "11",
         "Date": "-609",
         "Verses": "2Ki23:36",
