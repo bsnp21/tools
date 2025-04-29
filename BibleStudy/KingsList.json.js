@@ -460,7 +460,7 @@ var KingsList =
         "Name(CUV)": "约哈斯",
         "DN": "S17-",
         "Span": ".3",
-        "Date": "-798",
+        "Date": "-640",
         "Verses": "2Ki23:30",
         "RelatedKing": "",
         "Prophet": "",
