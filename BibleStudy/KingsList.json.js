@@ -468,8 +468,8 @@ var KingsList =
         "Kinship": "",
         "Notes": "wd"
     },
-    "Jehoiakim": {
-        "Name(CUV)": "约雅敬  (以利亚敬)",
+    "Jehoiakim (Eliakim)": {
+        "Name(CUV)": "约雅敬 (以利亚敬)",
         "DN": "S18-",
         "Span": "11",
         "Date": "-609",
