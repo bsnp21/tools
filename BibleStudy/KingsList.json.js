@@ -482,7 +482,7 @@ var KingsList =
     },
     "Jehoiachin": {
         "Name(CUV)": "约雅斤",
-        "DN": "S19",
+        "DN": "S19-",
         "Span": ".3",
         "Date": "-598",
         "Verses": "2Ki24:8",
