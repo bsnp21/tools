@@ -477,7 +477,7 @@ var KingsList =
         "RelatedKing": "",
         "Prophet": "",
         "Priest": "",
-        "Kinship": "耶哥尼雅Jeconiah's father",
+        "Kinship": "Nebuchadnezzar耶哥尼雅Jeconiah's father",
         "Notes": ""
     },
     "Jehoiachin": {
