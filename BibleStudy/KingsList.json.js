@@ -494,7 +494,7 @@ var KingsList =
     },
     "Zedekiah (Mattaniah)": {
         "Name(CUV)": "西底家 (玛探雅)",
-        "DN": "S20",
+        "DN": "S20-",
         "Span": "11",
         "Date": "-597",
         "Verses": "2Ki24:18",
