@@ -62,7 +62,7 @@ var KingsList =
     },
     "Baasha": {
         "Name(CUV)": "巴沙",
-        "DN": "N03",
+        "DN": "N03-",
         "Span": "24",
         "Date": "-908",
         "Verses": "1Ki15:33",
