@@ -50,7 +50,7 @@ var KingsList =
     },
     "Nadab": {
         "Name(CUV)": "拿答",
-        "DN": "N02",
+        "DN": "N02-",
         "Span": "2",
         "Date": "-909",
         "Verses": "1Ki15:25",
