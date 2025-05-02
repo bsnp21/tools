@@ -146,7 +146,7 @@ var KingsList =
     },
     "Jehu": {
         "Name(CUV)": "耶户",
-        "DN": "N10",
+        "DN": "N10-",
         "Span": "28",
         "Date": "-841",
         "Verses": "2Ki10:36",
