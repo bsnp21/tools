@@ -206,7 +206,7 @@ var KingsList =
     },
     "Shallum": {
         "Name(CUV)": "沙龙",
-        "DN": "N15",
+        "DN": "N15-",
         "Span": ".1",
         "Date": "-752",
         "Verses": "2Ki15:13",
