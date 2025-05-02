@@ -86,7 +86,7 @@ var KingsList =
     },
     "Zimri": {
         "Name(CUV)": "心利",
-        "DN": "N05",
+        "DN": "N05-",
         "Span": ".07",
         "Date": "-885",
         "Verses": "1Ki16:15",
