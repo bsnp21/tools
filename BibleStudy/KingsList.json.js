@@ -110,7 +110,7 @@ var KingsList =
     },
     "Omri": {
         "Name(CUV)": "暗利",
-        "DN": "N07",
+        "DN": "N07-",
         "Span": "12",
         "Date": "-885",
         "Verses": "1Ki16:23",
