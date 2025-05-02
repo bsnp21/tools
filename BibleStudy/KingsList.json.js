@@ -98,7 +98,7 @@ var KingsList =
     },
     "Tibni": {
         "Name(CUV)": "提比尼",
-        "DN": "N06",
+        "DN": "N06-",
         "Span": "4",
         "Date": "-885",
         "Verses": "1Ki16:21-22",
