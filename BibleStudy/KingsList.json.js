@@ -74,7 +74,7 @@ var KingsList =
     },
     "Elah": {
         "Name(CUV)": "以拉",
-        "DN": "N04",
+        "DN": "N04-",
         "Span": "2",
         "Date": "-886",
         "Verses": "1Ki16:8",
