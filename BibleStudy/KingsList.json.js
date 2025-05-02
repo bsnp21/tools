@@ -134,7 +134,7 @@ var KingsList =
     },
     "Joram": {
         "Name(CUV)": "约兰",
-        "DN": "N09",
+        "DN": "N09-",
         "Span": "12",
         "Date": "-852",
         "Verses": "2Ki03:1",
