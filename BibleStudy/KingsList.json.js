@@ -38,7 +38,7 @@ var KingsList =
     },
     "Jeroboam I": {
         "Name(CUV)": "耶罗波安",
-        "DN": "N01",
+        "DN": "N01-",
         "Span": "22",
         "Date": "-930",
         "Verses": "1Ki14:20",
