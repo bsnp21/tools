@@ -122,7 +122,7 @@ var KingsList =
     },
     "Ahab": {
         "Name(CUV)": "亚哈",
-        "DN": "N08",
+        "DN": "N08-",
         "Span": "22",
         "Date": "-874",
         "Verses": "1Ki16:29",
