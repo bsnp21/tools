@@ -38,7 +38,7 @@ var KingsList =
     },
     "Jeroboam I": {
         "Name(CUV)": "耶罗波安",
-        "DN": "N01",
+        "DN": "N01-",
         "Span": "22",
         "Date": "-930",
         "Verses": "1Ki14:20",
@@ -50,7 +50,7 @@ var KingsList =
     },
     "Nadab": {
         "Name(CUV)": "拿答",
-        "DN": "N02",
+        "DN": "N02-",
         "Span": "2",
         "Date": "-909",
         "Verses": "1Ki15:25",
@@ -62,10 +62,10 @@ var KingsList =
     },
     "Baasha": {
         "Name(CUV)": "巴沙",
-        "DN": "N03",
+        "DN": "N03-",
         "Span": "24",
         "Date": "-908",
-        "Verses": "1Ki15:33",
+        "Verses": "1Ki15:34",
         "RelatedKing": "Asa",
         "Prophet": "",
         "Priest": "",
@@ -74,7 +74,7 @@ var KingsList =
     },
     "Elah": {
         "Name(CUV)": "以拉",
-        "DN": "N04",
+        "DN": "N04-",
         "Span": "2",
         "Date": "-886",
         "Verses": "1Ki16:8",
@@ -86,7 +86,7 @@ var KingsList =
     },
     "Zimri": {
         "Name(CUV)": "心利",
-        "DN": "N05",
+        "DN": "N05-",
         "Span": ".07",
         "Date": "-885",
         "Verses": "1Ki16:15",
@@ -98,7 +98,7 @@ var KingsList =
     },
     "Tibni": {
         "Name(CUV)": "提比尼",
-        "DN": "N06",
+        "DN": "N06-",
         "Span": "4",
         "Date": "-885",
         "Verses": "1Ki16:21-22",
@@ -110,7 +110,7 @@ var KingsList =
     },
     "Omri": {
         "Name(CUV)": "暗利",
-        "DN": "N07",
+        "DN": "N07-",
         "Span": "12",
         "Date": "-885",
         "Verses": "1Ki16:23",
@@ -122,7 +122,7 @@ var KingsList =
     },
     "Ahab": {
         "Name(CUV)": "亚哈",
-        "DN": "N08",
+        "DN": "N08-",
         "Span": "22",
         "Date": "-874",
         "Verses": "1Ki16:29",
@@ -134,7 +134,7 @@ var KingsList =
     },
     "Joram": {
         "Name(CUV)": "约兰",
-        "DN": "N09",
+        "DN": "N09-",
         "Span": "12",
         "Date": "-852",
         "Verses": "2Ki03:1",
@@ -146,7 +146,7 @@ var KingsList =
     },
     "Jehu": {
         "Name(CUV)": "耶户",
-        "DN": "N10",
+        "DN": "N10-",
         "Span": "28",
         "Date": "-841",
         "Verses": "2Ki10:36",
@@ -206,7 +206,7 @@ var KingsList =
     },
     "Shallum": {
         "Name(CUV)": "沙龙",
-        "DN": "N15",
+        "DN": "N15-",
         "Span": ".1",
         "Date": "-752",
         "Verses": "2Ki15:13",
